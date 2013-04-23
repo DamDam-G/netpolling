@@ -36,10 +36,11 @@ $(window).load((function()
                                                        timeout: 3000,
                                                        success:function(data)
                                                        {
-                                                           $("#main").html(data);
+                                                           $("#dispopt").html(data);
+                                                           $("#option").modal("show");
                                                            if (id == 0)
                                                            {
-                                                               $(".collapse").collapse({toggle:true});
+                                                               //$(".collapse").collapse({toggle:true});
                                                            }
 
                                                        },
