@@ -1,0 +1,7 @@
+#carto
+{
+    border:solid #000000 2px;
+    //width:80%; / /!\ à voir si ca ne déforme pas le canvas
+    margin-left:auto;
+    margin-right:auto;
+}

@@ -7,6 +7,7 @@
         <link rel="shortcut icon" href="public/img/np.ico" type="image/x-icon">
         <link href="/public/bootstrap/css/bootstrap-responsive.css" media="screen" rel="stylesheet" type="text/css">
         <link href="/public/bootstrap/css/bootstrap.min.css" media="screen" rel="stylesheet" type="text/css">
+        <link href="/public/css/design.css" media="screen" rel="stylesheet" type="text/css">
     </head>
     <body>
         {% block nav %}
@@ -43,7 +44,7 @@
         {% block content %}
         <div id="notification"></div>
         <div id="main" class="container">
-
+            <canvas id="carto" width="780" height="650"></canvas>
         </div>
         {% endblock %}
         {% block modal %}
