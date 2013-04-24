@@ -22,7 +22,7 @@ class LocalScan:
         GetIpAndMac :
         @details This method scans the network to get adresses ip and mac of all machines
         """
-        ans, unans = arping(self.net)
+        ans, unans = arping(self.net, timeout=120)
         l = list()
 
         for elem in ans:
@@ -39,9 +39,9 @@ class LocalScan:
         """
         GetOS :
         """
-        load_module("nmap")
-        conf.nmap_base
-        ans, unans = nmap_fp(ip)
+        #load_module("nmap")
+        #conf.nmap_base
+        #ans, unans = nmap_fp(ip)
         #traitement de la réponse pour en resortir un os
         os = ''
         return os
@@ -60,8 +60,9 @@ class LocalScan:
         return
 
 if __name__ == "__main__":
-    scan = LocalScan('home', '192.168.0.*')
+    scan = LocalScan('home', "10.8.96.1/20")
+    #scan = LocalScan('home', '192.168.0.*')
     l = scan.GetIpAndMac()
-    for elem in l:
-        elem.os = scan.GetOS(elem.ip)
+    #for elem in l:
+     #   elem.os = scan.GetOS(elem.ip)
     print l

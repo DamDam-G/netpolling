@@ -59,9 +59,9 @@ $(window).load((function()
                                                });
                     $(window).on("resize", function()
                                             {
-                                                $('canvas').attr("width", $(window).width()*75/100);
+                                                $('canvas').attr("width", $(window).width()*0.75);
                                             });
                     var csrftoken = GetCookie('csrftoken');
-                    $('canvas').attr("width", $(window).width()*75/100);
+                    $('canvas').attr("width", $(window).width()*0.75);
                 })());
 
