@@ -24,21 +24,26 @@
                     </span>
                     <span class="nav-collapse collapse">
                             <a id="1" class="menu" role="button" class="label">
-                                <button class="btn btn-inverse"><i class="icon-eye-open icon-white"></i>Visualiser</button>
+                                <button class="btn btn-inverse"><i class="icon-screenshot icon-white"></i>Screenshot</button>
                             </a>
                     </span>
                     <span class="nav-collapse collapse">
                             <a id="2" class="menu" role="button" class="label">
-                                <button class="btn btn-inverse"><i class="icon-th-list icon-white"></i>Journal</button>
+                                <button class="btn btn-inverse"><i class="icon-eye-open icon-white"></i>Visualiser</button>
                             </a>
                     </span>
                     <span class="nav-collapse collapse">
                             <a id="3" class="menu" role="button" class="label">
-                                <button class="btn btn-inverse"><i class="icon-wrench icon-white"></i>Profil</button>
+                                <button class="btn btn-inverse"><i class="icon-th-list icon-white"></i>Journal</button>
                             </a>
                     </span>
                     <span class="nav-collapse collapse">
                             <a id="4" class="menu" role="button" class="label">
+                                <button class="btn btn-inverse"><i class="icon-wrench icon-white"></i>Paramétre</button>
+                            </a>
+                    </span>
+                    <span class="nav-collapse collapse">
+                            <a id="5" class="menu" role="button" class="label">
                                 <button class="btn btn-inverse"><i class="icon-off icon-white"></i>Déconnexion</button>
                             </a>
                     </span>
@@ -47,22 +52,10 @@
         </nav>
         {% endblock %}
         {% block content %}
-        <div id="notification">
-            <div class="alert alert-error">
-                <button class="close" data-dismiss="alert" type="button">×</button>
-                ...
-            </div>
-            <div class="alert alert-success">
-                <button class="close" data-dismiss="alert" type="button">×</button>
-                ...
-            </div>
-            <div class="alert alert-info">
-                <button class="close" data-dismiss="alert" type="button">×</button>
-                ...
-            </div>
-        </div>
-        <div id="main" class="container">
-            <canvas id="carto" width="780" height="650"></canvas>
+        <div id="main">
+            <center>
+                <canvas id="carto" width="780" height="650"></canvas>
+            </center>
         </div>
         {% endblock %}
         {% block modal %}
