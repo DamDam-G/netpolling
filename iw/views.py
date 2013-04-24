@@ -43,19 +43,14 @@ def Control(request):
     This is a view function that works with ajax request.
     It displays the interface the content of the manager
     """
+    views = ('scan', 'visu', 'log', 'profil', 'disconnect')
     if request.is_ajax():
         if request.POST.get("id"):
             id = int(request.POST.get("id"))
-            if id == 0:
-                view = 'scan.html'
-            elif id == 1:
-                view = 'visu.html'
-            elif id == 2:
-                view = 'profil.html'
-            elif id == 3:
-                view = 'disconnect.html'
+            if id >= 0 and id < len(views):
+                view = views[id]+".html"
             else:
-                view = 'error.html'
+                return render_to_response('error.html', {'type':'error, the page doesn\'t exist'})
             return render_to_response(view, {})
         return render_to_response('error.html', {'type':'error post'})
     return render_to_response('error.html', {'type':'error ajax'})
