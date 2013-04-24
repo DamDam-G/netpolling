@@ -43,7 +43,7 @@ def Control(request):
     This is a view function that works with ajax request.
     It displays the interface the content of the manager
     """
-    views = ('scan', 'visu', 'log', 'profil', 'disconnect')
+    views = ('scan', 'visu', 'log', 'option', 'disconnect')
     if request.is_ajax():
         if request.POST.get("id"):
             id = int(request.POST.get("id"))
