@@ -42,19 +42,19 @@ $(window).load((function()
                                                        url: '/control/',
                                                        timeout: 3000,
                                                        success:function(data)
-                                                       {
-                                                           $("#dispopt").html(data);
-                                                           $("#option").modal("show");
-                                                           if (id == 0)
-                                                           {
-                                                               //$(".collapse").collapse({toggle:true});
-                                                           }
+                                                               {
+                                                                   $("#dispopt").html(data);
+                                                                   $("#option").modal("show");
+                                                                   if (id == 0)
+                                                                   {
+                                                                       //$(".collapse").collapse({toggle:true});
+                                                                   }
 
-                                                       },
+                                                               },
                                                        error: function()
-                                                       {
-                                                           alert('La requête n\'a pas abouti');
-                                                       }
+                                                               {
+                                                                   alert('La requête n\'a pas abouti');
+                                                               }
                                                    })
                                                });
                     $(window).on("resize", function()
