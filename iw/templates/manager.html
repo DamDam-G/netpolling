@@ -7,6 +7,7 @@
         <link rel="shortcut icon" href="public/img/np.ico" type="image/x-icon">
         <link href="/public/bootstrap/css/bootstrap-responsive.css" media="screen" rel="stylesheet" type="text/css">
         <link href="/public/bootstrap/css/bootstrap.min.css" media="screen" rel="stylesheet" type="text/css">
+        <link href="/public/css/design.css" media="screen" rel="stylesheet" type="text/css">
     </head>
     <body>
         {% block nav %}
@@ -28,11 +29,16 @@
                     </span>
                     <span class="nav-collapse collapse">
                             <a id="2" class="menu" role="button" class="label">
-                                <button class="btn btn-inverse"><i class="icon-wrench icon-white"></i>Profil</button>
+                                <button class="btn btn-inverse"><i class="icon-th-list icon-white"></i>Journal</button>
                             </a>
                     </span>
                     <span class="nav-collapse collapse">
                             <a id="3" class="menu" role="button" class="label">
+                                <button class="btn btn-inverse"><i class="icon-wrench icon-white"></i>Profil</button>
+                            </a>
+                    </span>
+                    <span class="nav-collapse collapse">
+                            <a id="4" class="menu" role="button" class="label">
                                 <button class="btn btn-inverse"><i class="icon-off icon-white"></i>Déconnexion</button>
                             </a>
                     </span>
@@ -41,24 +47,31 @@
         </nav>
         {% endblock %}
         {% block content %}
-        <div id="notification"></div>
+        <div id="notification">
+            <div class="alert alert-error">
+                <button class="close" data-dismiss="alert" type="button">×</button>
+                ...
+            </div>
+            <div class="alert alert-success">
+                <button class="close" data-dismiss="alert" type="button">×</button>
+                ...
+            </div>
+            <div class="alert alert-info">
+                <button class="close" data-dismiss="alert" type="button">×</button>
+                ...
+            </div>
+        </div>
         <div id="main" class="container">
-
+            <canvas id="carto" width="780" height="650"></canvas>
         </div>
         {% endblock %}
         {% block modal %}
-        <div id="myCo" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div id="option" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icon-remove"></i></button>
-                <h3>Connexion</h3>
+
+                <div id="dispopt"></div>
             </div>
-            <form action="#" method="post" enctype="application/x-www-form-urlencoded">
-                <div class="modal-body"></div>
-                <div class="modal-footer">
-                    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-                    <button class="btn btn-primary">Connexion</button>
-                </div>
-            </form>
         </div>
         {% endblock %}
         <!--<script src="http://code.jquery.com/jquery.js"></script>-->

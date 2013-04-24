@@ -1,0 +1,16 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    outline: none;
+}
+
+#carto
+{
+    border:solid #000000 2px;
+    margin-left:auto;
+    margin-right:auto;
+    background-color:#EEEEEE;
+    border-radius:15px;
+}

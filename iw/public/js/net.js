@@ -1,6 +1,13 @@
 $(window).load((function()
                 {
-                    function getCookie(name)
+                    /**
+                     * @author Damien Goldenberg
+                     * @brief This function get the cookie specified in the in the input variable
+                     * @param name
+                     * @returns {null}
+                     * @constructor
+                     */
+                    function GetCookie(name)
                     {
                         var cookieValue = null;
                         if (document.cookie && document.cookie != '')
@@ -35,21 +42,26 @@ $(window).load((function()
                                                        url: '/control/',
                                                        timeout: 3000,
                                                        success:function(data)
-                                                       {
-                                                           $("#main").html(data);
-                                                           if (id == 0)
-                                                           {
-                                                               $(".collapse").collapse({toggle:true});
-                                                           }
+                                                               {
+                                                                   $("#dispopt").html(data);
+                                                                   $("#option").modal("show");
+                                                                   if (id == 0)
+                                                                   {
+                                                                       //$(".collapse").collapse({toggle:true});
+                                                                   }
 
-                                                       },
+                                                               },
                                                        error: function()
-                                                       {
-                                                           alert('La requête n\'a pas abouti');
-                                                       }
+                                                               {
+                                                                   alert('La requête n\'a pas abouti');
+                                                               }
                                                    })
                                                });
-
-                    var csrftoken = getCookie('csrftoken');
+                    $(window).on("resize", function()
+                                            {
+                                                $('canvas').attr("width", $(window).width()*75/100);
+                                            });
+                    var csrftoken = GetCookie('csrftoken');
+                    $('canvas').attr("width", $(window).width()*75/100);
                 })());
 
