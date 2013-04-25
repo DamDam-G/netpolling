@@ -3,6 +3,46 @@
     <head>
     </head>
     <body>
-        <h3>Options</h3>
+        <h3>Paramétres</h3>
+        <form method="post" id="para" enctype="application/x-www-form-urlencoded">
+            {% csrf_token %}
+            <label class="label">Timeout</label>&nbsp&nbsp<input id="time" name="time" type="text"><br />
+            <label class="label">Temps entre chaque scan</label>&nbsp&nbsp<input id="name" name="wait" type="text"><br />
+            <label class="label">Planification de scan</label>&nbsp&nbsp<input id="name" name="plan" type="text"><br />
+            <button type="submit" class="btn btn-info">Sauvegarder</button>
+        </form>
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#form1">
+                    Utilisateur
+                </a>
+            </div>
+            <div id="form1" class="accordion-body collapse">
+                <div class="accordion-inner">
+                    <form method="post" id="extern" enctype="application/x-www-form-urlencoded">
+                        {% csrf_token %}
+                        <label class="label">Nom de la machine</label>&nbsp&nbsp<input id="e-name" name="e-name" type="text">
+                        <button type="submit" class="btn btn-info">Ajouter</button>
+                    </form>
+                    <hr />
+                    <div>
+                        <ul>
+                            <li>
+                                titi <a href="" id="0" class="dell"><i class="icon-remove"></i></a>
+                            </li>
+                            <li>
+                                toto <a href="" id="1" class="dell"><i class="icon-remove"></i></a>
+                            </li>
+                            <li>
+                                tata <a href="" id="2" class="dell"><i class="icon-remove"></i></a>
+                            </li>
+                            <li>
+                                tete <a href="" id="3" class="dell"><i class="icon-remove"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
     </body>
 </html>
