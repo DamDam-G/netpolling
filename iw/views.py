@@ -55,3 +55,14 @@ def Control(request):
             return render_to_response(view, {})
         return render_to_response('error.html', {'type':'error post'})
     return render_to_response('error.html', {'type':'error ajax'})
+
+def AjaxForm(request, id):
+    """
+    @author Damien Goldenberg
+    @name Manager:
+    @param - Request, HTTPRequest object
+    @details Description:
+    This is a view function. It displays the interface manager
+    """
+
+    return render(request, 'error.html', {})

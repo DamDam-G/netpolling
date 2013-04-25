@@ -36,7 +36,7 @@ $(window).load((function()
                                   "X-CSRFToken": csrftoken
                                 },
                                 data:$(this).serialize(),
-                                url: '/ajaxform/'+id,
+                                url: '/ajaxform/'+id+'/',
                                 timeout: 3000,
                                 success:function(data)
                                         {
@@ -49,7 +49,7 @@ $(window).load((function()
                                 });
                    }
 
-                    $("a.menu").on("click", function(e)
+                    $("a.menu").on("click", function()
                                                {
                                                    id = this.id
                                                    $.ajax({
@@ -64,7 +64,7 @@ $(window).load((function()
                                                         },
                                                        url: '/control/',
                                                        timeout: 3000,
-                                                       success:function(data, e)
+                                                       success:function(data)
                                                                {
                                                                    $("#dispopt").html(data);
                                                                    $("#option").modal("show");
