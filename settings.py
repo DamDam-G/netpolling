@@ -1,6 +1,6 @@
 # Django settings for netpolling project.
 
-USER = "damien"
+USER = "pwned"
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
