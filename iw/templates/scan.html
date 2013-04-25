@@ -15,7 +15,7 @@
                     </div>
                     <div id="form0" class="accordion-body collapse">
                         <div class="accordion-inner">
-                            <form method="post" enctype="application/x-www-form-urlencoded">
+                            <form method="post" id="local" enctype="application/x-www-form-urlencoded">
                                 {% csrf_token %}
                                 <input type="hidden" name="type" value="local">
                                 <input id="l-ip" name="l-ip" type="checkbox">&nbsp&nbsp<label class="label">Adresse IP</label><br />
@@ -35,7 +35,7 @@
                     </div>
                     <div id="form1" class="accordion-body collapse">
                         <div class="accordion-inner">
-                            <form method="post" enctype="application/x-www-form-urlencoded">
+                            <form method="post" id="extern" enctype="application/x-www-form-urlencoded">
                                 {% csrf_token %}
                                 <input type="hidden" name="type" value="extern">
                                 <input id="e-ip" name="e-ip" type="checkbox">&nbsp&nbsp<label class="label">Adresse IP</label><br />
