@@ -62,7 +62,7 @@ def AjaxForm(request, id):
     @name Manager:
     @param - Request, HTTPRequest object
     @details Description:
-    This is a view function. It displays the interface manager
+    This is function. Choice the good model and return an answer
     """
 
     return render(request, 'error.html', {})

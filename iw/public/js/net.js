@@ -40,11 +40,11 @@ $(window).load((function()
                                 timeout: 3000,
                                 success:function(data)
                                         {
-                                            $("info").html(data)
+                                            $("#info").html('<div class="alert alert-success"><button type="button" class="close" data-dismiss="alert">×</button>Les modifications viennent d\'être appliquées</div>');
                                         },
                                 error:function()
                                       {
-                                          alert("La requête n'a pas abouti")
+                                            $("#info").html('<div class="alert alert-warning"><button type="button" class="close" data-dismiss="alert">×</button>La requête n\'a pas pu aboutir</div>');
                                       }
                                 });
                    }
