@@ -15,13 +15,13 @@
                     </div>
                     <div id="form0" class="accordion-body collapse">
                         <div class="accordion-inner">
-                            <form action="connect" method="post" enctype="application/x-www-form-urlencoded">
+                            <form method="post" enctype="application/x-www-form-urlencoded">
                                 {% csrf_token %}
                                 <input type="hidden" name="type" value="local">
-                                <input id="l-ip" name="l-ip" type="checkbox"><label class="label">Adresse IP</label><br />
-                                <input id="l-mac" name="l-mac" type="checkbox"><label class="label">Adresse MAC</label><br />
-                                <input id="l-os" name="l-os" type="checkbox"><label class="label">Système d'exploitation</label><br />
-                                <input id="l-name" name="l-name" type="checkbox"><label class="label">Nom de la machine</label><br />
+                                <input id="l-ip" name="l-ip" type="checkbox">&nbsp&nbsp<label class="label">Adresse IP</label><br />
+                                <input id="l-mac" name="l-mac" type="checkbox">&nbsp&nbsp<label class="label">Adresse MAC</label><br />
+                                <input id="l-os" name="l-os" type="checkbox">&nbsp&nbsp<label class="label">Système d'exploitation</label><br />
+                                <input id="l-name" name="l-name" type="checkbox">&nbsp&nbsp<label class="label">Nom de la machine</label><br />
                                 <button type="submit" class="btn btn-info">Mettre à jour</button>
                             </form>
                         </div>
@@ -35,13 +35,13 @@
                     </div>
                     <div id="form1" class="accordion-body collapse">
                         <div class="accordion-inner">
-                            <form action="connect" method="post" enctype="application/x-www-form-urlencoded">
+                            <form method="post" enctype="application/x-www-form-urlencoded">
                                 {% csrf_token %}
                                 <input type="hidden" name="type" value="extern">
-                                <input id="e-ip" name="e-ip" type="checkbox"><label class="label">Adresse IP</label><br />
-                                <input id="e-mac" name="e-mac" type="checkbox"><label class="label">Adresse MAC</label><br />
-                                <input id="e-os" name="e-os" type="checkbox"><label class="label">Système d'exploitation</label><br />
-                                <input id="e-name" name="e-name" type="checkbox"><label class="label">Nom de la machine</label><br />
+                                <input id="e-ip" name="e-ip" type="checkbox">&nbsp&nbsp<label class="label">Adresse IP</label><br />
+                                <input id="e-mac" name="e-mac" type="checkbox">&nbsp&nbsp<label class="label">Adresse MAC</label><br />
+                                <input id="e-os" name="e-os" type="checkbox">&nbsp&nbsp<label class="label">Système d'exploitation</label><br />
+                                <input id="e-name" name="e-name" type="checkbox">&nbsp&nbsp<label class="label">Nom de la machine</label><br />
                                 <button type="submit" class="btn btn-info">Mettre à jour</button>
                             </form>
                         </div>
