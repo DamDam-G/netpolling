@@ -15,3 +15,9 @@ class Screenshot(models.Model):
     name = models.TextField(max_length=100)
     path = models.TextField(max_length=255)
 
+class Log(models.Model):
+    id = models.AutoField(primary_key=True)
+    name = models.TextField(max_length=100)
+    content = models.TextField()
+    date = models.DateTimeField()
+    type = models.IntegerField()
