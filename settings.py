@@ -1,5 +1,6 @@
 # Django settings for netpolling project.
 
+USER = "pwned"
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
@@ -70,7 +71,7 @@ STATIC_URL = '/public/'
 
 # Additional locations of static files
 STATICFILES_DIRS = (
-    "/home/damien/netpolling/netpolling/iw/public/",
+    "/home/"+USER+"/netpolling/netpolling/iw/public/",
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
@@ -113,7 +114,7 @@ TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    "/home/damien/netpolling/netpolling/iw/templates"
+    "/home/"+USER+"/netpolling/netpolling/iw/templates"
 )
 
 APPEND_SLASH = True #Add a slash at the end of the URL

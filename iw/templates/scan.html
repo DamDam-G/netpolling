@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+    <body>
+        <div class="hero-unit">
+            <img src="/public/img/search.png">
+            <h3>Option de scan</h3><br />
+            <div id="info"></div>
+            <div class="accordion" id="accordion">
+                <div class="accordion-group">
+                    <div class="accordion-heading">
+                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#acco">
+                            Scan Local
+                        </a>
+                    </div>
+                    <div id="acco" class="accordion-body collapse">
+                        <div class="accordion-inner">
+                            <form method="post" id="form0" enctype="application/x-www-form-urlencoded">
+                                <input type="hidden" name="type" value="local">
+                                <input id="l-ip" name="l-ip" type="checkbox">&nbsp&nbsp<label class="label">Adresse IP</label><br />
+                                <input id="l-mac" name="l-mac" type="checkbox">&nbsp&nbsp<label class="label">Adresse MAC</label><br />
+                                <input id="l-os" name="l-os" type="checkbox">&nbsp&nbsp<label class="label">Système d'exploitation</label><br />
+                                <input id="l-name" name="l-name" type="checkbox">&nbsp&nbsp<label class="label">Nom de la machine</label><br />
+                                <button type="submit" class="btn btn-info">Mettre à jour</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-group">
+                    <div class="accordion-heading">
+                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#accord">
+                            Scan externe
+                        </a>
+                    </div>
+                    <div id="accord" class="accordion-body collapse">
+                        <div class="accordion-inner">
+                            <form method="post" id="form1" enctype="application/x-www-form-urlencoded">
+                                <input type="hidden" name="type" value="extern">
+                                <input id="e-ip" name="e-ip" type="checkbox">&nbsp&nbsp<label class="label">Adresse IP</label><br />
+                                <input id="e-mac" name="e-mac" type="checkbox">&nbsp&nbsp<label class="label">Adresse MAC</label><br />
+                                <input id="e-os" name="e-os" type="checkbox">&nbsp&nbsp<label class="label">Système d'exploitation</label><br />
+                                <input id="e-name" name="e-name" type="checkbox">&nbsp&nbsp<label class="label">Nom de la machine</label><br />
+                                <button type="submit" class="btn btn-info">Mettre à jour</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>

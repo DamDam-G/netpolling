@@ -1,10 +1,80 @@
 #-*- coding: utf-8 -*-
 # Create your views here.
 
-from django.shortcuts import render
+from django.shortcuts import render, render_to_response
+from django.http import HttpResponse
+import json
 
-def index(request):
+def Index(request):
+    """
+    @author Damien Goldenberg
+    @name Index:
+    @param - Request, HTTPRequest object
+    @details Description:
+    This is a view function. It displays the index
+    """
     return render(request, 'index.html', {})
 
-def co(request):
-    return  render(request, 'co.html', {})
+def Co(request):
+    """
+    @author Damien Goldenberg
+    @name Co:
+    @param - Request, HTTPRequest object
+    @details Description:
+    This is a view function. It displays the connection form
+    """
+    return render(request, 'co.html', {})
+
+def Manager(request):
+    """
+    @author Damien Goldenberg
+    @name Manager:
+    @param - Request, HTTPRequest object
+    @details Description:
+    This is a view function. It displays the interface manager
+    """
+    return render(request, 'manager.html', {})
+
+def Control(request):
+    """
+    @author Damien Goldenberg
+    @name Control:
+    @param - Request, HTTPRequest object
+    @details Description:
+    This is a view function that works with ajax request.
+    It displays the interface the content of the manager
+    """
+
+    views = ('scan', 'screen', 'visu', 'log', 'para', 'disconnect')
+    if request.is_ajax():
+        if request.POST.get("id"):
+            id = int(request.POST.get("id"))
+            if id >= 0 and id < len(views):
+                view = views[id]+".html"
+            else:
+                return render_to_response('error.html', {'type':'error, the page doesn\'t exist'})
+            return render_to_response(view, {})
+        return render_to_response('error.html', {'type':'error post'})
+    return render_to_response('error.html', {'type':'error ajax'})
+
+def AjaxForm(request, id):
+    """
+    @author Damien Goldenberg
+    @name Manager:
+    @param - Request, HTTPRequest object
+    @details Description:
+    This is function. Choice the good model and return an answer
+    """
+    param = list()
+    #id = int(id)
+    if id == 0:
+        param.append('')
+    elif id == 1:
+        param.append('')
+    elif id == 2:
+        param.append('')
+    elif id == 4:
+        param.append('')
+    else:
+        param.append('')
+    return HttpResponse(json.dumps(param))

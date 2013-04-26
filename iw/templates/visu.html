@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+    <body>
+        <div class="hero-unit">
+            <img src="/public/img/map.png">
+            <h3>Cartographie de réseaux</h3><br />
+            <div id="info"></div>
+            <form method="post" id="form0" enctype="application/x-www-form-urlencoded">
+               <label for="type">Choisissez un scan à visualiser</label>
+               <select required="true" name="type" id="type">
+                   <option value="france">home</option>
+                   <option value="espagne">intech</option>
+                   <option value="france">vlan</option>
+                   <option value="espagne">...</option>
+               </select><br />
+               <input type="submit" class="btn btn-primary" data-toggle="button" value="Cartographier">
+            </form>
+        </div>
+    </body>
+</html>

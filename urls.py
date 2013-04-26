@@ -5,6 +5,9 @@ from django.conf.urls import patterns, include, url
 # admin.autodiscover()
 
 urlpatterns = patterns('',
-                       url('^$', 'netpolling.iw.views.index'),
-                       url(r'^index/$', 'netpolling.iw.views.index'),
-                       url(r'^co/$', 'netpolling.iw.views.co'))
+                       url('^$', 'netpolling.iw.views.Index'),
+                       url(r'^index/$', 'netpolling.iw.views.Index'),
+                       url(r'^co/$', 'netpolling.iw.views.Co'),
+                       url(r'^manager/$', 'netpolling.iw.views.Manager'),
+                       url(r'^control/$', 'netpolling.iw.views.Control'),
+                       url(r'^ajaxform/(\d{1})/$', 'netpolling.iw.views.AjaxForm'))
