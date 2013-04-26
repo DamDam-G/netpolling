@@ -3,6 +3,7 @@
 
 from django.shortcuts import render, render_to_response
 from django.http import HttpResponse
+import json
 
 def Index(request):
     """
@@ -64,5 +65,17 @@ def AjaxForm(request, id):
     @details Description:
     This is function. Choice the good model and return an answer
     """
+    param = list()
 
-    return render(request, 'error.html', {})
+    if id == 0:
+        param.append('')
+    elif id == 1:
+        param.append('')
+    elif id == 2:
+        param.append('')
+    elif id == 4:
+        param.append('')
+    else:
+        param.append('')
+    return json.dumps(param)
+    #return render(request, 'error.html', {})
