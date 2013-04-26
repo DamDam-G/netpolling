@@ -17,7 +17,6 @@
                     <div id="acco" class="accordion-body collapse">
                         <div class="accordion-inner">
                             <form method="post" id="form0" enctype="application/x-www-form-urlencoded">
-                                {% csrf_token %}
                                 <input type="hidden" name="type" value="local">
                                 <input id="l-ip" name="l-ip" type="checkbox">&nbsp&nbsp<label class="label">Adresse IP</label><br />
                                 <input id="l-mac" name="l-mac" type="checkbox">&nbsp&nbsp<label class="label">Adresse MAC</label><br />
@@ -37,7 +36,6 @@
                     <div id="accord" class="accordion-body collapse">
                         <div class="accordion-inner">
                             <form method="post" id="form1" enctype="application/x-www-form-urlencoded">
-                                {% csrf_token %}
                                 <input type="hidden" name="type" value="extern">
                                 <input id="e-ip" name="e-ip" type="checkbox">&nbsp&nbsp<label class="label">Adresse IP</label><br />
                                 <input id="e-mac" name="e-mac" type="checkbox">&nbsp&nbsp<label class="label">Adresse MAC</label><br />

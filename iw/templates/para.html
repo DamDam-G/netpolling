@@ -6,7 +6,6 @@
         <h3>Paramétres</h3>
         <div id="info"></div>
         <form method="post" id="form0" enctype="application/x-www-form-urlencoded">
-            {% csrf_token %}
             <label class="label">Timeout</label>&nbsp&nbsp<input required="true" id="time" name="time" type="text"><br />
             <label class="label">Temps entre chaque scan</label>&nbsp&nbsp<input required="true" id="name" name="wait" type="text"><br />
             <label class="label">Planification de scan</label>&nbsp&nbsp<input required="true" id="name" name="plan" type="text"><br />
@@ -21,7 +20,6 @@
             <div id="accord" class="accordion-body collapse">
                 <div class="accordion-inner">
                     <form method="post" id="form1" enctype="application/x-www-form-urlencoded">
-                        {% csrf_token %}
                         <label class="label">Nom de la machine</label>&nbsp&nbsp<input required="true" id="e-name" name="e-name" type="text">
                         <button type="submit" class="btn btn-info">Ajouter</button>
                     </form>
