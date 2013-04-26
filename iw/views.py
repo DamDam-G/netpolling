@@ -66,7 +66,7 @@ def AjaxForm(request, id):
     This is function. Choice the good model and return an answer
     """
     param = list()
-
+    #id = int(id)
     if id == 0:
         param.append('')
     elif id == 1:
@@ -77,5 +77,5 @@ def AjaxForm(request, id):
         param.append('')
     else:
         param.append('')
-    return json.dumps(param)
-    #return render(request, 'error.html', {})
+    return HttpResponse(json.dumps(param))
+    #return render(request, json.dumps(param), {})
