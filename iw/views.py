@@ -3,6 +3,7 @@
 
 from django.shortcuts import render, render_to_response
 from django.http import HttpResponse
+from models import *
 import json
 
 def Index(request):
@@ -45,15 +46,36 @@ def Control(request):
     It displays the interface the content of the manager
     """
 
-    views = ('scan', 'screen', 'visu', 'log', 'para', 'disconnect')
+    #views = ('scan', 'screen', 'visu', 'log', 'para', 'disconnect')
+    views = [
+            {
+                'view':'scan',
+                'model':ScanParam.objects.all()
+            },
+            {
+                'view':'screen',
+                'model':''
+            },
+            {
+                'view':'visu',
+                'model':Screenshot.objects.all()
+            },
+            {
+                'view':'log',
+                'model':Log.objects.order_by('-id')
+            },
+            {
+                'view':'para',
+                'model':''#Para.objects.all()
+            }]
     if request.is_ajax():
         if request.POST.get("id"):
             id = int(request.POST.get("id"))
             if id >= 0 and id < len(views):
-                view = views[id]+".html"
+                return render_to_response(views[id]['view']+'.html', {'param':views[id]['model']})
+                #view = views[id]+".html"
             else:
                 return render_to_response('error.html', {'type':'error, the page doesn\'t exist'})
-            return render_to_response(view, {})
         return render_to_response('error.html', {'type':'error post'})
     return render_to_response('error.html', {'type':'error ajax'})
 
