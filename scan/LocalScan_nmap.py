@@ -2,6 +2,7 @@
 # -*- coding:Utf-8 -*-
 from scapy.all import *
 import os
+import re
 #from scapy.modules.nmap import *
 """
 @package docstring
