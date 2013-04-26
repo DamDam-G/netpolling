@@ -24,12 +24,13 @@ class LocalScan:
         GetIpAndMac :
         @details This method scans the network to get adresses ip and mac of all machines
         """
-
+        n = list()
         cmd = os.popen("nmap -sP "+self.net)
         for elem in cmd:
             if re.match("Nmap scan report for \d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}", elem):
-                print (elem)
-            #l.append({"mac": elem[1].src, "ip": elem[1].psrc, "device": None, "os": None, "hostname": None, "route": None})
+                ip = elem.split(" ")
+                n.append({"mac": None, "ip": ip[4].replace('\n', ''), "device": None, "os": None, "hostname": None, "route": None})
+        return n
 
     def GetDevice(self):
         """
@@ -64,4 +65,5 @@ class LocalScan:
 if __name__ == "__main__":
     #scan = LocalScan('home', "10.8.96.1/20")
     scan = LocalScan('home', '192.168.0.*')
-    scan.GetIpAndMac()
+    l = scan.GetIpAndMac()
+    print l
