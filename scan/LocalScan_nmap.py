@@ -27,7 +27,8 @@ class LocalScan:
 
         cmd = os.popen("nmap -sP "+self.net)
         for elem in cmd:
-            print (elem)
+            if re.match("Nmap scan report for \d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}", elem):
+                print (elem)
             #l.append({"mac": elem[1].src, "ip": elem[1].psrc, "device": None, "os": None, "hostname": None, "route": None})
 
     def GetDevice(self):
