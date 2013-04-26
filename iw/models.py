@@ -9,3 +9,9 @@ class ScanParam(models.Model):
     os = models.BooleanField()
     hostname = models.BooleanField()
     type = models.IntegerField()
+
+class Screenshot(models.Model):
+    id = models.AutoField(primary_key=True)
+    name = models.TextField(max_length=100)
+    path = models.TextField(max_length=255)
+
