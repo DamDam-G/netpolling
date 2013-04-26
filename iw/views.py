@@ -50,30 +50,29 @@ def Control(request):
     views = [
             {
                 'view':'scan',
-                'model':ScanParam.objects.all()
+                'data':[ScanParam.objects.filter(type=0), ScanParam.objects.filter(type=1)]
             },
             {
                 'view':'screen',
-                'model':''
+                'data':''
             },
             {
                 'view':'visu',
-                'model':Screenshot.objects.all()
+                'data':Screenshot.objects.all()
             },
             {
                 'view':'log',
-                'model':Log.objects.order_by('-id')
+                'data':Log.objects.order_by('-id')
             },
             {
                 'view':'para',
-                'model':''#Para.objects.all()
+                'data':''#Para.objects.all()
             }]
     if request.is_ajax():
         if request.POST.get("id"):
             id = int(request.POST.get("id"))
             if id >= 0 and id < len(views):
-                return render_to_response(views[id]['view']+'.html', {'param':views[id]['model']})
-                #view = views[id]+".html"
+                return render_to_response(views[id]['view']+'.html', {'local':views[id]['data'][0], 'extern':views[id]['data'][1]})
             else:
                 return render_to_response('error.html', {'type':'error, the page doesn\'t exist'})
         return render_to_response('error.html', {'type':'error post'})
