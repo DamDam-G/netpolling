@@ -50,7 +50,8 @@ def Control(request):
     views = [
             {
                 'view':'scan',
-                'data':[ScanParam.objects.filter(type=0), ScanParam.objects.filter(type=1)]
+                'data':ScanParam.objects.all()
+                #'data':[ScanParam.objects.filter(type=0), ScanParam.objects.filter(type=1)]
             },
             {
                 'view':'screen',
@@ -72,7 +73,8 @@ def Control(request):
         if request.POST.get("id"):
             id = int(request.POST.get("id"))
             if id >= 0 and id < len(views):
-                return render_to_response(views[id]['view']+'.html', {'local':views[id]['data'][0], 'extern':views[id]['data'][1]})
+                return render_to_response(views[id]['view']+'.html', {'data':views[id]['data']})
+                #return render_to_response(views[id]['view']+'.html', {'local':views[id]['data'][0], 'extern':views[id]['data'][1]})
             else:
                 return render_to_response('error.html', {'type':'error, the page doesn\'t exist'})
         return render_to_response('error.html', {'type':'error post'})
