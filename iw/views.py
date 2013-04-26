@@ -68,6 +68,10 @@ def Control(request):
             {
                 'view':'para',
                 'data':''#Para.objects.all()
+            },
+            {
+                'view':'disconnect',
+                'data':''
             }]
     if request.is_ajax():
         if request.POST.get("id"):
