@@ -20,10 +20,10 @@
                                 <input type="hidden" name="type" value="local">
                                 {% for t in data %}
                                     {% if t.type == 0  %}
-                                        <input id="l-ip"{% if t.ip == True %} checked="checked" {% endif %}name="l-ip" type="checkbox">&nbsp&nbsp<label class="label">Adresse IP</label><br />
-                                        <input id="l-mac"{% if t.mac == True %} checked="checked" {% endif %} name="l-mac" type="checkbox">&nbsp&nbsp<label class="label">Adresse MAC</label><br />
-                                        <input id="l-os"{% if t.os == True %} checked="checked" {% endif %} name="l-os" type="checkbox">&nbsp&nbsp<label class="label">Système d'exploitation</label><br />
-                                        <input id="l-name"{% if t.hostname == True %} checked="checked" {% endif %} name="l-name" type="checkbox">&nbsp&nbsp<label class="label">Nom de la machine</label><br />
+                                        <input id="l-ip"{% if t.ip == True %} checked="checked" {% endif %}name="ip" type="checkbox">&nbsp&nbsp<label class="label">Adresse IP</label><br />
+                                        <input id="l-mac"{% if t.mac == True %} checked="checked" {% endif %} name="mac" type="checkbox">&nbsp&nbsp<label class="label">Adresse MAC</label><br />
+                                        <input id="l-os"{% if t.os == True %} checked="checked" {% endif %} name="os" type="checkbox">&nbsp&nbsp<label class="label">Système d'exploitation</label><br />
+                                        <input id="l-name"{% if t.hostname == True %} checked="checked" {% endif %} name="name" type="checkbox">&nbsp&nbsp<label class="label">Nom de la machine</label><br />
                                     {% endif %}
                                 {% endfor %}
                                 <button type="submit" class="btn btn-info">Mettre à jour</button>
@@ -43,10 +43,10 @@
                                 <input type="hidden" name="type" value="extern">
                                 {% for t in data %}
                                     {% if t.type == 0  %}
-                                        <input id="e-ip"{% if t.ip == True %} checked="checked" {% endif %} name="e-ip" type="checkbox">&nbsp&nbsp<label class="label">Adresse IP</label><br />
-                                        <input id="e-mac"{% if t.mac == True %} checked="checked" {% endif %} name="e-mac" type="checkbox">&nbsp&nbsp<label class="label">Adresse MAC</label><br />
-                                        <input id="e-os"{% if t.os == True %} checked="checked" {% endif %} name="e-os" type="checkbox">&nbsp&nbsp<label class="label">Système d'exploitation</label><br />
-                                        <input id="e-name"{% if t.hostname == True %} checked="checked" {% endif %} name="e-name" type="checkbox">&nbsp&nbsp<label class="label">Nom de la machine</label><br />
+                                        <input id="e-ip"{% if t.ip == True %} checked="checked" {% endif %} name="ip" type="checkbox">&nbsp&nbsp<label class="label">Adresse IP</label><br />
+                                        <input id="e-mac"{% if t.mac == True %} checked="checked" {% endif %} name="mac" type="checkbox">&nbsp&nbsp<label class="label">Adresse MAC</label><br />
+                                        <input id="e-os"{% if t.os == True %} checked="checked" {% endif %} name="os" type="checkbox">&nbsp&nbsp<label class="label">Système d'exploitation</label><br />
+                                        <input id="e-name"{% if t.hostname == True %} checked="checked" {% endif %} name="name" type="checkbox">&nbsp&nbsp<label class="label">Nom de la machine</label><br />
                                     {% endif %}
                                 {% endfor %}
                                 <button type="submit" class="btn btn-info">Mettre à jour</button>

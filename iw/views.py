@@ -1,5 +1,4 @@
 #-*- coding: utf-8 -*-
-# Create your views here.
 
 from django.shortcuts import render, render_to_response
 from django.http import HttpResponse
@@ -78,7 +77,6 @@ def Control(request):
             id = int(request.POST.get("id"))
             if id >= 0 and id < len(views):
                 return render_to_response(views[id]['view']+'.html', {'data':views[id]['data']})
-                #return render_to_response(views[id]['view']+'.html', {'local':views[id]['data'][0], 'extern':views[id]['data'][1]})
             else:
                 return render_to_response('error.html', {'type':'error, the page doesn\'t exist'})
         return render_to_response('error.html', {'type':'error post'})
@@ -92,25 +90,30 @@ def AjaxForm(request, id):
     @details Description:
     This is function. Choice the good model and return an answer
     """
-    param = list()
-    #id = int(id)
-    if request.is_ajax():
-        if request.POST.get("id"):
-            if id == 0:
-                if request.POST.get("type") == "local":
-                    r = ScanParam.objects.filter(type=0)
-                elif request.POST.get("type") == "extern":
-                    r = ScanParam.objects.filter(type=0)
 
-                param.append('')
-            elif id == 1:
-                param.append('')
-            elif id == 2:
-                param.append('')
-            elif id == 4:
-                param.append('')
+    if request.is_ajax():
+        id = int(id)
+        if id == 0:
+            if request.POST.get("type"):
+                if request.POST.get("type") == "local" or request.POST.get("type") == "extern":
+                    t = 0 if request.POST.get("type") == "local" else 1
+                    r = ScanParam.objects.filter(type=t)
+                    r.update(ip=1 if request.POST.get("ip") else 0)
+                    r.update(mac=1 if request.POST.get("mac") else 0)
+                    r.update(os=1 if request.POST.get("os") else 0)
+                    r.update(hostname=1 if request.POST.get("name") else 0)
+                    param = {'success':1, 'why':'Les paramétres ont bien été enregistré'}
+                else:
+                    param = {'success':0, 'why':'error : type scan'}
             else:
-                param.append('')
-            return HttpResponse(json.dumps(param))
-        return render_to_response('error.html', {'type':'error post'})
+                param = {'success':0, 'why':'error : type not exist'}
+        elif id == 1:
+            param = {'success':0, 'why':''}
+        elif id == 2:
+            param = {'success':0, 'why':''}
+        elif id == 4:
+            param = {'success':0, 'why':''}
+        else:
+            return render_to_response('error.html', {'type':'error post'})
+        return HttpResponse(json.dumps(param))
     return render_to_response('error.html', {'type':'error ajax'})
