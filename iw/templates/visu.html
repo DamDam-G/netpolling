@@ -11,7 +11,7 @@
                <label for="type">Choisissez un scan à visualiser</label>
                <select name="type" id="type">
                    {% for i in data %}
-                        <option value="{{ id }}">{{ home }}</option>
+                        <option value="{{ i.id }}">{{ i.name }}</option>
                         {% empty %}
                             <option value="">Aucune carte n'est disponible</option>
                    {% endfor %}

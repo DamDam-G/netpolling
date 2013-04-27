@@ -117,7 +117,7 @@ def AjaxForm(request, id):
             else:
                 param = {'success':0, 'why':'error : map name'}
         elif id == 2:
-            param = {'success':0, 'why':''}
+            param = {'success':1, 'why':'La carte est en cours de chargement<br /><img src="/public/img/load.gif" />'}
         elif id == 4:
             param = {'success':0, 'why':''}
         else:
