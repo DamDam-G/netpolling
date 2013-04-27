@@ -94,15 +94,23 @@ def AjaxForm(request, id):
     """
     param = list()
     #id = int(id)
-    if id == 0:
-        param.append('')
-    elif id == 1:
-        param.append('')
-    elif id == 2:
-        param.append('')
-    elif id == 4:
-        param.append('')
-    else:
-        param.append('')
-    return HttpResponse(json.dumps(param))
-    #return render(request, json.dumps(param), {})
+    if request.is_ajax():
+        if request.POST.get("id"):
+            if id == 0:
+                if request.POST.get("type") == "local":
+                    r = ScanParam.objects.filter(type=0)
+                elif request.POST.get("type") == "extern":
+                    r = ScanParam.objects.filter(type=0)
+
+                param.append('')
+            elif id == 1:
+                param.append('')
+            elif id == 2:
+                param.append('')
+            elif id == 4:
+                param.append('')
+            else:
+                param.append('')
+            return HttpResponse(json.dumps(param))
+        return render_to_response('error.html', {'type':'error post'})
+    return render_to_response('error.html', {'type':'error ajax'})
