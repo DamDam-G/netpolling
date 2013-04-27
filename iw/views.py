@@ -108,7 +108,14 @@ def AjaxForm(request, id):
             else:
                 param = {'success':0, 'why':'error : type not exist'}
         elif id == 1:
-            param = {'success':0, 'why':''}
+            if request.POST.get("name"):
+                r = Screenshot()
+                r.name = request.POST.get("name")
+                r.path = '/public/img/screenshots/'+request.POST.get("name")+'.png'
+                r.save()
+                param = {'success':1, 'why':'La carte a bien été enregistré'}
+            else:
+                param = {'success':0, 'why':'error : map name'}
         elif id == 2:
             param = {'success':0, 'why':''}
         elif id == 4:
