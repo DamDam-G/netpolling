@@ -2,13 +2,13 @@
 # -*- coding:Utf-8 -*-
 from scapy.all import *
 #from scapy.modules.nmap import *
-"""
+"""!
 @package docstring
 This file contain the class : LocalScan
 """
 
 class LocalScan:
-    """
+    """!
     LocalScan :
     @param - net : this variable contain the pattern of the network (ex : 192.168.0.* or 10.8.12.* for netmask /24)
     @param - name : this variable contain the name for identify the scan in the database
@@ -18,9 +18,9 @@ class LocalScan:
         self.name = name
 
     def GetIpAndMac(self):
-        """
+        """!
         GetIpAndMac :
-        @details This method scans the network to get adresses ip and mac of all machines
+        @details This method scans the network to get ip and mac adresses of all machines
         """
         ans, unans = arping(self.net, timeout=120)
         l = list()
@@ -30,13 +30,13 @@ class LocalScan:
         return l
 
     def GetDevice(self):
-        """
+        """!
         GetDevice :
         """
         return
 
     def GetOS(self, ip):
-        """
+        """!
         GetOS :
         """
         #load_module("nmap")

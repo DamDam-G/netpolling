@@ -9,11 +9,12 @@
             <div id="info"></div>
             <form method="post" id="form0" enctype="application/x-www-form-urlencoded">
                <label for="type">Choisissez un scan à visualiser</label>
-               <select required="true" name="type" id="type">
-                   <option value="france">home</option>
-                   <option value="espagne">intech</option>
-                   <option value="france">vlan</option>
-                   <option value="espagne">...</option>
+               <select name="type" id="type">
+                   {% for i in data %}
+                        <option value="{{ i.id }}">{{ i.name }}</option>
+                        {% empty %}
+                            <option value="">Aucune carte n'est disponible</option>
+                   {% endfor %}
                </select><br />
                <input type="submit" class="btn btn-primary" data-toggle="button" value="Cartographier">
             </form>

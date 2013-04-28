@@ -6,6 +6,11 @@
     outline: none;
 }
 
+input
+{
+    box-shadow:0px 0px 25px black;
+}
+
 #carto
 {
     border:solid #000000 2px;

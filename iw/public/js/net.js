@@ -40,7 +40,12 @@ $(window).load((function()
                                 timeout: 3000,
                                 success:function(data)
                                         {
-                                            $("#info").html('<div class="alert alert-success"><button type="button" class="close" data-dismiss="alert">×</button>Les modifications viennent d\'être appliquées</div>');
+                                            data = JSON.parse(data)
+                                            if (data.success == 1)
+                                                cls = 'success';
+                                            else if (data.success == 0)
+                                                cls = 'danger';
+                                            $("#info").html('<div class="alert alert-' +cls+ '"><button type="button" class="close" data-dismiss="alert">×</button>' +data.why+ '</div>');
                                         },
                                 error:function()
                                       {
