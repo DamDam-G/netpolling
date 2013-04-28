@@ -50,7 +50,6 @@ def Control(request):
             {
                 'view':'scan',
                 'data':ScanParam.objects.all()
-                #'data':[ScanParam.objects.filter(type=0), ScanParam.objects.filter(type=1)]
             },
             {
                 'view':'screen',
