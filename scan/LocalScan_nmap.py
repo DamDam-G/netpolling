@@ -36,7 +36,6 @@ class LocalScan:
         while i < len(to):
             if re.match("Nmap scan report for \d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}", to[i]):
                 if re.match((to[i].split(" "))[4].replace("\n", ""), myconf["ip"]):
-                    print 'enter'
                     n.append({"mac": myconf["mac"], "ip": myconf["ip"], "device": None, "os": None, "hostname": None, "route": None})
                 else:
                     ip = (to[i].split(" "))[4].replace("\n", " ")
@@ -81,12 +80,12 @@ class LocalScan:
         """
         GetOS :
         """
-        #load_module("nmap")
-        #conf.nmap_base
-        #ans, unans = nmap_fp(ip)
-        #traitement de la réponse pour en resortir un os
-        os = ''
-        return os
+        cmd = os.popen("nmap -o os.log -O "+ip)
+        rep = open("/home/damien/netpolling/netpolling/scan/os.log", "r")
+        tmp = rep.read()
+        print tmp
+        system = ''
+        return system
 
     def GetHostName(self):
         """
@@ -107,4 +106,5 @@ if __name__ == "__main__":
     #l = scan.GetIp()
     #print l
     #print scan.GetMac(l[0]["ip"])
-    print scan.GetIpMac()
+    #print scan.GetIpMac()
+    print scan.GetOS("192.168.0.")
