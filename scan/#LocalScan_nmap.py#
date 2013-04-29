@@ -15,12 +15,11 @@ class LocalScan:
     @param - net : this variable contain the pattern of the network (ex : 192.168.0.* or 10.8.12.* for netmask /24)
     @param - name : this variable contain the name for identify the scan in the database
     """
-    def __init__(self, name, mask, interface):
-        self.net = []
+    def __init__(self, name, net, interface):
+        self.net = net
         self.name = name
         self.interface = interface
-        self.mask = mask
-        self.route = ''
+
 
     def GetIpMac(self):
         """
@@ -31,7 +30,7 @@ class LocalScan:
         conf = os.popen("ifconfig "+self.interface)
         conf = conf.readlines()
         myconf = {'ip':((conf[1].split(":"))[1].split(" "))[0], 'mac': ((conf[0].split("HWaddr"))[1].split(" "))[1]}
-        cmd = os.popen("nmap -sP "+self.mask)
+        cmd = os.popen("nmap -sP "+self.net)
         to = cmd.readlines()
         i = 0
         while i < len(to):
@@ -47,7 +46,7 @@ class LocalScan:
                         mac = None
                     n.append({"mac": mac, "ip": ip, "device": None, "os": None, "hostname": None, "route": None})
             i += 1
-        self.net = n
+        return n
 
     def GetIp(self):
         """
@@ -102,8 +101,8 @@ class LocalScan:
         return
 
 if __name__ == "__main__":
+    #scan = LocalScan('home', "10.8.96.1/20")
     scan = LocalScan('home', '10.8.96.0/20', 'eth0')
-    #scan = LocalScan('home', '192.168.0.*', 'eth0')
     #l = scan.GetIp()
     #print l
     #print scan.GetMac(l[0]["ip"])
