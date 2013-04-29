@@ -59,7 +59,7 @@ class LocalScan:
         for elem in cmd:
             if re.match("Nmap scan report for \d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}", elem):
                 ip = elem.split(" ")
-                n.append({"mac": None, "ip": ip[4].replace('\n', ''), "device": None, "os": None, "hostname": None, "route": None})
+                n.append({"mac": None, "ip": ip[4].replace('\n', ''), "device": None, "os": None, "hostname": None})
         return n
 
     def GetMac(self, ip):
