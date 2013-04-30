@@ -20,7 +20,7 @@ class LocalScan:
         self.name = name
         self.interface = interface
         self.mask = mask
-        self.gw= ''
+        self.gw = ''
 
     def GetIpMac(self):
         """
@@ -85,11 +85,20 @@ class LocalScan:
         # utiliser nslookup /host à test (il faut un servuer dns voir ce que ça donne à l'école
         return
 
+    def GetGW(self):
+        cmd = os.popen("route | grep default")
+        cmd = cmd.read()
+        self.gw = list(set(cmd.split(' ')))[2]
+
     def GetRoute(self):
         """
         GetRoute :
         """
-        traceroute("8.8.8.8")
+        t = traceroute("8.8.8.8")
+        i = 0
+        """while i < len(t):
+            if t[0][i][1].src ==
+            i += 1"""
         return
 
 if __name__ == "__main__":
