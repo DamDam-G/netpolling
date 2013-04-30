@@ -20,8 +20,9 @@ class LocalScan:
         self.name = name
         self.interface = interface
         self.mask = mask
-        self.gw = self.GetGW()
+        self.gw = ''
         self.route = []
+        self.GetGW()
         self.GetRoute()
 
     def GetIpMac(self):
@@ -40,7 +41,7 @@ class LocalScan:
         while i < len(to):
             if re.match("Nmap scan report for \d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}", to[i]):
                 if re.match((to[i].split(" "))[4].replace("\n", ""), myconf["ip"]):
-                    n.append({"mac": myconf["mac"], "ip": myconf["ip"], "device": None, "os": None, "hostname": None, "route": None})
+                    n.append({"mac": myconf["mac"], "ip": myconf["ip"], "device": None, "os": None, "hostname": None})
                 else:
                     ip = (to[i].split(" "))[4].replace("\n", " ")
                     i += 2
@@ -48,7 +49,7 @@ class LocalScan:
                         mac = (to[i].split(" "))[2]
                     else:
                         mac = None
-                    n.append({"mac": mac, "ip": ip, "device": None, "os": None, "hostname": None, "route": None})
+                    n.append({"mac": mac, "ip": ip, "device": None, "os": None, "hostname": None})
             i += 1
         self.net = n
 
@@ -62,6 +63,7 @@ class LocalScan:
         """
         GetOS :
         """
+        #nmap -sV --version-all
         cmd = os.popen("nmap -O "+ip)
         to = cmd.readlines()
         i = 0
@@ -99,8 +101,9 @@ class LocalScan:
         t = traceroute("8.8.8.8")
         i = 0
         path = list()
+        print "gw = "+self.gw
         while i < len(t):
-            print t[0][i][1].src
+            print t[0][i][1].src+" = "+self.gw
             self.route.append(t[0][i][1].src)
             if t[0][i][1].src == self.gw:
                 break
@@ -118,4 +121,5 @@ if __name__ == "__main__":
     #scan.GetGW()
     #print scan.gw
     #scan.GetRoute()
+    print "gw = "+scan.gw
     print scan.route
