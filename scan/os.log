@@ -1,2 +1,28 @@
-# Nmap 5.21 scan initiated Mon Apr 29 03:08:46 2013 as: nmap -o os.log -O 192.168.0. 
-# Nmap done at Mon Apr 29 03:08:46 2013 -- 1 IP address (0 hosts up) scanned in 0.37 seconds
+# Nmap 5.21 scan initiated Tue Apr 30 14:16:39 2013 as: nmap -o os.log -O 10.8.111.153 
+Nmap scan report for 10.8.111.153
+Host is up (0.0050s latency).
+Not shown: 998 closed ports
+PORT    STATE SERVICE
+22/tcp  open  ssh
+111/tcp open  rpcbind
+MAC Address: 00:19:99:43:2D:12 (Fujitsu Technology Solutions)
+No exact OS matches for host (If you know what OS is running on it, see http://nmap.org/submit/ ).
+TCP/IP fingerprint:
+OS:SCAN(V=5.21%D=4/30%OT=22%CT=1%CU=41720%PV=Y%DS=1%DC=D%G=Y%M=001999%TM=51
+OS:7FB637%P=x86_64-unknown-linux-gnu)SEQ(SP=FB%GCD=1%ISR=106%TI=Z%CI=Z%II=I
+OS:%TS=8)SEQ(SP=103%GCD=1%ISR=10A%TI=Z%CI=Z%TS=8)SEQ(SP=FB%GCD=2%ISR=106%TI
+OS:=Z%CI=Z%II=I%TS=8)SEQ(SP=101%GCD=1%ISR=109%TI=Z%CI=Z%II=I%TS=A)SEQ(SP=10
+OS:4%GCD=1%ISR=108%TI=Z%CI=Z%II=I%TS=8)OPS(O1=M5B4ST11NW6%O2=M5B4ST11NW6%O3
+OS:=M5B4NNT11NW6%O4=M5B4ST11NW6%O5=M5B4ST11NW6%O6=M5B4ST11)OPS(O1=M5B4ST11N
+OS:W6%O2=NNT11%O3=M5B4NNT11NW6%O4=M5B4ST11NW6%O5=M5B4ST11NW6%O6=M5B4ST11)WI
+OS:N(W1=16A0%W2=16A0%W3=16A0%W4=16A0%W5=16A0%W6=16A0)ECN(R=Y%DF=Y%T=40%W=16
+OS:D0%O=M5B4NNSNW6%CC=Y%Q=)T1(R=Y%DF=Y%T=40%S=O%A=S+%F=AS%RD=0%Q=)T2(R=N)T3
+OS:(R=N)T4(R=Y%DF=Y%T=40%W=0%S=A%A=Z%F=R%O=%RD=0%Q=)T5(R=Y%DF=Y%T=40%W=0%S=
+OS:Z%A=S+%F=AR%O=%RD=0%Q=)T6(R=Y%DF=Y%T=40%W=0%S=A%A=Z%F=R%O=%RD=0%Q=)T7(R=
+OS:Y%DF=Y%T=40%W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=)U1(R=Y%DF=N%T=40%IPL=164%UN=0%R
+OS:IPL=G%RID=G%RIPCK=G%RUCK=G%RUD=G)IE(R=Y%DFI=N%T=40%CD=S)
+
+Network Distance: 1 hop
+
+OS detection performed. Please report any incorrect results at http://nmap.org/submit/ .
+# Nmap done at Tue Apr 30 14:16:55 2013 -- 1 IP address (1 host up) scanned in 16.23 seconds

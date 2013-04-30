@@ -20,7 +20,7 @@ class LocalScan:
         self.name = name
         self.interface = interface
         self.mask = mask
-        self.route = ''
+        self.gw= ''
 
     def GetIpMac(self):
         """
@@ -34,6 +34,7 @@ class LocalScan:
         cmd = os.popen("nmap -sP "+self.mask)
         to = cmd.readlines()
         i = 0
+        print to
         while i < len(to):
             if re.match("Nmap scan report for \d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}", to[i]):
                 if re.match((to[i].split(" "))[4].replace("\n", ""), myconf["ip"]):
@@ -49,28 +50,6 @@ class LocalScan:
             i += 1
         self.net = n
 
-    def GetIp(self):
-        """
-        GetIp :
-        @details This method scans the network to get adresses ip of all machines
-        """
-        n = list()
-        cmd = os.popen("nmap -sP "+self.net)
-        for elem in cmd:
-            if re.match("Nmap scan report for \d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}", elem):
-                ip = elem.split(" ")
-                n.append({"mac": None, "ip": ip[4].replace('\n', ''), "device": None, "os": None, "hostname": None})
-        return n
-
-    def GetMac(self, ip):
-        cmd = os.popen("arping -c 1 " +ip)
-        for elem in cmd:
-            #\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}
-            if re.match("Unicast reply from "+ip+" \[[A-F0-9]{2}:[A-F0-9]{2}:[A-F0-9]{2}:[A-F0-9]{2}:[A-F0-9]{2}:[A-F0-9]{2}\]", elem):
-                mac = elem.split(" ")
-                break
-        return mac[4].replace(']', '').replace('[', '')
-
     def GetDevice(self):
         """
         GetDevice :
@@ -81,11 +60,22 @@ class LocalScan:
         """
         GetOS :
         """
-        cmd = os.popen("nmap -o os.log -O "+ip)
-        rep = open("/home/damien/netpolling/netpolling/scan/os.log", "r")
-        tmp = rep.read()
-        print tmp
-        system = ''
+        cmd = os.popen("nmap -O "+ip)
+        to = cmd.readlines()
+        i = 0
+        system = "Unknown"
+        while i < len(to):
+            if re.search(".*Linux.*", to[i], re.IGNORECASE):
+                system = "Linux"
+                break
+            if re.search(".*Windows.*", to[i], re.IGNORECASE):
+                system = "Windows"
+                break
+            if re.search(".*Mac.*", to[i], re.IGNORECASE):
+                system = "Mac"
+                break
+            i += 1
+
         return system
 
     def GetHostName(self):
@@ -99,6 +89,7 @@ class LocalScan:
         """
         GetRoute :
         """
+        traceroute("8.8.8.8")
         return
 
 if __name__ == "__main__":
@@ -107,5 +98,6 @@ if __name__ == "__main__":
     #l = scan.GetIp()
     #print l
     #print scan.GetMac(l[0]["ip"])
-    print scan.GetIpMac()
-    #print scan.GetOS("192.168.0.")
+    #scan.GetIpMac()
+    #print scan.net
+    print scan.GetOS("10.8.111.153")
