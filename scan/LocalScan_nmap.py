@@ -20,7 +20,9 @@ class LocalScan:
         self.name = name
         self.interface = interface
         self.mask = mask
-        self.gw = ''
+        self.gw = self.GetGW()
+        self.route = []
+        self.GetRoute()
 
     def GetIpMac(self):
         """
@@ -88,7 +90,7 @@ class LocalScan:
     def GetGW(self):
         cmd = os.popen("route | grep default")
         cmd = cmd.read()
-        self.gw = list(set(cmd.split(' ')))[2]
+        self.gw = list(set(cmd.split(' ')))[3]
 
     def GetRoute(self):
         """
@@ -96,10 +98,13 @@ class LocalScan:
         """
         t = traceroute("8.8.8.8")
         i = 0
-        """while i < len(t):
-            if t[0][i][1].src ==
-            i += 1"""
-        return
+        path = list()
+        while i < len(t):
+            print t[0][i][1].src
+            self.route.append(t[0][i][1].src)
+            if t[0][i][1].src == self.gw:
+                break
+            i += 1
 
 if __name__ == "__main__":
     scan = LocalScan('home', '10.8.96.0/20', 'eth0')
@@ -109,4 +114,8 @@ if __name__ == "__main__":
     #print scan.GetMac(l[0]["ip"])
     #scan.GetIpMac()
     #print scan.net
-    print scan.GetOS("10.8.111.153")
+    #print scan.GetOS("10.8.111.153")
+    #scan.GetGW()
+    #print scan.gw
+    #scan.GetRoute()
+    print scan.route
