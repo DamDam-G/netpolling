@@ -3,19 +3,33 @@
 from scapy.all import *
 import os
 import re
-#from scapy.modules.nmap import *
-"""
-@package docstring
-This file contain the class : LocalScan
-"""
 
 class LocalScan:
-    """
-    LocalScan :
-    @param - net : this variable contain the pattern of the network (ex : 192.168.0.* or 10.8.12.* for netmask /24)
+    """!
+    @author Damien Goldenberg
+    @name LocalScan
+    @brief This class allows to scan a local network
+    @param - net : this variable contain a list with some dictionary who represent machines up (contain ip, mac, hostname, os)
     @param - name : this variable contain the name for identify the scan in the database
+    @param - mask : this variable contain the pattern of the network (ex : 192.168.0.0/24 or 10.8.96.0/20)
+    @param - interface : this variable contain the network interface on the app works
+    @param - gw : this variable contain the gateway of the network
+    @param - route : this variable the path to go to the gateway
+    @version V-2.0
+    @copyright GNU GPL V-3
     """
     def __init__(self, name, mask, interface):
+        """!
+        @author Damien Goldenberg
+        @name __init__
+        @brief This function initializes the object
+        @param - self : this is a variable that represents the current object
+        @param - name : this variable contain the name for identify the scan in the database
+        @param - mask : this variable contain the pattern of the network (ex : 192.168.0.0/24 or 10.8.96.0/20)
+        @param - interface : this variable contain the network interface on the app works
+        @version V-2.0
+        @copyright GNU GPL V-3
+        """
         self.net = []
         self.name = name
         self.interface = interface
@@ -26,9 +40,13 @@ class LocalScan:
         self.GetRoute()
 
     def GetIpMac(self):
-        """
-        GetIp :
-        @details This method scans the network to get adresses ip of all machines
+        """!
+        @author Damien Goldenberg
+        @name GetIp
+        @brief This method scans the network to get addresses ip and mac of all machines up
+        @param - self : this is a variable that represents the current object
+        @version V-1.0
+        @copyright GNU GPL V-3
         """
         n = list()
         conf = os.popen("ifconfig "+self.interface)
@@ -54,14 +72,25 @@ class LocalScan:
         self.net = n
 
     def GetDevice(self):
-        """
-        GetDevice :
+        """!
+        @author
+        @name GetDevice
+        @brief This method to get the device of a machine
+        @param - self : this is a variable that represents the current object
+        @version V-0
+        @copyright GNU GPL V-3
         """
         return
 
     def GetOS(self, ip):
-        """
-        GetOS :
+        """!
+        @author Damien Goldenberg
+        @name GetOS
+        @brief This method scans a machine to get the os
+        @param - self : this is a variable that represents the current object
+        @param - ip : this is variable represents the address ip of the machine that would like to scan
+        @version V-0.1
+        @copyright GNU GPL V-3
         """
         #nmap -sV --version-all
         cmd = os.popen("nmap -O "+ip)
@@ -83,20 +112,38 @@ class LocalScan:
         return system
 
     def GetHostName(self):
+        """!
+        @author
+        @name GetHostName
+        @brief This method try to get the hostname of the machine
+        @param - self : this is a variable that represents the current object
+        @version V-0
+        @copyright GNU GPL V-3
         """
-        GetHostName :
-        """
-        # utiliser nslookup /host à test (il faut un servuer dns voir ce que ça donne à l'école
+
         return
 
     def GetGW(self):
+        """!
+        @author Damien Goldenberg
+        @name GetGW
+        @brief This method get the gateway of the network
+        @param - self : this is a variable that represents the current object
+        @version V-0.1
+        @copyright GNU GPL V-3
+        """
         cmd = os.popen("route | grep default")
         cmd = cmd.read()
         self.gw = list(set(cmd.split(' ')))[3]
 
     def GetRoute(self):
-        """
-        GetRoute :
+        """!
+        @author Damien Goldenberg
+        @name GetRoute
+        @brief This method analyze what is the route take of machines in this network
+        @param - self : this is a variable that represents the current object
+        @version V-0.1
+        @copyright GNU GPL V-3
         """
         t = traceroute("8.8.8.8")
         i = 0
