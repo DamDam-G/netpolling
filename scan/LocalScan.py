@@ -19,7 +19,7 @@ class LocalScan:
     @copyright GNU GPL V-3
     """
     def __init__(self, name, mask, interface):
-        """!
+        """
         @author Damien Goldenberg
         @name __init__
         @brief This function initializes the object
@@ -27,7 +27,7 @@ class LocalScan:
         @param - name : this variable contain the name for identify the scan in the database
         @param - mask : this variable contain the pattern of the network (ex : 192.168.0.0/24 or 10.8.96.0/20)
         @param - interface : this variable contain the network interface on the app works
-        @version V-2.0
+        @version V-0.4
         @copyright GNU GPL V-3
         """
         self.net = []
@@ -77,7 +77,7 @@ class LocalScan:
         @name GetDevice
         @brief This method to get the device of a machine
         @param - self : this is a variable that represents the current object
-        @version V-0
+        @version V-0.0
         @copyright GNU GPL V-3
         """
         return
@@ -87,8 +87,9 @@ class LocalScan:
         @author Damien Goldenberg
         @name GetOS
         @brief This method scans a machine to get the os
-        @param - self : this is a variable that represents the current object
-        @param - ip : this is variable represents the address ip of the machine that would like to scan
+        @param[in] - self : this is a variable that represents the current object
+        @param[in] - ip : this is variable represents the address ip of the machine that would like to scan
+        @param[out] - system : this variable contain the type of os (windows, linux, mac)
         @version V-0.1
         @copyright GNU GPL V-3
         """
@@ -117,7 +118,7 @@ class LocalScan:
         @name GetHostName
         @brief This method try to get the hostname of the machine
         @param - self : this is a variable that represents the current object
-        @version V-0
+        @version V-0.0
         @copyright GNU GPL V-3
         """
 
