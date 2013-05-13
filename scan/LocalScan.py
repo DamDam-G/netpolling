@@ -7,6 +7,7 @@ import re
 class LocalScan:
     """!
     @author Damien Goldenberg
+    @file LocalScan.py
     @name LocalScan
     @brief This class allows to scan a local network
     @param - net : this variable contain a list with some dictionary who represent machines up (contain ip, mac, hostname, os)
@@ -19,9 +20,10 @@ class LocalScan:
     @copyright GNU GPL V-3
     """
     def __init__(self, name, mask, interface):
-        """
+        """!
         @author Damien Goldenberg
         @name __init__
+        @fn __init__(self, name, mask, interface)
         @brief This function initializes the object
         @param - self : this is a variable that represents the current object
         @param - name : this variable contain the name for identify the scan in the database
@@ -49,22 +51,21 @@ class LocalScan:
         @copyright GNU GPL V-3
         """
         n = list()
-        conf = os.popen("ifconfig "+self.interface)
-        conf = conf.readlines()
+        conf = (os.popen("ifconfig "+self.interface)).readlines()
+        #conf = conf.readlines()
         myconf = {'ip':((conf[1].split(":"))[1].split(" "))[0], 'mac': ((conf[0].split("HWaddr"))[1].split(" "))[1]}
-        cmd = os.popen("nmap -sP "+self.mask)
-        to = cmd.readlines()
+        cmd = (os.popen("nmap -sP "+self.mask)).readlines()
+        #to = cmd.readlines()
         i = 0
-        print to
-        while i < len(to):
-            if re.match("Nmap scan report for \d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}", to[i]):
-                if re.match((to[i].split(" "))[4].replace("\n", ""), myconf["ip"]):
+        while i < len(cmd):
+            if re.match("Nmap scan report for \d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}", cmd[i]):
+                if re.match((cmd[i].split(" "))[4].replace("\n", ""), myconf["ip"]):
                     n.append({"mac": myconf["mac"], "ip": myconf["ip"], "device": None, "os": None, "hostname": None})
                 else:
-                    ip = (to[i].split(" "))[4].replace("\n", " ")
+                    ip = (cmd[i].split(" "))[4].replace("\n", " ")
                     i += 2
-                    if re.match("MAC Address: [A-F0-9]{2}:[A-F0-9]{2}:[A-F0-9]{2}:[A-F0-9]{2}:[A-F0-9]{2}:[A-F0-9]{2}", to[i]):
-                        mac = (to[i].split(" "))[2]
+                    if re.match("MAC Address: [A-F0-9]{2}:[A-F0-9]{2}:[A-F0-9]{2}:[A-F0-9]{2}:[A-F0-9]{2}:[A-F0-9]{2}", cmd[i]):
+                        mac = (cmd[i].split(" "))[2]
                     else:
                         mac = None
                     n.append({"mac": mac, "ip": ip, "device": None, "os": None, "hostname": None})
@@ -94,18 +95,18 @@ class LocalScan:
         @copyright GNU GPL V-3
         """
         #nmap -sV --version-all
-        cmd = os.popen("nmap -O "+ip)
-        to = cmd.readlines()
+        cmd = (os.popen("nmap -O "+ip)).readlines()
+        #to = cmd.readlines()
         i = 0
         system = "Unknown"
-        while i < len(to):
-            if re.search(".*Linux.*", to[i], re.IGNORECASE):
+        while i < len(cmd):
+            if re.search(".*Linux.*", cmd[i], re.IGNORECASE):
                 system = "Linux"
                 break
-            if re.search(".*Windows.*", to[i], re.IGNORECASE):
+            if re.search(".*Windows.*", cmd[i], re.IGNORECASE):
                 system = "Windows"
                 break
-            if re.search(".*Mac.*", to[i], re.IGNORECASE):
+            if re.search(".*Mac.*", cmd[i], re.IGNORECASE):
                 system = "Mac"
                 break
             i += 1
@@ -151,7 +152,6 @@ class LocalScan:
         path = list()
         print "gw = "+self.gw
         while i < len(t):
-            print t[0][i][1].src+" = "+self.gw
             self.route.append(t[0][i][1].src)
             if t[0][i][1].src == self.gw:
                 break
@@ -163,11 +163,11 @@ if __name__ == "__main__":
     #l = scan.GetIp()
     #print l
     #print scan.GetMac(l[0]["ip"])
-    #scan.GetIpMac()
-    #print scan.net
+    scan.GetIpMac()
+    print scan.net
     #print scan.GetOS("10.8.111.153")
     #scan.GetGW()
     #print scan.gw
     #scan.GetRoute()
-    print "gw = "+scan.gw
-    print scan.route
+   # print "gw = "+scan.gw
+    #print scan.route

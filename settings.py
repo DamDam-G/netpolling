@@ -1,6 +1,8 @@
 # Django settings for netpolling project.
 
-USER = "pwned"
+import os
+
+USER = (os.popen("echo $USER").read()).replace("\n", "")
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
@@ -128,7 +130,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'netpolling.iw',
     'netpolling.scan',
-    'netpolling.scripts',
+    #'netpolling.scripts',
     # Uncomment the next line to enable the admin:
     # 'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:

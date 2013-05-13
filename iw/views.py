@@ -1,9 +1,10 @@
 #-*- coding: utf-8 -*-
 
+import json
 from django.shortcuts import render, render_to_response
 from django.http import HttpResponse
 from models import *
-import json
+
 
 def Index(request):
     """
