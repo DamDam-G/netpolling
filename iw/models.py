@@ -4,8 +4,9 @@ from django.db import models
 
 class ScanParam(models.Model):
     id = models.AutoField(primary_key=True)
-    ip = models.BooleanField()
-    mac = models.BooleanField()
+    name = models.TextField()
+    netmask = models.TextField()
+    interface = models.TextField()
     os = models.BooleanField()
     hostname = models.BooleanField()
     type = models.IntegerField()
