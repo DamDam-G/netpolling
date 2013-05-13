@@ -8,6 +8,7 @@ class ScanParam(models.Model):
     netmask = models.TextField()
     interface = models.TextField()
     os = models.BooleanField()
+    device = models.BooleanField()
     hostname = models.BooleanField()
     type = models.IntegerField()
 

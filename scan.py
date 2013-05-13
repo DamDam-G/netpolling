@@ -19,9 +19,11 @@ def DoScan(type):
     param = ScanParam.objects.get(type=type)
     scan = LocalScan(param.name, param.netmask, param.interface)
     scan.GetIpMac()
-    if param.os == 1 or param.device == 1:
+    if param.os == 1 or param.device == 1 or param.hostname == 1:
         for scan.net in m:
             if param.os == 1:
                 m["os"] = scan.GetOS(m["ip"])
             if param.device == 1:
                 m["device"] = scan.Getdevice()
+            if param.hostname == 1:
+                m["device"] = scan.GetHostName()

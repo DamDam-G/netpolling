@@ -98,8 +98,10 @@ def AjaxForm(request, id):
                 if request.POST.get("type") == "local" or request.POST.get("type") == "extern":
                     t = 0 if request.POST.get("type") == "local" else 1
                     r = ScanParam.objects.filter(type=t)
-                    r.update(ip=1 if request.POST.get("ip") else 0)
-                    r.update(mac=1 if request.POST.get("mac") else 0)
+                    r.update(request.POST.get("name"))
+                    r.update(request.POST.get("netmask"))
+                    r.update(request.POST.get("interface"))
+                    r.update(device=1 if request.POST.get("device") else 0)
                     r.update(os=1 if request.POST.get("os") else 0)
                     r.update(hostname=1 if request.POST.get("name") else 0)
                     param = {'success':1, 'why':'Les paramétres ont bien été enregistré'}
