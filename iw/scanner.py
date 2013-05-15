@@ -20,7 +20,7 @@ def DoScan(t):
     scan = LocalScan(param.name, param.netmask, param.interface)
     scan.GetIpMac()
     if param.os == 1 or param.device == 1 or param.hostname == 1:
-        for scan.net in m:
+        for m in scan.net:
             if param.os == 1:
                 m["os"] = scan.GetOS(m["ip"])
             if param.device == 1:
