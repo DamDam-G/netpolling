@@ -25,7 +25,7 @@
                                         <input id="l-interface" value="{{ t.interface }}" name="interface" type="text">&nbsp&nbsp<label class="label">Interface réseau</label><br />
                                         <input id="l-os"{% if t.os == True %} checked="checked" {% endif %} name="os" type="checkbox">&nbsp&nbsp<label class="label">Système d'exploitation</label><br />
                                         <input id="l-device"{% if t.device == True %} checked="checked" {% endif %} name="device" type="checkbox">&nbsp&nbsp<label class="label">Device</label><br />
-                                        <input id="l-name"{% if t.hostname == True %} checked="checked" {% endif %} name="name" type="checkbox">&nbsp&nbsp<label class="label">Nom de la machine</label><br />
+                                        <input id="l-name"{% if t.hostname == True %} checked="checked" {% endif %} name="hostname" type="checkbox">&nbsp&nbsp<label class="label">Nom de la machine</label><br />
                                     {% endif %}
                                 {% endfor %}
                                 <button type="submit" class="btn btn-info">Mettre à jour</button>
@@ -50,7 +50,7 @@
                                         <input id="e-interface" value="{{ t.interface }}" name="interface" type="text">&nbsp&nbsp<label class="label">Interface réseau</label><br />
                                         <input id="e-os"{% if t.os == True %} checked="checked" {% endif %} name="os" type="checkbox">&nbsp&nbsp<label class="label">Système d'exploitation</label><br />
                                         <input id="e-device"{% if t.device == True %} checked="checked" {% endif %} name="device" type="checkbox">&nbsp&nbsp<label class="label">Device</label><br />
-                                        <input id="e-name"{% if t.hostname == True %} checked="checked" {% endif %} name="name" type="checkbox">&nbsp&nbsp<label class="label">Nom de la machine</label><br />
+                                        <input id="e-name"{% if t.hostname == True %} checked="checked" {% endif %} name="hostname" type="checkbox">&nbsp&nbsp<label class="label">Nom de la machine</label><br />
                                     {% endif %}
                                 {% endfor %}
                                 <button type="submit" class="btn btn-info">Mettre à jour</button>

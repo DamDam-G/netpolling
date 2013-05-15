@@ -1,4 +1,4 @@
-from iw.models import *
+from models import *
 from scan.LocalScan import *
 
 def WriteCron():
@@ -7,7 +7,7 @@ def WriteCron():
 def SaveScan(scan):
     return True
 
-def DoScan(type):
+def DoScan(t):
     """!
     @author Damien Goldenberg
     @name DoScan
@@ -16,7 +16,7 @@ def DoScan(type):
     @version V-0.1
     @copyright GNU GPL V-3
     """
-    param = ScanParam.objects.get(type=type)
+    param = ScanParam.objects.get(type=t)
     scan = LocalScan(param.name, param.netmask, param.interface)
     scan.GetIpMac()
     if param.os == 1 or param.device == 1 or param.hostname == 1:
@@ -27,3 +27,8 @@ def DoScan(type):
                 m["device"] = scan.Getdevice()
             if param.hostname == 1:
                 m["device"] = scan.GetHostName()
+    return scan
+
+if __name__ == "__main__":
+    s = DoScan(0)
+    print s.net

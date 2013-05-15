@@ -4,6 +4,7 @@ import json
 from django.shortcuts import render, render_to_response
 from django.http import HttpResponse
 from models import *
+from scanner import *
 
 
 def Index(request):
@@ -98,12 +99,12 @@ def AjaxForm(request, id):
                 if request.POST.get("type") == "local" or request.POST.get("type") == "extern":
                     t = 0 if request.POST.get("type") == "local" else 1
                     r = ScanParam.objects.filter(type=t)
-                    r.update(request.POST.get("name"))
-                    r.update(request.POST.get("netmask"))
-                    r.update(request.POST.get("interface"))
+                    r.update(name=request.POST.get("name"))
+                    r.update(netmask=request.POST.get("mask"))
+                    r.update(interface=request.POST.get("interface"))
                     r.update(device=1 if request.POST.get("device") else 0)
                     r.update(os=1 if request.POST.get("os") else 0)
-                    r.update(hostname=1 if request.POST.get("name") else 0)
+                    r.update(hostname=1 if request.POST.get("hostname") else 0)
                     param = {'success':1, 'why':'Les paramétres ont bien été enregistré'}
                 else:
                     param = {'success':0, 'why':'error : type scan'}
@@ -126,3 +127,6 @@ def AjaxForm(request, id):
             return render_to_response('error.html', {'type':'error post'})
         return HttpResponse(json.dumps(param))
     return render_to_response('error.html', {'type':'error ajax'})
+
+def Scan(request):
+    print DoScan(0)
