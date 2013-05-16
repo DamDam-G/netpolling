@@ -26,9 +26,14 @@ def WriteCron(time):
             fd.close()
 
 
-def SaveScan(obj):
-    r =
-    pass
+def SaveScan(lobj):
+    for obj in lobj:
+        (Interface(id_machine=Machine(name=obj.hostname,
+                                    device=Device.objects.filter(name=obj.device),
+                                    os=OS.objects.filter(name=obj.os)),
+                    ip=obj.ip,
+                    mac=obj.mac,
+                    gw=Route.objects.filter(gw=obj.gw))).save()
 
 def DoScan(t):
     """!
