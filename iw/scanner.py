@@ -1,11 +1,34 @@
 from models import *
 from scan.LocalScan import *
+import os
+import re
 
-def WriteCron():
-    return True
+def WriteCron(time):
+    """commentaire temporaire
+    time : temps entre chaque scan
+    @param time:
+    @return:
+    """
+    cron = (os.popen('cat /etc/crontab')).read()
+    if time:
+        #calcul du temps pour les crontab
+        t = 0
+        #crontab pour mettre tout les scans les x temps
+        c = "*/"+str(t)+"* * * * root /opt/netpolling/netpolling/iw/scanner.py"
+        fd = open("/etc/crontab", "w")
+        if re.match("\*\/1 +\* +\* +\* +\* +root +\/opt\/netpolling\/netpolling\/iw\/scanner.py", cron):
+            re.sub(r"("+cron+")", r" \1 ", c)
+            fd.write(cron)
+            fd.close()
+        else:
+            fd = open("/etc/crontab", "w")
+            fd.write(cron+"\n"+c+"\n")
+            fd.close()
 
-def SaveScan(scan):
-    return True
+
+def SaveScan(obj):
+    r =
+    pass
 
 def DoScan(t):
     """!
