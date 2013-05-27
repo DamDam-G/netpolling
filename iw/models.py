@@ -11,6 +11,7 @@ class ScanParam(models.Model):
     device = models.BooleanField()
     hostname = models.BooleanField()
     type = models.IntegerField()
+    up = models.BooleanField()
 
 class Screenshot(models.Model):
     id = models.AutoField(primary_key=True)
