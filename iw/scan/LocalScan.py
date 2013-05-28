@@ -3,6 +3,7 @@
 from scapy.all import *
 import os
 import re
+import json
 
 class LocalScan:
     """!
@@ -157,14 +158,38 @@ class LocalScan:
                 break
             i += 1
 
+    def GetNetwork(self, opt):
+        """!
+        @author Damien Goldenberg
+        @name GetRoute
+        @brief This method analyze what is the route take of machines in this network
+        @param - self : this is a variable that represents the current object
+        @param - opt : this is a variable that represents the form of the return
+        @version V-0.1
+        @copyright GNU GPL V-3
+        """
+        n = {'gw':self.gw, 'route':self.route, 'net':self.net}
+        if opt == 0:
+            return n
+        elif opt == 1:
+            return json.dumps(n)
+        else:
+            print "[ERROR] GetNetwork(self, opt) : opt must equal 0 (dict) or 1 (json)"
+
+
 if __name__ == "__main__":
-    scan = LocalScan('home', '10.8.96.0/20', 'eth0')
-    #scan = LocalScan('home', '192.168.0.*', 'eth0')
+    #scan = LocalScan('home', '10.8.96.0/20', 'eth0')
+    scan = LocalScan('home', '192.168.0.0/24', 'eth0')
     #l = scan.GetIp()
     #print l
     #print scan.GetMac(l[0]["ip"])
     scan.GetIpMac()
     print scan.net
+    print "\n____________________________________________\n"
+    print json.dumps(scan.net)
+    print "\n____________________________________________\n"
+    n = {'gw':scan.gw, 'route':scan.route, 'net':scan.net}
+    print scan.GetNetwork(1)
     #print scan.GetOS("10.8.111.153")
     #scan.GetGW()
     #print scan.gw

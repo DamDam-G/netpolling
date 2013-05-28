@@ -1,5 +1,8 @@
 #!/bin/bash
 
-cd /home/damien/netpolling/netpolling/iw/
+PYTHONPATH="${PYTHONPATH}:/home/pwned/netpolling"
+export PYTHONPATH
+
+#python /home/damien/netpolling/netpolling/iw/wrapper.py
 export DJANGO_SETTINGS_MODULE=netpolling.settings
-python ./scanner.py
+python /home/pwned/netpolling/netpolling/iw/scanner.py
