@@ -7,15 +7,8 @@ def WriteCron():
     """commentaire temporaire
     @return:
     """
-    cron = (os.popen('cat /etc/crontab')).read() # doit changer pour un tableau
-    c = "*/1 * * * * root /opt/netpolling/netpolling/iw/scanner.py"
-    fd = open("/etc/crontab", "w")
-    #if re.match("\*\/1 +\* +\* +\* +\* +root +\/opt\/netpolling\/netpolling\/iw\/scanner.py", cron):
-    if re.match("#\*/1 +\* +\* +\* +\* +root +/opt/netpolling/netpolling/iw/scanner.py", cron) or not(re.match("\*/1 +\* +\* +\* +\* +root +/opt/netpolling/netpolling/iw/scanner.py", cron)):
-        #re.sub(r"("+cron+")", r" \1 ", c)
-        fd.write(cron+"\n"+c+"\n#")
-    fd.close()
-
+    path = "/home/damien/netpolling/netpolling/iw/scripts/"
+    os.popen(path+"cron.pl")
 
 def SaveScan(lobj):
     for obj in lobj:
@@ -44,7 +37,7 @@ def DoScan(t):
                 if param.os == 1:
                     m["os"] = scan.GetOS(m["ip"])
                 if param.device == 1:
-                    m["device"] = scan.Getdevice()
+                    m["device"] = scan.GetDevice()
                 if param.hostname == 1:
                     m["device"] = scan.GetHostName()
         return scan
@@ -52,5 +45,7 @@ def DoScan(t):
         return 1
 
 if __name__ == "__main__":
+    #os.environ['DJANGO_SETTINGS_MODULE'] = 'netpolling.settings'
+    print (os.popen("echo $DJANGO_SETTINGS_MODULE")).read()
     s = DoScan(0)
     print s.net
