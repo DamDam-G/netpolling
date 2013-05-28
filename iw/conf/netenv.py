@@ -1,0 +1,7 @@
+path = "/opt/netpolling/netpolling/"
+iw = path+"iw"
+scripts = iw+"/scripts/"
+conf = iw+"/conf/"
+templates = iw+"/templates/"
+public = iw+"/public/"
+db = path+"netpolling.sql"

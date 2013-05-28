@@ -5,6 +5,7 @@ from django.shortcuts import render, render_to_response
 from django.http import HttpResponse
 from models import *
 from scanner import *
+import conf.netenv as ENV
 
 
 def Index(request):
@@ -129,7 +130,7 @@ def AjaxForm(request, id):
     return render_to_response('error.html', {'type':'error ajax'})
 
 def Scan(request):
-    fd = open("conf/network.json", "r")
+    fd = open(ENV.conf+"network.json", "r")
     network = fd.read()
     fd.close()
     return HttpResponse(network)
