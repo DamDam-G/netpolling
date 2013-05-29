@@ -26,8 +26,8 @@ $(window).load((function()
                         return cookieValue;
                     }
 
-                   function Form(e)
-                   {
+                    function Form(e)
+                    {
                         e.preventDefault();
                         $.ajax({
                             type: 'post',
@@ -52,7 +52,25 @@ $(window).load((function()
                                             $("#info").html('<div class="alert alert-warning"><button type="button" class="close" data-dismiss="alert">×</button>La requête n\'a pas pu aboutir</div>');
                                       }
                                 });
-                   }
+                    }
+
+                    function Device(ip, mac, device, os, hostname, x, y)
+                    {
+
+                    }
+
+                    function Connector(ip, mac, bw)
+                    {
+
+                    }
+
+                    function Map(obj)
+                    {
+                        for(var i = 0; i < obj.length; i++)
+                        {
+
+                        }
+                    }
 
                     $("a.menu").on("click", function()
                                                {
@@ -94,7 +112,9 @@ $(window).load((function()
                                             {
                                                 $('canvas').attr("width", $(window).width()*0.75);
                                             });
-
+                    /*$("#cartoConnector").attr('position', 'relative')
+                    $("#cartoConnector").attr('top', $("#cartoDevice").offset().top)
+                    $("#cartoConnector").attr('left', $("#cartoDevice").offset().left)*/
                     var id;
                     var csrftoken = GetCookie('csrftoken');
                     $('canvas').attr("width", $(window).width()*0.75);

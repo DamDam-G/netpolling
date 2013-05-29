@@ -11,9 +11,27 @@ input
     box-shadow:0px 0px 25px black;
 }
 
-#carto
+#cartoDevice, #cartoConnector
 {
+    //position:relative;
     border:solid #000000 2px;
     background-color:#EEEEEE;
     border-radius:15px;
+}
+
+.layer
+{
+    position:absolute;
+    top:15%;
+    left:15%
+}
+
+#cartoConnector
+{
+    z-index:0;
+}
+
+#cartoDevice
+{
+    z-index:1;
 }

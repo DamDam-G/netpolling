@@ -54,7 +54,8 @@
         {% block content %}
         <div id="main">
             <center>
-                <canvas id="carto" width="780" height="650"></canvas>
+                <canvas id="cartoDevice" class="layer" width="780" height="650"></canvas>
+                <canvas id="cartoConnector" class="layer" width="780" height="650"></canvas>
             </center>
         </div>
         {% endblock %}
@@ -69,6 +70,7 @@
         {% endblock %}
         <!--<script src="http://code.jquery.com/jquery.js"></script>-->
         <script src="/public/js/jquery-2.0.0.min.js"></script>
+        <script src="/public/js/jcanvas.min.js"></script>
         <script src="/public/bootstrap/js/bootstrap.min.js"></script>
         <script src="/public/js/net.js"></script>
     </body>
