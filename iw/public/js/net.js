@@ -63,22 +63,80 @@ $(window).load((function()
                         return Math.floor(Math.random() * (max - min + 1) + min);
                     }
 
+                    function Device(img, context, x, y)
+                    {
+                        this.img = "/public/img/device/"+img+".svg";
+                        this.context = context;
+                        this.x = x;
+                        this.y = y;
+                        this.draw = function()
+                                    {
+                                        this.context.image(this.img, this.x, this.y, 100, 100).scale(0.5, 0.5).click(function(){ $("#option").modal("show"); });
+                                    }
+                    }
+
                     function Map(obj)
                     {
+                        var n = Raphael(300, 300, $(window).width(), $(window).height());
+                        var center = {x: $(window).height(), y:$(window).width()/4};
+                        var radius = 200;
+                        var pi = Math.PI
+                        /*var x = center.x + radius;
+                        var y = center.y - radius/2;*/
+                        var x = 50;
+                        var y = 50;
                         for(var i = 0; i < obj.net.length; i++)
                         {
+                            x = (Math.cos(2 * i * pi / obj.net.length))*radius;
+                        	y = Math.sin(2 * i * pi / obj.net.length)*radius;
+                            t = new Device("computer", n, x, y);
+                            t.draw();
+
+                            //var c = n.image("/public/img/device/computer.svg", 50+i*50, 50+i*50, 80, 80).click(function(){ $("#option").modal("show"); });
+                            /*var img = new Image()
+                            img.src = "/public/img/computer.png"
+                            img.onload= function()
+                                        {
+                                            jc.start("#cartoDevice");
+                                            jc.image(img,100,100);
+                                            //jc.start(idCanvas);
+                                        };*/
+
+                           /* var canvas = new fabric.Canvas('cartoDevice');
+                            //canvas.className = "DesignCanvas";
+                            var img = new Image()
+                            img.src = "/public/img/computer.png"
+                            var imgInstance = new fabric.Image(img, {
+                              left: 50+(i*20),
+                              top: 50+(i*20)
+                            });
+                            canvas.add(imgInstance);*/
+                            /*$("canvas").drawPolygon({
+                                layer: true,
+                                fillStyle: "#c33",
+                                x: 50+(i*60), y: 50+(i*60),
+                                radius: 60,
+                                sides: 6,
+                                projection: -0.5,
+                                click: function()
+                                        {
+                                            console.log("a");
+                                        }
+                              });/*
                             $("#cartoDevice").drawImage({
-                                                    id:0,
                                                     layer:true,
-                                                    source: "/public/img/computer.png",
-                                                    x: rand(50, 200),
-                                                    y: rand(50, 200),
-                                                    draggable:true,
+                                                    //source: "/public/img/computer.png",
+                                                    source: "/public/img/test.svg",
+                                                    scale:0.5,
+                                                    x: 50+(i*100),
+                                                    y: 50+(i*100),
                                                     click: function(layer)
                                                             {
-                                                                $("#option").modal("show");
+                                                                console.log("a");
+                                                                //$("#option").modal("show");
                                                             }
-                                                });
+                                                });*/
+
                         }
                     }
 
@@ -149,7 +207,7 @@ $(window).load((function()
 
                     $(window).on("resize", function()
                                             {
-                                                $('canvas').attr("width", $(window).width()*0.75);
+                                                //$('canvas').attr("width", $(window).width()*0.75);
                                             });
                     /*$("#cartoConnector").attr('position', 'relative')
                     $("#cartoConnector").attr('top', $("#cartoDevice").offset().top)
@@ -159,6 +217,7 @@ $(window).load((function()
                     var network = LoadJson(0);
                     //var bw = LoadJson(1);
                     //console.log("global = "+network)
-                    $('canvas').attr("width", $(window).width()*0.75);
+                    //$('canvas').attr("width", $(window).width()*0.75);
+                    $('svg').attr("style", "border:solid #000000 2px;");
                 })());
 
