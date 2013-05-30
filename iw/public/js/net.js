@@ -54,22 +54,61 @@ $(window).load((function()
                                 });
                     }
 
-                    function Device(ip, mac, device, os, hostname, x, y)
+                    function Bw(obj)
                     {
-
                     }
 
-                    function Connector(ip, mac, bw)
+                    function rand(min, max)
                     {
-
+                        return Math.floor(Math.random() * (max - min + 1) + min);
                     }
 
                     function Map(obj)
                     {
-                        for(var i = 0; i < obj.length; i++)
+                        for(var i = 0; i < obj.net.length; i++)
                         {
-
+                            $("#cartoDevice").drawImage({
+                                                    id:0,
+                                                    layer:true,
+                                                    source: "/public/img/computer.png",
+                                                    x: rand(50, 200),
+                                                    y: rand(50, 200),
+                                                    draggable:true,
+                                                    click: function(layer)
+                                                            {
+                                                                $("#option").modal("show");
+                                                            }
+                                                });
                         }
+                    }
+
+                    function LoadJson(id)
+                    {
+                        var json = $.ajax({
+                                            type: 'post',
+                                            headers:
+                                            {
+                                                "X-CSRFToken": csrftoken
+                                            },
+                                            url: id == 0? '/getscan/' : '/getbw/',
+                                            timeout: 3000,
+                                            success:function(data)
+                                                    {
+                                                        if(id == 0)
+                                                        {
+                                                            Map(JSON.parse(data));
+                                                        }
+                                                        else
+                                                        {
+                                                            Bw(JSON.parse(data));
+                                                        }
+                                                    },
+                                            error: function()
+                                                    {
+                                                        alert('La requête n\'a pas abouti');
+                                                    }
+                                           });
+                        return json
                     }
 
                     $("a.menu").on("click", function()
@@ -117,6 +156,9 @@ $(window).load((function()
                     $("#cartoConnector").attr('left', $("#cartoDevice").offset().left)*/
                     var id;
                     var csrftoken = GetCookie('csrftoken');
+                    var network = LoadJson(0);
+                    //var bw = LoadJson(1);
+                    //console.log("global = "+network)
                     $('canvas').attr("width", $(window).width()*0.75);
                 })());
 

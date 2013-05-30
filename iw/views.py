@@ -129,7 +129,7 @@ def AjaxForm(request, id):
         return HttpResponse(json.dumps(param))
     return render_to_response('error.html', {'type':'error ajax'})
 
-def Scan(request):
+def GetScan(request):
     fd = open(ENV.conf+"network.json", "r")
     network = fd.read()
     fd.close()

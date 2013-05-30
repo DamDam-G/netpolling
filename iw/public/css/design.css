@@ -14,8 +14,6 @@ input
 #cartoDevice, #cartoConnector
 {
     //position:relative;
-    border:solid #000000 2px;
-    background-color:#EEEEEE;
     border-radius:15px;
 }
 
@@ -29,9 +27,11 @@ input
 #cartoConnector
 {
     z-index:0;
+    border:solid #000000 2px;
+    background-color:#EEEEEE;
 }
 
 #cartoDevice
 {
-    z-index:1;
+     z-index:1;
 }
