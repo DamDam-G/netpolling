@@ -26,6 +26,12 @@ $(window).load((function()
                         return cookieValue;
                     }
 
+                    function WriteModal(idModal, idDisplay, data)
+                    {
+                        $(idDisplay).html(data);
+                        $(idModal).modal("show");
+                    }
+
                     function Form(e)
                     {
                         e.preventDefault();
@@ -58,11 +64,6 @@ $(window).load((function()
                     {
                     }
 
-                    function rand(min, max)
-                    {
-                        return Math.floor(Math.random() * (max - min + 1) + min);
-                    }
-
                     function Device(img, context, x, y)
                     {
                         this.img = "/public/img/device/"+img+".svg";
@@ -71,72 +72,38 @@ $(window).load((function()
                         this.y = y;
                         this.draw = function()
                                     {
-                                        this.context.image(this.img, this.x, this.y, 100, 100).scale(0.5, 0.5).click(function(){ $("#option").modal("show"); });
+                                        this.context.image(this.img, this.x, this.y, 100, 100).scale(0.5, 0.5).click(function()
+                                                                                                                        {
+                                                                                                                            var data = '<table><tr><td><label class="label">IP</label></td></tr><tr><td><label class="label">IP : </label></td><td>bla bla bla</td></tr><tr><td><label class="label">MAC : </label></td></td><td>bla bla bla</td></tr><tr><td><label class="label">OS : </label></td></td><td>bla bla bla</td></tr></table>';
+                                                                                                                            WriteModal("#option", "#dispopt", data);
+                                                                                                                        });
                                     }
                     }
 
                     function Map(obj)
                     {
-                        var n = Raphael(300, 300, $(window).width(), $(window).height());
-                        var center = {x: $(window).height(), y:$(window).width()/4};
-                        var radius = 200;
+                        var coef = 70;
+                        var n = Raphael(document.getElementById('main'), 900, 600);
+                        var center = {x: ($("#main").width()/2)-coef, y:($("#main").height()/2)-coef};
+                        var radius = 300;
                         var pi = Math.PI
                         /*var x = center.x + radius;
                         var y = center.y - radius/2;*/
-                        var x = 50;
-                        var y = 50;
+                        var x = center.x;
+                        var y = center.y;
+                        var angleRad;
+                        var angle = 0;
+                        var dist = 360/obj.net.length;
+                        t = new Device("router", n, x, y);
+                        t.draw();
                         for(var i = 0; i < obj.net.length; i++)
                         {
-                            x = (Math.cos(2 * i * pi / obj.net.length))*radius;
-                        	y = Math.sin(2 * i * pi / obj.net.length)*radius;
+                            angleRad = angle/180*Math.PI
+                            x=((radius/2)+(radius/2)*Math.cos(angleRad))+center.x - radius +130;
+                            y=((radius/2)+(radius/2)*Math.sin(angleRad))+center.y - radius +130;
                             t = new Device("computer", n, x, y);
                             t.draw();
-
-                            //var c = n.image("/public/img/device/computer.svg", 50+i*50, 50+i*50, 80, 80).click(function(){ $("#option").modal("show"); });
-                            /*var img = new Image()
-                            img.src = "/public/img/computer.png"
-                            img.onload= function()
-                                        {
-                                            jc.start("#cartoDevice");
-                                            jc.image(img,100,100);
-                                            //jc.start(idCanvas);
-                                        };*/
-
-                           /* var canvas = new fabric.Canvas('cartoDevice');
-                            //canvas.className = "DesignCanvas";
-                            var img = new Image()
-                            img.src = "/public/img/computer.png"
-                            var imgInstance = new fabric.Image(img, {
-                              left: 50+(i*20),
-                              top: 50+(i*20)
-                            });
-                            canvas.add(imgInstance);*/
-                            /*$("canvas").drawPolygon({
-                                layer: true,
-                                fillStyle: "#c33",
-                                x: 50+(i*60), y: 50+(i*60),
-                                radius: 60,
-                                sides: 6,
-                                projection: -0.5,
-                                click: function()
-                                        {
-                                            console.log("a");
-                                        }
-                              });/*
-                            $("#cartoDevice").drawImage({
-                                                    layer:true,
-                                                    //source: "/public/img/computer.png",
-                                                    source: "/public/img/test.svg",
-                                                    scale:0.5,
-                                                    x: 50+(i*100),
-                                                    y: 50+(i*100),
-                                                    click: function(layer)
-                                                            {
-                                                                console.log("a");
-                                                                //$("#option").modal("show");
-                                                            }
-                                                });*/
-
+                            angle += dist;
                         }
                     }
 
@@ -186,8 +153,7 @@ $(window).load((function()
                                                        timeout: 3000,
                                                        success:function(data)
                                                                {
-                                                                   $("#dispopt").html(data);
-                                                                   $("#option").modal("show");
+                                                                   WriteModal("#option", "#dispopt", data);
                                                                    if (id == 0 || id == 1 || id == 2 || id == 4)
                                                                    {
                                                                        $("#form0").on("submit", Form);
