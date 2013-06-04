@@ -60,50 +60,82 @@ $(window).load((function()
                                 });
                     }
 
-                    function Bw(obj)
+                    function Device(ip, mac, os, device, context, x, y)
                     {
-                    }
-
-                    function Device(img, context, x, y)
-                    {
-                        this.img = "/public/img/device/"+img+".svg";
-                        this.context = context;
-                        this.x = x;
-                        this.y = y;
+                        var ip = ip;
+                        var mac = mac;
+                        var os = os;
+                        var device = device;
+                        var hostname = "toto";
+                        var img = "/public/img/device/"+device+".svg";
+                        context = context;
+                        var x = x;
+                        var y = y;
+                        var coeff = {x:55, y:50};
                         this.draw = function()
                                     {
-                                        this.context.image(this.img, this.x, this.y, 100, 100).scale(0.5, 0.5).click(function()
+                                        context.image(img, x, y, 100, 100).scale(0.5, 0.5).click(function()
                                                                                                                         {
-                                                                                                                            var data = '<table><tr><td><label class="label">IP</label></td></tr><tr><td><label class="label">IP : </label></td><td>bla bla bla</td></tr><tr><td><label class="label">MAC : </label></td></td><td>bla bla bla</td></tr><tr><td><label class="label">OS : </label></td></td><td>bla bla bla</td></tr></table>';
+                                                                                                                            var data = '<table><tr><td><label class="label">IP : </label></td><td>'+ip+'</td></tr><tr><td><label class="label">MAC : </label></td></td><td>'+mac+'</td></tr><tr><td><label class="label">OS : </label></td></td><td>'+os+'</td></tr></table>';
                                                                                                                             WriteModal("#option", "#dispopt", data);
                                                                                                                         });
-                                    }
+                                    };
+                        this.GetX = function()
+                                    {
+                                        return(x+coeff.x);
+                                    };
+                        this.GetY = function()
+                                        {
+                                            return(y+coeff.y);
+                                        }
+                        this.GetIp = function()
+                                        {
+                                            return(ip);
+                                        }
                     }
 
                     function Map(obj)
                     {
                         var coef = 70;
-                        var n = Raphael(document.getElementById('main'), 900, 600);
                         var center = {x: ($("#main").width()/2)-coef, y:($("#main").height()/2)-coef};
-                        var radius = 300;
-                        var pi = Math.PI
-                        /*var x = center.x + radius;
-                        var y = center.y - radius/2;*/
+                        var radius = 400;
                         var x = center.x;
                         var y = center.y;
                         var angleRad;
                         var angle = 0;
                         var dist = 360/obj.net.length;
-                        t = new Device("router", n, x, y);
-                        t.draw();
+                        //objnet[0] = new Device(obj.gw, obj.mac, obj.os, obj.device, n, x, y);
+                        objnet[0] = new Device(obj.gw, "8c:89:a5:a3:ad:1f", "Linux", "router", n, x, y);
+                        objnet[0].draw();
                         for(var i = 0; i < obj.net.length; i++)
                         {
-                            angleRad = angle/180*Math.PI
-                            x=((radius/2)+(radius/2)*Math.cos(angleRad))+center.x - radius +130;
-                            y=((radius/2)+(radius/2)*Math.sin(angleRad))+center.y - radius +130;
-                            t = new Device("computer", n, x, y);
-                            t.draw();
+                            angleRad = angle/180*Math.PI;
+                            x=((radius/2)+(radius/2)*Math.cos(angleRad))+center.x - radius +180;
+                            y=((radius/2)+(radius/2)*Math.sin(angleRad))+center.y - radius +180;
+                            //objnet[i] = new Device(obj.net[i].ip, obj.net[i].mac, obj.net[i].os, obj.net[i].device, n, x, y);
+                            objnet[i+1] = new Device(obj.net[i].ip, obj.net[i].mac, obj.net[i].os, "computer", n, x, y);
+                            objnet[i+1].draw();
                             angle += dist;
+                        }
+                    }
+
+                    function Connector(obj)
+                    {
+                        var x;
+                        var y;
+                        var router = {x:objnet[0].GetX(), y:objnet[0].GetY()};
+                        for (var i = 0; i < obj.length; i++)
+                        {
+                            for (var j = 1; j < objnet.length; j++)
+                            {
+                                if(obj[i].ip == objnet[j].GetIp())
+                                {
+                                    x = objnet[j].GetX();
+                                    y = objnet[j].GetY();
+                                    break;
+                                }
+                            }
+                            c.path("M"+x+" "+y+"L"+router.x+" "+router.y).attr({stroke: "rgb(200, 100, 0)", "stroke-width":5});//.animate(Raphael.animation({cx: 10, cy: 20}, 2e3));
                         }
                     }
 
@@ -115,7 +147,7 @@ $(window).load((function()
                                             {
                                                 "X-CSRFToken": csrftoken
                                             },
-                                            url: id == 0? '/getscan/' : '/getbw/',
+                                            url: '/getjson/'+id,
                                             timeout: 3000,
                                             success:function(data)
                                                     {
@@ -125,7 +157,7 @@ $(window).load((function()
                                                         }
                                                         else
                                                         {
-                                                            Bw(JSON.parse(data));
+                                                            Connector(JSON.parse(data));
                                                         }
                                                     },
                                             error: function()
@@ -133,7 +165,7 @@ $(window).load((function()
                                                         alert('La requête n\'a pas abouti');
                                                     }
                                            });
-                        return json
+                        return(json)
                     }
 
                     $("a.menu").on("click", function()
@@ -179,8 +211,12 @@ $(window).load((function()
                     $("#cartoConnector").attr('top', $("#cartoDevice").offset().top)
                     $("#cartoConnector").attr('left', $("#cartoDevice").offset().left)*/
                     var id;
+                    var n = Raphael(document.getElementById('svgDevice'), 900, 600);
+                    var c = Raphael(document.getElementById('svgBw'), 900, 600);
                     var csrftoken = GetCookie('csrftoken');
                     var network = LoadJson(0);
+                    var bw = LoadJson(1);
+                    var objnet = [];
                     //var bw = LoadJson(1);
                     //console.log("global = "+network)
                     //$('canvas').attr("width", $(window).width()*0.75);
