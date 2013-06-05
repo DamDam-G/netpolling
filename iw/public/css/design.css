@@ -11,27 +11,30 @@ input
     box-shadow:0px 0px 25px black;
 }
 
-#cartoDevice, #cartoConnector
-{
-    //position:relative;
-    border-radius:15px;
-}
-
-.layer
+.DesignCanvas
 {
     position:absolute;
     top:15%;
-    left:15%
+    left:25%;
 }
 
-#cartoConnector
+#main
+{
+    width:900px;
+    height:600px;
+}
+
+#svgDevice
+{
+    z-index:42;
+    border-radius:15px;
+    border:solid #000000 2px;
+}
+
+#svgBw
 {
     z-index:0;
+    border-radius:15px;
     border:solid #000000 2px;
     background-color:#EEEEEE;
-}
-
-#cartoDevice
-{
-     z-index:1;
 }

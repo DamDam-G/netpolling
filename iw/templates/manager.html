@@ -52,9 +52,11 @@
         </nav>
         {% endblock %}
         {% block content %}
-        <div id="main">
-                <canvas id="cartoDevice" class="layer" width="780" height="650"></canvas>
-                <canvas id="cartoConnector" class="layer" width="780" height="650"></canvas>
+        <div id="main" class="bg">
+            <div id="svgDevice" class="DesignCanvas"></div>
+            <div id="svgBw" class="DesignCanvas"></div>
+            <!--<canvas id="cartoDevice" width="750" height="500"></canvas>
+            <canvas id="cartoConnector"></canvas>-->
         </div>
         {% endblock %}
         {% block modal %}
@@ -68,7 +70,11 @@
         {% endblock %}
         <!--<script src="http://code.jquery.com/jquery.js"></script>-->
         <script src="/public/js/jquery-2.0.0.min.js"></script>
-        <script src="/public/js/jcanvas.min.js"></script>
+        <!--<script src="/public/js/jCanvaScript.1.5.18.min"></script>-->
+        <!--<script src="/public/js/jcanvas.min.js"></script>-->
+        <!--<script src="/public/js/fabric.min.js"></script>-->
+        <!--<script src="/public/js/kinetic-v4.5.2.min.js"></script>-->
+        <script src="/public/js/raphael-min.js"></script>
         <script src="/public/bootstrap/js/bootstrap.min.js"></script>
         <script src="/public/js/net.js"></script>
     </body>
