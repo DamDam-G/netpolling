@@ -30,6 +30,27 @@ class LocalScan(Scan):
         @copyright GNU GPL V-3
         """
         n = list()
+        cmd = (os.popen("arp-scan -g --interface=eth0 192.168.0.0/24")).readlines()
+        #to = cmd.readlines()
+        i = 0
+        while i < len(cmd):
+            if re.match("\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}", cmd[i]):
+                    ip = (cmd[i].split("\t"))[0]
+                    mac = (cmd[i].split("\t"))[1]
+                    n.append({"mac": mac, "ip": ip, "device": None, "os": None, "hostname": None})
+            i += 1
+        self.net = n
+
+    def GetIpMac2(self):
+        """!
+        @author Damien Goldenberg
+        @name GetIp
+        @brief This method scans the network to get addresses ip and mac of all machines up
+        @param - self : this is a variable that represents the current object
+        @version V-1.0
+        @copyright GNU GPL V-3
+        """
+        n = list()
         conf = (os.popen("ifconfig "+self.interface)).readlines()
         #conf = conf.readlines()
         myconf = {'ip':((conf[1].split(":"))[1].split(" "))[0], 'mac': ((conf[0].split("HWaddr"))[1].split(" "))[1]}
