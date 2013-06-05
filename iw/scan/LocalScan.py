@@ -71,9 +71,7 @@ class LocalScan(Scan):
         @version V-0.1
         @copyright GNU GPL V-3
         """
-        cmd = os.popen("route | grep default")
-        cmd = cmd.read()
-        self.gw = list(set(cmd.split(' ')))[3]
+        self.gw = list(set(((os.popen('route -n | grep -e "0\.0\.0\.0 *[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\} *0\.0\.0\.0"')).read()).split(" ")))[2]
 
 
 if __name__ == "__main__":
