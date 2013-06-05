@@ -135,7 +135,7 @@ $(window).load((function()
                                     break;
                                 }
                             }
-                            c.path("M"+x+" "+y+"L"+router.x+" "+router.y).attr({stroke: "rgb(200, 100, 0)", "stroke-width":5});//.animate(Raphael.animation({cx: 10, cy: 20}, 2e3));
+                            c.path("M"+x+" "+y+"L"+router.x+" "+router.y).attr({"stroke": "rgb(200, 100, 0)", "stroke-width":5});//.animate(Raphael.animation({cx: 10, cy: 20}, 2e3));
                         }
                     }
 
@@ -217,9 +217,6 @@ $(window).load((function()
                     var network = LoadJson(0);
                     var bw = LoadJson(1);
                     var objnet = [];
-                    //var bw = LoadJson(1);
-                    //console.log("global = "+network)
-                    //$('canvas').attr("width", $(window).width()*0.75);
                     $('svg').attr("style", "border:solid #000000 2px;");
                 })());
 
