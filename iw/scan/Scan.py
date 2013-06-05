@@ -34,8 +34,6 @@ class Scan:
         self.mask = mask
         self.gw = ''
         self.route = []
-        self.GetGW()
-        #self.GetRoute()
 
     def GetDevice(self):
         """!
@@ -75,21 +73,26 @@ class Scan:
                 system = "Mac"
                 break
             i += 1
-
         return system
 
-    def GetGW(self):
+    def GetRoute(self):
         """!
         @author Damien Goldenberg
-        @name GetGW
-        @brief This method get the gateway of the network
+        @name GetRoute
+        @brief This method analyze what is the route take of machines in this network
         @param - self : this is a variable that represents the current object
         @version V-0.1
         @copyright GNU GPL V-3
         """
-        cmd = os.popen("route | grep default")
-        cmd = cmd.read()
-        self.gw = list(set(cmd.split(' ')))[3]
+        t = traceroute("8.8.8.8")
+        i = 0
+        path = list()
+        print "gw = "+self.gw
+        while i < len(t):
+            self.route.append(t[0][i][1].src)
+            if t[0][i][1].src == self.gw:
+                break
+            i += 1
 
     def GetNetwork(self, opt):
         """!

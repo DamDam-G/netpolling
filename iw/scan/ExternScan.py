@@ -63,11 +63,11 @@ class ExternScan(Scan):
 
         return
 
-    def GetRoute(self):
+    def GetGW(self):
         """!
         @author Damien Goldenberg
-        @name GetRoute
-        @brief This method analyze what is the route take of machines in this network
+        @name GetGW
+        @brief This method get the gateway of the network
         @param - self : this is a variable that represents the current object
         @version V-0.1
         @copyright GNU GPL V-3

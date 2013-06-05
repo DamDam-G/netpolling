@@ -4,7 +4,7 @@ from scapy.all import *
 import os
 import re
 import json
-import Scan
+from Scan import *
 
 class LocalScan(Scan):
     """!
@@ -17,7 +17,8 @@ class LocalScan(Scan):
     """
     def __init__(self, name, mask, interface):
         Scan.__init__(self, name, mask, interface)
-        self.GetRoute()
+        self.GetGW()
+        Scan.GetRoute(self)
 
     def GetIpMac(self):
         """!
@@ -59,7 +60,6 @@ class LocalScan(Scan):
         @version V-0.0
         @copyright GNU GPL V-3
         """
-
         return
 
     def GetGW(self):
@@ -79,15 +79,7 @@ class LocalScan(Scan):
 if __name__ == "__main__":
     #scan = LocalScan('home', '10.8.96.0/20', 'eth0')
     scan = LocalScan('home', '192.168.0.0/24', 'eth0')
-    #l = scan.GetIp()
-    #print l
-    #print scan.GetMac(l[0]["ip"])
     scan.GetIpMac()
-    print scan.net
-    print "\n____________________________________________\n"
-    print json.dumps(scan.net)
-    print "\n____________________________________________\n"
-    n = {'gw':scan.gw, 'route':scan.route, 'net':scan.net}
     print scan.GetNetwork(1)
     #print scan.GetOS("10.8.111.153")
     #scan.GetGW()
