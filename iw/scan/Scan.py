@@ -90,3 +90,21 @@ class Scan:
         cmd = os.popen("route | grep default")
         cmd = cmd.read()
         self.gw = list(set(cmd.split(' ')))[3]
+
+    def GetNetwork(self, opt):
+        """!
+        @author Damien Goldenberg
+        @name GetNetwork
+        @brief This method analyze what is the route take of machines in this network
+        @param - self : this is a variable that represents the current object
+        @param - opt : this is a variable that represents the form of the return
+        @version V-0.1
+        @copyright GNU GPL V-3
+        """
+        n = {'gw':self.gw, 'route':self.route, 'net':self.net}
+        if opt == 0:
+            return n
+        elif opt == 1:
+            return json.dumps(n)
+        else:
+            print "[ERROR] GetNetwork(self, opt) : opt must equal 0 (dict) or 1 (json)"
