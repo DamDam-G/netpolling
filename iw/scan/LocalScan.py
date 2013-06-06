@@ -29,7 +29,7 @@ class LocalScan(Scan):
         @copyright GNU GPL V-3
         """
         n = list()
-        cmd = (os.popen("arp-scan -g --interface=eth0 192.168.0.0/24")).readlines()
+        cmd = (os.popen("arp-scan -g --interface="+self.interface+" "+self.mask)).readlines()
         #to = cmd.readlines()
         i = 0
         while i < len(cmd):
