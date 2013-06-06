@@ -1,0 +1,7 @@
+Starting arp-scan 1.4 with 8 hosts (http://www.nta-monitor.com/tools/arp-scan/)
+10.0.84.179     00:02:b3:63:c7:57       Intel Corporation
+10.0.84.177     00:d0:41:08:be:e8       AMIGO TECHNOLOGY CO., LTD.
+10.0.84.180     00:02:b3:bd:82:9b       Intel Corporation
+10.0.84.181     00:02:b3:1f:73:da       Intel Corporation
+4 packets received by filter, 0 packets dropped by kernel
+Ending arp-scan 1.4: 8 hosts scanned in 0.820 seconds (9.76 hosts/sec).  4 responded

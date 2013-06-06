@@ -67,6 +67,7 @@ $(window).load((function()
                         var os = os;
                         var device = device;
                         var hostname = "toto";
+                        var bw = {percent:0.0, mega:0.0};
                         var img = "/public/img/device/"+device+".svg";
                         context = context;
                         var x = x;
@@ -75,10 +76,10 @@ $(window).load((function()
                         this.draw = function()
                                     {
                                         context.image(img, x, y, 100, 100).scale(0.5, 0.5).click(function()
-                                                                                                                        {
-                                                                                                                            var data = '<table><tr><td><label class="label">IP : </label></td><td>'+ip+'</td></tr><tr><td><label class="label">MAC : </label></td></td><td>'+mac+'</td></tr><tr><td><label class="label">OS : </label></td></td><td>'+os+'</td></tr></table>';
-                                                                                                                            WriteModal("#option", "#dispopt", data);
-                                                                                                                        });
+                                                                                                    {
+                                                                                                        var data = '<table><tr><td><label class="label">IP : </label></td><td>'+ip+'</td></tr><tr><td><label class="label">MAC : </label></td></td><td>'+mac+'</td></tr><tr><td><label class="label">OS : </label></td></td><td>'+os+'</td></tr><tr><td><label class="label">Bande passante : </label></td></td><td> '+bw.percent+'% ('+bw.mega+' mega)</td</tr></table>';
+                                                                                                        WriteModal("#option", "#dispopt", data);
+                                                                                                    });
                                     };
                         this.GetX = function()
                                     {
@@ -87,10 +88,25 @@ $(window).load((function()
                         this.GetY = function()
                                         {
                                             return(y+coeff.y);
-                                        }
+                                        };
                         this.GetIp = function()
                                         {
                                             return(ip);
+                                        };
+                        this.GetBw = function()
+                                        {
+                                            return(bw)
+                                        }
+                        this.SetBw = function(percent, mega)
+                                        {
+                                            /*if((parseFloat(percent) && percent > 0.0) && (parseFloat(mega) && mega > 0.0))
+                                            {*/
+                                                bw.percent = percent;
+                                                bw.mega = mega;
+                                               /* return 0
+                                            }
+                                            else
+                                                return 1*/
                                         }
                     }
 
@@ -132,6 +148,7 @@ $(window).load((function()
                                 {
                                     x = objnet[j].GetX();
                                     y = objnet[j].GetY();
+                                    objnet[j].SetBw(obj[i].percent, obj[i].mega);
                                     break;
                                 }
                             }
