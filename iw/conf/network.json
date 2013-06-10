@@ -1,11 +1,12 @@
 {"gw": "0",
+ "tbw":16,
  "route": ["192.168.0.254", "82.234.194.254"],
  "net": [
-            {"device": null, "ip": "192.168.0.37", "mac": "8c:89:a5:a3:ad:1f", "hostname": null, "os": null},
-            {"device": null, "ip": "192.168.0.38", "mac": "8c:89:a5:a3:ad:1f", "hostname": null, "os": null},
-            {"device": null, "ip": "192.168.0.39", "mac": "8c:89:a5:a3:ad:1f", "hostname": null, "os": null},
-            {"device": null, "ip": "192.168.0.40", "mac": "8c:89:a5:a3:ad:1f", "hostname": null, "os": null},
-            {"device": null, "ip": "192.168.0.41", "mac": "8c:89:a5:a3:ad:1f", "hostname": null, "os": null},
-            {"device": null, "ip": "192.168.0.254 ", "mac": "F4:CA:E5:42:F6:C3", "hostname": null, "os": null}
+            {"device": null, "ip": "192.168.0.37", "mac": "8c:89:a5:a3:ad:1f", "os": null, "bw":10, "percent":20},
+            {"device": null, "ip": "192.168.0.38", "mac": "8c:89:a5:a3:ad:1f", "os": null, "bw":10, "percent":20},
+            {"device": null, "ip": "192.168.0.39", "mac": "8c:89:a5:a3:ad:1f", "os": null, "bw":10, "percent":20},
+            {"device": null, "ip": "192.168.0.40", "mac": "8c:89:a5:a3:ad:1f", "os": null, "bw":10, "percent":20},
+            {"device": null, "ip": "192.168.0.41", "mac": "8c:89:a5:a3:ad:1f", "os": null, "bw":10, "percent":20},
+            {"device": null, "ip": "192.168.0.254 ", "mac": "F4:CA:E5:42:F6:C3", "os": null, "bw":10, "percent":20}
         ]
 }

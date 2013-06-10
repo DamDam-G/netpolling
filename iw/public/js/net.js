@@ -60,43 +60,50 @@ $(window).load((function()
                                 });
                     }
 
-                    function Device(ip, mac, os, device, context, x, y)
+                    function Device(ip, mac, os, device, bw, percent, context, x, y, dim)
                     {
                         var ip = ip;
                         var mac = mac;
                         var os = os;
                         var device = device;
                         var hostname = "toto";
-                        var bw = {percent:0.0, mega:0.0};
+                        var bw = {percent:percent, mega:bw};
                         var img = "/public/img/device/"+device+".svg";
-                        context = context;
-                        var x = x;
-                        var y = y;
+                        var context = context;
+                        var x = x + gap.x;
+                        var y = y + gap.y;
                         var coeff = {x:55, y:50};
-                        this.draw = function()
+                        var dim = dim;
+                        this.Draw = function()
                                     {
-                                        context.image(img, x, y, 100, 100).scale(0.5, 0.5).click(function()
+                                        context.image(img, x, y, 100, 100).scale(dim.x, dim.y).click(function()
                                                                                                     {
                                                                                                         var data = '<table><tr><td><label class="label">IP : </label></td><td>'+ip+'</td></tr><tr><td><label class="label">MAC : </label></td></td><td>'+mac+'</td></tr><tr><td><label class="label">OS : </label></td></td><td>'+os+'</td></tr><tr><td><label class="label">Bande passante : </label></td></td><td> '+bw.percent+'% ('+bw.mega+' mega)</td</tr></table>';
                                                                                                         WriteModal("#option", "#dispopt", data);
                                                                                                     });
+
                                     };
+
                         this.GetX = function()
                                     {
                                         return(x+coeff.x);
                                     };
+
                         this.GetY = function()
                                         {
                                             return(y+coeff.y);
                                         };
+
                         this.GetIp = function()
                                         {
                                             return(ip);
                                         };
+
                         this.GetBw = function()
                                         {
                                             return(bw)
                                         }
+
                         this.SetBw = function(percent, mega)
                                         {
                                             /*if((parseFloat(percent) && percent > 0.0) && (parseFloat(mega) && mega > 0.0))
@@ -112,77 +119,53 @@ $(window).load((function()
 
                     function Map(obj)
                     {
-                        var coef = 70;
+                        var coef = 60;
                         var center = {x: ($("#main").width()/2)-coef, y:($("#main").height()/2)-coef};
-                        var radius = 400;
+                        //var center = {x: ($("#main").width()/2), y:($("#main").height()/2)};
+                        var radius = 500+obj.net.length+500*0.25;
                         var x = center.x;
                         var y = center.y;
                         var angleRad;
                         var angle = 0;
-                        var dist = 360/obj.net.length;
+                        var dist = (360/obj.net.length)+4.5;
                         //objnet[0] = new Device(obj.gw, obj.mac, obj.os, obj.device, n, x, y);
-                        objnet[0] = new Device(obj.gw, "8c:89:a5:a3:ad:1f", "Linux", "router", n, x, y);
-                        objnet[0].draw();
+                        objnet[0] = new Device(obj.gw, "8c:89:a5:a3:ad:1f", "Linux", "router", 0, 0, n, x, y, {"x":0.6, "y":0.6});
+                        objnet[0].Draw();
+                        var router = {x:objnet[0].GetX(), y:objnet[0].GetY()};
                         for(var i = 0; i < obj.net.length; i++)
                         {
                             angleRad = angle/180*Math.PI;
-                            x=((radius/2)+(radius/2)*Math.cos(angleRad))+center.x - radius +180;
-                            y=((radius/2)+(radius/2)*Math.sin(angleRad))+center.y - radius +180;
-                            //objnet[i] = new Device(obj.net[i].ip, obj.net[i].mac, obj.net[i].os, obj.net[i].device, n, x, y);
-                            objnet[i+1] = new Device(obj.net[i].ip, obj.net[i].mac, obj.net[i].os, "computer", n, x, y);
-                            objnet[i+1].draw();
+                            x=((radius/2)+(radius/2)*Math.cos(angleRad))+center.x - radius +340;
+                            y=((radius/2)+(radius/2)*Math.sin(angleRad))+center.y - radius +340;
+                            objnet[i+1] = new Device(obj.net[i].ip, obj.net[i].mac, obj.net[i].os, "computer", obj.net[i].bw, obj.net[i].percent, n, x, y, {"x":0.4, "y":0.4});
+                            objnet[i+1].Draw();
+                            c.path("M"+objnet[i+1].GetX()+" "+objnet[i+1].GetY()+"L"+router.x+" "+router.y).attr({"stroke": "rgb(200, 100, 0)", "stroke-width":5});
+                            objnet[i+1].SetBw(objnet[i+1].percent, objnet[i+1].mega);
                             angle += dist;
                         }
+                           
                     }
 
-                    function Connector(obj)
+                    function LoadJson(getValue)
                     {
-                        var x;
-                        var y;
-                        var router = {x:objnet[0].GetX(), y:objnet[0].GetY()};
-                        for (var i = 0; i < obj.length; i++)
-                        {
-                            for (var j = 1; j < objnet.length; j++)
-                            {
-                                if(obj[i].ip == objnet[j].GetIp())
-                                {
-                                    x = objnet[j].GetX();
-                                    y = objnet[j].GetY();
-                                    objnet[j].SetBw(obj[i].percent, obj[i].mega);
-                                    break;
-                                }
-                            }
-                            c.path("M"+x+" "+y+"L"+router.x+" "+router.y).attr({"stroke": "rgb(200, 100, 0)", "stroke-width":5});//.animate(Raphael.animation({cx: 10, cy: 20}, 2e3));
-                        }
-                    }
-
-                    function LoadJson(id)
-                    {
-                        var json = $.ajax({
+                        $.ajax({
                                             type: 'post',
                                             headers:
                                             {
                                                 "X-CSRFToken": csrftoken
                                             },
-                                            url: '/getjson/'+id,
+                                            url: '/getjson/',
                                             timeout: 3000,
                                             success:function(data)
                                                     {
-                                                        if(id == 0)
-                                                        {
+                                                            getValue(JSON.parse(data))
                                                             Map(JSON.parse(data));
-                                                        }
-                                                        else
-                                                        {
-                                                            Connector(JSON.parse(data));
-                                                        }
                                                     },
                                             error: function()
                                                     {
                                                         alert('La requête n\'a pas abouti');
                                                     }
                                            });
-                        return(json)
                     }
 
                     $("a.menu").on("click", function()
@@ -220,20 +203,48 @@ $(window).load((function()
                                                    })
                                                });
 
-                    $(window).on("resize", function()
-                                            {
-                                                //$('canvas').attr("width", $(window).width()*0.75);
-                                            });
-                    /*$("#cartoConnector").attr('position', 'relative')
-                    $("#cartoConnector").attr('top', $("#cartoDevice").offset().top)
-                    $("#cartoConnector").attr('left', $("#cartoDevice").offset().left)*/
-                    var id;
+                    function ReMake(obj)
+                    {
+                        $('path').remove();
+                        $('image').remove();
+                        Map(obj);
+                    }
+
+                    //var id;
                     var n = Raphael(document.getElementById('svgDevice'), 900, 600);
                     var c = Raphael(document.getElementById('svgBw'), 900, 600);
                     var csrftoken = GetCookie('csrftoken');
-                    var network = LoadJson(0);
-                    var bw = LoadJson(1);
                     var objnet = [];
-                    $('svg').attr("style", "border:solid #000000 2px;");
+                    var gap = {x:0, y:0};
+                    LoadJson(function(network)
+                                {
+                                    //console.log(network);
+                                    $(document).on("keydown", function(event)
+                                                                {
+                                                                    event.keyCode == 38 ? gap.y -= 35 : event.keyCode == 39 ? gap.x -= 35 : event.keyCode == 40 ? gap.y += 35 : event.keyCode == 37 ? gap.x += 35 : gap.x += 0;
+                                                                    ReMake(network);
+                                                                });
+                                    $("#m0").on("click", function()
+                                                            {
+                                                                gap.y -= 35;
+                                                                ReMake(network)
+                                                            });
+                                    $("#m1").on("click", function()
+                                                            {
+                                                                gap.x += 35;
+                                                                ReMake(network)
+                                                            });
+                                    $("#m2").on("click", function()
+                                                            {
+                                                                gap.x -= 35;
+                                                                ReMake(network)
+                                                            });
+                                    $("#m3").on("click", function()
+                                                            {
+                                                                gap.y += 35;
+                                                                ReMake(network)
+                                                            });
+
+                                });
                 })());
 

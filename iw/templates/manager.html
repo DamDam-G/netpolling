@@ -22,7 +22,7 @@
                                 <button class="btn btn-inverse "><i class="icon-search icon-white"></i>Scan</button>
                             </a>
                     </span>
-                    <span class="nav-collapse collapse">
+                    <!--<span class="nav-collapse collapse">
                             <a id="1" class="menu" role="button" class="label">
                                 <button class="btn btn-inverse"><i class="icon-screenshot icon-white"></i>Screenshot</button>
                             </a>
@@ -31,7 +31,7 @@
                             <a id="2" class="menu" role="button" class="label">
                                 <button class="btn btn-inverse"><i class="icon-eye-open icon-white"></i>Visualiser</button>
                             </a>
-                    </span>
+                    </span>-->
                     <span class="nav-collapse collapse">
                             <a id="3" class="menu" role="button" class="label">
                                 <button class="btn btn-inverse"><i class="icon-th-list icon-white"></i>Journal</button>
@@ -53,6 +53,29 @@
         {% endblock %}
         {% block content %}
         <div id="main" class="bg">
+            <div id="move">
+                <table>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <i id="m0" class="icon-chevron-up icon-white">
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><i id="m1" class="icon-chevron-left icon-white"></td>
+                        <td></td>
+                        <td><i id="m2" class="icon-chevron-right icon-white"></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <i id="m3" class="icon-chevron-down icon-white">
+                        </td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
             <div id="svgDevice" class="DesignCanvas"></div>
             <div id="svgBw" class="DesignCanvas"></div>
             <!--<canvas id="cartoDevice" width="750" height="500"></canvas>
