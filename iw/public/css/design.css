@@ -27,8 +27,6 @@ input
 #svgDevice
 {
     z-index:42; //The Big Question of Life, the Universe and Everything
-    border-radius:15px;
-    border:solid #000000 2px;
 }
 
 #svgBw
@@ -49,4 +47,17 @@ input
     left:28%;
     background-color:black;
     border-radius:20px;
+}
+
+#pop
+{
+    width:400px;
+    min-height:200px;
+    padding:10px;
+    border-radius:15px;
+    border:solid #000000 2px;
+    background-color:#EEEEEE;
+    margin-left:20px;
+    top:2%;
+    z-index:44;
 }

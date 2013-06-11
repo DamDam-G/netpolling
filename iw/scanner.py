@@ -1,3 +1,4 @@
+# -*- coding:Utf-8 -*-
 #from models import *
 from scan.LocalScan import *
 import os
