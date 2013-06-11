@@ -33,7 +33,9 @@ class Scan:
         self.interface = interface
         self.mask = mask
         self.gw = ''
+        self.mac = ''
         self.route = []
+        self.device = 'router'
 
     def GetDevice(self):
         """!

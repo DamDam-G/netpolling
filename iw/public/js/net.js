@@ -123,11 +123,12 @@ $(window).load((function()
                         var center = {x: ($("#main").width()/2)-coef, y:($("#main").height()/2)-coef};
                         //var center = {x: ($("#main").width()/2), y:($("#main").height()/2)};
                         var radius = 500+obj.net.length+500*0.25;
+                        //var center = {x: (radius/2)-coef, y:(radius/2)-coef};
                         var x = center.x;
                         var y = center.y;
                         var angleRad;
                         var angle = 0;
-                        var dist = (360/obj.net.length)+4.5;
+                        var dist = (360/obj.net.length)+0.5; // coef d'espacement
                         //objnet[0] = new Device(obj.gw, obj.mac, obj.os, obj.device, n, x, y);
                         objnet[0] = new Device(obj.gw, "8c:89:a5:a3:ad:1f", "Linux", "router", 0, 0, n, x, y, {"x":0.6, "y":0.6});
                         objnet[0].Draw();
@@ -216,9 +217,60 @@ $(window).load((function()
                     var csrftoken = GetCookie('csrftoken');
                     var objnet = [];
                     var gap = {x:0, y:0};
+                    var mouse = {x:0, y:0};
                     LoadJson(function(network)
                                 {
                                     //console.log(network);
+                                    /*$('svg').on("mousedown", function(event)
+                                                            {
+                                                                event.preventDefault();
+                                                                event.stopPropagation();
+                                                                //console.log(event.target);
+                                                                if(/svg/i.test(event.target))
+                                                                {
+                                                                    mouse.x = event.clientX;
+                                                                    mouse.y = event.clientY;
+                                                                }
+                                                                return(false);
+                                                            });
+                                    $('svg').on("mouseup", function(event)
+                                                            {
+                                                                if(/svg/i.test(event.target))
+                                                                {
+                                                                    gap.x -= mouse.x - event.clientX;
+                                                                    gap.y -= mouse.y - event.clientY;
+                                                                    ReMake(network);
+                                                                }
+                                                            });*/
+                                    $('svg').draggable(
+                                                        {
+                                                            start: function(event)
+                                                                    {
+                                                                        if(/svg/i.test(event.target))
+                                                                        {
+                                                                            mouse.x = event.clientX;
+                                                                            mouse.y = event.clientY;
+                                                                        }
+                                                                    },
+                                                            drag: function(event)
+                                                                    {
+                                                                        if(/svg/i.test(event.target))
+                                                                        {
+                                                                            gap.x -= mouse.x - event.clientX;
+                                                                            gap.y -= mouse.y - event.clientY;
+                                                                            ReMake(network);
+                                                                        }
+                                                                    },
+                                                            stop: function(event)
+                                                                    {
+                                                                        if(/svg/i.test(event.target))
+                                                                        {
+                                                                            gap.x -= mouse.x - event.clientX;
+                                                                            gap.y -= mouse.y - event.clientY;
+                                                                            ReMake(network);
+                                                                        }
+                                                                    }
+                                                        });
                                     $(document).on("keydown", function(event)
                                                                 {
                                                                     event.keyCode == 38 ? gap.y -= 35 : event.keyCode == 39 ? gap.x -= 35 : event.keyCode == 40 ? gap.y += 35 : event.keyCode == 37 ? gap.x += 35 : gap.x += 0;
