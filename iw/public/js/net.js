@@ -246,33 +246,10 @@ $(window).load((function()
                                         ReMake(network)
                                     }
 
-                                    function wheel(event)
-                                    {
-                                            var delta = 0;
-                                            if (!event)
-                                                event = window.event;
-                                            if (event.wheelDelta)
-                                            {
-                                                delta = event.wheelDelta/120;
-                                            }
-                                            else if (event.detail)
-                                            {
-                                                delta = -event.detail/3;
-                                            }
-
-                                            if (delta)
-                                                handle(delta);
-
-                                            if (event.preventDefault)
-                                                    event.preventDefault();
-                                            else
-                                                event.returnValue = false;
-                                    }
-
-                                    if (window.addEventListener)
-                                        window.addEventListener('DOMMouseScroll', wheel, false);
-                                    else
-                                        window.onmousewheel = document.onmousewheel = wheel;
+                                    $(window).mousewheel(function(event, delta, deltaX, deltaY)
+                                                            {
+                                                                handle(delta);
+                                                            });
 
                                     $('svg').on("mousedown", function(event)
                                                             {
