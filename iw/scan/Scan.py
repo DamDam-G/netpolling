@@ -37,7 +37,7 @@ class Scan:
         self.route = []
         self.device = 'router'
 
-    def GetDevice(self):
+    def GetDevice(self,mac):
         """!
         @author
         @name GetDevice
@@ -46,7 +46,24 @@ class Scan:
         @version V-0.0
         @copyright GNU GPL V-3
         """
-        return
+	dig = mac.split(':',3 );
+	digr = [dig[0],dig[1],dig[2]]
+	signcons = ''.join(digr)
+	fichiermac.open("mac_constructeur","r")
+	for ligne in fichiermac
+		if signcons in ligne
+			marque = ligne.split(" ",10);
+			liste_mobile = ["Nokia" ,"Sony" ,"Samsung" ,"HTC"]
+			i=0
+			while i<=4 :
+				if liste_mobile[i] in marque[8]
+					device = mobile
+					break
+				else:
+					i = i+1
+					device = pc
+	fichiermac.close() 
+        return device
 
     def GetOS(self, ip):
         """!
