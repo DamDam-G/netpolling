@@ -234,13 +234,13 @@ $(window).load((function()
                                     {
                                         if (delta < 0)
                                         {
-                                            scale.device += 0.1;
-                                            scale.connector += 0.25;
+                                            scale.device -= 0.1;
+                                            scale.connector -= 0.25;
                                         }
                                         else
                                         {
-                                            scale.device -= 0.1;
-                                            scale.connector -= 0.25;
+                                            scale.device += 0.1;
+                                            scale.connector += 0.25;
                                         }
                                         ReMake(network)
                                     }
@@ -273,7 +273,6 @@ $(window).load((function()
                                     else
                                         window.onmousewheel = document.onmousewheel = wheel;
 
-                                    //console.log(network);
                                     $('svg').on("mousedown", function(event)
                                                             {
                                                                 mouse.x = event.clientX;
@@ -286,39 +285,6 @@ $(window).load((function()
                                                                 ReMake(network);
                                                             });
 
-                                    /*$('svg').draggable(
-                                                        {
-                                                            start: function(event)
-                                                                    {
-                                                                        //event.preventDefault();
-                                                                        console.log("drag start");
-                                                                        mouse.x = event.clientX;
-                                                                        mouse.y = event.clientY;
-                                                                       // $('svg').offset({left : 0, top : 0});
-                                                                    },
-                                                            drag: function(event)
-                                                                    {
-                                                                        console.log("drag move");
-                                                                        gap.x -= mouse.x - event.clientX;
-                                                                        console.log("eventclientX"+event.clientX+" | "+"mouseX"+mouse.x);
-                                                                        gap.y -= mouse.y - event.clientY;
-                                                                        console.log("eventclientY"+event.clientY+" | "+"mouseY"+mouse.y)
-                                                                        console.log("gapX"+gap.x+" gapY"+gap.y);
-                                                                        console.log("soustraction  = "+(mouse.x - event.clientX));
-                                                                        //event.preventDefault();
-                                                                        //$('svg').offset({left : 0, top : 0});
-                                                                        ReMake(network);
-                                                                    },
-                                                            stop: function(event)
-                                                                    {
-                                                                        console.log("drag end");
-                                                                        gap.x -= mouse.x - event.clientX;
-                                                                        gap.y -= mouse.y - event.clientY;
-                                                                        //$('svg').offset({left : 0, top : 0});
-                                                                        ReMake(network);
-                                                                    }
-                                                        })*/
-
                                     $(document).on("keydown", function(event)
                                                                 {
                                                                     console.log(event.keyCode);
@@ -328,25 +294,21 @@ $(window).load((function()
                                                                         event.keyCode == 38 ? gap.y -= 35 : event.keyCode == 39 ? gap.x -= 35 : event.keyCode == 40 ? gap.y += 35 : event.keyCode == 37 ? gap.x += 35 : gap.x += 0;
                                                                     ReMake(network);
                                                                 });
-                                    $("#m0").on("click", function()
+
+                                    $(".mapcontroll").on("click", function(event)
                                                             {
-                                                                gap.y -= 35;
-                                                                ReMake(network)
+                                                                event.target.id == "m0" ? gap.y -= 35 : event.target.id == "m1" ? gap.x += 35 : event.target.id == "m2" ? gap.x -= 35 : event.target.id == "m3" ? gap.y += 35 : event.target.id == "m4" ? handle(-1) : event.target.id == "m5" ? handle(1) :gap.x += 0;
+                                                                if (event.target.id != "m4" || event.target.id != "m5")
+                                                                    ReMake(network);
                                                             });
-                                    $("#m1").on("click", function()
+
+                                    $("#reset").on("click", function()
                                                             {
-                                                                gap.x += 35;
-                                                                ReMake(network)
-                                                            });
-                                    $("#m2").on("click", function()
-                                                            {
-                                                                gap.x -= 35;
-                                                                ReMake(network)
-                                                            });
-                                    $("#m3").on("click", function()
-                                                            {
-                                                                gap.y += 35;
-                                                                ReMake(network)
+                                                                gap.x = 0;
+                                                                gap.y = 0;
+                                                                scale.device = 0;
+                                                                scale.connector = 1;
+                                                                ReMake(network);
                                                             });
                                 });
                 })());
