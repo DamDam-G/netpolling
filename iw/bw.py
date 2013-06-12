@@ -7,7 +7,8 @@ import json
 
 def GetBps(tmstmp) :
     (os.popen("tshark -i eth0 -z conv,ip -a duration:{0} > traffic".format(tmstmp)))
-    time.sleep(tmstmp)
+    time.sleep(float(tmstmp))
+    #time.sleep(int(tmstmp))
     bwk = {}
     fd = open("traffic","r")
     for ligne in fd:
@@ -28,5 +29,7 @@ def GetBps(tmstmp) :
                     bwk[ip2] = bps
             else:
                 print "Joe la praline"
-    return bwk
     fd.close()
+    return bwk
+#test = GetBps(sys.argv[1])
+#print test

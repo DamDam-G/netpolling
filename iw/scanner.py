@@ -36,10 +36,11 @@ def DoScan():
             for m in scan.net:
                 for ligne in bwp:
                    if ligne == m["ip"]:
-                        pourcent = (float(bwp[ligne])/float(15728640))*100.0
+                        percent = (float(bwp[ligne])/float(15728640))*100.0
                         kilo = float(bwp[ligne])/float(1024)
-                        n.append({"device":m["device"], "ip":m["ip"], "mac":m["mac"], "os":m["os"], "bw":kilo, "percent":pourcent})
-            return json.dumps(n)
+                        m["bw"] = kilo
+                        m["percent"] = percent
+            return scan.GetNetwork(1)
         else:
             return {'error':'veuillez patientez le scan est en cours de fonctionnement'}
     except ConfigParser.Error, err:

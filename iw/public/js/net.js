@@ -67,7 +67,7 @@ $(window).load((function()
                         var os = os;
                         var device = device;
                         var hostname = "toto";
-                        var bw = {percent:percent, mega:bw};
+                        var bw = {percent:percent, bw:bw};
                         var img = "/public/img/device/"+device+".svg";
                         var context = context;
                         var x = x + gap.x;
@@ -87,7 +87,7 @@ $(window).load((function()
                                     {
                                         context.image(img, x, y, 100, 100).scale(dim.x, dim.y).mouseover(function()
                                                                                                     {
-                                                                                                        $("#d").html('<table><tr><td><label class="label">IP : </label></td><td>'+ip+'</td></tr><tr><td><label class="label">MAC : </label></td></td><td>'+mac+'</td></tr><tr><td><label class="label">OS : </label></td></td><td>'+os+'</td></tr><tr><td><label class="label">Bande passante : </label></td></td><td> '+bw.percent+'% ('+bw.mega+' mega)</td</tr></table>');
+                                                                                                        $("#d").html('<table><tr><td><label class="label">IP : </label></td><td>'+ip+'</td></tr><tr><td><label class="label">MAC : </label></td></td><td>'+mac+'</td></tr><tr><td><label class="label">OS : </label></td></td><td>'+os+'</td></tr><tr><td><label class="label">Bande passante : </label></td></td><td> '+bw.percent+'% ('+bw.bw+' ko/s)</td</tr></table>');
                                                                                                     }).drag(function(){return(false);});
 
                                     };
@@ -146,6 +146,7 @@ $(window).load((function()
                             x=(((radius/2)+(radius/2)*Math.cos(angleRad))+center.x - radius +340)/scale.connector;
                             y=(((radius/2)+(radius/2)*Math.sin(angleRad))+center.y - radius +340)/scale.connector;
                             objnet[i+1] = new Device(obj.net[i].ip, obj.net[i].mac, obj.net[i].os, "computer", obj.net[i].bw, obj.net[i].percent, n, x, y, {"x":0.4+scale.device, "y":0.4+scale.device});
+			    console.log(obj.net[i].percent);
                             objnet[i+1].Draw();
                             c.path("M"+objnet[i+1].GetX()+" "+objnet[i+1].GetY()+"L"+router.x+" "+router.y).attr({"stroke": "rgb(200, 100, 0)", "stroke-width":5});
                             objnet[i+1].SetBw(objnet[i+1].percent, objnet[i+1].mega);
