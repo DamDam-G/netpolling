@@ -1,6 +1,7 @@
-# -*- coding:Utf-8 -*-
+#! /usr/bin/python
 #from models import *
 from scan.LocalScan import *
+import bw
 import os
 import conf.netenv as ENV
 import ConfigParser
@@ -27,19 +28,26 @@ def DoScan():
         netmask = param.get('LocalScan', 'netmask')
         interface = param.get('LocalScan', 'interface')
         up = int(param.get('LocalScan', 'up'))
-        if up == 1:
+        n = list()
+	if up == 1:
             scan = LocalScan(name, netmask, interface)
             scan.GetIpMac()
-            fd = open(ENV.conf+"network.json", "r")
+	    bwp = bw.GetBps(10)
+	    fichier = open("test.json","w")
             for m in scan.net:
-                    pass #traitement à faire pour la bw
-            return scan.GetNetwork(1)
+		for ligne in bwp:
+		   if ligne == m["ip"]:
+			pourcent = (float(bwp[ligne])/float(15728640))*100.0
+			kilo = float(bwp[ligne])/float(1024)
+			n.append({"device":m["device"], "ip":m["ip"], "mac":m["mac"], "os":m["os"], "bw":kilo, "percent":pourcent})		
+		
+	    return json.dumps(n)
         else:
             return {'error':'veuillez patientez le scan est en cours de fonctionnement'}
     except ConfigParser.Error, err:
         print 'Oops, une erreur dans votre fichier de conf (%s)' % err
 
 if __name__ == "__main__":
-    fd = open(ENV.conf+"network.json", "w")
+    fd = open("conf/network.json", "w")
     fd.write(DoScan())
     fd.close()
