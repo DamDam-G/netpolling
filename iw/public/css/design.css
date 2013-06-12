@@ -27,8 +27,6 @@ input
 #svgDevice
 {
     z-index:42; //The Big Question of Life, the Universe and Everything
-    border-radius:15px;
-    border:solid #000000 2px;
 }
 
 #svgBw
@@ -42,11 +40,56 @@ input
 #move
 {
     z-index:43;
-    width:43px;
-    height:60px;
+    width:60px;
+    padding:5px;
+    height:80px;
     position:absolute;
     top:18%;
     left:28%;
     background-color:black;
     border-radius:20px;
+}
+
+#pop
+{
+    width:400px;
+    min-height:200px;
+    padding:10px;
+    border-radius:15px;
+    border:solid #000000 2px;
+    background-color:#EEEEEE;
+    margin-left:20px;
+    top:2%;
+    z-index:44;
+}
+
+#reset
+{
+    width:50px;
+    height:15px;
+    border-radius:50px;
+    border:outset #ffffff 2px;
+    background-color:red;
+    -moz-transition:all 1s ease-in-out 0s;
+    -ms-transition:all 1s ease-in-out 0s;
+    -o-transition:all 1s ease-in-out 0s;
+    -webkit-transition:all 1s ease-in-out 0s;
+    text-align:center;
+    font-weight:bolder;
+    color:#ffffff;
+}
+
+#reset:hover
+{
+    width:50px;
+    height:15px;
+    border-radius:50px;
+    border:inset #000000 2px;
+    background-color:darkred;
+    margin-left:auto;
+    margin-right:auto;
+    -moz-transition:all 1s ease-in-out 0s;
+    -ms-transition:all 1s ease-in-out 0s;
+    -o-transition:all 1s ease-in-out 0s;
+    -webkit-transition:all 1s ease-in-out 0s;
 }
