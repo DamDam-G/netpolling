@@ -29,25 +29,23 @@ def DoScan():
         interface = param.get('LocalScan', 'interface')
         up = int(param.get('LocalScan', 'up'))
         n = list()
-	if up == 1:
+        if up == 1:
             scan = LocalScan(name, netmask, interface)
             scan.GetIpMac()
-	    bwp = bw.GetBps(10)
-	    fichier = open("test.json","w")
+            bwp = bw.GetBps(10)
             for m in scan.net:
-		for ligne in bwp:
-		   if ligne == m["ip"]:
-			pourcent = (float(bwp[ligne])/float(15728640))*100.0
-			kilo = float(bwp[ligne])/float(1024)
-			n.append({"device":m["device"], "ip":m["ip"], "mac":m["mac"], "os":m["os"], "bw":kilo, "percent":pourcent})		
-		
-	    return json.dumps(n)
+                for ligne in bwp:
+                   if ligne == m["ip"]:
+                        pourcent = (float(bwp[ligne])/float(15728640))*100.0
+                        kilo = float(bwp[ligne])/float(1024)
+                        n.append({"device":m["device"], "ip":m["ip"], "mac":m["mac"], "os":m["os"], "bw":kilo, "percent":pourcent})
+            return json.dumps(n)
         else:
             return {'error':'veuillez patientez le scan est en cours de fonctionnement'}
     except ConfigParser.Error, err:
         print 'Oops, une erreur dans votre fichier de conf (%s)' % err
 
 if __name__ == "__main__":
-    fd = open("conf/network.json", "w")
+    fd = open(ENV.conf+"network.json", "w")
     fd.write(DoScan())
     fd.close()

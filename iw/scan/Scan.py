@@ -5,6 +5,7 @@ import os
 import re
 import json
 
+
 class Scan:
     """!
     @author Damien Goldenberg
@@ -37,7 +38,7 @@ class Scan:
         self.route = []
         self.device = 'router'
 
-    def GetDevice(self,mac):
+    def GetDevice(self, mac):
         """!
         @author
         @name GetDevice
@@ -46,23 +47,23 @@ class Scan:
         @version V-0.0
         @copyright GNU GPL V-3
         """
-	dig = mac.split(':',3 );
-	digr = [dig[0],dig[1],dig[2]]
-	signcons = ''.join(digr)
-	fichiermac.open("mac_constructeur","r")
-	for ligne in fichiermac
-		if signcons in ligne
-			marque = ligne.split(" ",10);
-			liste_mobile = ["Nokia" ,"Sony" ,"Samsung" ,"HTC"]
-			i=0
-			while i<=4 :
-				if liste_mobile[i] in marque[8]
-					device = mobile
-					break
-				else:
-					i = i+1
-					device = pc
-	fichiermac.close() 
+        dig = mac.split(':', 3)
+        digr = [dig[0], dig[1], dig[2]]
+        signcons = ''.join(digr)
+        fd = open("/opt/netpolling/netpolling/iw/conf/mac_constructor", "r")
+        for ligne in fd:
+            if signcons in ligne:
+                brand = ligne.split(" ", 10)
+                phones = ["Nokia", "Sony", "Samsung", "HTC"]
+                i=0
+                while i <= 4 :
+                    if phones[i] in brand[8]:
+                        device = "mobile"
+                        break
+                    else:
+                        i += 1
+                        device = "pc"
+        fd.close()
         return device
 
     def GetOS(self, ip):
