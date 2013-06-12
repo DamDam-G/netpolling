@@ -88,7 +88,7 @@ $(window).load((function()
                                         context.image(img, x, y, 100, 100).scale(dim.x, dim.y).mouseover(function()
                                                                                                     {
                                                                                                         $("#d").html('<table><tr><td><label class="label">IP : </label></td><td>'+ip+'</td></tr><tr><td><label class="label">MAC : </label></td></td><td>'+mac+'</td></tr><tr><td><label class="label">OS : </label></td></td><td>'+os+'</td></tr><tr><td><label class="label">Bande passante : </label></td></td><td> '+bw.percent+'% ('+bw.mega+' mega)</td</tr></table>');
-                                                                                                    });
+                                                                                                    }).drag(function(){return(false);});
 
                                     };
                         this.GetX = function()
@@ -321,7 +321,11 @@ $(window).load((function()
 
                                     $(document).on("keydown", function(event)
                                                                 {
-                                                                    event.keyCode == 38 ? gap.y -= 35 : event.keyCode == 39 ? gap.x -= 35 : event.keyCode == 40 ? gap.y += 35 : event.keyCode == 37 ? gap.x += 35 : gap.x += 0;
+                                                                    console.log(event.keyCode);
+                                                                    if(event.keyCode > 96 && event.keyCode < 106)
+                                                                        event.keyCode == 104 ? gap.y -= 35 : event.keyCode == 100 ? gap.x -= 35 : event.keyCode == 98 ? gap.y += 35 : event.keyCode == 102 ? gap.x += 35 : event.keyCode == 105 ? handle(1) : event.keyCode == 99 ? handle(-1) : gap.x += 0;
+                                                                    else
+                                                                        event.keyCode == 38 ? gap.y -= 35 : event.keyCode == 39 ? gap.x -= 35 : event.keyCode == 40 ? gap.y += 35 : event.keyCode == 37 ? gap.x += 35 : gap.x += 0;
                                                                     ReMake(network);
                                                                 });
                                     $("#m0").on("click", function()
