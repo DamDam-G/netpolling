@@ -219,11 +219,9 @@ $(window).load((function()
                     var mouse = {x:0, y:0, ok:0};
                     var scale = {device:0, connector:1};
                     $('#pop').resizable({animate: true}).draggable();
-
-                    toto();
-                    window.setInterval(function()
+                    window.setInterval(pwned = function()
                                         {
-                                            LoadJson(toto = function(network)
+                                            LoadJson(function(network)
                                                     {
                                                         function handle(delta)
                                                         {
@@ -283,6 +281,7 @@ $(window).load((function()
                                                                                     ReMake(network);
                                                                                 });
                                             });
-                                        }, 5000);
+                                        }, 30000);
+                    pwned();
                 })());
 
