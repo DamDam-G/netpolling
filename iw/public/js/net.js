@@ -219,15 +219,12 @@ $(window).load((function()
                     var mouse = {x:0, y:0, ok:0};
                     var scale = {device:0, connector:1};
                     $('#pop').resizable({animate: true}).draggable();
-                    inter = [1, 30000];
-                    cpt = 0
+
+                    toto();
                     window.setInterval(function()
                                         {
-                                            if(cpt == 0)
-                                                cpt++;
-                                            LoadJson(function(network)
+                                            LoadJson(toto = function(network)
                                                     {
-
                                                         function handle(delta)
                                                         {
                                                             if (delta < 0)
@@ -286,6 +283,6 @@ $(window).load((function()
                                                                                     ReMake(network);
                                                                                 });
                                             });
-                                        }, inter[cpt]);
+                                        }, 5000);
                 })());
 
