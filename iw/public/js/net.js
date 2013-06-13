@@ -219,67 +219,73 @@ $(window).load((function()
                     var mouse = {x:0, y:0, ok:0};
                     var scale = {device:0, connector:1};
                     $('#pop').resizable({animate: true}).draggable();
-
-                    setTimeout(LoadJson(function(network)
-                                {
-
-                                    function handle(delta)
-                                    {
-                                        if (delta < 0)
+                    inter = [1, 30000];
+                    cpt = 0
+                    window.setInterval(function()
                                         {
-                                            scale.device -= 0.1;
-                                            scale.connector -= 0.25;
-                                        }
-                                        else
-                                        {
-                                            scale.device += 0.1;
-                                            scale.connector += 0.25;
-                                        }
-                                        ReMake(network)
-                                    }
+                                            if(cpt == 0)
+                                                cpt++;
+                                            LoadJson(function(network)
+                                                    {
 
-                                    $(window).mousewheel(function(event, delta, deltaX, deltaY)
+                                                        function handle(delta)
+                                                        {
+                                                            if (delta < 0)
                                                             {
-                                                                handle(delta);
-                                                            });
+                                                                scale.device -= 0.1;
+                                                                scale.connector -= 0.25;
+                                                            }
+                                                            else
+                                                            {
+                                                                scale.device += 0.1;
+                                                                scale.connector += 0.25;
+                                                            }
+                                                            ReMake(network)
+                                                        }
 
-                                    $('svg').on("mousedown", function(event)
-                                                            {
-                                                                mouse.x = event.clientX;
-                                                                mouse.y = event.clientY;
-                                                            });
-                                    $('svg').on("mouseup", function(event)
-                                                            {
-                                                                gap.x -= mouse.x - event.clientX;
-                                                                gap.y -= mouse.y - event.clientY;
-                                                                ReMake(network);
-                                                            });
+                                                        $(window).mousewheel(function(event, delta, deltaX, deltaY)
+                                                                            {
+                                                                                handle(delta);
+                                                                            });
 
-                                    $(document).on("keydown", function(event)
-                                                                {
-                                                                    //console.log(event.keyCode);
-                                                                    if(event.keyCode > 96 && event.keyCode < 106)
-                                                                        event.keyCode == 104 ? gap.y -= 35 : event.keyCode == 100 ? gap.x -= 35 : event.keyCode == 98 ? gap.y += 35 : event.keyCode == 102 ? gap.x += 35 : event.keyCode == 105 ? handle(1) : event.keyCode == 99 ? handle(-1) : gap.x += 0;
-                                                                    else
-                                                                        event.keyCode == 38 ? gap.y -= 35 : event.keyCode == 39 ? gap.x -= 35 : event.keyCode == 40 ? gap.y += 35 : event.keyCode == 37 ? gap.x += 35 : gap.x += 0;
-                                                                    ReMake(network);
-                                                                });
+                                                        $('svg').on("mousedown", function(event)
+                                                                                {
+                                                                                    mouse.x = event.clientX;
+                                                                                    mouse.y = event.clientY;
+                                                                                });
+                                                        $('svg').on("mouseup", function(event)
+                                                                                {
+                                                                                    gap.x -= mouse.x - event.clientX;
+                                                                                    gap.y -= mouse.y - event.clientY;
+                                                                                    ReMake(network);
+                                                                                });
 
-                                    $(".mapcontroll").on("click", function(event)
-                                                            {
-                                                                event.target.id == "m0" ? gap.y -= 35 : event.target.id == "m1" ? gap.x += 35 : event.target.id == "m2" ? gap.x -= 35 : event.target.id == "m3" ? gap.y += 35 : event.target.id == "m4" ? handle(-1) : event.target.id == "m5" ? handle(1) :gap.x += 0;
-                                                                if (event.target.id != "m4" || event.target.id != "m5")
-                                                                    ReMake(network);
-                                                            });
+                                                        $(document).on("keydown", function(event)
+                                                                                    {
+                                                                                        //console.log(event.keyCode);
+                                                                                        if(event.keyCode > 96 && event.keyCode < 106)
+                                                                                            event.keyCode == 104 ? gap.y -= 35 : event.keyCode == 100 ? gap.x -= 35 : event.keyCode == 98 ? gap.y += 35 : event.keyCode == 102 ? gap.x += 35 : event.keyCode == 105 ? handle(1) : event.keyCode == 99 ? handle(-1) : gap.x += 0;
+                                                                                        else
+                                                                                            event.keyCode == 38 ? gap.y -= 35 : event.keyCode == 39 ? gap.x -= 35 : event.keyCode == 40 ? gap.y += 35 : event.keyCode == 37 ? gap.x += 35 : gap.x += 0;
+                                                                                        ReMake(network);
+                                                                                    });
 
-                                    $("#reset").on("click", function()
-                                                            {
-                                                                gap.x = 0;
-                                                                gap.y = 0;
-                                                                scale.device = 0;
-                                                                scale.connector = 1;
-                                                                ReMake(network);
-                                                            });
-                                }), 10000);
+                                                        $(".mapcontroll").on("click", function(event)
+                                                                                        {
+                                                                                            event.target.id == "m0" ? gap.y -= 35 : event.target.id == "m1" ? gap.x += 35 : event.target.id == "m2" ? gap.x -= 35 : event.target.id == "m3" ? gap.y += 35 : event.target.id == "m4" ? handle(-1) : event.target.id == "m5" ? handle(1) :gap.x += 0;
+                                                                                            if (event.target.id != "m4" || event.target.id != "m5")
+                                                                                                ReMake(network);
+                                                                                        });
+
+                                                        $("#reset").on("click", function()
+                                                                                {
+                                                                                    gap.x = 0;
+                                                                                    gap.y = 0;
+                                                                                    scale.device = 0;
+                                                                                    scale.connector = 1;
+                                                                                    ReMake(network);
+                                                                                });
+                                            });
+                                        }, inter[cpt]);
                 })());
 
