@@ -60,14 +60,14 @@ $(window).load((function()
                                 });
                     }
 
-                    function Device(ip, mac, os, device, bw, percent, context, x, y, dim)
+                    function Device(ip, mac, os, device, bandwidth, percent, context, x, y, dim)
                     {
                         var ip = ip;
                         var mac = mac;
                         var os = os;
                         var device = device;
                         var hostname = "toto";
-                        var bw = {percent:percent, bw:bw};
+                        var bw = {p:percent, b:bandwidth};
                         var img = "/public/img/device/"+device+".svg";
                         var context = context;
                         var x = x + gap.x;
@@ -78,7 +78,7 @@ $(window).load((function()
                                     {
                                         context.image(img, x, y, 100, 100).scale(dim.x, dim.y).mouseover(function()
                                                                                                     {
-                                                                                                        $("#d").html('<table><tr><td><label class="label">IP : </label></td><td>'+ip+'</td></tr><tr><td><label class="label">MAC : </label></td></td><td>'+mac+'</td></tr><tr><td><label class="label">OS : </label></td></td><td>'+os+'</td></tr><tr><td><label class="label">Bande passante : </label></td></td><td> '+bw.percent+'% ('+bw.bw+' ko/s)</td</tr></table>');
+                                                                                                        $("#d").html('<table><tr><td><label class="label">IP : </label></td><td>'+ip+'</td></tr><tr><td><label class="label">MAC : </label></td></td><td>'+mac+'</td></tr><tr><td><label class="label">OS : </label></td></td><td>'+os+'</td></tr><tr><td><label class="label">Bande passante : </label></td></td><td> '+bw.p+'% ('+bw.b+' ko/s)</td</tr></table>');
                                                                                                     }).drag(function(){return(false);});
 
                                     };
@@ -220,7 +220,7 @@ $(window).load((function()
                     var scale = {device:0, connector:1};
                     $('#pop').resizable({animate: true}).draggable();
 
-                    LoadJson(function(network)
+                    setTimeout(LoadJson(function(network)
                                 {
 
                                     function handle(delta)
@@ -280,6 +280,6 @@ $(window).load((function()
                                                                 scale.connector = 1;
                                                                 ReMake(network);
                                                             });
-                                });
+                                }), 10000);
                 })());
 
