@@ -60,7 +60,7 @@ $(window).load((function()
                                 });
                     }
 
-                    function Device(ip, mac, os, device, bw, percent, context, x, y, dim)
+                    function Device(ip, mac, os, device, bw, percent, context, cx, cy, dim)
                     {
                         var ip = ip;
                         var mac = mac;
@@ -70,16 +70,30 @@ $(window).load((function()
                         var bw = {percent:percent, bw:bw};
                         var img = "/public/img/device/"+device+".svg";
                         var context = context;
-                        var x = x + gap.x;
-                        var y = y + gap.y;
+                        var x = cx + gap.x;
+                        var y = cy + gap.y;
                         var coeff = {x:55, y:50};
                         var dim = dim;
                         this.Draw = function()
                                     {
-                                        context.image(img, x, y, 100, 100).scale(dim.x, dim.y).mouseover(function()
+                                        $("#cartoDevice").drawImage(
+                                                    {
+                                                        source: img,
+                                                        x: x,
+                                                        y: y,
+                                                        //scale: 1,
+                                                        width: 50,
+                                                        height: 50,
+                                                        draggable: true,
+                                                        group: 'shapes',
+                                                        dragGroupWithLayer: true,
+                                                        layer: true,
+                                                        mouse
+                                                    });
+                                        /*context.image(img, x, y, 100, 100).scale(dim.x, dim.y).mouseover(function()
                                                                                                     {
                                                                                                         $("#d").html('<table><tr><td><label class="label">IP : </label></td><td>'+ip+'</td></tr><tr><td><label class="label">MAC : </label></td></td><td>'+mac+'</td></tr><tr><td><label class="label">OS : </label></td></td><td>'+os+'</td></tr><tr><td><label class="label">Bande passante : </label></td></td><td> '+bw.percent+'% ('+bw.bw+' ko/s)</td</tr></table>');
-                                                                                                    }).drag(function(){return(false);});
+                                                                                                    }).drag(function(){return(false);});*/
 
                                     };
                         this.GetX = function()
@@ -126,6 +140,7 @@ $(window).load((function()
                         var y = center.y;
                         var angleRad;
                         var angle = 0;
+                        $("canvas").clearCanvas()
                         var dist = (360/obj.net.length)+0.5; // coef d'espacement
                         //objnet[0] = new Device(obj.gw, obj.mac, obj.os, obj.device, n, x, y);
                         objnet[0] = new Device(obj.gw, "8c:89:a5:a3:ad:1f", "Linux", "router", 0, 0, n, x/scale.connector, y/scale.connector, {"x":0.6+scale.device, "y":0.6+scale.device});
@@ -139,7 +154,7 @@ $(window).load((function()
                             objnet[i+1] = new Device(obj.net[i].ip, obj.net[i].mac, obj.net[i].os, "computer", obj.net[i].bw, obj.net[i].percent, n, x, y, {"x":0.4+scale.device, "y":0.4+scale.device});
 			                //console.log(obj.net[i].percent);
                             objnet[i+1].Draw();
-                            c.path("M"+objnet[i+1].GetX()+" "+objnet[i+1].GetY()+"L"+router.x+" "+router.y).attr({"stroke": "rgb(200, 100, 0)", "stroke-width":5});
+                            //c.path("M"+objnet[i+1].GetX()+" "+objnet[i+1].GetY()+"L"+router.x+" "+router.y).attr({"stroke": "rgb(200, 100, 0)", "stroke-width":5});
                             objnet[i+1].SetBw(objnet[i+1].percent, objnet[i+1].mega);
                             angle += dist;
                         }
@@ -211,8 +226,9 @@ $(window).load((function()
                     }
 
                     //var id;
-                    var n = Raphael(document.getElementById('svgDevice'), 900, 600)
-                    var c = Raphael(document.getElementById('svgBw'), 900, 600);
+                    /*var n = Raphael(document.getElementById('svgDevice'), 900, 600)
+                    var c = Raphael(document.getElementById('svgBw'), 900, 600);*/
+                    var n = '';
                     var csrftoken = GetCookie('csrftoken');
                     var objnet = [];
                     var gap = {x:0, y:0};
@@ -243,7 +259,7 @@ $(window).load((function()
                                                                 handle(delta);
                                                             });
 
-                                    $('svg').on("mousedown", function(event)
+                                    /*$('svg').on("mousedown", function(event)
                                                             {
                                                                 mouse.x = event.clientX;
                                                                 mouse.y = event.clientY;
@@ -253,7 +269,7 @@ $(window).load((function()
                                                                 gap.x -= mouse.x - event.clientX;
                                                                 gap.y -= mouse.y - event.clientY;
                                                                 ReMake(network);
-                                                            });
+                                                            });*/
 
                                     $(document).on("keydown", function(event)
                                                                 {

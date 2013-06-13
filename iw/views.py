@@ -39,6 +39,16 @@ def Manager(request):
     """
     return render(request, 'manager.html', {})
 
+def Manager2(request):
+    """
+    @author Damien Goldenberg
+    @name Manager:
+    @param - Request, HTTPRequest object
+    @details Description:
+    This is a view function. It displays the interface manager
+    """
+    return render(request, 'manager2.html', {})
+
 def Control(request):
     """
     @author Damien Goldenberg

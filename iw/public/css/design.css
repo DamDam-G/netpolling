@@ -24,12 +24,12 @@ input
     height:600px;
 }
 
-#svgDevice
+#svgDevice, #cartoDevice
 {
     z-index:42; //The Big Question of Life, the Universe and Everything
 }
 
-#svgBw
+#svgBw, #cartoConnector
 {
     z-index:0;
     border-radius:15px;

@@ -47,7 +47,7 @@ class ExternScan(Scan):
                         mac = (cmd[i].split(" "))[2]
                     else:
                         mac = None
-                    n.append({"mac": mac, "ip": ip, "device": None, "os": None, "hostname": None})
+                    n.append({"mac": mac, "ip": ip, "device": None, "os": None, "hostname": None, "bw": None, "percent": None})
             i += 1
         self.net = n
 
