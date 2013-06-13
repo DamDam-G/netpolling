@@ -88,7 +88,10 @@ $(window).load((function()
                                                         group: 'shapes',
                                                         dragGroupWithLayer: true,
                                                         layer: true,
-                                                        mouse
+                                                        mouseover: function(layer)
+                                                                    {
+                                                                        $("#d").html('<table><tr><td><label class="label">IP : </label></td><td>'+ip+'</td></tr><tr><td><label class="label">MAC : </label></td></td><td>'+mac+'</td></tr><tr><td><label class="label">OS : </label></td></td><td>'+os+'</td></tr><tr><td><label class="label">Bande passante : </label></td></td><td> '+bw.percent+'% ('+bw.bw+' ko/s)</td</tr></table>');
+                                                                    }
                                                     });
                                         /*context.image(img, x, y, 100, 100).scale(dim.x, dim.y).mouseover(function()
                                                                                                     {
