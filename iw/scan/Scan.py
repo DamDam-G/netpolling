@@ -51,12 +51,12 @@ class Scan:
         digr = [dig[0], dig[1], dig[2]]
         signcons = ''.join(digr)
         fd = open("/opt/netpolling/netpolling/iw/conf/mac_constructor", "r")
-        for ligne in fd:
-            if signcons in ligne:
-                brand = ligne.split(" ", 10)
+        for line in fd:
+            if signcons in line:
+                brand = line.split(" ", 10)
                 phones = ["Nokia", "Sony", "Samsung", "HTC"]
-                i=0
-                while i <= 4 :
+                i = 0
+                while i <= 4:
                     if phones[i] in brand[8]:
                         device = "mobile"
                         break
