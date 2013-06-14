@@ -154,7 +154,7 @@ $(window).load((function()
                                                 "X-CSRFToken": csrftoken
                                             },
                                             url: '/getjson/',
-                                            timeout: 3000,
+                                            timeout: 20000,
                                             success:function(data)
                                                     {
                                                         console.log(JSON.parse(data));
