@@ -60,13 +60,13 @@ $(window).load((function()
                                 });
                     }
 
-                    function Device(ip, mac, os, device, bandwidth, percent, context, x, y, dim)
+                    function Device(ip, mac, os, device, name, bandwidth, percent, context, x, y, dim)
                     {
                         var ip = ip;
                         var mac = mac;
                         var os = os;
                         var device = device;
-                        var hostname = "toto";
+                        var hostname = name;
                         var bw = {p:percent, b:bandwidth};
                         var img = "/public/img/device/"+device+".svg";
                         var context = context;
@@ -78,7 +78,7 @@ $(window).load((function()
                                     {
                                         context.image(img, x, y, 100, 100).scale(dim.x, dim.y).mouseover(function()
                                                                                                     {
-                                                                                                        $("#d").html('<table><tr><td><label class="label">IP : </label></td><td>'+ip+'</td></tr><tr><td><label class="label">MAC : </label></td></td><td>'+mac+'</td></tr><tr><td><label class="label">OS : </label></td></td><td>'+os+'</td></tr><tr><td><label class="label">Bande passante : </label></td></td><td> '+bw.p+'% ('+bw.b+' ko/s)</td</tr></table>');
+                                                                                                        $("#d").html('<table><tr><td><label class="label">Hostname : </label></td><td>'+hostname+'</td></tr><tr><td><label class="label">IP : </label></td><td>'+ip+'</td></tr><tr><td><label class="label">MAC : </label></td></td><td>'+mac+'</td></tr><tr><td><label class="label">OS : </label></td></td><td>'+os+'</td></tr><tr><td><label class="label">Bande passante : </label></td></td><td> '+bw.p+'% ('+bw.b+' ko/s)</td</tr></table>');
                                                                                                     }).drag(function(){return(false);});
 
                                     };
@@ -128,7 +128,7 @@ $(window).load((function()
                         var angle = 0;
                         var dist = (360/obj.net.length)+0.5; // coef d'espacement
                         //objnet[0] = new Device(obj.gw, obj.mac, obj.os, obj.device, n, x, y);
-                        objnet[0] = new Device(obj.gw, "8c:89:a5:a3:ad:1f", "Linux", "router", 0, 0, n, x/scale.connector, y/scale.connector, {"x":0.6+scale.device, "y":0.6+scale.device});
+                        objnet[0] = new Device(obj.gw, "8c:89:a5:a3:ad:1f", "Linux", "router", 'Itinet', 0, 0, n, x/scale.connector, y/scale.connector, {"x":0.6+scale.device, "y":0.6+scale.device});
                         objnet[0].Draw();
                         var router = {x:objnet[0].GetX(), y:objnet[0].GetY()};
                         for(var i = 0; i < obj.net.length; i++)
@@ -137,7 +137,7 @@ $(window).load((function()
                             color = obj.net[i].percent < 5 ? "rgb(0, 240, 0)" : obj.net[i].percent < 10 ? "rgb(12, 228, 0)" : obj.net[i].percent < 15 ? "rgb(24, 216, 0)" : obj.net[i].percent < 20 ? "rgb(36, 204, 0)" : obj.net[i].percent < 25 ? "rgb(48, 192, 0)" : obj.net[i].percent < 30 ? "rgb(60, 180, 0)" : obj.net[i].percent < 35 ? "rgb(72, 168, 0)" : obj.net[i].percent < 40 ? "rgb(84, 156, 0)" : obj.net[i].percent < 45 ? "rgb(96, 144, 0)" : obj.net[i].percent < 50 ? "rgb(108, 132, 0)" : obj.net[i].percent < 55 ? "rgb(120, 120, 0)" : obj.net[i].percent < 60 ? "rgb(132, 108, 0)" : obj.net[i].percent < 65 ? "rgb(144, 96, 0)" : obj.net[i].percent < 70 ? "rgb(156, 84, 0)" : obj.net[i].percent < 75 ? "rgb(168, 72, 0)" : obj.net[i].percent < 80 ? "rgb(180, 60, 0)" : obj.net[i].percent < 85 ? "rgb(192, 48, 0)" : obj.net[i].percent < 90 ? "rgb(204, 36, 0)" : obj.net[i].percent < 95 ? "rgb(216, 24, 0)" : obj.net[i].percent < 100 ? "rgb(228, 12, 0)" : "rgb(0, 0, 255)"
                             x=(((radius/2)+(radius/2)*Math.cos(angleRad))+center.x - radius +340)/scale.connector;
                             y=(((radius/2)+(radius/2)*Math.sin(angleRad))+center.y - radius +340)/scale.connector;
-                            objnet[i+1] = new Device(obj.net[i].ip, obj.net[i].mac, obj.net[i].os, "computer", obj.net[i].bw, obj.net[i].percent, n, x, y, {"x":0.4+scale.device, "y":0.4+scale.device});
+                            objnet[i+1] = new Device(obj.net[i].ip, obj.net[i].mac, obj.net[i].os, "computer", obj.net[i].hostname, obj.net[i].bw, obj.net[i].percent, n, x, y, {"x":0.4+scale.device, "y":0.4+scale.device});
 			                //console.log(obj.net[i].percent);
                             objnet[i+1].Draw();
                             c.path("M"+objnet[i+1].GetX()+" "+objnet[i+1].GetY()+"L"+router.x+" "+router.y).attr({"stroke": color, "stroke-width":5});

@@ -35,7 +35,7 @@ def DoScan():
             bwp = bw.GetBps(10)
             for m in scan.net:
                 for ligne in bwp:
-                   if ligne == m["ip"]:
+                    if ligne == m["ip"]:
                         percent = (float(bwp[ligne])/float(15728640))*100.0
                         kilo = float(bwp[ligne])/float(1024)
                         m["bw"] = kilo
