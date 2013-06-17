@@ -142,9 +142,9 @@ def AjaxForm(request, id):
                     config.read(r''+ENV.conf+'netpolling.conf')
                     section = ["LocalScan", "ExternScan"]
                     try:
-                        config.set(section[t], 'name', r''+request.POST.get("name"))
-                        config.set(section[t], 'netmask', r''+request.POST.get("mask"))
-                        config.set(section[t], 'interface', r''+request.POST.get("interface"))
+                        config.set(section[t], 'name', r'"'+request.POST.get("name")+'"')
+                        config.set(section[t], 'netmask', r'"'+request.POST.get("mask")+'"')
+                        config.set(section[t], 'interface', r'"'+request.POST.get("interface")+'"')
                         config.set(section[t], 'device', device)
                         config.set(section[t], 'os', os)
                         config.set(section[t], 'hostname', hostname)

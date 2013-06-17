@@ -1,16 +1,43 @@
 #! /usr/bin/python
-#from models import *
 from scan.LocalScan import *
-import bw
 import os
 import conf.netenv as ENV
 import ConfigParser
+import time
 
 def WriteCron():
     """commentaire temporaire
     @return:
     """
     os.popen(ENV.scripts+"cron.pl")
+
+
+def GetBW(t):
+    (os.popen("tshark -i eth0 -z conv,ip -a duration:{0} > traffic".format(t)))
+    time.sleep(float(t))
+    bwk = {}
+    fd = open(ENV.conf+"traffic", "r")
+    for line in fd:
+        if " <-> " in line:
+            ip1 = line[0:15].rstrip()
+            ip2 = line[25:41].rstrip()
+            octet = line[90:100]
+            bps = float(octet)/float(t)
+            if "10.8" in line[0:6]:
+                if ip1 in bwk:
+                    bwk[ip1] += bps
+                else:
+                    bwk[ip1] = bps
+            elif "10.8" in line[23:30]:
+                if ip2 in bwk:
+                    bwk[ip2] += bps
+                else:
+                    bwk[ip2] = bps
+            else:
+                print "Joe la praline"
+    fd.close()
+    return bwk
+
 
 def DoScan():
     """!
@@ -32,7 +59,7 @@ def DoScan():
         if up == 1:
             scan = LocalScan(name, netmask, interface)
             scan.GetIpMac()
-            bwp = bw.GetBps(10)
+            bwp = GetBW(10)
             for m in scan.net:
                 for ligne in bwp:
                     if ligne == m["ip"]:

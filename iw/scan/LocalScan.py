@@ -36,7 +36,7 @@ class LocalScan(Scan):
             if re.match("\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}", cmd[i]):
                     ip = (cmd[i].split("\t"))[0]
                     mac = (cmd[i].split("\t"))[1]
-                    n.append({"mac": mac, "ip": ip, "device": None, "os": None, "hostname": self.GetHostName(ip), "bw": None, "percent": None})
+                    n.append({"mac": mac, "ip": ip, "device": None, "os": None, "bw": None, "percent": None, "hostname": self.GetHostName(ip)})
             i += 1
         self.net = n
 
