@@ -13,7 +13,7 @@ def WriteCron():
 
 
 def GetBW(t):
-    (os.popen("tshark -i eth0 -z conv,ip -a duration:{0} > traffic".format(t)))
+    (os.popen("tshark -i eth0 -z conv,ip -a duration:{0} > {1}traffic".format(t, ENV.conf)))
     time.sleep(float(t))
     bwk = {}
     fd = open(ENV.conf+"traffic", "r")
