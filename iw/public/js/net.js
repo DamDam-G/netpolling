@@ -99,10 +99,12 @@ $(window).load((function()
                                                                                                                                                success:function(data)
                                                                                                                                                        {
                                                                                                                                                            $("#os").html(data);
+                                                                                                                                                           available.os = 0;
                                                                                                                                                        },
                                                                                                                                                error: function()
                                                                                                                                                        {
                                                                                                                                                            alert('La requête n\'a pas abouti');
+                                                                                                                                                           available.os = 0;
                                                                                                                                                        }
                                                                                                                                            })
                                                                                                                                     }

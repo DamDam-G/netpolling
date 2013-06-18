@@ -184,4 +184,4 @@ def GetJson(request):
 def GetOS(request):
     if request.is_ajax():
         if request.POST.get("ip"):
-            return HttpResponse(((os.popen("nmap -O"+request.POST.get("ip"))).read()).replace('\n', '<br />'))
+            return HttpResponse(((os.popen("nmap -O "+request.POST.get("ip"))).read()).replace('\n', '<br />'))
