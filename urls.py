@@ -11,6 +11,6 @@ urlpatterns = patterns('',
                        url(r'^manager/$', 'netpolling.iw.views.Manager'),
                        url(r'^manager2/$', 'netpolling.iw.views.Manager2'),
                        url(r'^control/$', 'netpolling.iw.views.Control'),
-                       #url(r'^getjson/(\d{1})$', 'netpolling.iw.views.GetJson'),
                        url(r'^getjson/$', 'netpolling.iw.views.GetJson'),
+                       url(r'^os/$', 'netpolling.iw.views.GetOS'),
                        url(r'^ajaxform/(\d{1})/$', 'netpolling.iw.views.AjaxForm'))

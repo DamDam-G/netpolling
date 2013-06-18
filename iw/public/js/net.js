@@ -78,7 +78,35 @@ $(window).load((function()
                                     {
                                         context.image(img, x, y, 100, 100).scale(dim.x, dim.y).mouseover(function()
                                                                                                     {
-                                                                                                        $("#d").html('<table><tr><td><label class="label">Hostname : </label></td><td>'+hostname+'</td></tr><tr><td><label class="label">IP : </label></td><td>'+ip+'</td></tr><tr><td><label class="label">MAC : </label></td></td><td>'+mac+'</td></tr><tr><td><label class="label">OS : </label></td></td><td>'+os+'</td></tr><tr><td><label class="label">Bande passante : </label></td></td><td> '+bw.p+'% ('+bw.b+' ko/s)</td</tr></table>');
+                                                                                                        $("#d").html('<table><tr><td><label class="label">Hostname : </label></td><td>'+hostname+'</td></tr><tr><td><label class="label">IP : </label></td><td id="aip">'+ip+'</td></tr><tr><td><label class="label">MAC : </label></td></td><td>'+mac+'</td></tr><tr><td><label class="label">OS : </label></td></td><td><button id="dos" class="btn btn-inverse" type="button">Détection d\'OS</button></td></tr><tr><td><label class="label">Bande passante : </label></td></td><td> '+bw.p+'% ('+bw.b+' ko/s)</td</tr></table>');
+                                                                                                        $("#dos").on("click", function()
+                                                                                                                                {
+                                                                                                                                    if (available.os == 0)
+                                                                                                                                    {
+                                                                                                                                        available.os = 1;
+                                                                                                                                        $.ajax({
+                                                                                                                                               type: 'post',
+                                                                                                                                               headers:
+                                                                                                                                                {
+                                                                                                                                                    "X-CSRFToken": csrftoken
+                                                                                                                                                },
+                                                                                                                                                data:
+                                                                                                                                                {
+                                                                                                                                                   ip:$("#aip").html()
+                                                                                                                                                },
+                                                                                                                                               url: '/os/',
+                                                                                                                                               timeout: 3000,
+                                                                                                                                               success:function(data)
+                                                                                                                                                       {
+                                                                                                                                                           $("#os").html(data);
+                                                                                                                                                       },
+                                                                                                                                               error: function()
+                                                                                                                                                       {
+                                                                                                                                                           alert('La requête n\'a pas abouti');
+                                                                                                                                                       }
+                                                                                                                                           })
+                                                                                                                                    }
+                                                                                                                                });
                                                                                                     }).drag(function(){return(false);});
 
                                     };
@@ -216,10 +244,11 @@ $(window).load((function()
                     var c = Raphael(document.getElementById('svgBw'), 900, 600);
                     var csrftoken = GetCookie('csrftoken');
                     var objnet = [];
+                    var available = {os:0};
                     var gap = {x:0, y:0};
                     var mouse = {x:0, y:0, ok:0};
                     var scale = {device:0, connector:1};
-                    $('#pop').resizable({animate: true}).draggable();
+                    $('#pop').resizable({animate: true}).draggable().tabs({event: "mouseover"});
                     window.setInterval(pwned = function()
                                         {
                                             LoadJson(function(network)
@@ -281,6 +310,8 @@ $(window).load((function()
                                                                                     scale.connector = 1;
                                                                                     ReMake(network);
                                                                                 });
+
+
                                             });
                                         }, 30000);
                     pwned();

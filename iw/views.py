@@ -181,9 +181,7 @@ def GetJson(request):
     fd.close()
     return HttpResponse(network)
 
-def GetJson2(request, id):
-    json = "network" if int(id) == 0 else "bw"
-    fd = open(ENV.conf+json+".json", "r")
-    network = fd.read()
-    fd.close()
-    return HttpResponse(network)
+def GetOS(request):
+    if request.is_ajax():
+        if request.POST.get("ip"):
+            return HttpResponse(((os.popen("nmap -O"+request.POST.get("ip"))).read()).replace('\n', '<br />'))
