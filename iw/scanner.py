@@ -59,11 +59,11 @@ def DoScan():
         if up == 1:
             scan = LocalScan(name, netmask, interface)
             scan.GetIpMac()
-            bwp = GetBW(10)
+            bwp = GetBW(56)
             for m in scan.net:
                 for ligne in bwp:
                     if ligne == m["ip"]:
-                        percent = (float(bwp[ligne])/float(15728640))*100.0
+                        percent = (float(bwp[ligne])/float(15728640))*800.0
                         kilo = float(bwp[ligne])/float(1024)
                         m["bw"] = kilo
                         m["percent"] = percent
@@ -74,6 +74,7 @@ def DoScan():
         print 'Oops, une erreur dans votre fichier de conf (%s)' % err
 
 if __name__ == "__main__":
+    r = DoScan()
     fd = open(ENV.conf+"network.json", "w")
-    fd.write(DoScan())
+    fd.write(r)
     fd.close()
