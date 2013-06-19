@@ -46,7 +46,39 @@ $(window).load((function()
                                 timeout: 3000,
                                 success:function(data)
                                         {
-                                            data = JSON.parse(data)
+                                            data = JSON.parse(data);
+                                            if (data.success == 1)
+                                                cls = 'success';
+                                            else if (data.success == 0)
+                                                cls = 'danger';
+                                            $("#info").html('<div class="alert alert-' +cls+ '"><button type="button" class="close" data-dismiss="alert">×</button>' +data.why+ '</div>');
+                                        },
+                                error:function()
+                                      {
+                                            $("#info").html('<div class="alert alert-warning"><button type="button" class="close" data-dismiss="alert">×</button>La requête n\'a pas pu aboutir</div>');
+                                      }
+                                });
+                    }
+
+                    function Form2(e)
+                    {
+                        e.preventDefault();
+                        $.ajax({
+                            type: 'post',
+                            headers:
+                                {
+                                  "X-CSRFToken": csrftoken
+                                },
+                                data:
+                                {
+                                    "name":$(this).serialize().split("=")[1],
+                                    "net":net
+                                },
+                                url: '/ajaxform/'+id+'/',
+                                timeout: 3000,
+                                success:function(data)
+                                        {
+                                            data = JSON.parse(data);
                                             if (data.success == 1)
                                                 cls = 'success';
                                             else if (data.success == 0)
@@ -216,14 +248,26 @@ $(window).load((function()
                                                        timeout: 3000,
                                                        success:function(data)
                                                                {
-                                                                   WriteModal("#option", "#dispopt", data);
-                                                                   if (id == 0 || id == 1 || id == 2 || id == 4)
+                                                                   if (id == 0 || id == 1 || id == 4)
                                                                    {
-                                                                       $("#form0").on("submit", Form);
-                                                                       if(id == 0 || id== 4)
+                                                                       WriteModal("#option", "#dispopt", data);
+                                                                       if (id == 1)
                                                                        {
-                                                                           $("#form1").on("submit", Form);
+                                                                           $("#form0").on("submit", Form2);
                                                                        }
+                                                                       else
+                                                                       {
+                                                                           $("#form0").on("submit", Form);
+                                                                           if(id == 0)
+                                                                           {
+                                                                               $("#form1").on("submit", Form);
+                                                                           }
+                                                                       }
+
+                                                                   }
+                                                                   else if (id == 2)
+                                                                   {
+                                                                       window.open("/visu/");
                                                                    }
 
                                                                },
@@ -240,21 +284,54 @@ $(window).load((function()
                         $('image').remove();
                         Map(obj);
                     }
+                    
+                    $("#sniff").on("click", function()
+                                            {
+                                                if (available.sniff == 0)
+                                                {
+                                                    available.sniff = 1;
+                                                    $.ajax({
+                                                           type: 'post',
+                                                           headers:
+                                                            {
+                                                                "X-CSRFToken": csrftoken
+                                                            },
+                                                            data:
+                                                            {
+                                                               ip:$("#aip").html()
+                                                            },
+                                                           url: '/sniff/',
+                                                           //timeout: 70000,
+                                                           success:function(data)
+                                                                   {
+
+                                                                       available.sniff = 0;
+                                                                   },
+                                                           error: function()
+                                                                   {
+                                                                       alert('La requête n\'a pas abouti');
+                                                                       available.sniff = 0;
+                                                                   }
+                                                       })
+                                                }
+                                            });
 
                     //var id;
                     var n = Raphael(document.getElementById('svgDevice'), 900, 600)
                     var c = Raphael(document.getElementById('svgBw'), 900, 600);
                     var csrftoken = GetCookie('csrftoken');
                     var objnet = [];
-                    var available = {os:0};
+                    var available = {os:0, sniff:0};
                     var gap = {x:0, y:0};
                     var mouse = {x:0, y:0, ok:0};
                     var scale = {device:0, connector:1};
+                    var net;
                     $('#pop').resizable({animate: true}).draggable().tabs({event: "mouseover"});
                     window.setInterval(pwned = function()
                                         {
                                             LoadJson(function(network)
                                                     {
+                                                        net = network;
                                                         function handle(delta)
                                                         {
                                                             if (delta < 0)

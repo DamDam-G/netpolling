@@ -1,13 +1,14 @@
 #-*- coding: utf-8 -*-
 
 import json
+import os
 from django.shortcuts import render, render_to_response
 from django.http import HttpResponse
 from models import *
 from scanner import *
 import ConfigParser
 import conf.netenv as ENV
-
+from scapy.all import *
 
 def Index(request):
     """
@@ -48,6 +49,16 @@ def Manager2(request):
     This is a view function. It displays the interface manager
     """
     return render(request, 'manager2.html', {})
+
+def Visu(request):
+    """
+    @author Damien Goldenberg
+    @name Manager:
+    @param - Request, HTTPRequest object
+    @details Description:
+    This is a view function. It displays the interface manager
+    """
+    return render(request, 'visu.html', {'data':Screenshot.objects.all()})
 
 def Control(request):
     """
@@ -161,12 +172,26 @@ def AjaxForm(request, id):
             if request.POST.get("name"):
                 r = Screenshot()
                 r.name = request.POST.get("name")
-                r.path = '/public/img/screenshots/'+request.POST.get("name")+'.png'
+                r.path = '/public/screenshots/'+request.POST.get("name")+'.json'
                 r.save()
-                param = {'success':1, 'why':'La carte a bien été enregistré'}
+                n = list()
+                t = (((request.raw_post_data).replace("%5B", "[")).replace("%5D", "]")).replace("%20", " ")
+                i = 0
+                """
+                while i < len(t[net]):
+                    n.append({"mac": t[net][i][mac], "ip": t[net][i][ip], "device": t[net][i][device], "os": t[net][i][os], "bw": t[net][i][bw], "percent": t[net][i][percent], "hostname": t[net][i][hostname]})
+                    i += 1
+                fd = open(ENV.screen+request.POST.get("name")+".json", "w")
+                fd.write(n)
+                fd.close()
+                """
+                param = {'success':1, 'why':'La carte a bien été enregistré'+t}
             else:
                 param = {'success':0, 'why':'error : map name'}
         elif id == 2:
+            if request.POST.get("type"):
+                r = Screenshot.objects.filter(name=request.POST.get("type"))
+                param = {'success':1, }
             param = {'success':1, 'why':'La carte est en cours de chargement<img src="/public/img/loading.gif" />'}
         elif id == 4:
             param = {'success':0, 'why':''}
@@ -185,3 +210,32 @@ def GetOS(request):
     if request.is_ajax():
         if request.POST.get("ip"):
             return HttpResponse(((os.popen("nmap -O "+request.POST.get("ip"))).read()).replace('\n', '<br />'))
+        else:
+            return HttpResponse("42, The Big Question of Life, the Universe and Everything.<br /> <div class=\"alert alert-error\">[ERROR] : problem about @ip</div>")
+    else:
+            return HttpResponse("42, The Big Question of Life, the Universe and Everything.<br /> <div class=\"alert alert-error\">[ERROR] : it's not a request ajax ... Are you stupid?</div>")
+
+
+def GetMap(request):
+    if request.is_ajax():
+        if request.POST.get("name"):
+            r = Screenshot.objects.get(name=request.POST.get("name"))
+            fd = open(ENV.screen+r.name+".json", "r")
+            network = fd.read()
+            fd.close()
+            return HttpResponse(network)
+        else:
+            return HttpResponse("42, The Big Question of Life, the Universe and Everything.<br /> <div class=\"alert alert-error\">[ERROR] : hum hum ...  I think you must contact your admin system ;)</div>")
+    else:
+            return HttpResponse("42, The Big Question of Life, the Universe and Everything.<br /> <div class=\"alert alert-error\">[ERROR] : it's not a request ajax ... Are you stupid?</div>")
+
+def Sniff(request):
+    if request.is_ajax():
+        if request.POST.get("name") and request.POST.get("ip") and request.POST.get("time"):
+            a = sniff(filter=request.POST.get("ip"), timeout=request.POST.get("time"))
+            wrpcap(ENV.listen+request.POST.get("name")+"-"+request.POST.get("ip")+".pcap", a)
+            return HttpResponse({'success':1, 'why':'La carte est en cours de chargement<img src="/public/img/loading.gif" />'})
+        else:
+            return HttpResponse("42, The Big Question of Life, the Universe and Everything.<br /> <div class=\"alert alert-error\">[ERROR] : hum hum ...  I think you must contact your admin system ;)</div>")
+    else:
+            return HttpResponse("42, The Big Question of Life, the Universe and Everything.<br /> <div class=\"alert alert-error\">[ERROR] : it's not a request ajax ... Are you stupid?</div>")
