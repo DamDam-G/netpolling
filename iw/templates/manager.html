@@ -56,10 +56,20 @@
         <div id="main" class="bg">
             <div id="pop">
                 <ul>
-                    <li><a href="#d">Information</a></li>
+                    <li><a href="#i">Information</a></li>
                     <li><a href="#os">OS</a></li>
                 </ul>
-                <div id="d"></div>
+                <div id="i">
+                    <div id="d"></div>
+                    <hr />
+                    <form method="post" id="fsniff" enctype="application/x-www-form-urlencoded">
+                        <label for="name">Nom de l'écoute</label>
+                        <input id="sname" type="text" required="true" data-toggle="button" placeholder="Listen_totor"><br />
+                        <label for="name">temps de l'écoute (en seconde)</label>
+                        <input id="stime" type="number" required="true" data-toggle="button" placeholder="60"><br />
+                        <input type="submit" class="btn btn-primary" data-toggle="button" value="Mise en écoute">
+                    </form>
+                </div>
                 <div id="os"></div>
             </div>
             <div id="move">

@@ -285,8 +285,9 @@ $(window).load((function()
                         Map(obj);
                     }
                     
-                    $("#sniff").on("click", function()
+                    $("#sniff").on("submit", function(event)
                                             {
+                                                event.preventDefault();
                                                 if (available.sniff == 0)
                                                 {
                                                     available.sniff = 1;
@@ -298,10 +299,11 @@ $(window).load((function()
                                                             },
                                                             data:
                                                             {
-                                                               ip:$("#aip").html()
+                                                               ip:$("#aip").html(),
+                                                               name:$("#sname").html(),
+                                                               time:$("#stime").html()
                                                             },
                                                            url: '/sniff/',
-                                                           //timeout: 70000,
                                                            success:function(data)
                                                                    {
 
@@ -314,6 +316,7 @@ $(window).load((function()
                                                                    }
                                                        })
                                                 }
+                                                return false;
                                             });
 
                     //var id;
