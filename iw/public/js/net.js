@@ -1,5 +1,16 @@
 $(window).load((function()
                 {
+                    var id;
+                    var n = Raphael(document.getElementById('svgDevice'), 900, 600)
+                    var c = Raphael(document.getElementById('svgBw'), 900, 600);
+                    var csrftoken = GetCookie('csrftoken');
+                    var objnet = [];
+                    var available = {os:0, sniff:0};
+                    var gap = {x:0, y:0};
+                    var mouse = {x:0, y:0, ok:0};
+                    var scale = {device:0, connector:1};
+                    var net;
+                    $('#pop').resizable({animate: true}).draggable().tabs({event: "mouseover"});
                     /**
                      * @author Damien Goldenberg
                      * @brief This function get the cookie specified in the in the input variable
@@ -248,7 +259,7 @@ $(window).load((function()
                                                        timeout: 3000,
                                                        success:function(data)
                                                                {
-                                                                   if (id == 0 || id == 1 || id == 4)
+                                                                   if (id == 0 || id == 1 || id == 3 || id == 4)
                                                                    {
                                                                        WriteModal("#option", "#dispopt", data);
                                                                        if (id == 1)
@@ -285,7 +296,7 @@ $(window).load((function()
                         Map(obj);
                     }
                     
-                    $("#sniff").on("submit", function(event)
+                    $("#fsniff").on("submit", function(event)
                                             {
                                                 event.preventDefault();
                                                 if (available.sniff == 0)
@@ -300,14 +311,14 @@ $(window).load((function()
                                                             data:
                                                             {
                                                                ip:$("#aip").html(),
-                                                               name:$("#sname").html(),
-                                                               time:$("#stime").html()
+                                                               name:$("#sname").val(),
+                                                               time:$("#stime").val()
                                                             },
                                                            url: '/sniff/',
                                                            success:function(data)
                                                                    {
-
                                                                        available.sniff = 0;
+                                                                       $("#rsniff").html(data);
                                                                    },
                                                            error: function()
                                                                    {
@@ -319,17 +330,6 @@ $(window).load((function()
                                                 return false;
                                             });
 
-                    //var id;
-                    var n = Raphael(document.getElementById('svgDevice'), 900, 600)
-                    var c = Raphael(document.getElementById('svgBw'), 900, 600);
-                    var csrftoken = GetCookie('csrftoken');
-                    var objnet = [];
-                    var available = {os:0, sniff:0};
-                    var gap = {x:0, y:0};
-                    var mouse = {x:0, y:0, ok:0};
-                    var scale = {device:0, connector:1};
-                    var net;
-                    $('#pop').resizable({animate: true}).draggable().tabs({event: "mouseover"});
                     window.setInterval(pwned = function()
                                         {
                                             LoadJson(function(network)
