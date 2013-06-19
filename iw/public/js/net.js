@@ -72,7 +72,7 @@ $(window).load((function()
                                 data:
                                 {
                                     "name":$(this).serialize().split("=")[1],
-                                    "net":net
+                                    "net":JSON.stringify(net)
                                 },
                                 url: '/ajaxform/'+id+'/',
                                 timeout: 3000,

@@ -174,18 +174,10 @@ def AjaxForm(request, id):
                 r.name = request.POST.get("name")
                 r.path = '/public/screenshots/'+request.POST.get("name")+'.json'
                 r.save()
-                n = list()
-                t = (((request.raw_post_data).replace("%5B", "[")).replace("%5D", "]")).replace("%20", " ")
-                i = 0
-                """
-                while i < len(t[net]):
-                    n.append({"mac": t[net][i][mac], "ip": t[net][i][ip], "device": t[net][i][device], "os": t[net][i][os], "bw": t[net][i][bw], "percent": t[net][i][percent], "hostname": t[net][i][hostname]})
-                    i += 1
                 fd = open(ENV.screen+request.POST.get("name")+".json", "w")
-                fd.write(n)
+                fd.write(request.POST.get("net"))
                 fd.close()
-                """
-                param = {'success':1, 'why':'La carte a bien été enregistré'+t}
+                param = {'success':1, 'why':'La carte a bien été enregistré'}
             else:
                 param = {'success':0, 'why':'error : map name'}
         elif id == 2:
