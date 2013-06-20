@@ -383,7 +383,7 @@ $(window).load((function()
                                                                     ReMake(network)
                                                                 }
 
-                                                                $(window).mousewheel(function(event, delta, deltaX, deltaY)
+                                                                $('svg').mousewheel(function(event, delta, deltaX, deltaY)
                                                                                     {
                                                                                         event.preventDefault();
                                                                                         handle(delta);
