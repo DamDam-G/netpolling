@@ -92,6 +92,15 @@ def Control(request):
                         i += 1
                 except ConfigParser.Error, err:
                     print 'Oops, une erreur dans votre fichier de conf (%s)' % err
+            elif id == 4:
+                param = ConfigParser.RawConfigParser()
+                param.read(ENV.conf+'netpolling.conf')
+                try:
+                    r = Param.objects.all()
+                    r.update(interface=param.get("Listen", 'interface').replace('"', ''))
+                    r.update(time=param.get("Listen", 'time').replace('"', ''))
+                except ConfigParser.Error, err:
+                    print 'Oops, une erreur dans votre fichier de conf (%s)' % err
             views = [
                         {
                             'view':'scan',
@@ -111,7 +120,7 @@ def Control(request):
                         },
                         {
                             'view':'para',
-                            'data':''#Para.objects.all()
+                            'data':Param.objects.all()
                         },
                         {
                             'view':'disconnect',
@@ -181,13 +190,24 @@ def AjaxForm(request, id):
                 param = {'success':1, 'why':'La carte a bien été enregistré'}
             else:
                 param = {'success':0, 'why':'error : map name'}
-        elif id == 2:
-            if request.POST.get("type"):
-                r = Screenshot.objects.filter(name=request.POST.get("type"))
-                param = {'success':1, }
-            param = {'success':1, 'why':'La carte est en cours de chargement<img src="/public/img/loading.gif" />'}
         elif id == 4:
-            param = {'success':0, 'why':''}
+            if request.POST.get("pinterface") and request.POST.get("ptime"):
+                r = Param.objects.all()
+                r.update(interface=request.POST.get("pinterface"))
+                r.update(time=request.POST.get("ptime"))
+                config = ConfigParser.RawConfigParser()
+                config.read(r''+ENV.conf+'netpolling.conf')
+                try:
+                    config.set("Listen", 'interface', r'"'+request.POST.get("pinterface")+'"')
+                    config.set("Listen", 'time', r''+request.POST.get("ptime"))
+                    with open(r''+ENV.conf+'netpolling.conf', 'wb') as configfile:
+                        config.write(configfile)
+                    param = {'success':1, 'why':'Les paramétres ont bien été enregistré'}
+                except ConfigParser.Error, err:
+                    print 'Oops, une erreur dans votre fichier de conf (%s)' % err
+                    param = {'success':1, 'why':'Fichier introuvable, veuillez contacter votre admin système ;) '}
+            else:
+                param = {'success':0, 'why':'error : Informations manquantes'}
         else:
             return render_to_response('error.html', {'type':'error post'})
         return HttpResponse(json.dumps(param))

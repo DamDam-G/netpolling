@@ -130,4 +130,4 @@ class Scan:
         elif opt == 1:
             return json.dumps(n)
         else:
-            print "[ERROR] GetNetwork(self, opt) : opt must equal 0 (dict) or 1 (json)"
+            print("[ERROR] GetNetwork(self, opt) : opt must equal 0 (dict) or 1 (json)")

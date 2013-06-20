@@ -25,6 +25,11 @@ class Log(models.Model):
     date = models.DateTimeField(auto_now_add=True)
     type = models.IntegerField()
 
+class Param(models.Model):
+    id = models.AutoField(primary_key=True)
+    interface = models.TextField()
+    time = models.IntegerField()
+
 class Machine(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.TextField()
