@@ -127,6 +127,8 @@ $(window).load((function()
                                                                                                                                     if (available.os == 0)
                                                                                                                                     {
                                                                                                                                         available.os = 1;
+                                                                                                                                        $("#inf").html("<div class=\"container alert alert-info\">L'os finger printing est lancée. Cette action eput prendre un certain temps</div>")
+                                                                                                                                        $("#os").html();
                                                                                                                                         $.ajax({
                                                                                                                                                type: 'post',
                                                                                                                                                headers:
@@ -141,8 +143,12 @@ $(window).load((function()
                                                                                                                                                //timeout: 70000,
                                                                                                                                                success:function(data)
                                                                                                                                                        {
-                                                                                                                                                           $("#os").html(data);
+                                                                                                                                                           $("#os").html(data.rep);
                                                                                                                                                            available.os = 0;
+                                                                                                                                                           if(data.success = 1)
+                                                                                                                                                               $("#inf").html("<div class=\"container alert alert-info\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\">&times;</button>La fonctionnalité d'os finger printing est à nouveau disponible</div>")
+                                                                                                                                                           else
+                                                                                                                                                               $("#inf").html("<div class=\"container alert alert-warning\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\">&times;</button>Un problème est survenu ... <br />Mais la fonctionnalité d'os finger printing est à nouveau disponible</div>")
                                                                                                                                                        },
                                                                                                                                                error: function()
                                                                                                                                                        {
@@ -150,6 +156,10 @@ $(window).load((function()
                                                                                                                                                            available.os = 0;
                                                                                                                                                        }
                                                                                                                                            })
+                                                                                                                                    }
+                                                                                                                                    else
+                                                                                                                                    {
+                                                                                                                                        $("#inf").html("<div class=\"container alert alert-error\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\">&times;</button>La fonctionnalité d'os finger printing n'est pas encore disponible</div>")
                                                                                                                                     }
                                                                                                                                 });
                                                                                                     }).drag(function(){return(false);});
@@ -301,6 +311,7 @@ $(window).load((function()
                                                 event.preventDefault();
                                                 if (available.sniff == 0)
                                                 {
+                                                    $("#inf").html("<div class=\"container alert alert-info\">L'écoute est lancée pendant "+$("#stime").val()+" secondes</div>")
                                                     available.sniff = 1;
                                                     $.ajax({
                                                            type: 'post',
@@ -318,7 +329,13 @@ $(window).load((function()
                                                            success:function(data)
                                                                    {
                                                                        available.sniff = 0;
-                                                                       $("#rsniff").html(data);
+                                                                       if(data.success == 1)
+                                                                       {
+                                                                           $("#rsniff").html(data.rep);
+                                                                           $("#inf").html("<div class=\"container alert alert-info\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\">&times;</button>La fonctionnalité d'écoute est à nouveau disponible</div>");
+                                                                       }
+                                                                       else
+                                                                           $("#inf").html("<div class=\"container alert alert-warning\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\">&times;</button>Une erreur est survenu ... <br /> Mais la fonctionnalité d'écoute est à nouveau disponible</div>");
                                                                    },
                                                            error: function()
                                                                    {
@@ -327,75 +344,92 @@ $(window).load((function()
                                                                    }
                                                        })
                                                 }
+                                                else
+                                                {
+                                                    $("#inf").html("<div class=\"alert alert-error\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\">&times;</button>La fonctionnalité d'écoute n'est pas encore disponible</div>")
+                                                }
                                                 return false;
                                             });
 
                     window.setInterval(pwned = function()
-                                        {
-                                            LoadJson(function(network)
-                                                    {
-                                                        net = network;
-                                                        function handle(delta)
-                                                        {
-                                                            if (delta < 0)
+                                                {
+                                                    LoadJson(function(network)
                                                             {
-                                                                scale.device -= 0.1;
-                                                                scale.connector -= 0.25;
-                                                            }
-                                                            else
-                                                            {
-                                                                scale.device += 0.1;
-                                                                scale.connector += 0.25;
-                                                            }
-                                                            ReMake(network)
-                                                        }
+                                                                net = network;
+                                                                function handle(delta)
+                                                                {
+                                                                    if (delta < 0)
+                                                                    {
+                                                                        scale.device -= 0.1;
+                                                                        scale.connector -= 0.25;
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        scale.device += 0.1;
+                                                                        scale.connector += 0.25;
+                                                                    }
+                                                                    ReMake(network)
+                                                                }
 
-                                                        $(window).mousewheel(function(event, delta, deltaX, deltaY)
-                                                                            {
-                                                                                handle(delta);
-                                                                            });
-
-                                                        $('svg').on("mousedown", function(event)
-                                                                                {
-                                                                                    mouse.x = event.clientX;
-                                                                                    mouse.y = event.clientY;
-                                                                                });
-                                                        $('svg').on("mouseup", function(event)
-                                                                                {
-                                                                                    gap.x -= mouse.x - event.clientX;
-                                                                                    gap.y -= mouse.y - event.clientY;
-                                                                                    ReMake(network);
-                                                                                });
-
-                                                        $(document).on("keydown", function(event)
+                                                                $(window).mousewheel(function(event, delta, deltaX, deltaY)
                                                                                     {
-                                                                                        //console.log(event.keyCode);
-                                                                                        if(event.keyCode > 96 && event.keyCode < 106)
-                                                                                            event.keyCode == 104 ? gap.y -= 35 : event.keyCode == 100 ? gap.x -= 35 : event.keyCode == 98 ? gap.y += 35 : event.keyCode == 102 ? gap.x += 35 : event.keyCode == 105 ? handle(1) : event.keyCode == 99 ? handle(-1) : gap.x += 0;
-                                                                                        else
-                                                                                            event.keyCode == 38 ? gap.y -= 35 : event.keyCode == 39 ? gap.x -= 35 : event.keyCode == 40 ? gap.y += 35 : event.keyCode == 37 ? gap.x += 35 : gap.x += 0;
-                                                                                        ReMake(network);
+                                                                                        event.preventDefault();
+                                                                                        handle(delta);
+                                                                                        return false;
                                                                                     });
 
-                                                        $(".mapcontroll").on("click", function(event)
+                                                                $('svg').on("mousedown", function(event)
                                                                                         {
-                                                                                            event.target.id == "m0" ? gap.y -= 35 : event.target.id == "m1" ? gap.x += 35 : event.target.id == "m2" ? gap.x -= 35 : event.target.id == "m3" ? gap.y += 35 : event.target.id == "m4" ? handle(-1) : event.target.id == "m5" ? handle(1) :gap.x += 0;
-                                                                                            if (event.target.id != "m4" || event.target.id != "m5")
-                                                                                                ReMake(network);
+                                                                                            event.preventDefault();
+                                                                                            mouse.x = event.clientX;
+                                                                                            mouse.y = event.clientY;
+                                                                                            return false;
+                                                                                        });
+                                                                $('svg').on("mouseup", function(event)
+                                                                                        {
+                                                                                            event.preventDefault();
+                                                                                            gap.x -= mouse.x - event.clientX;
+                                                                                            gap.y -= mouse.y - event.clientY;
+                                                                                            ReMake(network);
+                                                                                            return false;
                                                                                         });
 
-                                                        $("#reset").on("click", function()
-                                                                                {
-                                                                                    gap.x = 0;
-                                                                                    gap.y = 0;
-                                                                                    scale.device = 0;
-                                                                                    scale.connector = 1;
-                                                                                    ReMake(network);
-                                                                                });
+                                                                $(document).on("keydown", function(event)
+                                                                                            {
+                                                                                                if(event.keyCode > 36 && event.keyCode < 41)
+                                                                                                {
+                                                                                                    console.log(event.keyCode);
+                                                                                                    event.preventDefault();
+                                                                                                    event.keyCode == 38 ? gap.y -= 35 : event.keyCode == 39 ? gap.x -= 35 : event.keyCode == 40 ? gap.y += 35 : event.keyCode == 37 ? gap.x += 35 : gap.x += 0;
+                                                                                                    ReMake(network);
+                                                                                                    return false;
+                                                                                                }
+                                                                                                /*if(event.keyCode > 96 && event.keyCode < 106)
+                                                                                                    event.keyCode == 104 ? gap.y -= 35 : event.keyCode == 100 ? gap.x -= 35 : event.keyCode == 98 ? gap.y += 35 : event.keyCode == 102 ? gap.x += 35 : event.keyCode == 105 ? handle(1) : event.keyCode == 99 ? handle(-1) : gap.x += 0;
+                                                                                                else
+                                                                                                    event.keyCode == 38 ? gap.y -= 35 : event.keyCode == 39 ? gap.x -= 35 : event.keyCode == 40 ? gap.y += 35 : event.keyCode == 37 ? gap.x += 35 : gap.x += 0;
+                                                                                                ReMake(network);*/
+                                                                                            });
+
+                                                                $(".mapcontroll").on("click", function(event)
+                                                                                                {
+                                                                                                    event.target.id == "m0" ? gap.y -= 35 : event.target.id == "m1" ? gap.x += 35 : event.target.id == "m2" ? gap.x -= 35 : event.target.id == "m3" ? gap.y += 35 : event.target.id == "m4" ? handle(-1) : event.target.id == "m5" ? handle(1) :gap.x += 0;
+                                                                                                    if (event.target.id != "m4" || event.target.id != "m5")
+                                                                                                        ReMake(network);
+                                                                                                });
+
+                                                                $("#reset").on("click", function()
+                                                                                        {
+                                                                                            gap.x = 0;
+                                                                                            gap.y = 0;
+                                                                                            scale.device = 0;
+                                                                                            scale.connector = 1;
+                                                                                            ReMake(network);
+                                                                                        });
 
 
-                                            });
-                                        }, 30000);
+                                                    });
+                                                }, 30000);
                     pwned();
                 })());
 

@@ -222,11 +222,11 @@ def GetJson(request):
 def GetOS(request):
     if request.is_ajax():
         if request.POST.get("ip"):
-            return HttpResponse(((os.popen("nmap -O "+request.POST.get("ip"))).read()).replace('\n', '<br />'))
+            return HttpResponse(json.dumps({"success":0, "rep":((os.popen("nmap -O "+request.POST.get("ip"))).read()).replace('\n', '<br />')}))
         else:
-            return HttpResponse("42, The Big Question of Life, the Universe and Everything.<br /> <div class=\"alert alert-error\">[ERROR] : problem about @ip</div>")
+            return HttpResponse(json.dumps({"success":0, "rep":"42, The Big Question of Life, the Universe and Everything.<br /> <div class=\"alert alert-error\">[ERROR] : problem about @ip</div>"}))
     else:
-            return HttpResponse("42, The Big Question of Life, the Universe and Everything.<br /> <div class=\"alert alert-error\">[ERROR] : it's not a request ajax ... Are you stupid?</div>")
+            return HttpResponse(json.dumps({"success":0, "rep":"42, The Big Question of Life, the Universe and Everything.<br /> <div class=\"alert alert-error\">[ERROR] : it's not a request ajax ... Are you stupid?</div>"}))
 
 
 def GetMap(request):
@@ -249,9 +249,9 @@ def Sniff(request):
             #a = sniff(filter="host "+str(request.POST.get("ip"))+"", count=1000000, timeout=int(request.POST.get("time")))
             #wrpcap(ENV.listen+request.POST.get("name")+"-"+request.POST.get("ip")+".pcap", a)
             #wrpcap("toto.pcap", a)
-            return HttpResponse("<div class=\"alert alert-success\"></div><a class='btn btn-info' href='/public/listen/"+request.POST.get("name")+"-"+request.POST.get("ip")+".pcap'>DL</a>")
+            return HttpResponse(json.dumps({"success":1, "rep":"<div class=\"alert alert-success\"></div><a class='btn btn-info' href='/public/listen/"+request.POST.get("name")+"-"+request.POST.get("ip")+".pcap'>DL</a>"}))
             #return HttpResponse("<div class=\"alert alert-success\">L'écoute a été terminé avec succès</div><a class='btn btn-info' href='/public/listen/"+request.POST.get("name")+"-"+request.POST.get("ip")+".pcap'>DL</a>")
         else:
-            return HttpResponse("42, The Big Question of Life, the Universe and Everything.<br /> <div class=\"alert alert-error\">[ERROR] : hum hum ...  I think you must contact your admin system ;)</div>")
+            return HttpResponse(json.dumps({"success":0, "rep":"42, The Big Question of Life, the Universe and Everything.<br /> <div class=\"alert alert-error\">[ERROR] : hum hum ...  I think you must contact your admin system ;)</div>"}))
     else:
-            return HttpResponse("42, The Big Question of Life, the Universe and Everything.<br /> <div class=\"alert alert-error\">[ERROR] : it's not a request ajax ... Are you stupid?</div>")
+            return HttpResponse(json.dumps({"success":0, "rep":"42, The Big Question of Life, the Universe and Everything.<br /> <div class=\"alert alert-error\">[ERROR] : it's not a request ajax ... Are you stupid?</div>"}))

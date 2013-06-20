@@ -94,3 +94,8 @@ input
     -o-transition:all 1s ease-in-out 0s;
     -webkit-transition:all 1s ease-in-out 0s;
 }
+
+#inf
+{
+    z-index:150;
+}
