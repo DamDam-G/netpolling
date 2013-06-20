@@ -17,5 +17,5 @@ urlpatterns = patterns('',
                        url(r'^screenshot/$', 'netpolling.iw.views.GetMap'),
                        url(r'^sniff/$', 'netpolling.iw.views.Sniff'),
                        url(r'^connect/$', 'netpolling.iw.views.FCo'),
-                       url(r'^connect/$', 'netpolling.iw.views.Disconnect'),
+                       url(r'^disconnect/$', 'netpolling.iw.views.Disconnect'),
                        url(r'^ajaxform/(\d{1})/$', 'netpolling.iw.views.AjaxForm'))

@@ -281,7 +281,7 @@ $(window).load((function()
                                                        timeout: 3000,
                                                        success:function(data)
                                                                {
-                                                                   if (id == 0 || id == 1 || id == 3 || id == 4)
+                                                                   if (id == 0 || id == 1 || id == 3 || id == 4 || id == 5)
                                                                    {
                                                                        WriteModal("#option", "#dispopt", data);
                                                                        if (id == 1)

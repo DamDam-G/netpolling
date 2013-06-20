@@ -50,10 +50,9 @@ class Scan:
         dig = mac.split(':', 3)
         digr = [dig[0], dig[1], dig[2]]
         signcons = ''.join(digr)
-        fd = open("/opt/netpolling/netpolling/iw/conf/mac_constructor", "r")
         device = "computer"
+        fd = open("/opt/netpolling/netpolling/iw/conf/mac_constructor", "r")
         for line in fd:
-            print "toto"
             if signcons in line:
                 brand = line.split(" ", 10)
                 phones = ["Nokia", "Sony", "Samsung", "HTC"]
@@ -64,7 +63,6 @@ class Scan:
                         break
                     else:
                         i += 1
-                        device = "pc"
         fd.close()
         return device
 

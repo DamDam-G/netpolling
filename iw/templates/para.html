@@ -7,8 +7,8 @@
         <div id="info"></div>
         <form method="post" id="form0" enctype="application/x-www-form-urlencoded">
             {% for t in data %}
-                <label class="label">Interface d'écoute</label>&nbsp&nbsp<input required="true" id="pinterface" name="pinterface" type="text" value="{{ t.interface }}"><br />
-                <label class="label">Temps d'écoute</label>&nbsp&nbsp<input required="true" id="ptime" name="ptime" type="text" value="{{ t.time }}" ><br />
+                <label class="label">Interface d'écoute</label>&nbsp&nbsp<input required="true" placeholder="eth0" id="pinterface" name="pinterface" type="text" value="{{ t.interface }}"><br />
+                <label class="label">Temps d'écoute</label>&nbsp&nbsp<input required="true" placeholder="56" id="ptime" name="ptime" type="number" value="{{ t.time }}" ><br />
             {% endfor %}
             <button type="submit" class="btn btn-info">Sauvegarder</button>
         </form>
