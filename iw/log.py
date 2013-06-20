@@ -6,12 +6,13 @@ import sys
 import conf.netenv as ENV
 
 def PutLog(name, content, type):
+    co = lite.connect(ENV.db+'netpolling.sql')
     try:
-        co = lite.connect(ENV.bd+'test.db')
         with co:
             cur = co.cursor()
-            cur.execute("INSERT INTO iw_log VALUES('"+name+"','"+content+"', now(), "+type+"")
-            co.close()
+            print 'toto'
+            cur.execute("INSERT INTO \"netpolling\".\"iw_log\" VALUES('', '"+name+"','"+content+"', '', "+str(type)+")")
+            co.commit()
     except lite.Error, e:
         if co:
             co.rollback()
@@ -19,4 +20,7 @@ def PutLog(name, content, type):
         sys.exit(1)
     finally:
         if co:
-            co.close()d 
+            co.close()
+
+if __name__ == "__main__":
+    PutLog('toto', 'trolololol', 1)

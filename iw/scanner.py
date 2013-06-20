@@ -12,9 +12,13 @@ def WriteCron():
     os.popen(ENV.scripts+"cron.pl")
 
 
-def GetBW(t):
-    (os.popen("tshark -i eth0 -z conv,ip -a duration:{0} > {1}traffic".format(t, ENV.conf)))
-    time.sleep(float(t))
+def GetBW():
+    param = ConfigParser.RawConfigParser()
+    param.read(ENV.conf+'netpolling.conf')
+    interface = param.get("Listen", "interface")
+    duration = param.get("Listen", "time")
+    (os.popen("tshark -i {0} -z conv,ip -a duration:{1} > {2}traffic".format(interface, duration, ENV.conf)))
+    time.sleep(float(duration))
     bwk = {}
     fd = open(ENV.conf+"traffic", "r")
     for line in fd:
@@ -22,7 +26,7 @@ def GetBW(t):
             ip1 = line[0:15].rstrip()
             ip2 = line[25:41].rstrip()
             octet = line[90:100]
-            bps = float(octet)/float(t)
+            bps = float(octet)/float(duration)
             if "10.8" in line[0:6]:
                 if ip1 in bwk:
                     bwk[ip1] += bps
@@ -59,7 +63,7 @@ def DoScan():
         if up == 1:
             scan = LocalScan(name, netmask, interface)
             scan.GetIpMac()
-            bwp = GetBW(56)
+            bwp = GetBW()
             for m in scan.net:
                 for ligne in bwp:
                     if ligne == m["ip"]:

@@ -370,15 +370,22 @@ $(window).load((function()
                                                                 net = network;
                                                                 function handle(delta)
                                                                 {
+                                                                    console.log(scale);
                                                                     if (delta < 0)
                                                                     {
-                                                                        scale.device -= 0.1;
-                                                                        scale.connector -= 0.25;
+                                                                        /*if(scale.device < 0.5 && scale.connector < 2.25)
+                                                                        {*/
+                                                                            scale.device -= 0.1;
+                                                                            scale.connector -= 0.25;
+                                                                        //}
                                                                     }
                                                                     else
                                                                     {
-                                                                        scale.device += 0.1;
-                                                                        scale.connector += 0.25;
+                                                                        /*if(scale.device > -0.3 && scale.connector < 0.25)
+                                                                        {*/
+                                                                            scale.device += 0.1;
+                                                                            scale.connector += 0.25;
+                                                                        //}
                                                                     }
                                                                     ReMake(network)
                                                                 }
