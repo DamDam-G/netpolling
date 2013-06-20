@@ -51,7 +51,9 @@ class Scan:
         digr = [dig[0], dig[1], dig[2]]
         signcons = ''.join(digr)
         fd = open("/opt/netpolling/netpolling/iw/conf/mac_constructor", "r")
+        device = "computer"
         for line in fd:
+            print "toto"
             if signcons in line:
                 brand = line.split(" ", 10)
                 phones = ["Nokia", "Sony", "Samsung", "HTC"]
@@ -131,3 +133,7 @@ class Scan:
             return json.dumps(n)
         else:
             print("[ERROR] GetNetwork(self, opt) : opt must equal 0 (dict) or 1 (json)")
+
+if __name__ == "__main__":
+    s = Scan("toto", "", "")
+    print(s.GetDevice("00:0c:29:e5:2d:af"))
