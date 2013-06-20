@@ -396,11 +396,11 @@ $(window).load((function()
 
                                                                 $(document).on("keydown", function(event)
                                                                                             {
-                                                                                                if(event.keyCode > 36 && event.keyCode < 41)
+                                                                                                console.log(event.keyCode);
+                                                                                                if(event.keyCode > 36 && event.keyCode < 41 || event.keyCode == 107 || event.keyCode == 109)
                                                                                                 {
-                                                                                                    console.log(event.keyCode);
                                                                                                     event.preventDefault();
-                                                                                                    event.keyCode == 38 ? gap.y -= 35 : event.keyCode == 39 ? gap.x -= 35 : event.keyCode == 40 ? gap.y += 35 : event.keyCode == 37 ? gap.x += 35 : gap.x += 0;
+                                                                                                    event.keyCode == 38 ? gap.y -= 35 : event.keyCode == 39 ? gap.x -= 35 : event.keyCode == 40 ? gap.y += 35 : event.keyCode == 37 ? gap.x += 35 : event.keyCode == 107  ? handle(-1) : event.keyCode == 109 ? handle(1) : gap.x += 0;
                                                                                                     ReMake(network);
                                                                                                     return false;
                                                                                                 }

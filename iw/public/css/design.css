@@ -61,6 +61,7 @@ input
     margin-left:20px;
     top:2%;
     z-index:44;
+    overflow:auto;
 }
 
 #reset
