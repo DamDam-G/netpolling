@@ -87,8 +87,10 @@
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icon-remove"></i></button>
                 <h3>Connexion</h3>
             </div>
-            <form action="connect" method="post" enctype="application/x-www-form-urlencoded">
+            <form action="/connect/" method="post" enctype="application/x-www-form-urlencoded">
                 {% csrf_token %}
+                <label class="control-label" for="ps1">Login</label><input id="ps1" name="pseudo" type="text" placeholder="zozor@gmail.com" required="true" />
+                <label class="control-label" for="ps2">Mot de passe</label><input id="ps2" name="pwd" type="password"  required="true" /><br />
                 <div class="modal-body"></div>
                 <div class="modal-footer">
                     <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>

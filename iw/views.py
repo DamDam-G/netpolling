@@ -9,7 +9,7 @@ from scanner import *
 import ConfigParser
 import conf.netenv as ENV
 from scapy.all import *
-import pickle
+from django.contrib.auth import authenticate, login, logout
 
 def Index(request):
     """
@@ -31,6 +31,20 @@ def Co(request):
     """
     return render(request, 'co.html', {})
 
+def FCo(request):
+    username = request.POST.get("pseudo")
+    password = request.POST.get("pwd")
+    user = authenticate(username=username, password=password)
+    if user is not None:
+        login(request, user)
+        return render(request, 'manager.html', {})
+    else:
+        return render(request, 'index.html', {})
+
+def Disconnect(request):
+    logout(request)
+    return render(request, 'index.html', {})
+
 def Manager(request):
     """
     @author Damien Goldenberg
@@ -39,7 +53,10 @@ def Manager(request):
     @details Description:
     This is a view function. It displays the interface manager
     """
-    return render(request, 'manager.html', {})
+    if request.user.is_authenticated():
+        return render(request, 'manager.html', {})
+    else:
+        return render(request, 'index.html', {})
 
 def Manager2(request):
     """
@@ -49,7 +66,10 @@ def Manager2(request):
     @details Description:
     This is a view function. It displays the interface manager
     """
-    return render(request, 'manager2.html', {})
+    if request.user.is_authenticated():
+        return render(request, 'manager2.html', {})
+    else:
+        return render(request, 'index.html', {})
 
 def Visu(request):
     """
@@ -59,7 +79,10 @@ def Visu(request):
     @details Description:
     This is a view function. It displays the interface manager
     """
-    return render(request, 'visu.html', {'data':Screenshot.objects.all()})
+    if request.user.is_authenticated():
+        return render(request, 'visu.html', {'data':Screenshot.objects.all()})
+    else:
+        return render(request, 'index.html', {})
 
 def Control(request):
     """

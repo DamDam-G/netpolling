@@ -44,7 +44,7 @@ $(window).load((function()
                                     {
                                         context.image(img, x, y, 100, 100).scale(dim.x, dim.y).mouseover(function()
                                                                                                     {
-                                                                                                        $("#d").html('<table><tr><td><label class="label">Hostname : </label></td><td>'+hostname+'</td></tr><tr><td><label class="label">IP : </label></td><td id="aip">'+ip+'</td></tr><tr><td><label class="label">MAC : </label></td></td><td>'+mac+'</td></tr><tr><td><label class="label">OS : </label></td></td><td><button id="dos" class="btn btn-inverse" type="button">Détection d\'OS</button></td></tr><tr><td><label class="label">Bande passante : </label></td></td><td> '+bw.p+'% ('+bw.b+' ko/s)</td</tr></table>');
+                                                                                                        $("#d").html('<table><tr><td><label class="label">Hostname : </label></td><td>'+hostname+'</td></tr><tr><td><label class="label">IP : </label></td><td id="aip">'+ip+'</td></tr><tr><td><label class="label">MAC : </label></td></td><td>'+mac+'</td></tr><tr><td><label class="label">OS : </label></td></td><td><button id="dos" class="btn btn-inverse" type="button">Détection d\'OS</button></td></tr><tr><td><label class="label">Bande passante : </label></td></td><td> '+bw.p+'% ('+bw.b+' kb/s)</td</tr></table>');
                                                                                                     }).drag(function(){return(false);});
 
                                     };
@@ -99,17 +99,25 @@ $(window).load((function()
                         var router = {x:objnet[0].GetX(), y:objnet[0].GetY()};
                         for(var i = 0; i < obj.net.length; i++)
                         {
-                            angleRad = angle/180*Math.PI;
-                            color = obj.net[i].percent == null ? "rgb(0, 0, 255)" : obj.net[i].percent < 5 ? "rgb(0, 240, 0)" : obj.net[i].percent < 10 ? "rgb(12, 228, 0)" : obj.net[i].percent < 15 ? "rgb(24, 216, 0)" : obj.net[i].percent < 20 ? "rgb(36, 204, 0)" : obj.net[i].percent < 25 ? "rgb(48, 192, 0)" : obj.net[i].percent < 30 ? "rgb(60, 180, 0)" : obj.net[i].percent < 35 ? "rgb(72, 168, 0)" : obj.net[i].percent < 40 ? "rgb(84, 156, 0)" : obj.net[i].percent < 45 ? "rgb(96, 144, 0)" : obj.net[i].percent < 50 ? "rgb(108, 132, 0)" : obj.net[i].percent < 55 ? "rgb(120, 120, 0)" : obj.net[i].percent < 60 ? "rgb(132, 108, 0)" : obj.net[i].percent < 65 ? "rgb(144, 96, 0)" : obj.net[i].percent < 70 ? "rgb(156, 84, 0)" : obj.net[i].percent < 75 ? "rgb(168, 72, 0)" : obj.net[i].percent < 80 ? "rgb(180, 60, 0)" : obj.net[i].percent < 85 ? "rgb(192, 48, 0)" : obj.net[i].percent < 90 ? "rgb(204, 36, 0)" : obj.net[i].percent < 95 ? "rgb(216, 24, 0)" : obj.net[i].percent < 100 ? "rgb(228, 12, 0)" : "rgb(0, 0, 255)"
-                            x=(((radius/2)+(radius/2)*Math.cos(angleRad))+center.x - radius +340)/scale.connector;
-                            y=(((radius/2)+(radius/2)*Math.sin(angleRad))+center.y - radius +340)/scale.connector;
-                            objnet[i+1] = new Device(obj.net[i].ip, obj.net[i].mac, obj.net[i].os, "computer", obj.net[i].hostname, obj.net[i].bw, obj.net[i].percent, n, x, y, {"x":0.4+scale.device, "y":0.4+scale.device});
-			                //console.log(obj.net[i].percent);
-                            objnet[i+1].Draw();
-                            c.path("M"+objnet[i+1].GetX()+" "+objnet[i+1].GetY()+"L"+router.x+" "+router.y).attr({"stroke": color, "stroke-width":5});
-                            objnet[i+1].SetBw(objnet[i+1].percent, objnet[i+1].mega);
-                            angle += dist;
+                            if(objnet[0].GetIp == obj.net[i].ip)
+                            {
+                                objnet[0].SetMac = obj.net[i].mac;
+                                objnet[i+1].SetBw(objnet[i+1].percent, obj.net[i].bw*8);
+                            }
+                            else
+                            {
+                                angleRad = angle/180*Math.PI;
+                                color = obj.net[i].percent == null ? "rgb(0, 0, 255)" : obj.net[i].percent < 5 ? "rgb(0, 240, 0)" : obj.net[i].percent < 10 ? "rgb(12, 228, 0)" : obj.net[i].percent < 15 ? "rgb(24, 216, 0)" : obj.net[i].percent < 20 ? "rgb(36, 204, 0)" : obj.net[i].percent < 25 ? "rgb(48, 192, 0)" : obj.net[i].percent < 30 ? "rgb(60, 180, 0)" : obj.net[i].percent < 35 ? "rgb(72, 168, 0)" : obj.net[i].percent < 40 ? "rgb(84, 156, 0)" : obj.net[i].percent < 45 ? "rgb(96, 144, 0)" : obj.net[i].percent < 50 ? "rgb(108, 132, 0)" : obj.net[i].percent < 55 ? "rgb(120, 120, 0)" : obj.net[i].percent < 60 ? "rgb(132, 108, 0)" : obj.net[i].percent < 65 ? "rgb(144, 96, 0)" : obj.net[i].percent < 70 ? "rgb(156, 84, 0)" : obj.net[i].percent < 75 ? "rgb(168, 72, 0)" : obj.net[i].percent < 80 ? "rgb(180, 60, 0)" : obj.net[i].percent < 85 ? "rgb(192, 48, 0)" : obj.net[i].percent < 90 ? "rgb(204, 36, 0)" : obj.net[i].percent < 95 ? "rgb(216, 24, 0)" : obj.net[i].percent < 100 ? "rgb(228, 12, 0)" : "rgb(0, 0, 255)"
+                                x=(((radius/2)+(radius/2)*Math.cos(angleRad))+center.x - radius +340)/scale.connector;
+                                y=(((radius/2)+(radius/2)*Math.sin(angleRad))+center.y - radius +340)/scale.connector;
+                                objnet[i+1] = new Device(obj.net[i].ip, obj.net[i].mac, obj.net[i].os, "computer", obj.net[i].hostname, obj.net[i].bw*8, obj.net[i].percent, n, x, y, {"x":0.4+scale.device, "y":0.4+scale.device});
+                                objnet[i+1].Draw();
+                                c.path("M"+objnet[i+1].GetX()+" "+objnet[i+1].GetY()+"L"+router.x+" "+router.y).attr({"stroke": color, "stroke-width":5});
+                                //objnet[i+1].SetBw(objnet[i+1].percent, objnet[i+1].mega);
+                                angle += dist;
+                            }
                         }
+                        objnet[0].Draw();
                     }
 
                     function LoadJson(data, getValue)
