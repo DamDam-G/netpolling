@@ -129,6 +129,20 @@ def Control(request):
                         i += 1
                 except ConfigParser.Error, err:
                     print 'Oops, une erreur dans votre fichier de conf (%s)' % err
+            elif id == 3:
+                file = (os.popen("cat "+ENV.conf+"log")).readlines()
+                os.popen("echo '' > "+ENV.conf+"log")
+                #os.popen("rm -rf > "+ENV.conf+"log; touch "+ENV.conf+"log")
+                i = 0
+                while i < len(file):
+                    l = file[i].split(" ")
+                    r = Log()
+                    r.name = l[0]
+                    r.content = l[1].replace("_", " ")
+                    r.date = l[2]
+                    r.type = l[3]
+                    r.save()
+                    i += 1
             elif id == 4:
                 param = ConfigParser.RawConfigParser()
                 param.read(ENV.conf+'netpolling.conf')
