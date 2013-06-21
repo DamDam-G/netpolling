@@ -2,12 +2,21 @@
 # -*- coding: utf-8 -*-
 
 import conf.netenv as ENV
+
 def PutLog(name, content, date, type):
-    fd = open("/opt/netpolling/iw/conf/log", "a")
+
+    """!
+    @author Alexis Boulanger
+    @name : PutLog
+    @param - name, content, date, type (0-2, info-success-danger)
+    @details Description:
+    This is gen log
+    """
     content = content.replace(' ','_')
     name = name.replace(' ','_')
     list = [name, content, date, str(type)]
     line = ' '.join(list) + "\n"
+    fd = open(ENV.conf+"log", "a")
     fd.write(line)
     fd.close()
 #    co = lite.connect("/opt/netpolling/netpolling.sql")

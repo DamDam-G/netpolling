@@ -332,7 +332,7 @@ def Sniff(request):
             #a = sniff(filter="host "+str(request.POST.get("ip"))+"", count=1000000, timeout=int(request.POST.get("time")))
             #wrpcap(ENV.listen+request.POST.get("name")+"-"+request.POST.get("ip")+".pcap", a)
             #wrpcap("toto.pcap", a)
-            return HttpResponse(json.dumps({"success":1, "rep":"<div class=\"alert alert-success\"></div><a class='btn btn-info' href='/public/listen/"+request.POST.get("name")+"-"+request.POST.get("ip")+".pcap'>DL</a>"}))
+            return HttpResponse(json.dumps({"success":1, "rep":"<div class=\"alert alert-success\"><a class='btn btn-info' href='/public/listen/"+request.POST.get("name")+"-"+request.POST.get("ip")+".pcap'>DL</a></div>"}))
             #return HttpResponse("<div class=\"alert alert-success\">L'écoute a été terminé avec succès</div><a class='btn btn-info' href='/public/listen/"+request.POST.get("name")+"-"+request.POST.get("ip")+".pcap'>DL</a>")
         else:
             return HttpResponse(json.dumps({"success":0, "rep":"42, The Big Question of Life, the Universe and Everything.<br /> <div class=\"alert alert-error\">[ERROR] : hum hum ...  I think you must contact your admin system ;)</div>"}))
