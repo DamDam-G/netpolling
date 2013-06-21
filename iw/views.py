@@ -39,7 +39,7 @@ def FCo(request):
         login(request, user)
         return redirect('/manager/')
     else:
-        return render(request, 'index.html', {"cls": "error", "why":"Login / mot de passe incorrect."})
+        return render(request, 'index.html', {"cls": "error", "why":"Login / Mot de passe incorrect."})
 
 def Disconnect(request):
     logout(request)
