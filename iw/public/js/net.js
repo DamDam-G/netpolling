@@ -492,7 +492,7 @@ $(window).load((function()
                                                                     console.log(scale);
                                                                     if (delta < 0)
                                                                     {
-                                                                        /*if(scale.device < 0.5 && scale.connector < 2.25)
+                                                                        /*if(scale.device < 0.6 && scale.connector < 2.3)
                                                                         {*/
                                                                             scale.device -= 0.1;
                                                                             scale.connector -= 0.25;
@@ -500,7 +500,7 @@ $(window).load((function()
                                                                     }
                                                                     else
                                                                     {
-                                                                        /*if(scale.device > -0.3 && scale.connector < 0.25)
+                                                                        /*if(scale.device > -0.4 && scale.connector < 0.3)
                                                                         {*/
                                                                             scale.device += 0.1;
                                                                             scale.connector += 0.25;

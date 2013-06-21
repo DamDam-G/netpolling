@@ -22,9 +22,9 @@
         </nav>
         {% endblock %}
         {% block content %}
-        {% for t in data %}
-            <div class="container alert alert-{{ t.cls }}">{{ t.why }}</div>
-        {%  endfor %}
+        {% if cls and why%}
+            <div class="container alert alert-{{ cls }}">{{ why }}</div>
+        {% endif %}
         <img class="container hidden-desktop" src="/public/img/np_logo.png">
         <div id="myCarousel" class="carousel slide visible-desktop">
             <ol class="carousel-indicators" style="background-color:black; padding:2px; border-radius:10px; ">

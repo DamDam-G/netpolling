@@ -39,11 +39,11 @@ def FCo(request):
         login(request, user)
         return redirect('/manager/')
     else:
-        return render(request, 'index.html', {})
+        return render(request, 'index.html', {"cls": "error", "why":"Login / mot de passe incorrect."})
 
 def Disconnect(request):
     logout(request)
-    return redirect('/index/', {})
+    return render(request, 'index.html', {"cls": "info", "why":"Vous venez d'être déconnecté."})
 
 def Manager(request):
     """
@@ -56,7 +56,7 @@ def Manager(request):
     if request.user.is_authenticated():
         return render(request, 'manager.html', {})
     else:
-        return redirect('/index/', {})
+        return redirect('/index/', {"cls": "error", "why":"Vous devez être connecté."})
 
 def Manager2(request):
     """
@@ -67,7 +67,7 @@ def Manager2(request):
     This is a view function. It displays the interface manager
     """
     if request.user.is_authenticated():
-        return render(request, 'manager2.html', {})
+        return render(request, 'manager2.html', {"cls": "error", "why":"Vous devez être connecté."})
     else:
         return redirect('/index/', {})
 
@@ -82,7 +82,7 @@ def Visu(request):
     if request.user.is_authenticated():
         return render(request, 'visu.html', {'data':Screenshot.objects.all()})
     else:
-        return redirect('/index/', {})
+        return redirect('/index/', {"cls": "error", "why":"Vous devez être connecté."})
 
 def Control(request):
     """
