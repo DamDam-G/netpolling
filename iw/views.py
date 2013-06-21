@@ -2,7 +2,7 @@
 
 import json
 import os
-from django.shortcuts import render, render_to_response
+from django.shortcuts import render, render_to_response, redirect
 from django.http import HttpResponse
 from models import *
 from scanner import *
@@ -37,13 +37,13 @@ def FCo(request):
     user = authenticate(username=username, password=password)
     if user is not None:
         login(request, user)
-        return render(request, 'manager.html', {})
+        return redirect('/manager/')
     else:
         return render(request, 'index.html', {})
 
 def Disconnect(request):
     logout(request)
-    return render(request, 'index.html', {})
+    return redirect('/index/', {})
 
 def Manager(request):
     """
@@ -56,7 +56,7 @@ def Manager(request):
     if request.user.is_authenticated():
         return render(request, 'manager.html', {})
     else:
-        return render(request, 'index.html', {})
+        return redirect('/index/', {})
 
 def Manager2(request):
     """
@@ -69,7 +69,7 @@ def Manager2(request):
     if request.user.is_authenticated():
         return render(request, 'manager2.html', {})
     else:
-        return render(request, 'index.html', {})
+        return redirect('/index/', {})
 
 def Visu(request):
     """
@@ -82,7 +82,7 @@ def Visu(request):
     if request.user.is_authenticated():
         return render(request, 'visu.html', {'data':Screenshot.objects.all()})
     else:
-        return render(request, 'index.html', {})
+        return redirect('/index/', {})
 
 def Control(request):
     """

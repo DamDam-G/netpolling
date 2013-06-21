@@ -13,6 +13,8 @@ def WriteCron():
 
 
 def GetBW():
+    """!
+    """
     param = ConfigParser.RawConfigParser()
     param.read(ENV.conf+'netpolling.conf')
     interface = param.get("Listen", "interface")
@@ -44,7 +46,7 @@ def GetBW():
 
 
 def DoScan():
-    """!
+    """@package docstring
     @author Damien Goldenberg
     @name DoScan
     @brief This function execute the scan on the network

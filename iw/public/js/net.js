@@ -1,23 +1,25 @@
 $(window).load((function()
                 {
-                    var id;
-                    var n = Raphael(document.getElementById('svgDevice'), 900, 600)
-                    var c = Raphael(document.getElementById('svgBw'), 900, 600);
-                    var csrftoken = GetCookie('csrftoken');
-                    var objnet = [];
-                    var available = {os:0, sniff:0};
-                    var gap = {x:0, y:0};
-                    var mouse = {x:0, y:0, ok:0};
-                    var scale = {device:0, connector:1};
-                    var net;
+                    var id; //contains the id of the current click in the menu
+                    var n = Raphael(document.getElementById('svgDevice'), 900, 600); // represents the device svg
+                    var c = Raphael(document.getElementById('svgBw'), 900, 600); // represents the band-width svg
+                    var csrftoken = GetCookie('csrftoken'); // this is the django secure token for ajx request
+                    var objnet = []; // list of the device object in the part asynchronous
+                    var available = {os:0, sniff:0}; // object to know if an app is up or not
+                    var gap = {x:0, y:0}; // object to know the gap of all items
+                    var mouse = {x:0, y:0, ok:0}; // object to know the currently position ofthe mouse for events mousedown and mouseup
+                    var scale = {device:0, connector:1}; //object for scaling all items
+                    var net; // idem objnet but in the part synchonous, maybe it's a little stupid, i don't test ^^
                     $('#pop').resizable({animate: true}).draggable().tabs({event: "mouseover"});
+
                     /**
                      * @author Damien Goldenberg
+                     * @name GetCookie
                      * @brief This function get the cookie specified in the in the input variable
                      * @param name
-                     * @returns {null}
-                     * @constructor
+                     * @returns cookieValue
                      */
+
                     function GetCookie(name)
                     {
                         var cookieValue = null;
@@ -37,12 +39,29 @@ $(window).load((function()
                         return cookieValue;
                     }
 
+                    /**
+                     * @author Damien Goldenberg
+                     * @name WriteModal
+                     * @brief Generate the good modal with some informations
+                     * @param idModal
+                     * @param idDisplay
+                     * @param data
+                     * @constructor
+                     */
+
                     function WriteModal(idModal, idDisplay, data)
                     {
                         $(idDisplay).html(data);
                         $(idModal).modal("show");
                     }
 
+                    /**
+                     * @author Damien Goldenberg
+                     * @name Form
+                     * @brief send the good form to python with ajax request
+                     * @param e
+                     * @constructor
+                     */
                     function Form(e)
                     {
                         e.preventDefault();
@@ -70,6 +89,14 @@ $(window).load((function()
                                       }
                                 });
                     }
+
+                    /**
+                     * @author Damien Goldenberg
+                     * @name Form2
+                     * @brief send the good form and a json to python with ajax request
+                     * @param e
+                     * @constructor
+                     */
 
                     function Form2(e)
                     {
@@ -103,6 +130,23 @@ $(window).load((function()
                                 });
                     }
 
+                    /**
+                     * @author Damien Goldenberg
+                     * @name Device
+                     * @brief This is a constructor function who represent the device in the map
+                     * @param ip
+                     * @param mac
+                     * @param os
+                     * @param device
+                     * @param name
+                     * @param bandwidth
+                     * @param percent
+                     * @param context
+                     * @param x
+                     * @param y
+                     * @param dim
+                     */
+
                     function Device(ip, mac, os, device, name, bandwidth, percent, context, x, y, dim)
                     {
                         var ip = ip;
@@ -117,6 +161,13 @@ $(window).load((function()
                         var y = y + gap.y;
                         var coeff = {x:55, y:50};
                         var dim = dim;
+
+                        /**
+                         * @author Damien Goldenberg
+                         * @name Draw
+                         * @brief This is a method for drawing a device and attach events
+                         */
+
                         this.Draw = function()
                                     {
                                         context.image(img, x, y, 100, 100).scale(dim.x, dim.y).mouseover(function()
@@ -165,25 +216,62 @@ $(window).load((function()
                                                                                                     }).drag(function(){return(false);});
 
                                     };
+
+                        /**
+                         * @author Damien Goldenberg
+                         * @name GetX
+                         * @brief This is a getter
+                         * @returns {number}
+                         */
+
                         this.GetX = function()
                                     {
                                         return(x+coeff.x);
                                     };
+
+                        /**
+                         * @author Damien Goldenberg
+                         * @name GetY
+                         * @brief This is a getter
+                         * @returns {number}
+                         */
 
                         this.GetY = function()
                                         {
                                             return(y+coeff.y);
                                         };
 
+                        /**
+                         * @author Damien Goldenberg
+                         * @name GetIp
+                         * @brief This is a getter
+                         * @returns {*}
+                         */
+
                         this.GetIp = function()
                                         {
                                             return(ip);
                                         };
 
+                        /**
+                         * @author Damien Goldenberg
+                         * @name GetBw
+                         * @brief This is a getter
+                         * @returns {{p: *, b: *}}
+                         */
+
                         this.GetBw = function()
                                         {
                                             return(bw)
                                         };
+
+                        /**
+                         * @author Damien Goldenberg
+                         * @name SetBw
+                         * @brief This is a setter
+                         * @param percent
+                         * @param mega
+                         */
 
                         this.SetBw = function(percent, mega)
                                         {
@@ -197,11 +285,25 @@ $(window).load((function()
                                                 return 1*/
                                         };
 
+                        /**
+                         * @author Damien Goldenberg
+                         * @name SetMac
+                         * @brief This is a setter
+                         * @param amac
+                         */
+
                         this.SetMac = function(amac)
                                         {
                                             mac = amac;
                                         };
                     }
+
+                    /**
+                     * @author Damien Goldenberg
+                     * @name Map
+                     * @brief This is the generator map
+                     * @param obj
+                     */
 
                     function Map(obj)
                     {
@@ -240,6 +342,14 @@ $(window).load((function()
                         }
                         objnet[0].Draw();
                     }
+
+                    /**
+                     * @author Damien Goldenberg
+                     * @name LoadJson
+                     * @brief Load a json data and give in his parameter this data because the parameter it's an anonymous function
+                     * @param getValue
+                     * @constructor
+                     */
 
                     function LoadJson(getValue)
                     {
@@ -311,6 +421,14 @@ $(window).load((function()
                                                    })
                                                });
 
+                    /**
+                     * @author Damien Goldenberg
+                     * @name ReMake
+                     * @brief This is function launch the gen map correctly ;)
+                     * @param obj
+                     * @constructor
+                     */
+
                     function ReMake(obj)
                     {
                         $('path').remove();
@@ -362,9 +480,10 @@ $(window).load((function()
                                                 }
                                                 return false;
                                             });
-
+                    /*here is really fucking insane you can take a gun, it's not a joke x)*/
                     window.setInterval(pwned = function()
                                                 {
+                                                    /*this is the anonymous function who take LoadJson ^^*/
                                                     LoadJson(function(network)
                                                             {
                                                                 net = network;
