@@ -465,7 +465,7 @@ $(window).load((function()
                                                                            $("#inf").html("<div class=\"container alert alert-info\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\">&times;</button>La fonctionnalité d'écoute est à nouveau disponible</div>");
                                                                        }
                                                                        else
-                                                                           $("#inf").html("<div class=\"container alert alert-warning\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\">&times;</button>Une erreur est survenu ... <br /> Mais la fonctionnalité d'écoute est à nouveau disponible</div>");
+                                                                           $("#inf").html("<div class=\"container alert alert-warning\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\">&times;</button>Une erreur est survenu ... <br /> Mais la fonctionnalité d'écoute est à nouveau disponible<br />"+data.rep+"</div>");
                                                                    },
                                                            error: function()
                                                                    {
