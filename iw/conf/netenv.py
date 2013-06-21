@@ -1,3 +1,7 @@
+"""
+This is an important modul.
+It indicates the environment of the app, if you want to change the architecture or add a path in the code, you must to refer here
+"""
 path = "/opt/netpolling/netpolling/"
 iw = path+"iw"
 scripts = iw+"/scripts/"
