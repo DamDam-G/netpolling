@@ -12,7 +12,7 @@ from scapy.all import *
 from django.contrib.auth import authenticate, login, logout
 
 def Index(request):
-    """
+    """!
     @author Damien Goldenberg
     @name Index:
     @param - Request, HTTPRequest object
@@ -22,7 +22,7 @@ def Index(request):
     return render(request, 'index.html', {})
 
 def Co(request):
-    """
+    """!
     @author Damien Goldenberg
     @name Co:
     @param - Request, HTTPRequest object
@@ -32,6 +32,13 @@ def Co(request):
     return render(request, 'co.html', {})
 
 def FCo(request):
+    """!
+    @author Damien Goldenberg
+    @name FCo:
+    @param - Request, HTTPRequest object
+    @details Description:
+    This is function determine if the user can connect or not
+    """
     username = request.POST.get("pseudo")
     password = request.POST.get("pwd")
     user = authenticate(username=username, password=password)
@@ -42,11 +49,18 @@ def FCo(request):
         return render(request, 'index.html', {"cls": "error", "why":"Login / Mot de passe incorrect."})
 
 def Disconnect(request):
+    """!
+    @author Damien Goldenberg
+    @name Disconnect:
+    @param - Request, HTTPRequest object
+    @details Description:
+    This is function logout the user
+    """
     logout(request)
     return render(request, 'index.html', {"cls": "info", "why":"Vous venez d'être déconnecté."})
 
 def Manager(request):
-    """
+    """!
     @author Damien Goldenberg
     @name Manager:
     @param - Request, HTTPRequest object
@@ -59,9 +73,9 @@ def Manager(request):
         return redirect('/index/', {"cls": "error", "why":"Vous devez être connecté."})
 
 def Manager2(request):
-    """
+    """!
     @author Damien Goldenberg
-    @name Manager:
+    @name Manager2:
     @param - Request, HTTPRequest object
     @details Description:
     This is a view function. It displays the interface manager
@@ -72,9 +86,9 @@ def Manager2(request):
         return redirect('/index/', {})
 
 def Visu(request):
-    """
+    """!
     @author Damien Goldenberg
-    @name Manager:
+    @name Visu:
     @param - Request, HTTPRequest object
     @details Description:
     This is a view function. It displays the interface manager
@@ -85,7 +99,7 @@ def Visu(request):
         return redirect('/index/', {"cls": "error", "why":"Vous devez être connecté."})
 
 def Control(request):
-    """
+    """!
     @author Damien Goldenberg
     @name Control:
     @param - Request, HTTPRequest object
@@ -115,6 +129,20 @@ def Control(request):
                         i += 1
                 except ConfigParser.Error, err:
                     print 'Oops, une erreur dans votre fichier de conf (%s)' % err
+            elif id == 3:
+                file = (os.popen("cat "+ENV.conf+"log")).readlines()
+                os.popen("echo '' > "+ENV.conf+"log")
+                #os.popen("rm -rf > "+ENV.conf+"log; touch "+ENV.conf+"log")
+                i = 0
+                while i < len(file):
+                    l = file[i].split(" ")
+                    r = Log()
+                    r.name = l[0].replace("_", " ")
+                    r.content = l[1].replace("_", " ")
+                    r.date = l[2]
+                    r.type = l[3]
+                    r.save()
+                    i += 1
             elif id == 4:
                 param = ConfigParser.RawConfigParser()
                 param.read(ENV.conf+'netpolling.conf')
@@ -162,9 +190,9 @@ def Control(request):
     return render_to_response('error.html', {'type':'error ajax'})
 
 def AjaxForm(request, id):
-    """
+    """!
     @author Damien Goldenberg
-    @name Manager:
+    @name AjaxForm:
     @param - Request, HTTPRequest object
     @details Description:
     This is function. Choice the good model and return an answer
@@ -241,12 +269,26 @@ def AjaxForm(request, id):
     return render_to_response('error.html', {'type':'error ajax'})
 
 def GetJson(request):
+    """!
+    @author Damien Goldenberg
+    @name GetJson:
+    @param - Request, HTTPRequest object
+    @details Description:
+    This is function give the json data about scan network
+    """
     fd = open(ENV.conf+"network.json", "r")
     network = fd.read()
     fd.close()
     return HttpResponse(network)
 
 def GetOS(request):
+    """!
+    @author Damien Goldenberg
+    @name GetOS:
+    @param - Request, HTTPRequest object
+    @details Description:
+    This is function determine the os
+    """
     if request.is_ajax():
         if request.POST.get("ip"):
             return HttpResponse(json.dumps({"success":0, "rep":((os.popen("nmap -O "+request.POST.get("ip"))).read()).replace('\n', '<br />')}))
@@ -257,6 +299,13 @@ def GetOS(request):
 
 
 def GetMap(request):
+    """!
+    @author Damien Goldenberg
+    @name GetMap:
+    @param - Request, HTTPRequest object
+    @details Description:
+    This is function is for the viewer part (for seeing old maps)
+    """
     if request.is_ajax():
         if request.POST.get("name"):
             r = Screenshot.objects.get(name=request.POST.get("name"))
@@ -270,6 +319,13 @@ def GetMap(request):
             return HttpResponse("42, The Big Question of Life, the Universe and Everything.<br /> <div class=\"alert alert-error\">[ERROR] : it's not a request ajax ... Are you stupid?</div>")
 
 def Sniff(request):
+    """!
+    @author Damien Goldenberg
+    @name FCo:
+    @param - Request, HTTPRequest object
+    @details Description:
+    This is function sniff a machine
+    """
     if request.is_ajax():
         if request.POST.get("name") and request.POST.get("ip") and request.POST.get("time"):
             os.popen("timeout "+str(request.POST.get("time"))+"s tcpdump -i eth0 host "+request.POST.get("ip")+" -w "+ENV.listen+request.POST.get("name")+"-"+request.POST.get("ip")+".pcap")

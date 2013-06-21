@@ -6,14 +6,23 @@ import ConfigParser
 import time
 
 def WriteCron():
-    """commentaire temporaire
-    @return:
+    """!
+    @author Damien Goldenberg
+    @name WriteCron
+    @brief This function write a crontab
+    @version V-0.1
+    @copyright GNU GPL V-3
     """
     os.popen(ENV.scripts+"cron.pl")
 
 
 def GetBW():
     """!
+    @author Alexis Boulanger
+    @name GetBw
+    @brief This function listen the network on specify interface
+    @version V-0.1
+    @copyright GNU GPL V-3
     """
     param = ConfigParser.RawConfigParser()
     param.read(ENV.conf+'netpolling.conf')
@@ -46,7 +55,7 @@ def GetBW():
 
 
 def DoScan():
-    """@package docstring
+    """!
     @author Damien Goldenberg
     @name DoScan
     @brief This function execute the scan on the network
