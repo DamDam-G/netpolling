@@ -459,9 +459,10 @@ $(window).load((function()
                                                            success:function(data)
                                                                    {
                                                                        available.sniff = 0;
-                                                                       if(data.success == 1)
+                                                                       d = JSON.parse(data)
+                                                                       if(d.success == 1)
                                                                        {
-                                                                           $("#rsniff").html(data.rep);
+                                                                           $("#rsniff").html(d.rep);
                                                                            $("#inf").html("<div class=\"container alert alert-info\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\">&times;</button>La fonctionnalité d'écoute est à nouveau disponible</div>");
                                                                        }
                                                                        else
