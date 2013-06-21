@@ -490,23 +490,24 @@ $(window).load((function()
                                                                 function handle(delta)
                                                                 {
                                                                     console.log(scale);
-                                                                    if (delta < 0)
+                                                                    if (delta < 1)
                                                                     {
                                                                         /*if(scale.device < 0.6 && scale.connector < 2.3)
                                                                         {*/
                                                                             scale.device -= 0.1;
                                                                             scale.connector -= 0.25;
+                                                                            ReMake(network);
                                                                         //}
                                                                     }
                                                                     else
                                                                     {
-                                                                        /*if(scale.device > -0.4 && scale.connector < 0.3)
+                                                                        /*if(scale.device > -0.4 && scale.connector > -0.3)
                                                                         {*/
                                                                             scale.device += 0.1;
                                                                             scale.connector += 0.25;
+                                                                            ReMake(network);
                                                                         //}
                                                                     }
-                                                                    ReMake(network)
                                                                 }
 
                                                                 $('svg').mousewheel(function(event, delta, deltaX, deltaY)

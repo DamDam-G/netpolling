@@ -137,7 +137,7 @@ def Control(request):
                 while i < len(file):
                     l = file[i].split(" ")
                     r = Log()
-                    r.name = l[0]
+                    r.name = l[0].replace("_", " ")
                     r.content = l[1].replace("_", " ")
                     r.date = l[2]
                     r.type = l[3]
