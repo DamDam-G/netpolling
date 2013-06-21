@@ -148,6 +148,10 @@ def Control(request):
                         {
                             'view':'disconnect',
                             'data':''
+                        },
+                        {
+                            'view':'help',
+                            'data':''
                         }]
 
             if id >= 0 and id < len(views):

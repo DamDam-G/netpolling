@@ -391,14 +391,14 @@ $(window).load((function()
                                                        timeout: 3000,
                                                        success:function(data)
                                                                {
-                                                                   if (id == 0 || id == 1 || id == 3 || id == 4 || id == 5)
+                                                                   if (id >= 0 && id <= 1 || id >= 3 && id <= 6)
                                                                    {
                                                                        WriteModal("#option", "#dispopt", data);
                                                                        if (id == 1)
                                                                        {
                                                                            $("#form0").on("submit", Form2);
                                                                        }
-                                                                       else
+                                                                       else if (id != 6)
                                                                        {
                                                                            $("#form0").on("submit", Form);
                                                                            if(id == 0)
