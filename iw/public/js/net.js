@@ -363,7 +363,7 @@ $(window).load((function()
                                             timeout: 20000,
                                             success:function(data)
                                                     {
-                                                        console.log(JSON.parse(data));
+                                                        //console.log(JSON.parse(data));
                                                         getValue(JSON.parse(data));
                                                         ReMake(JSON.parse(data));
                                                     },
@@ -490,23 +490,24 @@ $(window).load((function()
                                                                 function handle(delta)
                                                                 {
                                                                     console.log(scale);
-                                                                    if (delta < 1)
+                                                                    console.log(delta);
+                                                                    if (delta > 0)
                                                                     {
-                                                                        /*if(scale.device < 0.6 && scale.connector < 2.3)
-                                                                        {*/
+                                                                        if(scale.device > -0.19 && scale.connector > 0.49)
+                                                                        {
                                                                             scale.device -= 0.1;
                                                                             scale.connector -= 0.25;
                                                                             ReMake(network);
-                                                                        //}
+                                                                        }
                                                                     }
                                                                     else
                                                                     {
-                                                                        /*if(scale.device > -0.4 && scale.connector > -0.3)
-                                                                        {*/
+                                                                        if(scale.device < 0.3 && scale.connector < 1.525)
+                                                                        {
                                                                             scale.device += 0.1;
                                                                             scale.connector += 0.25;
                                                                             ReMake(network);
-                                                                        //}
+                                                                        }
                                                                     }
                                                                 }
 
