@@ -135,13 +135,14 @@ def Control(request):
                 #os.popen("rm -rf > "+ENV.conf+"log; touch "+ENV.conf+"log")
                 i = 0
                 while i < len(file):
-                    l = file[i].split(" ")
-                    r = Log()
-                    r.name = l[0].replace("_", " ")
-                    r.content = l[1].replace("_", " ")
-                    r.date = l[2]
-                    r.type = l[3]
-                    r.save()
+                    if len(file) > 1:
+                        l = file[i].split(" ")
+                        r = Log()
+                        r.name = l[0].replace("_", " ")
+                        r.content = l[1].replace("_", " ")
+                        r.date = l[2]
+                        r.type = l[3]
+                        r.save()
                     i += 1
             elif id == 4:
                 param = ConfigParser.RawConfigParser()
