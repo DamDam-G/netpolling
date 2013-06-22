@@ -57,7 +57,7 @@ class Scan:
                 brand = line.split(" ", 10)
                 phones = ["Nokia", "Sony", "Samsung", "HTC"]
                 i = 0
-                while i <= 4:
+                while i < len(phones):
                     if phones[i] in brand[8]:
                         device = "mobile"
                         break
