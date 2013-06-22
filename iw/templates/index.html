@@ -15,13 +15,16 @@
                 <div class="container">
                     <a class="nav-collapse collapse" href="#"><img src="/public/img/np_text_min.png"></a>
                     <span class="nav-collapse collapse">
-                        <a id="17" class="menu" data-target="#myCo" href="co" role="button" class="label" data-toggle="modal"><button class="btn btn-inverse"><i class="icon-user icon-white"></i>Connexion</button></a>
+                        <a id="17" class="menu" data-target="#myCo" href="/co/" role="button" class="label" data-toggle="modal"><button class="btn btn-inverse"><i class="icon-user icon-white"></i>Connexion</button></a>
                     </span>
                 </div>
             </div>
         </nav>
         {% endblock %}
         {% block content %}
+        {% if cls and why%}
+            <div class="container alert alert-{{ cls }}">{{ why }}</div>
+        {% endif %}
         <img class="container hidden-desktop" src="/public/img/np_logo.png">
         <div id="myCarousel" class="carousel slide visible-desktop">
             <ol class="carousel-indicators" style="background-color:black; padding:2px; border-radius:10px; ">
@@ -53,12 +56,13 @@
         </div>
 
         <div class="container-fluid">
+            <h1 style="text-align:center;">Surveillez et sécurisez votre réseau en toute simplicité </h1><br />
             <div class="row-fluid">
                 <div class="span4">
                     <div class="hero-unit">
                         <h2>Para 1</h2>
                         <p>
-                            Accedat huc suavitas quaedam oportet sermonum atque morum, haudquaquam mediocre condimentum amicitiae. Tristitia autem et in omni re severitas habet illa quidem gravitatem, sed amicitia remissior esse debet et liberior et dulcior et ad omnem comitatem facilitatemque proclivior.
+                            Problèmes de sécurité?<br />Pas de temps pour surveiller vos réseaux?<br />Mobile, PC ou tablette, vous pourrez savoir qui utilise votre réseau grâce à notre interface web dynamique. Net Polling vous permettra d'avoir sous forme de carte, une représenation de ce qu'il se passesur votre réseau, le surveiller n'aura jamais été aussi facile !
                         </p>
                     </div>
                 </div>
@@ -87,8 +91,10 @@
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icon-remove"></i></button>
                 <h3>Connexion</h3>
             </div>
-            <form action="connect" method="post" enctype="application/x-www-form-urlencoded">
+            <form action="/connect/" method="post" enctype="application/x-www-form-urlencoded">
                 {% csrf_token %}
+                <!--&nbsp&nbsp&nbsp<label class="control-label" for="ps1">Login</label><input id="ps1" name="pseudo" type="text" placeholder="zozor@gmail.com" required="true" />
+                &nbsp&nbsp&nbsp<label class="control-label" for="ps2">Mot de passe</label><input id="ps2" name="pwd" type="password"  required="true" /><br />-->
                 <div class="modal-body"></div>
                 <div class="modal-footer">
                     <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>

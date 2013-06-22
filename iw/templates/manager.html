@@ -8,6 +8,7 @@
         <link href="/public/bootstrap/css/bootstrap-responsive.css" media="screen" rel="stylesheet" type="text/css">
         <link href="/public/bootstrap/css/bootstrap.min.css" media="screen" rel="stylesheet" type="text/css">
         <link href="/public/css/design.css" media="screen" rel="stylesheet" type="text/css">
+         <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
     </head>
     <body>
         {% block nav %}
@@ -47,15 +48,69 @@
                                 <button class="btn btn-inverse"><i class="icon-off icon-white"></i>Déconnexion</button>
                             </a>
                     </span>
+                    <span class="nav-collapse collapse">
+                            <a id="6" class="menu" role="button" class="label">
+                                <button class="btn btn-inverse"><i class="icon-book icon-white"></i>Aide</button>
+                            </a>
+                    </span>
                 </div>
             </div>
         </nav>
         {% endblock %}
         {% block content %}
-        <div id="main">
-            <center>
-                <canvas id="carto" width="780" height="650"></canvas>
-            </center>
+        <div id="main" class="bg">
+            <div id="inf" class="container"></div>
+            <div id="pop">
+                <ul>
+                    <li><a href="#i">Information</a></li>
+                    <li><a href="#os">OS</a></li>
+                </ul>
+                <div id="i">
+                    <div id="d"></div>
+                    <hr />
+                    <form method="post" id="fsniff" enctype="application/x-www-form-urlencoded">
+                        <div id="rsniff"></div>
+                        <label for="name">Nom de l'écoute</label>
+                        <input id="sname" type="text" required="true" data-toggle="button" placeholder="Listen_totor"><br />
+                        <label for="name">temps de l'écoute (en seconde)</label>
+                        <input id="stime" type="number" required="true" data-toggle="button" placeholder="60"><br />
+                        <button id ="bsniff" class="btn btn-primary" data-toggle="button">Mise en écoute</button>
+                    </form>
+                </div>
+                <div id="os"></div>
+            </div>
+            <div id="move">
+                <table>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <i id="m0" class="mapcontroll icon-chevron-up icon-white">
+                        </td>
+                        <td></td>
+                        <td><i id="m4" class="mapcontroll icon-plus-sign icon-white"></td>
+                    </tr>
+                    <tr>
+                        <td><i id="m1" class="mapcontroll icon-chevron-left icon-white"></td>
+                        <td></td>
+                        <td><i id="m2" class="mapcontroll icon-chevron-right icon-white"></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <i id="m3" class="mapcontroll icon-chevron-down icon-white">
+                        </td>
+                        <td></td>
+                        <td><i id="m5" class="mapcontroll icon-minus-sign icon-white"></td>
+                    </tr>
+                </table>
+                <div id="reset">reset</div>
+            </div>
+            <div id="svgDevice" class="DesignCanvas"></div>
+            <div id="svgBw" class="DesignCanvas"></div>
+            <!--<canvas id="cartoDevice" width="750" height="500"></canvas>
+            <canvas id="cartoConnector"></canvas>-->
         </div>
         {% endblock %}
         {% block modal %}
@@ -69,6 +124,13 @@
         {% endblock %}
         <!--<script src="http://code.jquery.com/jquery.js"></script>-->
         <script src="/public/js/jquery-2.0.0.min.js"></script>
+        <script src="/public/js/jquery.mousewheel.js"></script>
+        <!--<script src="/public/js/jquery.event.drag-2.0.min.js"></script>-->
+        <script src="/public/js/jquery-ui-1.10.3.custom.min.js"></script>
+        <!--<script src="/public/js/jcanvas.min.js"></script>-->
+        <!--<script src="/public/js/fabric.min.js"></script>-->
+        <!--<script src="/public/js/kinetic-v4.5.2.min.js"></script>-->
+        <script src="/public/js/raphael-min.js"></script>
         <script src="/public/bootstrap/js/bootstrap.min.js"></script>
         <script src="/public/js/net.js"></script>
     </body>

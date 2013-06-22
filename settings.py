@@ -1,6 +1,7 @@
 # Django settings for netpolling project.
 
-USER = "pwned"
+import iw.conf.netenv as ENV
+
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
@@ -13,8 +14,8 @@ MANAGERS = ADMINS
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'netpolling.sql',                      # Or path to database file if using sqlite3.
+        'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+        'NAME': ENV.db,                      # Or path to database file if using sqlite3.
         # The following settings are not used with sqlite3:
         'USER': 'tux',
         'PASSWORD': 'Sup3r#Totor!',
@@ -71,7 +72,7 @@ STATIC_URL = '/public/'
 
 # Additional locations of static files
 STATICFILES_DIRS = (
-    "/home/"+USER+"/netpolling/netpolling/iw/public/",
+    ENV.public,
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
@@ -114,7 +115,7 @@ TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    "/home/"+USER+"/netpolling/netpolling/iw/templates"
+    ENV.templates
 )
 
 APPEND_SLASH = True #Add a slash at the end of the URL
@@ -126,9 +127,8 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'netpolling.iw',
-    'netpolling.scan',
-    'netpolling.scripts',
+    'netpolling.iw'
+    #'netpolling.scripts',
     # Uncomment the next line to enable the admin:
     # 'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
