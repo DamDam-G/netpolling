@@ -325,7 +325,6 @@ $(window).load((function()
                         {
                             if(objnet[0].GetIp() == obj.net[i].ip)
                             {
-                                console.log(objnet[0].GetIp()+" == "+obj.net[i].ip);
                                 objnet[0].SetMac(obj.net[i].mac);
                                 objnet[0].SetBw(obj.net[i].percent, obj.net[i].bw*8);
                             }
@@ -551,7 +550,7 @@ $(window).load((function()
 
                                                                 $(".mapcontroll").on("click", function(event)
                                                                                                 {
-                                                                                                    event.target.id == "m0" ? gap.y -= 35 : event.target.id == "m1" ? gap.x += 35 : event.target.id == "m2" ? gap.x -= 35 : event.target.id == "m3" ? gap.y += 35 : event.target.id == "m4" ? handle(-1) : event.target.id == "m5" ? handle(1) :gap.x += 0;
+                                                                                                    event.target.id == "m0" ? gap.y -= 35 : event.target.id == "m1" ? gap.x += 35 : event.target.id == "m2" ? gap.x -= 35 : event.target.id == "m3" ? gap.y += 35 : event.target.id == "m4" ? handle(1) : event.target.id == "m5" ? handle(-1) :gap.x += 0;
                                                                                                     if (event.target.id != "m4" || event.target.id != "m5")
                                                                                                         ReMake(network);
                                                                                                 });
