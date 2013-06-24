@@ -3,6 +3,7 @@ $(window).load((function()
                     var id; //contains the id of the current click in the menu
                     var n = Raphael(document.getElementById('svgDevice'), 900, 600); // represents the device svg
                     var c = Raphael(document.getElementById('svgBw'), 900, 600); // represents the band-width svg
+                    var tar = Raphael(document.getElementById('svgSearch'), 900, 600); // represents the band-width svg
                     var csrftoken = GetCookie('csrftoken'); // this is the django secure token for ajx request
                     var objnet = []; // list of the device object in the part asynchronous
                     var available = {os:0, sniff:0}; // object to know if an app is up or not
@@ -321,7 +322,7 @@ $(window).load((function()
                         //objnet[0] = new Device(obj.gw, obj.mac, obj.os, obj.device, n, x, y);
                         objnet[0] = new Device(obj.gw, "8c:89:a5:a3:ad:1f", "Linux", "router", 'Itinet', 0, 0, n, x/scale.connector, y/scale.connector, {"x":0.6+scale.device, "y":0.6+scale.device});
                         var router = {x:objnet[0].GetX(), y:objnet[0].GetY()};
-                        var list = "<table class=\"table table-strip\"><tr><td>Hostname</td><td>IP</td></tr>";
+                        var list = "<table class=\"table table-striped\"><tr><td>Hostname</td><td>IP</td></tr>";
                         for(var i = 0; i < obj.net.length; i++)
                         {
                             if(objnet[0].GetIp() == obj.net[i].ip)
@@ -339,7 +340,7 @@ $(window).load((function()
                                 objnet[i+1].Draw();
                                 c.path("M"+objnet[i+1].GetX()+" "+objnet[i+1].GetY()+"L"+router.x+" "+router.y).attr({"stroke": color, "stroke-width":5});
                                 angle += dist;
-                                list += "<tr><td>"+obj.net[i].hostname+"</td><td>"+obj.net[i].ip+"</td></tr>";
+                                list += "<tr><td class=\"shostname\">"+obj.net[i].hostname+"</td><td class=\"sip\">"+obj.net[i].ip+"</td></tr>";
                             }
                         }
                         objnet[0].Draw();
