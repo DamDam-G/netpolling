@@ -48,23 +48,31 @@ class Scan:
         @copyright GNU GPL V-3
         """
         dig = mac.split(':', 3)
-        digr = [dig[0], dig[1], dig[2]]
-        signcons = ''.join(digr)
-        device = "computer"
-        fd = open("/opt/netpolling/netpolling/iw/conf/mac_constructor", "r")
-        for line in fd:
-            if signcons in line:
-                brand = line.split(" ", 10)
-                phones = ["Nokia", "Sony", "Samsung", "HTC"]
-                i = 0
-                while i < len(phones):
-                    if phones[i] in brand[8]:
-                        device = "mobile"
-                        break
-                    else:
-                        i += 1
-        fd.close()
-        return device
+	digr = [dig[0], dig[1], dig[2]]
+	signcons = ''.join(digr)
+	device = "computer"
+	fd = open("/opt/netpolling/netpolling/iw/conf/mac_constructor", "r")
+	for line in fd:
+        	if signcons in line:
+                	brand = line.split(" ", 8)
+                	phones = ["Nokia", "Ericsson", "Samsung", "HTC"]
+                	mac = "Apple"
+                	virtual = "VMware"
+                	i = 0
+                	while i < len(phones):
+                	        if phones[i] in brand[8]:
+                	                device = "phone"
+                	                break
+                	        elif mac in brand[8]:
+                	                device = "apple"
+                	                break
+                	        elif virtual in brand[8]:
+                	                device = "vm"
+                      		        break
+                       		else:
+					i += 1
+	fd.close()
+	return device
 
     def GetOS(self, ip):
         """!
