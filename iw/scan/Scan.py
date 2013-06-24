@@ -53,17 +53,17 @@ class Scan:
 	device = "computer"
 	fd = open("/opt/netpolling/netpolling/iw/conf/mac_constructor", "r")
 	for line in fd:
-        	if signcons in line:
+        	if str(signcons).upper() in line:
                 	brand = line.split(" ", 8)
-                	phones = ["Nokia", "Ericsson", "Samsung", "HTC"]
-                	mac = "Apple"
+                	phones = ["nokia", "ericsson", "samsung"]
+                	maci = "apple"
                 	virtual = "VMware"
                 	i = 0
                 	while i < len(phones):
-                	        if phones[i] in brand[8]:
+                	        if phones[i] in str(brand[8]).lower():
                 	                device = "phone"
                 	                break
-                	        elif mac in brand[8]:
+                	        elif maci in str(brand[8]).lower():
                 	                device = "apple"
                 	                break
                 	        elif virtual in brand[8]:
@@ -71,6 +71,7 @@ class Scan:
                       		        break
                        		else:
 					i += 1
+	print mac,device
 	fd.close()
 	return device
 
