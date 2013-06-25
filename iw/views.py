@@ -67,10 +67,10 @@ def Manager(request):
     @details Description:
     This is a view function. It displays the interface manager
     """
-    #if request.user.is_authenticated():
-    return render(request, 'manager.html', {})
-    #else:
-     #   return redirect('/index/', {"cls": "error", "why":"Vous devez être connecté."})
+    if request.user.is_authenticated():
+        return render(request, 'manager.html', {})
+    else:
+        return redirect('/index/', {"cls": "error", "why":"Vous devez être connecté."})
 
 def Manager2(request):
     """!

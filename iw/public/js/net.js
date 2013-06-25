@@ -353,7 +353,7 @@ $(window).load((function()
                                 objnet[i+1].Draw();
                                 c.path("M"+objnet[i+1].GetX()+" "+objnet[i+1].GetY()+"L"+router.x+" "+router.y).attr({"stroke": color, "stroke-width":5});
                                 angle += dist;
-                                lst += "<tr><td class=\"shostname\">"+obj.net[i].hostname+"</td><td class=\"sip\">"+obj.net[i].ip+"</td></tr>";
+                                lst += "<tr data-x='"+x+"' data-y='"+y+"'><td class=\"shostname\">"+obj.net[i].hostname+"</td><td class=\"sip\">"+obj.net[i].ip+"</td></tr>";
                             }
                         }
                         objnet[0].Draw();
@@ -572,42 +572,12 @@ $(window).load((function()
                                                                                                                                 if (event.target.id != "m4" || event.target.id != "m5")
                                                                                                                                     ReMake(network);
                                                                                                                             }
-                                                                                                                            else if (event.target.className == "shostname")
+                                                                                                                            else if (event.target.className == "shostname" || event.target.className == "sip")
                                                                                                                             {
-                                                                                                                                //var type = event.target.className == "shostname" ? "hostname" : "ip";
-                                                                                                                                var tar = $(event.target).html();
-                                                                                                                                console.log(tar)
-                                                                                                                                console.log(objnet.length)
-                                                                                                                                for(var i = 0; i < objnet.length; i++)
-                                                                                                                                {
-                                                                                                                                    //console.log(((type == "hostname")? objnet[i].GetHostname() : objnet[i].GetIp()))
-                                                                                                                                    //if(((type == "hostname")? objnet[i].GetHostname() : objnet[i].GetIp()) == tar)
-                                                                                                                                    if(objnet[i].GetHostname() == tar)
-                                                                                                                                    {
-                                                                                                                                        $('circle').remove();
-                                                                                                                                        t.circle(objnet[i].GetX(), objnet[i].GetY(), 30).attr({"fill":"#FF0000"});
-                                                                                                                                        break
-                                                                                                                                    }
-                                                                                                                                }
-                                                                                                                            }
-                                                                                                                            else if (event.target.className == "sip")
-                                                                                                                            {
-                                                                                                                                //var type = event.target.className == "shostname" ? "hostname" : "ip";
-                                                                                                                                var tar = $(event.target).html();
-                                                                                                                                for(var i = 0; i < objnet.length; i++)
-                                                                                                                                {
-                                                                                                                                    console.log(objnet[i].GetIp()+" "+objnet[i].GetHostname()+" "+i)
-                                                                                                                                    //console.log(((type == "hostname")? objnet[i].GetHostname() : objnet[i].GetIp()))
-                                                                                                                                    //if(((type == "hostname")? objnet[i].GetHostname() : objnet[i].GetIp()) == tar)
-                                                                                                                                    if(objnet[i].GetIp() == tar)
-                                                                                                                                    {
-                                                                                                                                        $('circle').remove();
-                                                                                                                                        var anim = Raphael.animation({"20%": {r: 20, easing: "bounce"}, "40%": {r: 10, easing: "bounce"}, "60%": {r: 20, easing: "bounce"}, "80%": {r: 30, easing: "bounce"}, "100%": {r: 20, easing: "bounce"}}, 5000).repeat(Infinity);
-                                                                                                                                        t.circle(320, 240, 60).attr({"fill":"#FF0000"}).animate(anim);
-                                                                                                                                        //t.circle(objnet[i].GetX(), objnet[i].GetY(), 30).attr({"fill":"#FF0000"});
-                                                                                                                                        break
-                                                                                                                                    }
-                                                                                                                                }
+                                                                                                                                $('circle').remove();
+                                                                                                                                var anim = Raphael.animation({"20%": {r: 20, easing:"bounce"}, "40%": {r: 40, easing: "bounce"}, "60%": {r: 20, easing: "bounce"}, "80%": {r: 40, easing: "bounce"}, "100%": {r: 30, easing:"bounce"}}, 5000);
+                                                                                                                                t.circle(parseFloat(event.target.parentNode.getAttribute("data-x"))+50, parseFloat(event.target.parentNode.getAttribute("data-y"))+50, 30).attr({"fill":"#FF0000"}).animate(anim);
+
                                                                                                                             }
                                                                                                                             else if(event.target.id == "reset")
                                                                                                                             {
@@ -618,25 +588,6 @@ $(window).load((function()
                                                                                                                                 ReMake(network);
                                                                                                                             }
                                                                                                                         });
-                                                               /* $(".mapcontroll").on("click", function(event)
-                                                                                                {
-                                                                                                    event.target.id == "m0" ? gap.y -= 35 : event.target.id == "m1" ? gap.x += 35 : event.target.id == "m2" ? gap.x -= 35 : event.target.id == "m3" ? gap.y += 35 : event.target.id == "m4" ? handle(1) : event.target.id == "m5" ? handle(-1) :gap.x += 0;
-                                                                                                    if (event.target.id != "m4" || event.target.id != "m5")
-                                                                                                        ReMake(network);
-                                                                                                });
-
-                                                                $("#reset").on("click", function()
-                                                                                        {
-                                                                                            gap.x = 0;
-                                                                                            gap.y = 0;
-                                                                                            scale.device = 0;
-                                                                                            scale.connector = 1;
-                                                                                            ReMake(network);
-                                                                                        });
-
-                                                                $(".shostname, .sip").on("click", function(event){alert(event.target.className)})*/
-
-
                                                     });
                                                 }, 30000);
                     pwned();
