@@ -577,6 +577,7 @@ $(window).load((function()
                                                                                                                                 //var type = event.target.className == "shostname" ? "hostname" : "ip";
                                                                                                                                 var tar = $(event.target).html();
                                                                                                                                 console.log(tar)
+                                                                                                                                console.log(objnet.length)
                                                                                                                                 for(var i = 0; i < objnet.length; i++)
                                                                                                                                 {
                                                                                                                                     //console.log(((type == "hostname")? objnet[i].GetHostname() : objnet[i].GetIp()))
@@ -593,15 +594,17 @@ $(window).load((function()
                                                                                                                             {
                                                                                                                                 //var type = event.target.className == "shostname" ? "hostname" : "ip";
                                                                                                                                 var tar = $(event.target).html();
-                                                                                                                                console.log(tar)
                                                                                                                                 for(var i = 0; i < objnet.length; i++)
                                                                                                                                 {
+                                                                                                                                    console.log(objnet[i].GetIp()+" "+objnet[i].GetHostname()+" "+i)
                                                                                                                                     //console.log(((type == "hostname")? objnet[i].GetHostname() : objnet[i].GetIp()))
                                                                                                                                     //if(((type == "hostname")? objnet[i].GetHostname() : objnet[i].GetIp()) == tar)
                                                                                                                                     if(objnet[i].GetIp() == tar)
                                                                                                                                     {
                                                                                                                                         $('circle').remove();
-                                                                                                                                        t.circle(objnet[i].GetX(), objnet[i].GetY(), 30).attr({"fill":"#FF0000"});
+                                                                                                                                        var anim = Raphael.animation({"20%": {r: 20, easing: "bounce"}, "40%": {r: 10, easing: "bounce"}, "60%": {r: 20, easing: "bounce"}, "80%": {r: 30, easing: "bounce"}, "100%": {r: 20, easing: "bounce"}}, 5000).repeat(Infinity);
+                                                                                                                                        t.circle(320, 240, 60).attr({"fill":"#FF0000"}).animate(anim);
+                                                                                                                                        //t.circle(objnet[i].GetX(), objnet[i].GetY(), 30).attr({"fill":"#FF0000"});
                                                                                                                                         break
                                                                                                                                     }
                                                                                                                                 }
