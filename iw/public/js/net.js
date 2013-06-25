@@ -3,6 +3,7 @@ $(window).load((function()
                     var id; //contains the id of the current click in the menu
                     var n = Raphael(document.getElementById('svgDevice'), 900, 600); // represents the device svg
                     var c = Raphael(document.getElementById('svgBw'), 900, 600); // represents the band-width svg
+                    var t = Raphael(document.getElementById('svgSearch'), 900, 600); // represents the band-width svg
                     var csrftoken = GetCookie('csrftoken'); // this is the django secure token for ajx request
                     var objnet = []; // list of the device object in the part asynchronous
                     var available = {os:0, sniff:0}; // object to know if an app is up or not
@@ -263,7 +264,19 @@ $(window).load((function()
 
                         this.GetBw = function()
                                         {
-                                            return(bw)
+                                            return(bw);
+                                        };
+
+                        /**
+                         * @author Damien Goldenberg
+                         * @name GetBw
+                         * @brief This is a getter
+                         * @returns {{p: *, b: *}}
+                         */
+
+                        this.GetHostname = function()
+                                        {
+                                            return(hostname);
                                         };
 
                         /**
@@ -319,8 +332,10 @@ $(window).load((function()
                         var angle = 0;
                         var dist = (360/obj.net.length)+0.5; // coef d'espacement
                         //objnet[0] = new Device(obj.gw, obj.mac, obj.os, obj.device, n, x, y);
+                        objnet = [];
                         objnet[0] = new Device(obj.gw, "8c:89:a5:a3:ad:1f", "Linux", "router", 'Itinet', 0, 0, n, x/scale.connector, y/scale.connector, {"x":0.6+scale.device, "y":0.6+scale.device});
                         var router = {x:objnet[0].GetX(), y:objnet[0].GetY()};
+                        var lst = "<table class=\"table table-striped\"><tr><td>Hostname</td><td>IP</td></tr>";
                         for(var i = 0; i < obj.net.length; i++)
                         {
                             if(objnet[0].GetIp() == obj.net[i].ip)
@@ -337,11 +352,13 @@ $(window).load((function()
                                 objnet[i+1] = new Device(obj.net[i].ip, obj.net[i].mac, obj.net[i].os, obj.net[i].device, obj.net[i].hostname, obj.net[i].bw*8, obj.net[i].percent, n, x, y, {"x":0.4+scale.device, "y":0.4+scale.device});
                                 objnet[i+1].Draw();
                                 c.path("M"+objnet[i+1].GetX()+" "+objnet[i+1].GetY()+"L"+router.x+" "+router.y).attr({"stroke": color, "stroke-width":5});
-                                //objnet[i+1].SetBw(objnet[i+1].percent, objnet[i+1].mega);
                                 angle += dist;
+                                lst += "<tr data-x='"+x+"' data-y='"+y+"'><td class=\"shostname\">"+obj.net[i].hostname+"</td><td class=\"sip\">"+obj.net[i].ip+"</td></tr>";
                             }
                         }
                         objnet[0].Draw();
+                        lst += "</table>";
+                        $("#search").html(lst);
                     }
 
                     /**
@@ -365,8 +382,8 @@ $(window).load((function()
                                             success:function(data)
                                                     {
                                                         //console.log(JSON.parse(data));
-                                                        getValue(JSON.parse(data));
                                                         ReMake(JSON.parse(data));
+                                                        getValue(JSON.parse(data));
                                                     },
                                             error: function()
                                                     {
@@ -547,24 +564,30 @@ $(window).load((function()
                                                                                                     return false;
                                                                                                 }
                                                                                             });
+                                                                $(".shostname, .sip, .mapcontroll, #reset").on("click", function(event)
+                                                                                                                        {
+                                                                                                                            if(/mapcontroll/.test(event.target.className))
+                                                                                                                            {
+                                                                                                                                event.target.id == "m0" ? gap.y -= 35 : event.target.id == "m1" ? gap.x += 35 : event.target.id == "m2" ? gap.x -= 35 : event.target.id == "m3" ? gap.y += 35 : event.target.id == "m4" ? handle(1) : event.target.id == "m5" ? handle(-1) :gap.x += 0;
+                                                                                                                                if (event.target.id != "m4" || event.target.id != "m5")
+                                                                                                                                    ReMake(network);
+                                                                                                                            }
+                                                                                                                            else if (event.target.className == "shostname" || event.target.className == "sip")
+                                                                                                                            {
+                                                                                                                                $('circle').remove();
+                                                                                                                                var anim = Raphael.animation({"20%": {r: 20, easing:"bounce"}, "40%": {r: 40, easing: "bounce"}, "60%": {r: 20, easing: "bounce"}, "80%": {r: 40, easing: "bounce"}, "100%": {r: 30, easing:"bounce"}}, 5000);
+                                                                                                                                t.circle(parseFloat(event.target.parentNode.getAttribute("data-x"))+50, parseFloat(event.target.parentNode.getAttribute("data-y"))+50, 30).attr({"fill":"#FF0000"}).animate(anim);
 
-                                                                $(".mapcontroll").on("click", function(event)
-                                                                                                {
-                                                                                                    event.target.id == "m0" ? gap.y -= 35 : event.target.id == "m1" ? gap.x += 35 : event.target.id == "m2" ? gap.x -= 35 : event.target.id == "m3" ? gap.y += 35 : event.target.id == "m4" ? handle(1) : event.target.id == "m5" ? handle(-1) :gap.x += 0;
-                                                                                                    if (event.target.id != "m4" || event.target.id != "m5")
-                                                                                                        ReMake(network);
-                                                                                                });
-
-                                                                $("#reset").on("click", function()
-                                                                                        {
-                                                                                            gap.x = 0;
-                                                                                            gap.y = 0;
-                                                                                            scale.device = 0;
-                                                                                            scale.connector = 1;
-                                                                                            ReMake(network);
-                                                                                        });
-
-
+                                                                                                                            }
+                                                                                                                            else if(event.target.id == "reset")
+                                                                                                                            {
+                                                                                                                                gap.x = 0;
+                                                                                                                                gap.y = 0;
+                                                                                                                                scale.device = 0;
+                                                                                                                                scale.connector = 1;
+                                                                                                                                ReMake(network);
+                                                                                                                            }
+                                                                                                                        });
                                                     });
                                                 }, 30000);
                     pwned();

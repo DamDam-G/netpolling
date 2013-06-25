@@ -1,7 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-import conf.netenv as ENV
 
 def PutLog(name, content, date, type):
 
@@ -14,9 +13,10 @@ def PutLog(name, content, date, type):
     """
     content = content.replace(' ','_')
     name = name.replace(' ','_')
+    date = date.replace(' ','_')
     list = [name, content, date, str(type)]
     line = ' '.join(list) + "\n"
-    fd = open(ENV.conf+"log", "a")
+    fd = open("/opt/netpolling/netpolling/iw/conf/log", "a")
     fd.write(line)
     fd.close()
 #    co = lite.connect("/opt/netpolling/netpolling.sql")
