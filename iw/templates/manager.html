@@ -64,7 +64,7 @@
                 <ul>
                     <li><a href="#i">Information</a></li>
                     <li><a href="#os">OS</a></li>
-                    <li><a href="#search">Filtre</a></li>
+                    <li><a href="#search">Recherche</a></li>
                 </ul>
                 <div id="i">
                     <div id="d"></div>
@@ -80,17 +80,7 @@
                 </div>
                 <div id="os"></div>
                 <div id="search">
-                    <form method="post" id="fsniff" enctype="application/x-www-form-urlencoded">
-                        <label for="filter">Filtre</label>
-                        <input name="filter" type="text" required="true" data-toggle="button" placeholder="10.8."><br />
-                        <label for="ftype">Type de filtre</label>
-                        <select name="ftype">
-                            <option value="0">IP</option>
-                            <option value="1">Bande Passante</option>
-                            <option value="2">Hostname</option>
-                        </select><br />
-                        <button id ="bsniff" class="btn btn-primary" data-toggle="button">Mise en écoute</button>
-                    </form>
+                    
                 </div>
             </div>
             <div id="move">
@@ -123,6 +113,7 @@
             </div>
             <div id="svgDevice" class="DesignCanvas"></div>
             <div id="svgBw" class="DesignCanvas"></div>
+            <div id="svgSearch" class="DesignCanvas"></div>
             <!--<canvas id="cartoDevice" width="750" height="500"></canvas>
             <canvas id="cartoConnector"></canvas>-->
         </div>
