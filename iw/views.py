@@ -168,7 +168,7 @@ def Control(request):
                         },
                         {
                             'view':'log',
-                            'data':Log.objects.order_by('-id')
+                            'data':Log.objects.order_by('-id')[:15]
                         },
                         {
                             'view':'para',

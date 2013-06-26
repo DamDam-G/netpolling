@@ -107,3 +107,9 @@ input
 {
     z-index:150;
 }
+
+#lg
+{
+    overflow:auto;
+    max-height:550px;
+}
