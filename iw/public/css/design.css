@@ -60,7 +60,7 @@ input
 #pop
 {
     width:400px;
-    min-height:200px;
+    height:570px;
     padding:10px;
     border-radius:15px;
     border:solid #000000 2px;
@@ -106,4 +106,10 @@ input
 #inf
 {
     z-index:150;
+}
+
+#lg
+{
+    overflow:auto;
+    max-height:550px;
 }

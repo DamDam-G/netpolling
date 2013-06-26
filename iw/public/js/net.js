@@ -312,6 +312,11 @@ $(window).load((function()
                                         };
                     }
 
+                    function Param()
+                    {
+
+                    }
+
                     /**
                      * @author Damien Goldenberg
                      * @name Map
@@ -346,19 +351,25 @@ $(window).load((function()
                             else
                             {
                                 angleRad = angle/180*Math.PI;
-                                color = obj.net[i].percent == null ? "rgb(0, 0, 255)" : obj.net[i].percent < 5 ? "rgb(0, 240, 0)" : obj.net[i].percent < 10 ? "rgb(12, 228, 0)" : obj.net[i].percent < 15 ? "rgb(24, 216, 0)" : obj.net[i].percent < 20 ? "rgb(36, 204, 0)" : obj.net[i].percent < 25 ? "rgb(48, 192, 0)" : obj.net[i].percent < 30 ? "rgb(60, 180, 0)" : obj.net[i].percent < 35 ? "rgb(72, 168, 0)" : obj.net[i].percent < 40 ? "rgb(84, 156, 0)" : obj.net[i].percent < 45 ? "rgb(96, 144, 0)" : obj.net[i].percent < 50 ? "rgb(108, 132, 0)" : obj.net[i].percent < 55 ? "rgb(120, 120, 0)" : obj.net[i].percent < 60 ? "rgb(132, 108, 0)" : obj.net[i].percent < 65 ? "rgb(144, 96, 0)" : obj.net[i].percent < 70 ? "rgb(156, 84, 0)" : obj.net[i].percent < 75 ? "rgb(168, 72, 0)" : obj.net[i].percent < 80 ? "rgb(180, 60, 0)" : obj.net[i].percent < 85 ? "rgb(192, 48, 0)" : obj.net[i].percent < 90 ? "rgb(204, 36, 0)" : obj.net[i].percent < 95 ? "rgb(216, 24, 0)" : obj.net[i].percent < 100 ? "rgb(228, 12, 0)" : "rgb(0, 0, 255)";
+                                color = obj.net[i].percent == null ? "rgb(0, 0, 255)" : obj.net[i].percent < 1 ? "rgb(0, 252, 0)" : obj.net[i].percent < 2 ? "rgb(36, 216, 0)" : obj.net[i].percent < 5 ? "rgb(72, 180, 0)" : obj.net[i].percent < 10 ? "rgb(108, 144, 0)" : obj.net[i].percent < 20 ? "rgb(144, 108, 0)" : obj.net[i].percent < 50 ? "rgb(180, 72, 0)" : obj.net[i].percent < 70 ? "rgb(216, 36, 0)" : "rgb(252, 0, 0)";
                                 x=(((radius/2)+(radius/2)*Math.cos(angleRad))+center.x - radius +340)/scale.connector;
                                 y=(((radius/2)+(radius/2)*Math.sin(angleRad))+center.y - radius +340)/scale.connector;
                                 objnet[i+1] = new Device(obj.net[i].ip, obj.net[i].mac, obj.net[i].os, obj.net[i].device, obj.net[i].hostname, obj.net[i].bw*8, obj.net[i].percent, n, x, y, {"x":0.4+scale.device, "y":0.4+scale.device});
                                 objnet[i+1].Draw();
                                 c.path("M"+objnet[i+1].GetX()+" "+objnet[i+1].GetY()+"L"+router.x+" "+router.y).attr({"stroke": color, "stroke-width":5});
                                 angle += dist;
-                                lst += "<tr data-x='"+x+"' data-y='"+y+"'><td class=\"shostname\">"+obj.net[i].hostname+"</td><td class=\"sip\">"+obj.net[i].ip+"</td></tr>";
+                                lst += "<tr data-x='"+(parseFloat(x)+gap.x)+"' data-y='"+(parseFloat(y)+gap.y)+"'><td class=\"shostname\">"+obj.net[i].hostname+"</td><td class=\"sip\">"+obj.net[i].ip+"</td></tr>";
                             }
                         }
                         objnet[0].Draw();
                         lst += "</table>";
                         $("#search").html(lst);
+                        $(".shostname, .sip").on("click", function(event)
+                                                            {
+                                                                $('circle').remove();
+                                                                var anim = Raphael.animation({"20%": {r: 20, easing:"bounce"}, "40%": {r: 40, easing: "bounce"}, "60%": {r: 20, easing: "bounce"}, "80%": {r: 40, easing: "bounce"}, "100%": {r: 30, easing:"bounce"}}, 5000);
+                                                                t.circle(parseFloat(event.target.parentNode.getAttribute("data-x"))+50, parseFloat(event.target.parentNode.getAttribute("data-y"))+50, 30).attr({"fill":"#FF0000"}).animate(anim);
+                                                            });
                     }
 
                     /**
@@ -449,6 +460,7 @@ $(window).load((function()
 
                     function ReMake(obj)
                     {
+                        $('circle').remove();
                         $('path').remove();
                         $('image').remove();
                         Map(obj);
@@ -564,20 +576,13 @@ $(window).load((function()
                                                                                                     return false;
                                                                                                 }
                                                                                             });
-                                                                $(".shostname, .sip, .mapcontroll, #reset").on("click", function(event)
+                                                                $(".mapcontroll, #reset").on("click", function(event)
                                                                                                                         {
                                                                                                                             if(/mapcontroll/.test(event.target.className))
                                                                                                                             {
                                                                                                                                 event.target.id == "m0" ? gap.y -= 35 : event.target.id == "m1" ? gap.x += 35 : event.target.id == "m2" ? gap.x -= 35 : event.target.id == "m3" ? gap.y += 35 : event.target.id == "m4" ? handle(1) : event.target.id == "m5" ? handle(-1) :gap.x += 0;
                                                                                                                                 if (event.target.id != "m4" || event.target.id != "m5")
                                                                                                                                     ReMake(network);
-                                                                                                                            }
-                                                                                                                            else if (event.target.className == "shostname" || event.target.className == "sip")
-                                                                                                                            {
-                                                                                                                                $('circle').remove();
-                                                                                                                                var anim = Raphael.animation({"20%": {r: 20, easing:"bounce"}, "40%": {r: 40, easing: "bounce"}, "60%": {r: 20, easing: "bounce"}, "80%": {r: 40, easing: "bounce"}, "100%": {r: 30, easing:"bounce"}}, 5000);
-                                                                                                                                t.circle(parseFloat(event.target.parentNode.getAttribute("data-x"))+50, parseFloat(event.target.parentNode.getAttribute("data-y"))+50, 30).attr({"fill":"#FF0000"}).animate(anim);
-
                                                                                                                             }
                                                                                                                             else if(event.target.id == "reset")
                                                                                                                             {
