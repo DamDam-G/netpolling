@@ -4,6 +4,7 @@ import os
 import conf.netenv as ENV
 import ConfigParser
 import time
+import log
 
 def WriteCron():
     """!
@@ -48,8 +49,8 @@ def GetBW():
                     bwk[ip2] += bps
                 else:
                     bwk[ip2] = bps
-            else:
-                print "Joe la praline"
+	    else:
+               	print "Joe la praline" 
     fd.close()
     return bwk
 
@@ -82,6 +83,10 @@ def DoScan():
                         kilo = float(bwp[ligne])/float(1024)
                         m["bw"] = kilo
                         m["percent"] = percent
+			ip = m["ip"]
+			if percent > 70.0:
+				print ip
+				print (log.PutLog("Bandwidth overused", "ip", time.strftime('%H %M %D'), 3))
             return scan.GetNetwork(1)
         else:
             return {'error':'veuillez patientez le scan est en cours de fonctionnement'}

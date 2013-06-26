@@ -27,9 +27,16 @@ input
 #svgDevice, #cartoDevice
 {
     z-index:42; //The Big Question of Life, the Universe and Everything
+    border-radius:15px;
 }
 
 #svgBw, #cartoConnector
+{
+    z-index:1;
+    border-radius:15px;
+}
+
+#svgSearch
 {
     z-index:0;
     border-radius:15px;
@@ -53,7 +60,7 @@ input
 #pop
 {
     width:400px;
-    min-height:200px;
+    height:570px;
     padding:10px;
     border-radius:15px;
     border:solid #000000 2px;
@@ -99,4 +106,10 @@ input
 #inf
 {
     z-index:150;
+}
+
+#lg
+{
+    overflow:auto;
+    max-height:550px;
 }
