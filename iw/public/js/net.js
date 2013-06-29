@@ -531,8 +531,8 @@ $(window).load((function()
                                                                     }
                                                                 }
                                                                 color = pbw < 25 ? "green" : pbw < 50 ? "yellow" : pbw < 75 ? "organge" : "red";
-                                                                $("#cbw").css({"width":pbw*4, "background-color":color})
-                                                                $("#binfo").html("<span class='label'>Bande passante total utilisée : </span>"+pbw+"%, ("+tbw+"kb/s)");
+                                                                $("#cbw").css({"width":pbw*3.5, "background-color":color});
+                                                                $("#binfo").html("<span class='label'>Bande passante total utilisée : </span><ul><li class='offset1'>"+pbw+" %</li><li class='offset1'>"+tbw+" kb/s</li></ul>");
                                                                 function handle(delta)
                                                                 {
                                                                     console.log(scale);
