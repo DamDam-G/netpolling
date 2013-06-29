@@ -18,6 +18,21 @@ input
     left:25%;
 }
 
+#tbw
+{
+    width:400px;
+    height:20px;
+    border-radius:15px;
+    border:solid #000000 2px;
+    overflow:hidden;
+}
+
+#cbw
+{
+    height:20px;
+    text-align:center;
+}
+
 #main
 {
     width:900px;
@@ -42,6 +57,14 @@ input
     border-radius:15px;
     border:solid #000000 2px;
     background-color:#EEEEEE;
+}
+
+#svgTotal
+{
+    border-radius:15px;
+    border:outset #000000 3px;
+    margin-left:auto;
+    margin-right:auto;
 }
 
 #move
