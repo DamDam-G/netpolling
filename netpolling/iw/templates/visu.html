@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>NetPolling</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="public/img/np.ico" type="image/x-icon">
+        <link href="/public/bootstrap/css/bootstrap-responsive.css" media="screen" rel="stylesheet" type="text/css">
+        <link href="/public/bootstrap/css/bootstrap.min.css" media="screen" rel="stylesheet" type="text/css">
+        <link href="/public/css/design2.css" media="screen" rel="stylesheet" type="text/css">
+         <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+    </head>
+    <body>
+        <div id ="form" class="hero-unit">
+            <img src="/public/img/map.png">
+            <h3>Cartographie de réseaux</h3><br />
+            <div id="info"></div>
+            <form method="post" id="form0" enctype="application/x-www-form-urlencoded">
+                {% csrf_token %}
+               <label for="name">Choisissez un scan à visualiser</label>
+               <select name="name" id="name">
+                   {% for i in data %}
+                        <option value="{{ i.name }}">{{ i.name }}</option>
+                        {% empty %}
+                            <option value="">Aucune carte n'est disponible</option>
+                   {% endfor %}
+               </select><br />
+               <input type="submit" class="btn btn-primary" data-toggle="button" value="Cartographier">
+            </form>
+        </div>
+    <div id="main" class="bg">
+            <div id="pop">
+                <div id="d"></div>
+            </div>
+            <div id="move">
+                <table>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <i id="m0" class="mapcontroll icon-chevron-up icon-white">
+                        </td>
+                        <td></td>
+                        <td><i id="m4" class="mapcontroll icon-plus-sign icon-white"></td>
+                    </tr>
+                    <tr>
+                        <td><i id="m1" class="mapcontroll icon-chevron-left icon-white"></td>
+                        <td></td>
+                        <td><i id="m2" class="mapcontroll icon-chevron-right icon-white"></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <i id="m3" class="mapcontroll icon-chevron-down icon-white">
+                        </td>
+                        <td></td>
+                        <td><i id="m5" class="mapcontroll icon-minus-sign icon-white"></td>
+                    </tr>
+                </table>
+                <div id="reset">reset</div>
+            </div>
+            <div id="svgDevice" class="DesignCanvas"></div>
+            <div id="svgBw" class="DesignCanvas"></div>
+            <!--<canvas id="cartoDevice" width="750" height="500"></canvas>
+            <canvas id="cartoConnector"></canvas>-->
+        </div>
+        <!--<script src="http://code.jquery.com/jquery.js"></script>-->
+        <script src="/public/js/jquery-2.0.0.min.js"></script>
+        <script src="/public/js/jquery.mousewheel.js"></script>
+        <!--<script src="/public/js/jquery.event.drag-2.0.min.js"></script>-->
+        <script src="/public/js/jquery-ui-1.10.3.custom.min.js"></script>
+        <!--<script src="/public/js/jcanvas.min.js"></script>-->
+        <!--<script src="/public/js/fabric.min.js"></script>-->
+        <!--<script src="/public/js/kinetic-v4.5.2.min.js"></script>-->
+        <script src="/public/js/raphael-min.js"></script>
+        <script src="/public/bootstrap/js/bootstrap.min.js"></script>
+        <script src="/public/js/visu.js"></script>
+    </body>
+</html>

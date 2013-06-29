@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <h3>Journal</h3>
+        <div id="lg">
+        {% for l in data %}
+           <div class="alert {% if l.type ==  0 %} alert-info {% elif l.type == 1 %} alert-success {% elif l.type == 2 %} alert-danger {% endif %}">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <h4>{{ l.name }}</h4>
+                <p>
+                    {{ l.content }}
+                </p>
+                <p>
+                    {{ l.date }}
+                </p>
+           </div>
+           {% empty %}
+                Aucune notification n'est disponible
+        {% endfor %}
+        </div>
+    </body>
+</html>
