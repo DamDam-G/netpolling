@@ -12,7 +12,7 @@ $(window).load((function()
                     var scale = {device:0, connector:1}; //object for scaling all items
                     var net; // idem objnet but in the part synchonous, maybe it's a little stupid, i don't test ^^
                     $('#pop').resizable({animate: true}).draggable().tabs({event: "mouseover"});
-
+                    var kkeys = [];
                     /**
                      * @author Damien Goldenberg
                      * @name GetCookie
@@ -583,6 +583,13 @@ $(window).load((function()
                                                                 $(document).on("keydown", function(event)
                                                                                             {
                                                                                                 console.log(event.keyCode);
+                                                                                                kkeys.push( event.keyCode );
+                                                                                                if (kkeys.toString().indexOf("38,38,40,40,37,39,37,39,66,65") >= 0)
+                                                                                                {
+                                                                                                    $("body").css({"background-image":"url('/public/img/konami.gif')"});
+                                                                                                    $("#svgDevice").addClass("koko");
+                                                                                                    $("#svgBw").addClass("koko2");
+                                                                                                }
                                                                                                 if(event.keyCode > 36 && event.keyCode < 41 || event.keyCode == 107 || event.keyCode == 109)
                                                                                                 {
                                                                                                     event.preventDefault();
