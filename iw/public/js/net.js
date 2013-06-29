@@ -547,7 +547,7 @@ $(window).load((function()
                                                                         }
                                                                     }
                                                                     else
-                                                                    { m
+                                                                    { mco
                                                                         if(scale.device < 0.3 && scale.connector < 1.525)
                                                                         {
                                                                             scale.device += 0.1;
