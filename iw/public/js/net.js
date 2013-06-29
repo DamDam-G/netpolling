@@ -3,7 +3,7 @@ $(window).load((function()
                     var id; //contains the id of the current click in the menu
                     var n = Raphael(document.getElementById('svgDevice'), 900, 600); // represents the device svg
                     var c = Raphael(document.getElementById('svgBw'), 900, 600); // represents the band-width svg
-                    var t = Raphael(document.getElementById('svgSearch'), 900, 600); // represents the band-width svg
+                    var t = Raphael(document.getElementById('svgSearch'), 900, 600); // represents the machine search
                     var csrftoken = GetCookie('csrftoken'); // this is the django secure token for ajx request
                     var objnet = []; // list of the device object in the part asynchronous
                     var available = {os:0, sniff:0}; // object to know if an app is up or not
@@ -518,6 +518,21 @@ $(window).load((function()
                                                     LoadJson(function(network)
                                                             {
                                                                 net = network;
+                                                                var pbw = 0;
+                                                                var tbw = 0;
+                                                                for(var w = 0; w < network.net.length; w++)
+                                                                {
+                                                                    if (network.net[w].bw != null && network.net[w].percent != null)
+                                                                    {
+                                                                        tbw += network.net[w].bw*8;
+                                                                        pbw += network.net[w].percent;
+                                                                        console.log("obj "+network.net[w].percent);
+                                                                        console.log("val "+pbw);
+                                                                    }
+                                                                }
+                                                                color = pbw < 25 ? "green" : pbw < 50 ? "yellow" : pbw < 75 ? "organge" : "red";
+                                                                $("#cbw").css({"width":pbw*4, "background-color":color})
+                                                                $("#binfo").html("<span class='label'>Bande passante total utilisée : </span>"+pbw+"%, ("+tbw+"kb/s)");
                                                                 function handle(delta)
                                                                 {
                                                                     console.log(scale);
@@ -532,7 +547,7 @@ $(window).load((function()
                                                                         }
                                                                     }
                                                                     else
-                                                                    {
+                                                                    { m
                                                                         if(scale.device < 0.3 && scale.connector < 1.525)
                                                                         {
                                                                             scale.device += 0.1;
