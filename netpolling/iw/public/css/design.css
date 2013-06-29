@@ -136,3 +136,121 @@ input
     overflow:auto;
     max-height:550px;
 }
+
+.koko
+{
+    -moz-animation:konami 15s;
+}
+
+.koko2
+{
+    -moz-animation:konami2 15s;
+}
+
+@-moz-keyframes konami
+{
+    0%
+    {
+        -moz-transform: translate(600px, 0px);
+        -moz-transition:4s right,3s width,3s opacity;
+    }
+    12%
+    {
+        -moz-transform: translate(0px, 450px), rotate(180deg);
+        -moz-transition:4s right,3s width,3s opacity;
+    }
+    25%
+    {
+        -moz-transform: translate(0px, -450px), rotate(90deg), scale(1);
+        -moz-transition:4s right,3s width,3s opacity;
+    }
+    37%
+    {
+        -moz-transform: translate(-600px, 0px), rotate(90deg);
+        -moz-transition:4s right,3s width,3s opacity;
+    }
+    50%
+    {
+        -moz-transform: translate(-600px, 0px);
+        -moz-transition:4s right,3s width,3s opacity;
+    }
+    63%
+    {
+        -moz-transform: translate(0px, -450px), rotate(180deg);
+        -moz-transition:4s right,3s width,3s opacity;
+    }
+    75%
+    {
+        -moz-transform: translate(0px, 450px), rotate(90deg), scale(1);
+        -moz-transition:4s right,3s width,3s opacity;
+    }
+    87%
+    {
+        -moz-transform: translate(600px, 0px), rotate(90deg);
+        -moz-transition:4s right,3s width,3s opacity;
+    }
+    93%
+    {
+        -moz-transform: scale(0);
+        -moz-transition:4s right,3s width,3s opacity;
+    }
+    100%
+    {
+        -moz-transform: scale(1);
+        -moz-transition:4s right,3s width,3s opacity;
+    }
+}
+
+@-moz-keyframes konami2
+{
+    0%
+    {
+        -moz-transform: translate(-600px, 0px);
+        -moz-transition:4s right,3s width,3s opacity;
+    }
+    12%
+    {
+        -moz-transform: translate(0px, -450px), rotate(180deg);
+        -moz-transition:4s right,3s width,3s opacity;
+    }
+    25%
+    {
+        -moz-transform: translate(0px, 450px), rotate(90deg), scale(1);
+        -moz-transition:4s right,3s width,3s opacity;
+    }
+    37%
+    {
+        -moz-transform: translate(600px, 0px), rotate(90deg);
+        -moz-transition:4s right,3s width,3s opacity;
+    }
+    50%
+    {
+        -moz-transform: translate(600px, 0px);
+        -moz-transition:4s right,3s width,3s opacity;
+    }
+    63%
+    {
+        -moz-transform: translate(0px, 450px), rotate(180deg);
+        -moz-transition:4s right,3s width,3s opacity;
+    }
+    75%
+    {
+        -moz-transform: translate(0px, -450px), rotate(90deg), scale(1);
+        -moz-transition:4s right,3s width,3s opacity;
+    }
+    87%
+    {
+        -moz-transform: translate(-600px, 0px), rotate(90deg);
+        -moz-transition:4s right,3s width,3s opacity;
+    }
+    93%
+    {
+        -moz-transform: scale(2);
+        -moz-transition:4s right,3s width,3s opacity;
+    }
+    100%
+    {
+        -moz-transform: scale(1);
+        -moz-transition:4s right,3s width,3s opacity;
+    }
+}

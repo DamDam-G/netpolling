@@ -586,7 +586,9 @@ $(window).load((function()
                                                                                                 kkeys.push( event.keyCode );
                                                                                                 if (kkeys.toString().indexOf("38,38,40,40,37,39,37,39,66,65") >= 0)
                                                                                                 {
-                                                                                                    $("body").css({"background-image":"url('/public/img/konami.gif')"})
+                                                                                                    $("body").css({"background-image":"url('/public/img/konami.gif')"});
+                                                                                                    $("#svgDevice").addClass("koko");
+                                                                                                    $("#svgBw").addClass("koko2");
                                                                                                 }
                                                                                                 if(event.keyCode > 36 && event.keyCode < 41 || event.keyCode == 107 || event.keyCode == 109)
                                                                                                 {
