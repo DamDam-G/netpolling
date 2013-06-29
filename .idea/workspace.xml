@@ -100,7 +100,6 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/settings.py" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/urls.py" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/wsgi.py" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/netpolling/iw/public/css/design.css" afterPath="$PROJECT_DIR$/netpolling/iw/public/css/design.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/netpolling/iw/public/js/net.js" afterPath="$PROJECT_DIR$/netpolling/iw/public/js/net.js" />
     </list>
     <ignored path="netpolling.iws" />
