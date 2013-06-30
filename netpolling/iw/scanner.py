@@ -1,41 +1,12 @@
 #! /usr/bin/python
 from scan.LocalScan import *
-import Queue
-import threading
+from multiprocessing import Process, Queue, TimeoutError
 import os
+import sys
 import conf.netenv as ENV
 import ConfigParser
 import time
 import log
-
-exitFlag = 0
-
-class myThread (threading.Thread):
-    def __init__(self, threadID, name, q, t):
-        threading.Thread.__init__(self)
-        self.threadID = threadID
-        self.name = name
-        self.q = q
-        self.type = t
-        self.result = []
-
-    def run(self):
-        print "Starting " + self.name
-        self.result = process_data(self.name, self.q, self.type)
-        print "Exiting " + self.name
-
-def process_data(threadName, q, t):
-    while not exitFlag:
-        queueLock.acquire()
-        if not workQueue.empty():
-            data = q.get()
-            queueLock.release()
-            #print "%s processing %s" % (threadName, data)
-            r = GetBW() if t == 0 else scan.GetIpMac()
-        else:
-            queueLock.release()
-        time.sleep(1)
-    return r
 
 def WriteCron():
     """!
@@ -81,7 +52,7 @@ def GetBW():
                 else:
                     bwk[ip2] = bps
 	    else:
-               	print "Joe la praline" 
+               	print "Joe la praline"
     fd.close()
     return bwk
 
@@ -103,61 +74,33 @@ def DoScan():
         interface = param.get('LocalScan', 'interface')
         up = int(param.get('LocalScan', 'up'))
         n = list()
-        if up == 1:
-            scan = LocalScan(name, netmask, interface)
-            threadList = ["bandwidth", "scan"]
-            nameList = ["bw", "arp"]
-            queueLock = threading.Lock()
-            workQueue = Queue.Queue(10)
-            threads = []
-            threadID = 1
-            i = 0
-
-            # Create new threads
-            for tName in threadList:
-                thread = myThread(threadID, tName, workQueue, i)
-                thread.start()
-                threads.append(thread)
-                threadID += 1
-                i += 1
-
-            # Fill the queue
-            queueLock.acquire()
-            for word in nameList:
-                workQueue.put(word)
-            queueLock.release()
-
-            # Wait for queue to empty
-            while not workQueue.empty():
-                pass
-
-            # Notify threads it's time to exit
-            exitFlag = 1
-
-            # Wait for all threads to complete
-            for t in threads:
-                t.join()
-            print "Exiting Main Thread"
-            bwp = threads[0].result
-            for m in scan.net:
-                for line in bwp:
-                    if line == m["ip"]:
-                        percent = (float(bwp[line])/float(15728640))*800.0
-                        kilo = float(bwp[line])/float(1024)
-                        m["bw"] = kilo
-                        m["percent"] = percent
-                        ip = m["ip"]
-                        if percent > 70.0:
-                            print ip
-                            print (log.PutLog("Bandwidth overused", "ip", time.strftime('%H %M %D'), 3))
-            return scan.GetNetwork(1)
-        else:
-            return {'error':'veuillez patientez le scan est en cours de fonctionnement'}
+        scan = LocalScan(name, netmask, interface)
+        scan.GetIpMac()
+        return scan
     except ConfigParser.Error, err:
         print 'Oops, une erreur dans votre fichier de conf (%s)' % err
+        sys.exit(0)
 
 if __name__ == "__main__":
-    r = DoScan()
+    q0 = Queue()
+    q1 = Queue()
+    worker0 = Process(target=q0.put(GetBW()), args=())
+    worker1 = Process(target=q1.put(DoScan()), args=())
+    worker0.start()
+    worker1.start()
+    worker0.join()
+    worker1.join()
+    bwp = q0.get()
+    scan = q1.get()
+    for m in scan.net:
+        for line in bwp:
+            if line == m["ip"]:
+                percent = (float(bwp[line])/float(15728640))*800.0
+                kilo = float(bwp[line])/float(1024)
+                m["bw"] = kilo
+                m["percent"] = percent
+                if percent > 70.0:
+                    log.PutLog("Bandwidth overused", "ip", time.strftime('%H %M %D'), 3)
     fd = open(ENV.conf+"network.json", "w")
-    fd.write(r)
+    fd.write(scan.GetNetwork(1))
     fd.close()
