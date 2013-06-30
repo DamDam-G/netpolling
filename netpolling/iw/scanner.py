@@ -19,7 +19,7 @@ def WriteCron():
     os.popen(ENV.scripts+"cron.pl")
 
 
-def GetBW():
+def GetBW(queue):
     """!
     @author Alexis Boulanger
     @name GetBw
@@ -32,7 +32,6 @@ def GetBW():
     interface = param.get("Listen", "interface")
     duration = param.get("Listen", "time")
     (os.popen("tshark -i {0} -z conv,ip -a duration:{1} > {2}traffic".format(interface, duration, ENV.conf)))
-    time.sleep(float(duration))
     bwk = {}
     fd = open(ENV.conf+"traffic", "r")
     for line in fd:
@@ -54,10 +53,9 @@ def GetBW():
 	    else:
                	print "Joe la praline"
     fd.close()
-    return bwk
+    queue.put(bwk)
 
-
-def DoScan():
+def DoScan(queue):
     """!
     @author Damien Goldenberg
     @name DoScan
@@ -72,11 +70,9 @@ def DoScan():
         name = param.get('LocalScan', 'name')
         netmask = param.get('LocalScan', 'netmask')
         interface = param.get('LocalScan', 'interface')
-        up = int(param.get('LocalScan', 'up'))
-        n = list()
         scan = LocalScan(name, netmask, interface)
         scan.GetIpMac()
-        return scan
+        queue.put(scan)
     except ConfigParser.Error, err:
         print 'Oops, une erreur dans votre fichier de conf (%s)' % err
         sys.exit(0)
@@ -84,8 +80,8 @@ def DoScan():
 if __name__ == "__main__":
     q0 = Queue()
     q1 = Queue()
-    worker0 = Process(target=q0.put(GetBW()), args=())
-    worker1 = Process(target=q1.put(DoScan()), args=())
+    worker0 = Process(target=GetBW, args=(q0,))
+    worker1 = Process(target=DoScan, args=(q1,))
     worker0.start()
     worker1.start()
     worker0.join()
