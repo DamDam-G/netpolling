@@ -93,8 +93,8 @@ if __name__ == "__main__":
             if line == m["ip"]:
                 percent = (float(bwp[line])/float(15728640))*800.0
                 kilo = float(bwp[line])/float(1024)
-                m["bw"] = kilo
-                m["percent"] = percent
+                m["bw"] = round(kilo,2)
+                m["percent"] = round(percent,2)
                 if percent > 70.0:
                     log.PutLog("Bandwidth overused", "ip", time.strftime('%H %M %D'), 3)
     fd = open(ENV.conf+"network.json", "w")
