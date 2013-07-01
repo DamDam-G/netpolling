@@ -34,19 +34,19 @@
     <splitter split-orientation="horizontal" split-proportion="0.89386946">
       <split-first>
         <leaf>
-          <file leaf-file-name="net.js" pinned="false" current="false" current-in-tab="false">
+          <file leaf-file-name="net.js" pinned="false" current="true" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/netpolling/iw/public/js/net.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="353" column="61" selection-start="22301" selection-end="22301" vertical-scroll-proportion="0.0">
+                <state line="353" column="61" selection-start="22301" selection-end="22301" vertical-scroll-proportion="0.53900707">
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="design.css" pinned="false" current="true" current-in-tab="true">
+          <file leaf-file-name="design.css" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/netpolling/iw/public/css/design.css">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="358" column="5" selection-start="7532" selection-end="7532" vertical-scroll-proportion="0.6844059">
+                <state line="164" column="45" selection-start="2529" selection-end="2529" vertical-scroll-proportion="-8.490196">
                   <folding />
                 </state>
               </provider>
@@ -436,16 +436,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/netpolling/iw/public/js/net.js">
+    <entry file="file://$PROJECT_DIR$/netpolling/iw/public/css/design.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="353" column="61" selection-start="22301" selection-end="22301" vertical-scroll-proportion="0.0">
+        <state line="164" column="45" selection-start="2529" selection-end="2529" vertical-scroll-proportion="-8.490196">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/netpolling/iw/public/css/design.css">
+    <entry file="file://$PROJECT_DIR$/netpolling/iw/public/js/net.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="358" column="5" selection-start="7532" selection-end="7532" vertical-scroll-proportion="0.6844059">
+        <state line="353" column="61" selection-start="22301" selection-end="22301" vertical-scroll-proportion="0.53900707">
           <folding />
         </state>
       </provider>
