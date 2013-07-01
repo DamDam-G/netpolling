@@ -12,7 +12,7 @@ $(window).load((function()
                     var scale = {device:0, connector:1}; //object for scaling all items
                     var net; // idem objnet but in the part synchonous, maybe it's a little stupid, i don't test ^^
                     var move = 17;
-                    $('#pop').resizable({animate: true}).draggable().tabs({event: "mouseover"});
+                    $('#pop').resizable({animate: true}).draggable().tabs();
                     var kkeys = [];
                     /**
                      * @author Damien Goldenberg

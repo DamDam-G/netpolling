@@ -36,7 +36,7 @@
           <file leaf-file-name="net.js" pinned="false" current="true" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/netpolling/iw/public/js/net.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="605" column="289" selection-start="43646" selection-end="43646" vertical-scroll-proportion="0.5744681">
+                <state line="14" column="74" selection-start="1296" selection-end="1296" vertical-scroll-proportion="0.24822696">
                   <folding />
                 </state>
               </provider>
@@ -78,7 +78,7 @@
           <file leaf-file-name="visu.js" pinned="false" current="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/netpolling/iw/public/js/visu.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-3.2375886">
+                <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-2.5945625">
                   <folding />
                 </state>
               </provider>
@@ -444,7 +444,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/netpolling/iw/public/js/net.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="605" column="289" selection-start="43646" selection-end="43646" vertical-scroll-proportion="0.5744681">
+        <state line="14" column="74" selection-start="1296" selection-end="1296" vertical-scroll-proportion="0.24822696">
           <folding />
         </state>
       </provider>
