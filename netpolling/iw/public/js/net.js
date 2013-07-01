@@ -342,7 +342,6 @@ $(window).load((function()
                         objnet[0] = new Device(obj.gw, "8c:89:a5:a3:ad:1f", "Linux", "router", 'Itinet', 0, 0, n, x/scale.connector, y/scale.connector, {"x":0.6+scale.device, "y":0.6+scale.device});
                         var router = {x:objnet[0].GetX(), y:objnet[0].GetY()};
                         var lst = "<table class=\"table table-striped\"><tr><td>Hostname</td><td>IP</td></tr>";
-                        var r;
                         for(var i = 0; i < obj.net.length; i++)
                         {
                             if(objnet[0].GetIp() == obj.net[i].ip)
@@ -353,14 +352,6 @@ $(window).load((function()
                             else
                             {
                                 angleRad = angle/180*Math.PI;
-                                if (p == 0)
-                                {
-                                    r = radius;
-                                }
-                                else
-                                {
-                                    r = radius + 60;
-                                }
                                 color = obj.net[i].percent == null ? "rgb(0, 0, 255)" : obj.net[i].percent < 1 ? "rgb(0, 252, 0)" : obj.net[i].percent < 2 ? "rgb(36, 216, 0)" : obj.net[i].percent < 5 ? "rgb(72, 180, 0)" : obj.net[i].percent < 10 ? "rgb(108, 144, 0)" : obj.net[i].percent < 20 ? "rgb(144, 108, 0)" : obj.net[i].percent < 50 ? "rgb(180, 72, 0)" : obj.net[i].percent < 70 ? "rgb(216, 36, 0)" : "rgb(252, 0, 0)";
                                 x=(((r/2)+(r/2)*Math.cos(angleRad))+center.x - r +340)/scale.connector;
                                 y=(((r/2)+(r/2)*Math.sin(angleRad))+center.y - r +340)/scale.connector;
