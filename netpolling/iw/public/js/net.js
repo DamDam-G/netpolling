@@ -11,6 +11,7 @@ $(window).load((function()
                     var mouse = {x:0, y:0, ok:0}; // object to know the currently position ofthe mouse for events mousedown and mouseup
                     var scale = {device:0, connector:1}; //object for scaling all items
                     var net; // idem objnet but in the part synchonous, maybe it's a little stupid, i don't test ^^
+                    var move = 17;
                     $('#pop').resizable({animate: true}).draggable().tabs({event: "mouseover"});
                     var kkeys = [];
                     /**
@@ -574,8 +575,8 @@ $(window).load((function()
                                                                 $('svg').on("mouseup", function(event)
                                                                                         {
                                                                                             event.preventDefault();
-                                                                                            gap.x -= mouse.x - event.clientX;
-                                                                                            gap.y -= mouse.y - event.clientY;
+                                                                                            gap.x -= (mouse.x - event.clientX)*0.5;
+                                                                                            gap.y -= (mouse.y - event.clientY)*0.5;
                                                                                             ReMake(network);
                                                                                             return false;
                                                                                         });
@@ -593,7 +594,7 @@ $(window).load((function()
                                                                                                 if(event.keyCode > 36 && event.keyCode < 41 || event.keyCode == 107 || event.keyCode == 109)
                                                                                                 {
                                                                                                     event.preventDefault();
-                                                                                                    event.keyCode == 38 ? gap.y -= 35 : event.keyCode == 39 ? gap.x -= 35 : event.keyCode == 40 ? gap.y += 35 : event.keyCode == 37 ? gap.x += 35 : event.keyCode == 109  ? handle(-1) : event.keyCode == 107 ? handle(1) : gap.x += 0;
+                                                                                                    event.keyCode == 38 ? gap.y -= move : event.keyCode == 39 ? gap.x -= move : event.keyCode == 40 ? gap.y += move : event.keyCode == 37 ? gap.x += move : event.keyCode == 109  ? handle(-1) : event.keyCode == 107 ? handle(1) : gap.x += 0;
                                                                                                     ReMake(network);
                                                                                                     return false;
                                                                                                 }
@@ -602,7 +603,7 @@ $(window).load((function()
                                                                                                                         {
                                                                                                                             if(/mapcontroll/.test(event.target.className))
                                                                                                                             {
-                                                                                                                                event.target.id == "m0" ? gap.y -= 35 : event.target.id == "m1" ? gap.x += 35 : event.target.id == "m2" ? gap.x -= 35 : event.target.id == "m3" ? gap.y += 35 : event.target.id == "m4" ? handle(1) : event.target.id == "m5" ? handle(-1) :gap.x += 0;
+                                                                                                                                event.target.id == "m0" ? gap.y -= move : event.target.id == "m1" ? gap.x += move : event.target.id == "m2" ? gap.x -= move : event.target.id == "m3" ? gap.y += move : event.target.id == "m4" ? handle(1) : event.target.id == "m5" ? handle(-1) :gap.x += 0;
                                                                                                                                 if (event.target.id != "m4" || event.target.id != "m5")
                                                                                                                                     ReMake(network);
                                                                                                                             }
