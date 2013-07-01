@@ -353,8 +353,8 @@ $(window).load((function()
                             {
                                 angleRad = angle/180*Math.PI;
                                 color = obj.net[i].percent == null ? "rgb(0, 0, 255)" : obj.net[i].percent < 1 ? "rgb(0, 252, 0)" : obj.net[i].percent < 2 ? "rgb(36, 216, 0)" : obj.net[i].percent < 5 ? "rgb(72, 180, 0)" : obj.net[i].percent < 10 ? "rgb(108, 144, 0)" : obj.net[i].percent < 20 ? "rgb(144, 108, 0)" : obj.net[i].percent < 50 ? "rgb(180, 72, 0)" : obj.net[i].percent < 70 ? "rgb(216, 36, 0)" : "rgb(252, 0, 0)";
-                                x=(((radius/2)+(radius/2)*Math.cos(angleradiusad))+centeradius.x - radius +340)/scale.connectoradius;
-                                y=(((radius/2)+(radius/2)*Math.sin(angleradiusad))+centeradius.y - radius +340)/scale.connectoradius;
+                                x=(((radius/2)+(radius/2)*Math.cos(angleRad))+center.x - radius +340)/scale.connector;
+                                y=(((radius/2)+(radius/2)*Math.sin(angleRad))+center.y - radius +340)/scale.connector;
                                 objnet[i+1] = new Device(obj.net[i].ip, obj.net[i].mac, obj.net[i].os, obj.net[i].device, obj.net[i].hostname, obj.net[i].bw*8, obj.net[i].percent, n, x, y, {"x":0.4+scale.device, "y":0.4+scale.device});
                                 objnet[i+1].Draw();
                                 c.path("M"+objnet[i+1].GetX()+" "+objnet[i+1].GetY()+"L"+router.x+" "+router.y).attr({"stroke": color, "stroke-width":5});
