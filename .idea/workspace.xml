@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0de6f5dc-25cf-4fa1-8937-4f7c8a87075d" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/netpolling/iw/public/css/design.css" afterPath="$PROJECT_DIR$/netpolling/iw/public/css/design.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/netpolling/iw/public/js/net.js" afterPath="$PROJECT_DIR$/netpolling/iw/public/js/net.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/netpolling.iml" afterPath="$PROJECT_DIR$/.idea/netpolling.iml" />
@@ -11,7 +12,7 @@
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="0de6f5dc-25cf-4fa1-8937-4f7c8a87075d" time="1372490515056" ignored="false" />
     <file path="/net.js" changelist="0de6f5dc-25cf-4fa1-8937-4f7c8a87075d" time="1372666166286" ignored="false" />
-    <file path="/design.css" changelist="0de6f5dc-25cf-4fa1-8937-4f7c8a87075d" time="1372495465411" ignored="false" />
+    <file path="/design.css" changelist="0de6f5dc-25cf-4fa1-8937-4f7c8a87075d" time="1372680303035" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,19 +34,19 @@
     <splitter split-orientation="horizontal" split-proportion="0.89386946">
       <split-first>
         <leaf>
-          <file leaf-file-name="net.js" pinned="false" current="true" current-in-tab="true">
+          <file leaf-file-name="net.js" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/netpolling/iw/public/js/net.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="353" column="61" selection-start="22301" selection-end="22301" vertical-scroll-proportion="0.80496454">
+                <state line="353" column="61" selection-start="22301" selection-end="22301" vertical-scroll-proportion="0.0">
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="design.css" pinned="false" current="false" current-in-tab="false">
+          <file leaf-file-name="design.css" pinned="false" current="true" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/netpolling/iw/public/css/design.css">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="193" column="31" selection-start="3289" selection-end="3289" vertical-scroll-proportion="0.0">
+                <state line="358" column="5" selection-start="7532" selection-end="7532" vertical-scroll-proportion="0.6844059">
                   <folding />
                 </state>
               </provider>
@@ -109,9 +110,9 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/netpolling/iw/public/css/design.css" />
         <option value="$PROJECT_DIR$/netpolling/iw/scanner.py" />
         <option value="$PROJECT_DIR$/netpolling/iw/public/js/net.js" />
+        <option value="$PROJECT_DIR$/netpolling/iw/public/css/design.css" />
       </list>
     </option>
   </component>
@@ -419,13 +420,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/netpolling/iw/public/css/design.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="193" column="31" selection-start="3289" selection-end="3289" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/netpolling/iw/scanner.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="43" column="30" selection-start="1207" selection-end="1207" vertical-scroll-proportion="0.0">
@@ -444,7 +438,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/netpolling/iw/public/js/net.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="353" column="61" selection-start="22301" selection-end="22301" vertical-scroll-proportion="0.80496454">
+        <state line="353" column="61" selection-start="22301" selection-end="22301" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/netpolling/iw/public/css/design.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="358" column="5" selection-start="7532" selection-end="7532" vertical-scroll-proportion="0.6844059">
           <folding />
         </state>
       </provider>
