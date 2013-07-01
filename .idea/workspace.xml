@@ -36,7 +36,7 @@
           <file leaf-file-name="net.js" pinned="false" current="true" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/netpolling/iw/public/js/net.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="344" column="52" selection-start="21860" selection-end="21860" vertical-scroll-proportion="0.5921986">
+                <state line="356" column="132" selection-start="22759" selection-end="22995" vertical-scroll-proportion="0.7924528">
                   <folding />
                 </state>
               </provider>
@@ -444,7 +444,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/netpolling/iw/public/js/net.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="344" column="52" selection-start="21860" selection-end="21860" vertical-scroll-proportion="0.5921986">
+        <state line="356" column="132" selection-start="22759" selection-end="22995" vertical-scroll-proportion="0.7924528">
           <folding />
         </state>
       </provider>
