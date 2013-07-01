@@ -531,9 +531,9 @@ $(window).load((function()
                                                                         console.log("val "+pbw);
                                                                     }
                                                                 }
-                                                                color = pbw < 25 ? "green" : pbw < 50 ? "yellow" : pbw < 75 ? "organge" : "red";
+                                                                color = pbw < 25 ? "green" : pbw < 50 ? "yellow" : pbw < 75 ? "orange" : "red";
                                                                 $("#cbw").css({"width":pbw*3.5, "background-color":color});
-                                                                $("#binfo").html("<span class='label'>Bande passante total utilisée : </span><ul><li class='offset1'>"+pbw+" %</li><li class='offset1'>"+tbw+" kb/s</li></ul>");
+                                                                $("#binfo").html("<span class='label'>Bande passante total utilisée : </span><ul><li class='offset1'>"+pbw.toFixed(2)+" %</li><li class='offset1'>"+tbw.toFixed(2)+" kb/s</li></ul>");
                                                                 function handle(delta)
                                                                 {
                                                                     console.log(scale);
