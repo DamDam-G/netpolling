@@ -37,7 +37,7 @@
     <favorites_list name="netpolling" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5624333">
+    <splitter split-orientation="horizontal" split-proportion="0.4638325">
       <split-first>
         <leaf>
           <file leaf-file-name="net.js" pinned="false" current="false" current-in-tab="true">
@@ -142,10 +142,8 @@
           <file leaf-file-name="visu.js" pinned="false" current="true" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/netpolling/iw/public/js/visu.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="180" column="33" selection-start="11604" selection-end="11604" vertical-scroll-proportion="0.95035464">
-                  <folding>
-                    <element signature="e#7402#7585#0" expanded="false" />
-                  </folding>
+                <state line="45" column="28" selection-start="2678" selection-end="2678" vertical-scroll-proportion="0.79787236">
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -692,10 +690,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/netpolling/iw/public/js/visu.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="180" column="33" selection-start="11604" selection-end="11604" vertical-scroll-proportion="0.95035464">
-          <folding>
-            <element signature="e#7402#7585#0" expanded="false" />
-          </folding>
+        <state line="45" column="28" selection-start="2678" selection-end="2678" vertical-scroll-proportion="0.79787236">
+          <folding />
         </state>
       </provider>
     </entry>

@@ -6,7 +6,6 @@ $(window).load((function()
                     var t = Raphael(document.getElementById('svgSearch'), 900, 600); // represents the machine search
                     var csrftoken = GetCookie('csrftoken'); // this is the django secure token for ajx request
                     var objnet = []; // list of the device object in the part asynchronous
-                    var available = {os:0, sniff:0}; // object to know if an app is up or not
                     var gap = {x:0, y:0}; // object to know the gap of all items
                     var mouse = {x:0, y:0, ok:0}; // object to know the currently position ofthe mouse for events mousedown and mouseup
                     var scale = {device:0, connector:1}; //object for scaling all items
@@ -16,13 +15,6 @@ $(window).load((function()
                     $('#form').resizable({animate: true}).draggable();
                     var kkeys = [];
 
-                    /**
-                     * @author Damien Goldenberg
-                     * @brief This function get the cookie specified in the in the input variable
-                     * @param name
-                     * @returns {null}
-                     * @constructor
-                     */
                     function GetCookie(name)
                     {
                         var cookieValue = null;
@@ -106,15 +98,12 @@ $(window).load((function()
                     {
                         var coef = 60;
                         var center = {x: ($("#main").width()/2)-coef, y:($("#main").height()/2)-coef};
-                        //var center = {x: ($("#main").width()/2), y:($("#main").height()/2)};
                         var radius = 500+obj.net.length+500*0.25;
-                        //var center = {x: (radius/2)-coef, y:(radius/2)-coef};
                         var x = center.x;
                         var y = center.y;
                         var angleRad;
                         var angle = 0;
                         var dist = (360/obj.net.length)+0.5; // coef d'espacement
-                        //objnet[0] = new Device(obj.gw, obj.mac, obj.os, obj.device, n, x, y);
                         objnet = [];
                         objnet[0] = new Device(obj.gw, "8c:89:a5:a3:ad:1f", "Linux", "router", 'Itinet', 0, 0, n, x/scale.connector, y/scale.connector, {"x":0.6+scale.device, "y":0.6+scale.device});
                         var router = {x:objnet[0].GetX(), y:objnet[0].GetY()};
@@ -163,7 +152,6 @@ $(window).load((function()
                                             timeout: 20000,
                                             success:function(data)
                                                     {
-                                                        console.log(JSON.parse(data));
                                                         getValue(JSON.parse(data));
                                                         ReMake(JSON.parse(data));
                                                     },
@@ -205,8 +193,6 @@ $(window).load((function()
                                                                 $("#binfo").html("<span class='label'>Bande passante total utilisée : </span><ul><li class='offset1'>"+pbw.toFixed(2)+" %</li><li class='offset1'>"+tbw.toFixed(2)+" kb/s</li></ul>");
                                                                 function handle(delta)
                                                                 {
-                                                                    console.log(scale);
-                                                                    console.log(delta);
                                                                     if (delta > 0)
                                                                     {
                                                                         if(scale.device > -0.19 && scale.connector > 0.49)
@@ -252,7 +238,6 @@ $(window).load((function()
 
                                                                 $(document).on("keydown", function(event)
                                                                                             {
-                                                                                                console.log(event.keyCode);
                                                                                                 kkeys.push( event.keyCode );
                                                                                                 if (kkeys.toString().indexOf("38,38,40,40,37,39,37,39,66,65") >= 0)
                                                                                                 {
