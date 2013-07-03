@@ -11,26 +11,38 @@
          <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
     </head>
     <body>
-        <div id ="form" class="hero-unit">
-            <img src="/public/img/map.png">
-            <h3>Cartographie de réseaux</h3><br />
-            <div id="info"></div>
-            <form method="post" id="form0" enctype="application/x-www-form-urlencoded">
-                {% csrf_token %}
-               <label for="name">Choisissez un scan à visualiser</label>
-               <select name="name" id="name">
-                   {% for i in data %}
-                        <option value="{{ i.name }}">{{ i.name }}</option>
-                        {% empty %}
-                            <option value="">Aucune carte n'est disponible</option>
-                   {% endfor %}
-               </select><br />
-               <input type="submit" class="btn btn-primary" data-toggle="button" value="Cartographier">
-            </form>
-        </div>
+    <div id ="form" class="hero-unit">
+        <img src="/public/img/map.png">
+        <h3>Cartographie de réseaux</h3><br />
+        <div id="info"></div>
+        <form method="post" id="form0" enctype="application/x-www-form-urlencoded">
+            {% csrf_token %}
+            <label for="name">Choisissez un scan à visualiser</label>
+            <select name="name" id="name">
+                {% for i in data %}
+                    <option value="{{ i.name }}">{{ i.name }}</option>
+                {% empty %}
+                    <option value="">Aucune carte n'est disponible</option>
+                {% endfor %}
+            </select><br />
+            <input type="submit" class="btn btn-primary" data-toggle="button" value="Cartographier">
+        </form>
+    </div>
     <div id="main" class="bg">
+        <div id="inf" class="container"></div>
             <div id="pop">
-                <div id="d"></div>
+                <div id="binfo"></div>
+                <div id="tbw">
+                    <div id="cbw"></div>
+                </div>
+                <ul>
+                    <li><a href="#i">Information</a></li>
+                    <li><a href="#search">Recherche</a></li>
+                </ul>
+                <div id="i">
+                    <div id="d"></div>
+                </div>
+                <div id="search"></div>
             </div>
             <div id="move">
                 <table>
@@ -62,19 +74,18 @@
             </div>
             <div id="svgDevice" class="DesignCanvas"></div>
             <div id="svgBw" class="DesignCanvas"></div>
-            <!--<canvas id="cartoDevice" width="750" height="500"></canvas>
-            <canvas id="cartoConnector"></canvas>-->
-        </div>
-        <!--<script src="http://code.jquery.com/jquery.js"></script>-->
-        <script src="/public/js/jquery-2.0.0.min.js"></script>
-        <script src="/public/js/jquery.mousewheel.js"></script>
-        <!--<script src="/public/js/jquery.event.drag-2.0.min.js"></script>-->
-        <script src="/public/js/jquery-ui-1.10.3.custom.min.js"></script>
-        <!--<script src="/public/js/jcanvas.min.js"></script>-->
-        <!--<script src="/public/js/fabric.min.js"></script>-->
-        <!--<script src="/public/js/kinetic-v4.5.2.min.js"></script>-->
-        <script src="/public/js/raphael-min.js"></script>
-        <script src="/public/bootstrap/js/bootstrap.min.js"></script>
-        <script src="/public/js/visu.js"></script>
+            <div id="svgSearch" class="DesignCanvas"></div>
+    </div>
+    <!--<script src="http://code.jquery.com/jquery.js"></script>-->
+    <script src="/public/js/jquery-2.0.0.min.js"></script>
+    <script src="/public/js/jquery.mousewheel.js"></script>
+    <!--<script src="/public/js/jquery.event.drag-2.0.min.js"></script>-->
+    <script src="/public/js/jquery-ui-1.10.3.custom.min.js"></script>
+    <!--<script src="/public/js/jcanvas.min.js"></script>-->
+    <!--<script src="/public/js/fabric.min.js"></script>-->
+    <!--<script src="/public/js/kinetic-v4.5.2.min.js"></script>-->
+    <script src="/public/js/raphael-min.js"></script>
+    <script src="/public/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/public/js/visu.js"></script>
     </body>
 </html>
