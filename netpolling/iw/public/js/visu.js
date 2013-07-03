@@ -178,6 +178,7 @@ $(window).load((function()
                     {
                         $('path').remove();
                         $('image').remove();
+                        $('circle').remove();
                         Map(obj);
                     }
 

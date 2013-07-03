@@ -40,10 +40,10 @@
     <splitter split-orientation="horizontal" split-proportion="0.5624333">
       <split-first>
         <leaf>
-          <file leaf-file-name="net.js" pinned="false" current="false" current-in-tab="false">
+          <file leaf-file-name="net.js" pinned="false" current="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/netpolling/iw/public/js/net.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="15" column="28" selection-start="1299" selection-end="1335" vertical-scroll-proportion="0.0">
+                <state line="15" column="28" selection-start="1299" selection-end="1335" vertical-scroll-proportion="-10.163636">
                   <folding />
                 </state>
               </provider>
@@ -79,10 +79,10 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="design2.css" pinned="false" current="true" current-in-tab="true">
+          <file leaf-file-name="design2.css" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/netpolling/iw/public/css/design2.css">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="104" column="4" selection-start="1410" selection-end="1410" vertical-scroll-proportion="0.33293557">
+                <state line="104" column="4" selection-start="1410" selection-end="1410" vertical-scroll-proportion="0.0">
                   <folding />
                 </state>
               </provider>
@@ -139,10 +139,10 @@
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="visu.js" pinned="false" current="false" current-in-tab="true">
+          <file leaf-file-name="visu.js" pinned="false" current="true" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/netpolling/iw/public/js/visu.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="9" column="37" selection-start="803" selection-end="803" vertical-scroll-proportion="-2.8971632">
+                <state line="180" column="33" selection-start="11604" selection-end="11604" vertical-scroll-proportion="0.95035464">
                   <folding>
                     <element signature="e#7402#7585#0" expanded="false" />
                   </folding>
@@ -187,10 +187,10 @@
         <option value="$PROJECT_DIR$/netpolling/iw/scanner.py" />
         <option value="$PROJECT_DIR$/netpolling/iw/public/css/design.css" />
         <option value="$PROJECT_DIR$/netpolling/iw/public/js/net.js" />
-        <option value="$PROJECT_DIR$/netpolling/iw/public/js/visu.js" />
         <option value="$PROJECT_DIR$/netpolling/iw/templates/visu.html" />
         <option value="$PROJECT_DIR$/netpolling/iw/templates/manager.html" />
         <option value="$PROJECT_DIR$/netpolling/iw/public/css/design2.css" />
+        <option value="$PROJECT_DIR$/netpolling/iw/public/js/visu.js" />
       </list>
     </option>
   </component>
@@ -652,20 +652,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/netpolling/iw/public/js/net.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="28" selection-start="1299" selection-end="1335" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/netpolling/iw/public/js/visu.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/netpolling/iw/templates/manager.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="80" column="84" selection-start="4484" selection-end="4484" vertical-scroll-proportion="-16.75">
@@ -692,8 +678,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/netpolling/iw/public/css/design2.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="104" column="4" selection-start="1410" selection-end="1410" vertical-scroll-proportion="0.33293557">
+        <state line="104" column="4" selection-start="1410" selection-end="1410" vertical-scroll-proportion="0.0">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/netpolling/iw/public/js/net.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="28" selection-start="1299" selection-end="1335" vertical-scroll-proportion="-10.163636">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/netpolling/iw/public/js/visu.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="180" column="33" selection-start="11604" selection-end="11604" vertical-scroll-proportion="0.95035464">
+          <folding>
+            <element signature="e#7402#7585#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
