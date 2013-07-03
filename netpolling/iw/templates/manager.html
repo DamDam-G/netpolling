@@ -76,9 +76,9 @@
                     <form method="post" id="fsniff" enctype="application/x-www-form-urlencoded">
                         <div id="rsniff"></div>
                         <label for="name">Nom de l'écoute</label>
-                        <input id="sname" type="text" required="true" data-toggle="button" placeholder="Listen_totor"><br />
+                        <input id="sname" type="text" required="true" pattern="^[A-Z][a-z]*$" data-toggle="button" placeholder="Listen_totor"><br />
                         <label for="name">temps de l'écoute (en seconde)</label>
-                        <input id="stime" type="number" required="true" data-toggle="button" placeholder="60"><br />
+                        <input id="stime" type="number" required="true" pattern="^[0-9]*$" data-toggle="button" placeholder="60"><br />
                         <button id ="bsniff" class="btn btn-primary" data-toggle="button">Mise en écoute</button>
                     </form>
                 </div>
