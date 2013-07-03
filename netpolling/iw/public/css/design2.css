@@ -18,6 +18,21 @@ input
     left:25%;
 }
 
+#tbw
+{
+    width:350px;
+    height:20px;
+    border-radius:15px;
+    border:solid #000000 2px;
+    overflow:hidden;
+}
+
+#cbw
+{
+    height:20px;
+    text-align:center;
+}
+
 #main
 {
     width:900px;
@@ -27,14 +42,29 @@ input
 #svgDevice, #cartoDevice
 {
     z-index:42; //The Big Question of Life, the Universe and Everything
+    border-radius:15px;
 }
 
 #svgBw, #cartoConnector
+{
+    z-index:1;
+    border-radius:15px;
+}
+
+#svgSearch
 {
     z-index:0;
     border-radius:15px;
     border:solid #000000 2px;
     background-color:#EEEEEE;
+}
+
+#svgTotal
+{
+    border-radius:15px;
+    border:outset #000000 3px;
+    margin-left:auto;
+    margin-right:auto;
 }
 
 #move
@@ -53,7 +83,7 @@ input
 #pop, #form
 {
     width:400px;
-    min-height:200px;
+    height:570px;
     padding:10px;
     border-radius:15px;
     border:solid #000000 2px;
@@ -61,6 +91,7 @@ input
     margin-left:20px;
     top:2%;
     z-index:44;
+    overflow:auto;
 }
 
 #reset
@@ -93,4 +124,15 @@ input
     -ms-transition:all 1s ease-in-out 0s;
     -o-transition:all 1s ease-in-out 0s;
     -webkit-transition:all 1s ease-in-out 0s;
+}
+
+#inf
+{
+    z-index:150;
+}
+
+#lg
+{
+    overflow:auto;
+    max-height:550px;
 }
