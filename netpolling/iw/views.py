@@ -129,7 +129,6 @@ def Control(request):
             elif id == 3:
                 file = (os.popen("cat "+ENV.conf+"log")).readlines()
                 os.popen("echo '' > "+ENV.conf+"log")
-                #os.popen("rm -rf > "+ENV.conf+"log; touch "+ENV.conf+"log")
                 i = 0
                 while i < len(file):
                     if len(file) > 1:
@@ -195,13 +194,12 @@ def AjaxForm(request, id):
     @details Description:
     This is function. Choice the good model and return an answer
     """
-
     if request.is_ajax():
         id = int(id)
         if id == 0:
             if request.POST.get("type"):
                 if request.POST.get("type") == "local" or request.POST.get("type") == "extern":
-                    if re.search("", request.POST.get(), re.IGNORECASE) or  or:
+                    if re.search("^[A-Za-z0-9_]{1,}$", request.POST.get("name"), re.IGNORECASE) and re.search("^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}/[0-9]{1,2}$", request.POST.get("mask"), re.IGNORECASE) and re.search("^[A-Za-z0-9]{1,}$", request.POST.get("interface"), re.IGNORECASE):
                         t = 0 if request.POST.get("type") == "local" else 1
                         r = ScanParam.objects.filter(type=t)
                         r.update(name=request.POST.get("name"))
@@ -219,40 +217,48 @@ def AjaxForm(request, id):
                         except ConfigParser.Error, err:
                             print 'Oops, une erreur dans votre fichier de conf (%s)' % err
                         param = {'success':1, 'why':'Les paramétres ont bien été enregistré'}
+                    else:
+                        param = {'success':0, 'why':'error : format data incorrect'}
                 else:
                     param = {'success':0, 'why':'error : type scan'}
             else:
                 param = {'success':0, 'why':'error : type not exist'}
         elif id == 1:
-            if request.POST.get("name"):
-                r = Screenshot()
-                r.name = request.POST.get("name")
-                r.path = '/public/screenshots/'+request.POST.get("name")+'.json'
-                r.save()
-                fd = open(ENV.screen+request.POST.get("name")+".json", "w")
-                fd.write(request.POST.get("net"))
-                fd.close()
-                param = {'success':1, 'why':'La carte a bien été enregistré'}
+            if re.search("^[A-Za-z0-9_]{1,}$", request.POST.get("name"), re.IGNORECASE):
+                if request.POST.get("name"):
+                    r = Screenshot()
+                    r.name = request.POST.get("name")
+                    r.path = '/public/screenshots/'+request.POST.get("name")+'.json'
+                    r.save()
+                    fd = open(ENV.screen+request.POST.get("name")+".json", "w")
+                    fd.write(request.POST.get("net"))
+                    fd.close()
+                    param = {'success':1, 'why':'La carte a bien été enregistré'}
+                else:
+                    param = {'success':0, 'why':'error : map name'}
             else:
-                param = {'success':0, 'why':'error : map name'}
+                param = {'success':0, 'why':'error : format data incorrect'}
         elif id == 4:
-            if request.POST.get("pinterface") and request.POST.get("ptime"):
-                r = Param.objects.all()
-                r.update(interface=request.POST.get("pinterface"))
-                r.update(time=request.POST.get("ptime"))
-                config = ConfigParser.RawConfigParser()
-                config.read(r''+ENV.conf+'netpolling.conf')
-                try:
-                    config.set("Listen", 'interface', r'"'+request.POST.get("pinterface")+'"')
-                    config.set("Listen", 'time', r''+request.POST.get("ptime"))
-                    with open(r''+ENV.conf+'netpolling.conf', 'wb') as configfile:
-                        config.write(configfile)
-                    param = {'success':1, 'why':'Les paramétres ont bien été enregistré'}
-                except ConfigParser.Error, err:
-                    print 'Oops, une erreur dans votre fichier de conf (%s)' % err
-                    param = {'success':1, 'why':'Fichier introuvable, veuillez contacter votre admin système ;) '}
+            if re.search("^[A-Za-z0-9]{1,}$", request.POST.get("pinterface"), re.IGNORECASE) and re.search("^[0-9]{1,}$", request.POST.get("time"), re.IGNORECASE):
+                if request.POST.get("pinterface") and request.POST.get("ptime"):
+                    r = Param.objects.all()
+                    r.update(interface=request.POST.get("pinterface"))
+                    r.update(time=request.POST.get("ptime"))
+                    config = ConfigParser.RawConfigParser()
+                    config.read(r''+ENV.conf+'netpolling.conf')
+                    try:
+                        config.set("Listen", 'interface', r'"'+request.POST.get("pinterface")+'"')
+                        config.set("Listen", 'time', r''+request.POST.get("ptime"))
+                        with open(r''+ENV.conf+'netpolling.conf', 'wb') as configfile:
+                            config.write(configfile)
+                        param = {'success':1, 'why':'Les paramétres ont bien été enregistré'}
+                    except ConfigParser.Error, err:
+                        print 'Oops, une erreur dans votre fichier de conf (%s)' % err
+                        param = {'success':1, 'why':'Fichier introuvable, veuillez contacter votre admin système ;) '}
+                else:
+                    param = {'success':0, 'why':'error : Informations manquantes'}
             else:
-                param = {'success':0, 'why':'error : Informations manquantes'}
+                param = {'success':0, 'why':'error : format data incorrect'}
         else:
             return render_to_response('error.html', {'type':'error post'})
         return HttpResponse(json.dumps(param))
@@ -280,7 +286,7 @@ def GetOS(request):
     This is function determine the os
     """
     if request.is_ajax():
-        if request.POST.get("ip"):
+        if request.POST.get("ip") and re.search("^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$", request.POST.get("ip"), re.IGNORECASE):
             return HttpResponse(json.dumps({"success":0, "rep":((os.popen("nmap -O "+request.POST.get("ip"))).read()).replace('\n', '<br />')}))
         else:
             return HttpResponse(json.dumps({"success":0, "rep":"42, The Big Question of Life, the Universe and Everything.<br /> <div class=\"alert alert-error\">[ERROR] : problem about @ip</div>"}))
@@ -297,7 +303,7 @@ def GetMap(request):
     This is function is for the viewer part (for seeing old maps)
     """
     if request.is_ajax():
-        if request.POST.get("name"):
+        if request.POST.get("name") and re.search("^[A-Za-z0-9_]{1,}$", request.POST.get("name"), re.IGNORECASE):
             r = Screenshot.objects.get(name=request.POST.get("name"))
             fd = open(ENV.screen+r.name+".json", "r")
             network = fd.read()
@@ -317,7 +323,7 @@ def Sniff(request):
     This is function sniff a machine
     """
     if request.is_ajax():
-        if request.POST.get("name") and request.POST.get("ip") and request.POST.get("time"):
+        if request.POST.get("name") and request.POST.get("ip") and request.POST.get("time") and re.search("^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$", request.POST.get("ip"), re.IGNORECASE) and re.search("^[0-9]{1,}$", request.POST.get("time"), re.IGNORECASE) and re.search("^[A-Za-z0-9_]{1,}$", request.POST.get("name"), re.IGNORECASE):
             os.popen("timeout "+str(request.POST.get("time"))+"s tcpdump -i eth0 host "+request.POST.get("ip")+" -w "+ENV.listen+request.POST.get("name")+"-"+request.POST.get("ip")+".pcap")
             return HttpResponse(json.dumps({"success":1, "rep":"<div class=\"alert alert-success\"><a class='btn btn-info' href='/public/listen/"+request.POST.get("name")+"-"+request.POST.get("ip")+".pcap'>DL</a></div>"}))
         else:
