@@ -201,23 +201,24 @@ def AjaxForm(request, id):
         if id == 0:
             if request.POST.get("type"):
                 if request.POST.get("type") == "local" or request.POST.get("type") == "extern":
-                    t = 0 if request.POST.get("type") == "local" else 1
-                    r = ScanParam.objects.filter(type=t)
-                    r.update(name=request.POST.get("name"))
-                    r.update(netmask=request.POST.get("mask"))
-                    r.update(interface=request.POST.get("interface"))
-                    config = ConfigParser.RawConfigParser()
-                    config.read(r''+ENV.conf+'netpolling.conf')
-                    section = ["LocalScan", "ExternScan"]
-                    try:
-                        config.set(section[t], 'name', r'"'+request.POST.get("name")+'"')
-                        config.set(section[t], 'netmask', r'"'+request.POST.get("mask")+'"')
-                        config.set(section[t], 'interface', r'"'+request.POST.get("interface")+'"')
-                        with open(r''+ENV.conf+'netpolling.conf', 'wb') as configfile:
-                            config.write(configfile)
-                    except ConfigParser.Error, err:
-                        print 'Oops, une erreur dans votre fichier de conf (%s)' % err
-                    param = {'success':1, 'why':'Les paramétres ont bien été enregistré'}
+                    if re.search("", request.POST.get(), re.IGNORECASE) or  or:
+                        t = 0 if request.POST.get("type") == "local" else 1
+                        r = ScanParam.objects.filter(type=t)
+                        r.update(name=request.POST.get("name"))
+                        r.update(netmask=request.POST.get("mask"))
+                        r.update(interface=request.POST.get("interface"))
+                        config = ConfigParser.RawConfigParser()
+                        config.read(r''+ENV.conf+'netpolling.conf')
+                        section = ["LocalScan", "ExternScan"]
+                        try:
+                            config.set(section[t], 'name', r'"'+request.POST.get("name")+'"')
+                            config.set(section[t], 'netmask', r'"'+request.POST.get("mask")+'"')
+                            config.set(section[t], 'interface', r'"'+request.POST.get("interface")+'"')
+                            with open(r''+ENV.conf+'netpolling.conf', 'wb') as configfile:
+                                config.write(configfile)
+                        except ConfigParser.Error, err:
+                            print 'Oops, une erreur dans votre fichier de conf (%s)' % err
+                        param = {'success':1, 'why':'Les paramétres ont bien été enregistré'}
                 else:
                     param = {'success':0, 'why':'error : type scan'}
             else:

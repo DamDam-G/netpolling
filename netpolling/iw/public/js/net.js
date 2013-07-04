@@ -79,10 +79,7 @@ $(window).load((function()
                                 success:function(data)
                                         {
                                             data = JSON.parse(data);
-                                            if (data.success == 1)
-                                                cls = 'success';
-                                            else if (data.success == 0)
-                                                cls = 'danger';
+                                            var cls = data.success == 1 ? 'success' : 'danger';
                                             $("#info").html('<div class="alert alert-' +cls+ '"><button type="button" class="close" data-dismiss="alert">×</button>' +data.why+ '</div>');
                                         },
                                 error:function()
@@ -119,10 +116,7 @@ $(window).load((function()
                                 success:function(data)
                                         {
                                             data = JSON.parse(data);
-                                            if (data.success == 1)
-                                                cls = 'success';
-                                            else if (data.success == 0)
-                                                cls = 'danger';
+                                            var cls = data.success == 1 ? 'success' : 'danger';
                                             $("#info").html('<div class="alert alert-' +cls+ '"><button type="button" class="close" data-dismiss="alert">×</button>' +data.why+ '</div>');
                                         },
                                 error:function()
@@ -180,7 +174,7 @@ $(window).load((function()
                                                                                                                                     if (available.os == 0)
                                                                                                                                     {
                                                                                                                                         available.os = 1;
-                                                                                                                                        $("#inf").html("<div class=\"container alert alert-info\">L'os finger printing est lancée. Cette action eput prendre un certain temps</div>")
+                                                                                                                                        $("#inf").html("<div class=\"container alert alert-info\">L'os finger printing est lancée. Cette action peut prendre un certain temps</div>")
                                                                                                                                         $("#os").html();
                                                                                                                                         $.ajax({
                                                                                                                                                type: 'post',
@@ -329,15 +323,12 @@ $(window).load((function()
                     {
                         var coef = 60;
                         var center = {x: ($("#main").width()/2)-coef, y:($("#main").height()/2)-coef};
-                        //var center = {x: ($("#main").width()/2), y:($("#main").height()/2)};
                         var radius = 500+obj.net.length+500*0.25;
-                        //var center = {x: (radius/2)-coef, y:(radius/2)-coef};
                         var x = center.x;
                         var y = center.y;
                         var angleRad;
                         var angle = 0;
                         var dist = (360/obj.net.length)+0.5; // coef d'espacement
-                        //objnet[0] = new Device(obj.gw, obj.mac, obj.os, obj.device, n, x, y);
                         objnet = [];
                         objnet[0] = new Device(obj.gw, "8c:89:a5:a3:ad:1f", "Linux", "router", 'Itinet', 0, 0, n, x/scale.connector, y/scale.connector, {"x":0.6+scale.device, "y":0.6+scale.device});
                         var router = {x:objnet[0].GetX(), y:objnet[0].GetY()};
@@ -472,6 +463,7 @@ $(window).load((function()
                                                 event.preventDefault();
                                                 if (available.sniff == 0)
                                                 {
+                                                    $("#rsniff").html('');
                                                     $("#inf").html("<div class=\"container alert alert-info\">L'écoute est lancée pendant "+$("#stime").val()+" secondes</div>")
                                                     available.sniff = 1;
                                                     $.ajax({
@@ -527,13 +519,11 @@ $(window).load((function()
                                                                     {
                                                                         tbw += network.net[w].bw*8;
                                                                         pbw += network.net[w].percent;
-                                                                        console.log("obj "+network.net[w].percent);
-                                                                        console.log("val "+pbw);
                                                                     }
                                                                 }
                                                                 color = pbw < 25 ? "green" : pbw < 50 ? "yellow" : pbw < 75 ? "orange" : "red";
                                                                 $("#cbw").css({"width":pbw*3.5, "background-color":color});
-                                                                $("#binfo").html("<span class='label'>Bande passante total utilisée : </span><ul><li class='offset1'>"+pbw.toFixed(2)+" %</li><li class='offset1'>"+tbw.toFixed(2)+" kb/s</li></ul>");
+                                                                $("#binfo").html("<span class='label'>Bande passante totale utilisée : </span><ul><li class='offset1'>"+pbw.toFixed(2)+" %</li><li class='offset1'>"+tbw.toFixed(2)+" kb/s</li></ul>");
                                                                 function handle(delta)
                                                                 {
                                                                     console.log(scale);
@@ -583,7 +573,7 @@ $(window).load((function()
 
                                                                 $(document).on("keydown", function(event)
                                                                                             {
-                                                                                                console.log(event.keyCode);
+                                                                                                //console.log(event.keyCode);
                                                                                                 kkeys.push( event.keyCode );
                                                                                                 if (kkeys.toString().indexOf("38,38,40,40,37,39,37,39,66,65") >= 0)
                                                                                                 {
