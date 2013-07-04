@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+    <body>
+        <h3>Paramètres</h3>
+        <div id="info"></div>
+        <form method="post" id="form0" enctype="application/x-www-form-urlencoded">
+            {% for t in data %}
+                <label class="label">Interface d'écoute</label>&nbsp&nbsp<input required="true" pattern="^[A-Za-z0-9]{1,}$" placeholder="eth0" id="pinterface" name="pinterface" type="text" value="{{ t.interface }}"><br />
+                <label class="label">Temps d'écoute</label>&nbsp&nbsp<input required="true" pattern="^[0-9]{1,}$" placeholder="56" id="ptime" name="ptime" type="number" value="{{ t.time }}" ><br />
+            {% endfor %}
+            <button type="submit" class="btn btn-info">Sauvegarder</button>
+        </form>
+    </body>
+</html>
