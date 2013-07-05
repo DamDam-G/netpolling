@@ -180,7 +180,7 @@ $(window).load((function()
                                                                 "X-CSRFToken": csrftoken
                                                             },
                                                             data:{name:n},
-                                                            url: '/dell/',
+                                                            url: '/delete/',
                                                             timeout: 20000,
                                                             success:function(data)
                                                                     {
