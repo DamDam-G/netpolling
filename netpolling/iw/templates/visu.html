@@ -7,10 +7,11 @@
         <link rel="shortcut icon" href="public/img/np.ico" type="image/x-icon">
         <link href="/public/bootstrap/css/bootstrap-responsive.css" media="screen" rel="stylesheet" type="text/css">
         <link href="/public/bootstrap/css/bootstrap.min.css" media="screen" rel="stylesheet" type="text/css">
-        <link href="/public/css/design2.css" media="screen" rel="stylesheet" type="text/css">
-         <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+        <link href="/public/css/design2.min.css" media="screen" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
     </head>
     <body>
+    <div id="inf" class="container"></div>
     <div id ="form" class="hero-unit">
         <img src="/public/img/map.png">
         <h3>Cartographie de réseaux</h3><br />
@@ -27,6 +28,7 @@
             </select><br />
             <input type="submit" class="btn btn-primary" data-toggle="button" value="Cartographier">
         </form>
+        <button id="dellmap" class="btn btn-danger">Effacer</button>
     </div>
     <div id="main" class="bg">
         <div id="inf" class="container"></div>
@@ -76,16 +78,13 @@
             <div id="svgBw" class="DesignCanvas"></div>
             <div id="svgSearch" class="DesignCanvas"></div>
     </div>
-    <!--<script src="http://code.jquery.com/jquery.js"></script>-->
-    <script src="/public/js/jquery-2.0.0.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    <!--<script src="/public/js/jquery-2.0.0.min.js"></script>-->
     <script src="/public/js/jquery.mousewheel.js"></script>
-    <!--<script src="/public/js/jquery.event.drag-2.0.min.js"></script>-->
-    <script src="/public/js/jquery-ui-1.10.3.custom.min.js"></script>
-    <!--<script src="/public/js/jcanvas.min.js"></script>-->
-    <!--<script src="/public/js/fabric.min.js"></script>-->
-    <!--<script src="/public/js/kinetic-v4.5.2.min.js"></script>-->
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+    <!--<script src="/public/js/jquery-ui-1.10.3.custom.min.js"></script>-->
     <script src="/public/js/raphael-min.js"></script>
     <script src="/public/bootstrap/js/bootstrap.min.js"></script>
-    <script src="/public/js/visu.js"></script>
+    <script src="/public/js/visu.min.js"></script>
     </body>
 </html>
