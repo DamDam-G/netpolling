@@ -314,6 +314,25 @@ def GetMap(request):
     else:
             return HttpResponse("42, The Big Question of Life, the Universe and Everything.<br /> <div class=\"alert alert-error\">[ERROR] : it's not a request ajax ... Are you stupid?</div>")
 
+def DeleteMap(request):
+    """!
+    @author Damien Goldenberg
+    @name GetMap:
+    @param - Request, HTTPRequest object
+    @details Description:
+    This is function is for the viewer part (for seeing old maps)
+    """
+    if request.is_ajax():
+        if request.POST.get("name") and re.search("^[A-Za-z0-9_]{1,}$", request.POST.get("name"), re.IGNORECASE):
+            r = Screenshot.objects.get(name=request.POST.get("name"))
+            os.popen("rm -rf "+ENV.screen+r.name+".json")
+            r.delete()
+            return HttpResponse("")
+        else:
+            return HttpResponse("42, The Big Question of Life, the Universe and Everything.<br /> <div class=\"alert alert-error\">[ERROR] : hum hum ...  I think you must contact your admin system ;)</div>")
+    else:
+            return HttpResponse("42, The Big Question of Life, the Universe and Everything.<br /> <div class=\"alert alert-error\">[ERROR] : it's not a request ajax ... Are you stupid?</div>")
+
 def Sniff(request):
     """!
     @author Damien Goldenberg
@@ -329,4 +348,4 @@ def Sniff(request):
         else:
             return HttpResponse(json.dumps({"success":0, "rep":"42, The Big Question of Life, the Universe and Everything.<br /> <div class=\"alert alert-error\">[ERROR] : hum hum ...  I think you must contact your admin system ;)</div>"}))
     else:
-            return HttpResponse(json.dumps({"success":0, "rep":"42, The Big Question of Life, the Universe and Everything.<br /> <div class=\"alert alert-error\">[ERROR] : it's not a request ajax ... Are you stupid?</div>"}))
+        return HttpResponse(json.dumps({"success":0, "rep":"42, The Big Question of Life, the Universe and Everything.<br /> <div class=\"alert alert-error\">[ERROR] : it's not a request ajax ... Are you stupid?</div>"}))

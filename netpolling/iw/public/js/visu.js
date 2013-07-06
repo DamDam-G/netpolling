@@ -170,6 +170,34 @@ $(window).load((function()
                         Map(obj);
                     }
 
+                    $("#dellmap").on("click", function(event)
+                                                {
+                                                    var n = $("#name").val();
+                                                    $.ajax({
+                                                            type: 'post',
+                                                            headers:
+                                                            {
+                                                                "X-CSRFToken": csrftoken
+                                                            },
+                                                            data:{name:n},
+                                                            url: '/delete/',
+                                                            timeout: 20000,
+                                                            success:function(data)
+                                                                    {
+                                                                        $("#inf").html("<div class=\"container alert alert-info\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\">&times;</button>La carte "+n+" a bien été effacé.<br />La page va être rechargée dans 2 secondes</div>");
+                                                                        window.setTimeout(function()
+                                                                                            {
+                                                                                                $("#inf").html("<div class=\"container alert alert-info\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\">&times;</button>La page est sur le point de se rafraichir</div>");
+                                                                                                window.location.href="/visu/";
+                                                                                            }, 2000);
+                                                                    },
+                                                            error: function()
+                                                                    {
+                                                                        alert('La requête n\'a pas abouti');
+                                                                    }
+                                                           });
+                                                });
+
                     $('#form0').on("submit", function(event)
                                                 {
                                                     event.preventDefault();
