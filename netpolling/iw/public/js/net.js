@@ -480,7 +480,7 @@ $(window).load((function()
 
                         this.SetGapX = function(s)
                                         {
-                                            s == 0 ? gap.x -= move : gap.x -= move;
+                                            s == 0 ? gap.x -= move : gap.x += move;
                                         };
 
                         this.SetGapY = function(s)
@@ -656,16 +656,17 @@ $(window).load((function()
                                                                                             return false;
                                                                                         });
 
-                                                                $(document).on("keydown", function(event)
+                                                                $(window).on("keydown", function(event)
                                                                                             {
                                                                                                 //console.log(event.keyCode);
-                                                                                                /*kkeys.push( event.keyCode );
+                                                                                                //konami code !!! x)
+                                                                                                kkeys.push( event.keyCode );
                                                                                                 if (kkeys.toString().indexOf("38,38,40,40,37,39,37,39,66,65") >= 0)
                                                                                                 {
                                                                                                     $("body").css({"background-image":"url('/public/img/konami.gif')"});
                                                                                                     $("#svgDevice").addClass("koko");
                                                                                                     $("#svgBw").addClass("koko2");
-                                                                                                }*/
+                                                                                                }
                                                                                                 if(event.keyCode > 36 && event.keyCode < 41 || event.keyCode == 107 || event.keyCode == 109)
                                                                                                 {
                                                                                                     event.preventDefault();
@@ -678,7 +679,7 @@ $(window).load((function()
                                                                                                                         {
                                                                                                                             if(/mapcontroll/.test(event.target.className))
                                                                                                                             {
-                                                                                                                                event.target.id == "m0" ? param.SetGapY(0) : event.target.id == "m1" ? param.SetGapX(1) : event.target.id == "m2" ? param.SetGapX(0) : event.target.id == "m3" ? param.SetGapY(1) : event.target.id == "m4" ? handle(1) : event.target.id == "m5" ? handle(-1) : {};
+                                                                                                                                event.target.id == "m0" ? param.SetGapY(1) : event.target.id == "m1" ? param.SetGapX(1) : event.target.id == "m2" ? param.SetGapX(0) : event.target.id == "m3" ? param.SetGapY(0) : event.target.id == "m4" ? handle(1) : event.target.id == "m5" ? handle(-1) : {};
                                                                                                                                 if (event.target.id != "m4" || event.target.id != "m5")
                                                                                                                                     ReMake(network);
                                                                                                                             }
