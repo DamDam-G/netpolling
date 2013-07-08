@@ -320,7 +320,6 @@ $(window).load((function()
                         var dist = (360/obj.net.length)+0.5; // coef d'espacement
                         objnet = [];
                         objnet[0] = new Device(obj.gw, "8c:89:a5:a3:ad:1f", "Linux", "router", 'Itinet', 0, 0, n, x/param.GetScaleConnector(), y/param.GetScaleConnector(), {"x":0.6+param.GetScaleDevice(), "y":0.6+param.GetScaleDevice()});
-                        //objnet[0] = new Device(obj.gw, "8c:89:a5:a3:ad:1f", "Linux", "router", 'Itinet', 0, 0, n, x, y, {"x":0.6+param.GetScaleDevice(), "y":0.6+param.GetScaleDevice()});
                         var router = {x:objnet[0].GetX(), y:objnet[0].GetY()};
                         var lst = "<table class=\"table table-striped\"><tr><td>Hostname</td><td>IP</td></tr>";
                         for(var i = 0; i < obj.net.length; i++)
@@ -676,19 +675,19 @@ $(window).load((function()
                                                                                                 }
                                                                                             });
                                                                 $(".mapcontroll, #reset").on("click", function(event)
-                                                                                                                        {
-                                                                                                                            if(/mapcontroll/.test(event.target.className))
-                                                                                                                            {
-                                                                                                                                event.target.id == "m0" ? param.SetGapY(1) : event.target.id == "m1" ? param.SetGapX(1) : event.target.id == "m2" ? param.SetGapX(0) : event.target.id == "m3" ? param.SetGapY(0) : event.target.id == "m4" ? handle(1) : event.target.id == "m5" ? handle(-1) : {};
-                                                                                                                                if (event.target.id != "m4" || event.target.id != "m5")
-                                                                                                                                    ReMake(network);
-                                                                                                                            }
-                                                                                                                            else if(event.target.id == "reset")
-                                                                                                                            {
-                                                                                                                                param.Reset();
-                                                                                                                                ReMake(network);
-                                                                                                                            }
-                                                                                                                        });
+                                                                                                        {
+                                                                                                            if(/mapcontroll/.test(event.target.className))
+                                                                                                            {
+                                                                                                                event.target.id == "m0" ? param.SetGapY(1) : event.target.id == "m1" ? param.SetGapX(1) : event.target.id == "m2" ? param.SetGapX(0) : event.target.id == "m3" ? param.SetGapY(0) : event.target.id == "m4" ? handle(1) : event.target.id == "m5" ? handle(-1) : {};
+                                                                                                                if (event.target.id != "m4" || event.target.id != "m5")
+                                                                                                                    ReMake(network);
+                                                                                                            }
+                                                                                                            else if(event.target.id == "reset")
+                                                                                                            {
+                                                                                                                param.Reset();
+                                                                                                                ReMake(network);
+                                                                                                            }
+                                                                                                        });
                                                     });
                                                 }, 30000);
                     pwned();
