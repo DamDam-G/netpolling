@@ -7,13 +7,10 @@ $(window).load((function()
                     var csrftoken = GetCookie('csrftoken'); // this is the django secure token for ajx request
                     var objnet = []; // list of the device object in the part asynchronous
                     var available = {os:0, sniff:0}; // object to know if an app is up or not
-                    var gap = {x:0, y:0}; // object to know the gap of all items
-                    var mouse = {x:0, y:0, ok:0}; // object to know the currently position ofthe mouse for events mousedown and mouseup
-                    var scale = {device:0, connector:1}; //object for scaling all items
                     var net; // idem objnet but in the part synchonous, maybe it's a little stupid, i don't test ^^
-                    var move = 17;
                     $('#pop').resizable({animate: true}).draggable().tabs();
                     var kkeys = [];
+                    var param = new Param();
                     /**
                      * @author Damien Goldenberg
                      * @name GetCookie
@@ -75,7 +72,6 @@ $(window).load((function()
                                 },
                                 data:$(this).serialize(),
                                 url: '/ajaxform/'+id+'/',
-                                timeout: 3000,
                                 success:function(data)
                                         {
                                             data = JSON.parse(data);
@@ -112,7 +108,6 @@ $(window).load((function()
                                     "net":JSON.stringify(net)
                                 },
                                 url: '/ajaxform/'+id+'/',
-                                timeout: 3000,
                                 success:function(data)
                                         {
                                             data = JSON.parse(data);
@@ -153,8 +148,8 @@ $(window).load((function()
                         var bw = {p:percent, b:bandwidth};
                         var img = "/public/img/device/"+device+".svg";
                         var context = context;
-                        var x = x + gap.x;
-                        var y = y + gap.y;
+                        var x = x + param.GetGapX();
+                        var y = y + param.GetGapY();
                         var coeff = {x:55, y:50};
                         var dim = dim;
 
@@ -187,7 +182,6 @@ $(window).load((function()
                                                                                                                                                    ip:$("#aip").html()
                                                                                                                                                 },
                                                                                                                                                url: '/os/',
-                                                                                                                                               //timeout: 70000,
                                                                                                                                                success:function(data)
                                                                                                                                                        {
                                                                                                                                                            d = JSON.parse(data)
@@ -307,11 +301,6 @@ $(window).load((function()
                                         };
                     }
 
-                    function Param()
-                    {
-
-                    }
-
                     /**
                      * @author Damien Goldenberg
                      * @name Map
@@ -330,7 +319,7 @@ $(window).load((function()
                         var angle = 0;
                         var dist = (360/obj.net.length)+0.5; // coef d'espacement
                         objnet = [];
-                        objnet[0] = new Device(obj.gw, "8c:89:a5:a3:ad:1f", "Linux", "router", 'Itinet', 0, 0, n, x/scale.connector, y/scale.connector, {"x":0.6+scale.device, "y":0.6+scale.device});
+                        objnet[0] = new Device(obj.gw, "8c:89:a5:a3:ad:1f", "Linux", "router", 'Itinet', 0, 0, n, x/param.GetScaleConnector(), y/param.GetScaleConnector(), {"x":0.6+param.GetScaleDevice(), "y":0.6+param.GetScaleDevice()});
                         var router = {x:objnet[0].GetX(), y:objnet[0].GetY()};
                         var lst = "<table class=\"table table-striped\"><tr><td>Hostname</td><td>IP</td></tr>";
                         for(var i = 0; i < obj.net.length; i++)
@@ -344,13 +333,13 @@ $(window).load((function()
                             {
                                 angleRad = angle/180*Math.PI;
                                 color = obj.net[i].percent == null ? "rgb(0, 0, 255)" : obj.net[i].percent < 1 ? "rgb(0, 252, 0)" : obj.net[i].percent < 2 ? "rgb(36, 216, 0)" : obj.net[i].percent < 5 ? "rgb(72, 180, 0)" : obj.net[i].percent < 10 ? "rgb(108, 144, 0)" : obj.net[i].percent < 20 ? "rgb(144, 108, 0)" : obj.net[i].percent < 50 ? "rgb(180, 72, 0)" : obj.net[i].percent < 70 ? "rgb(216, 36, 0)" : "rgb(252, 0, 0)";
-                                x=(((radius/2)+(radius/2)*Math.cos(angleRad))+center.x - radius +340)/scale.connector;
-                                y=(((radius/2)+(radius/2)*Math.sin(angleRad))+center.y - radius +340)/scale.connector;
-                                objnet[i+1] = new Device(obj.net[i].ip, obj.net[i].mac, obj.net[i].os, obj.net[i].device, obj.net[i].hostname, obj.net[i].bw*8, obj.net[i].percent, n, x, y, {"x":0.4+scale.device, "y":0.4+scale.device});
+                                x=(((radius/2)+(radius/2)*Math.cos(angleRad))+center.x - radius +340)/param.GetScaleConnector();
+                                y=(((radius/2)+(radius/2)*Math.sin(angleRad))+center.y - radius +340)/param.GetScaleConnector();
+                                objnet[i+1] = new Device(obj.net[i].ip, obj.net[i].mac, obj.net[i].os, obj.net[i].device, obj.net[i].hostname, obj.net[i].bw*8, obj.net[i].percent, n, x, y, {"x":0.4+param.GetScaleDevice(), "y":0.4+param.GetScaleDevice()});
                                 objnet[i+1].Draw();
                                 c.path("M"+objnet[i+1].GetX()+" "+objnet[i+1].GetY()+"L"+router.x+" "+router.y).attr({"stroke": color, "stroke-width":5});
                                 angle += dist;
-                                lst += "<tr data-x='"+(parseFloat(x)+gap.x)+"' data-y='"+(parseFloat(y)+gap.y)+"'><td class=\"shostname\">"+obj.net[i].hostname+"</td><td class=\"sip\">"+obj.net[i].ip+"</td></tr>";
+                                lst += "<tr data-x='"+(parseFloat(x)+param.GetGapX())+"' data-y='"+(parseFloat(y)+param.GetGapY())+"'><td class=\"shostname\">"+obj.net[i].hostname+"</td><td class=\"sip\">"+obj.net[i].ip+"</td></tr>";
                             }
                         }
                         objnet[0].Draw();
@@ -381,7 +370,6 @@ $(window).load((function()
                                                 "X-CSRFToken": csrftoken
                                             },
                                             url: '/getjson/',
-                                            timeout: 20000,
                                             success:function(data)
                                                     {
                                                         //console.log(JSON.parse(data));
@@ -409,7 +397,6 @@ $(window).load((function()
                                                            id:this.id
                                                         },
                                                        url: '/control/',
-                                                       timeout: 3000,
                                                        success:function(data)
                                                                {
                                                                    if (id >= 0 && id <= 1 || id >= 3 && id <= 6)
@@ -456,6 +443,105 @@ $(window).load((function()
                         $('path').remove();
                         $('image').remove();
                         Map(obj);
+                    }
+
+                    function Param()
+                    {
+                        var gap = {x:0, y:0}; // object to know the gap of all items
+                        var mouse = {x:0, y:0}; // object to know the currently position ofthe mouse for events mousedown and mouseup
+                        var scale = {device:0, connector:1}; //object for scaling all items
+                        var move = 17;
+                        var zdevice = 0.1;
+                        var zconnector = 0.25;
+
+                        this.Init = function()
+                                    {
+
+                                    };
+
+                        this.Reset = function()
+                                    {
+                                        gap.x = 0;
+                                        gap.y = 0;
+                                        scale.device = 0;
+                                        scale.connector = 1;
+                                    };
+
+                        this.GetGapX = function()
+                                        {
+                                            return(gap.x);
+                                        };
+
+                        this.GetGapY = function()
+                                        {
+                                            return(gap.y);
+                                        };
+
+                        this.SetGapX = function(s)
+                                        {
+                                            s == 0 ? gap.x -= move : gap.x += move;
+                                        };
+
+                        this.SetGapY = function(s)
+                                        {
+                                            s == 0 ? gap.y -= move : gap.y += move;
+                                        };
+
+                        this.UpdateGap = function(obj)
+                                        {
+                                            gap.x += obj.x;
+                                            gap.y += obj.y;
+                                        };
+
+                        this.GetMouseX = function()
+                                        {
+                                            return(mouse.x);
+                                        };
+
+                        this.GetMouseY = function()
+                                        {
+                                            return(mouse.y);
+                                        };
+
+                        this.SetMouseX = function(v)
+                                        {
+                                            mouse.x = v
+                                        };
+
+                        this.SetMouseY = function(v)
+                                        {
+                                            mouse.y = v
+                                        };
+
+                        this.GetMove = function()
+                                        {
+                                            return(move);
+                                        };
+
+                        this.SetMove = function(v)
+                                        {
+                                            move = v;
+                                        };
+
+                        this.GetScaleDevice = function()
+                                        {
+                                            return(scale.device);
+                                        };
+
+                        this.GetScaleConnector = function()
+                                        {
+                                            return(scale.connector);
+                                        };
+
+                        this.SetScaleDevice = function(s)
+                                        {
+                                            s == 0 ? scale.device -= zdevice : scale.device += zdevice;
+                                        };
+
+                        this.SetScaleConnector = function(s)
+                                        {
+                                             s == 0 ? scale.connector -= zconnector : scale.connector += zconnector;
+                                        };
                     }
                     
                     $("#fsniff").on("submit", function(event)
@@ -524,25 +610,24 @@ $(window).load((function()
                                                                 color = pbw < 25 ? "green" : pbw < 50 ? "yellow" : pbw < 75 ? "orange" : "red";
                                                                 $("#cbw").css({"width":pbw*3.5, "background-color":color});
                                                                 $("#binfo").html("<span class='label'>Bande passante totale utilisée : </span><ul><li class='offset1'>"+pbw.toFixed(2)+" %</li><li class='offset1'>"+tbw.toFixed(2)+" kb/s</li></ul>");
+                                                                
                                                                 function handle(delta)
                                                                 {
-                                                                    console.log(scale);
-                                                                    console.log(delta);
                                                                     if (delta > 0)
                                                                     {
-                                                                        if(scale.device > -0.19 && scale.connector > 0.49)
+                                                                        if(param.GetScaleDevice() > -0.19 && param.GetScaleConnector() > 0.49)
                                                                         {
-                                                                            scale.device -= 0.1;
-                                                                            scale.connector -= 0.25;
+                                                                            param.SetScaleDevice(0);
+                                                                            param.SetScaleConnector(0);
                                                                             ReMake(network);
                                                                         }
                                                                     }
                                                                     else
                                                                     {
-                                                                        if(scale.device < 0.3 && scale.connector < 1.525)
+                                                                        if(param.GetScaleDevice() < 0.3 && param.GetScaleConnector() < 1.525)
                                                                         {
-                                                                            scale.device += 0.1;
-                                                                            scale.connector += 0.25;
+                                                                            param.SetScaleDevice(1);
+                                                                            param.SetScaleConnector(1);
                                                                             ReMake(network);
                                                                         }
                                                                     }
@@ -558,22 +643,22 @@ $(window).load((function()
                                                                 $('svg').on("mousedown", function(event)
                                                                                         {
                                                                                             event.preventDefault();
-                                                                                            mouse.x = event.clientX;
-                                                                                            mouse.y = event.clientY;
+                                                                                            param.SetMouseX(event.clientX);
+                                                                                            param.SetMouseY(event.clientY);
                                                                                             return false;
                                                                                         });
                                                                 $('svg').on("mouseup", function(event)
                                                                                         {
                                                                                             event.preventDefault();
-                                                                                            gap.x -= (mouse.x - event.clientX)*0.5;
-                                                                                            gap.y -= (mouse.y - event.clientY)*0.5;
+                                                                                            param.UpdateGap({x:(param.GetMouseX() - event.clientX), y:(param.GetMouseY() - event.clientY)});
                                                                                             ReMake(network);
                                                                                             return false;
                                                                                         });
 
-                                                                $(document).on("keydown", function(event)
+                                                                $(window).on("keydown", function(event)
                                                                                             {
                                                                                                 //console.log(event.keyCode);
+                                                                                                //konami code !!! x)
                                                                                                 kkeys.push( event.keyCode );
                                                                                                 if (kkeys.toString().indexOf("38,38,40,40,37,39,37,39,66,65") >= 0)
                                                                                                 {
@@ -584,28 +669,25 @@ $(window).load((function()
                                                                                                 if(event.keyCode > 36 && event.keyCode < 41 || event.keyCode == 107 || event.keyCode == 109)
                                                                                                 {
                                                                                                     event.preventDefault();
-                                                                                                    event.keyCode == 38 ? gap.y -= move : event.keyCode == 39 ? gap.x -= move : event.keyCode == 40 ? gap.y += move : event.keyCode == 37 ? gap.x += move : event.keyCode == 109  ? handle(-1) : event.keyCode == 107 ? handle(1) : gap.x += 0;
+                                                                                                    event.keyCode == 38 ? param.SetGapY(0) : event.keyCode == 39 ? param.SetGapX(0) : event.keyCode == 40 ? param.SetGapY(1) : event.keyCode == 37 ? param.SetGapX(1) : event.keyCode == 109  ? handle(-1) : event.keyCode == 107 ? handle(1) : {};
                                                                                                     ReMake(network);
                                                                                                     return false;
                                                                                                 }
                                                                                             });
                                                                 $(".mapcontroll, #reset").on("click", function(event)
-                                                                                                                        {
-                                                                                                                            if(/mapcontroll/.test(event.target.className))
-                                                                                                                            {
-                                                                                                                                event.target.id == "m0" ? gap.y -= move : event.target.id == "m1" ? gap.x += move : event.target.id == "m2" ? gap.x -= move : event.target.id == "m3" ? gap.y += move : event.target.id == "m4" ? handle(1) : event.target.id == "m5" ? handle(-1) :gap.x += 0;
-                                                                                                                                if (event.target.id != "m4" || event.target.id != "m5")
-                                                                                                                                    ReMake(network);
-                                                                                                                            }
-                                                                                                                            else if(event.target.id == "reset")
-                                                                                                                            {
-                                                                                                                                gap.x = 0;
-                                                                                                                                gap.y = 0;
-                                                                                                                                scale.device = 0;
-                                                                                                                                scale.connector = 1;
-                                                                                                                                ReMake(network);
-                                                                                                                            }
-                                                                                                                        });
+                                                                                                        {
+                                                                                                            if(/mapcontroll/.test(event.target.className))
+                                                                                                            {
+                                                                                                                event.target.id == "m0" ? param.SetGapY(1) : event.target.id == "m1" ? param.SetGapX(1) : event.target.id == "m2" ? param.SetGapX(0) : event.target.id == "m3" ? param.SetGapY(0) : event.target.id == "m4" ? handle(1) : event.target.id == "m5" ? handle(-1) : {};
+                                                                                                                if (event.target.id != "m4" || event.target.id != "m5")
+                                                                                                                    ReMake(network);
+                                                                                                            }
+                                                                                                            else if(event.target.id == "reset")
+                                                                                                            {
+                                                                                                                param.Reset();
+                                                                                                                ReMake(network);
+                                                                                                            }
+                                                                                                        });
                                                     });
                                                 }, 30000);
                     pwned();
