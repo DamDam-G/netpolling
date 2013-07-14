@@ -1,44 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-<<<<<<< HEAD
     <list default="true" id="0de6f5dc-25cf-4fa1-8937-4f7c8a87075d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/netpolling/iw/public/js/net.js" afterPath="$PROJECT_DIR$/netpolling/iw/public/js/net.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/netpolling/iw/public/js/visitor.js" afterPath="$PROJECT_DIR$/netpolling/iw/public/js/visitor.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/netpolling/iw/public/js/visu.js" afterPath="$PROJECT_DIR$/netpolling/iw/public/js/visu.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/launch.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/install.py" afterPath="$PROJECT_DIR$/install.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
-    <ignored path="netpolling.iws" />
-    <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="0de6f5dc-25cf-4fa1-8937-4f7c8a87075d" time="1373788867829" ignored="false" />
-    <file path="/net.js" changelist="0de6f5dc-25cf-4fa1-8937-4f7c8a87075d" time="1373806483746" ignored="false" />
-=======
-    <list default="true" id="0de6f5dc-25cf-4fa1-8937-4f7c8a87075d" name="Default" comment="" />
     <ignored path="netpolling.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="0de6f5dc-25cf-4fa1-8937-4f7c8a87075d" time="1373810243010" ignored="false" />
     <file path="/net.js" changelist="0de6f5dc-25cf-4fa1-8937-4f7c8a87075d" time="1373270967261" ignored="false" />
->>>>>>> install
     <file path="/design.css" changelist="0de6f5dc-25cf-4fa1-8937-4f7c8a87075d" time="1372680303035" ignored="false" />
-    <file path="/manager.html" changelist="0de6f5dc-25cf-4fa1-8937-4f7c8a87075d" time="1373809791721" ignored="false" />
-    <file path="/visu.html" changelist="0de6f5dc-25cf-4fa1-8937-4f7c8a87075d" time="1373809761416" ignored="false" />
-    <file path="/design2.css" changelist="0de6f5dc-25cf-4fa1-8937-4f7c8a87075d" time="1373804685354" ignored="false" />
+    <file path="/manager.html" changelist="0de6f5dc-25cf-4fa1-8937-4f7c8a87075d" time="1373177145169" ignored="false" />
+    <file path="/visu.html" changelist="0de6f5dc-25cf-4fa1-8937-4f7c8a87075d" time="1372985456149" ignored="false" />
+    <file path="/design2.css" changelist="0de6f5dc-25cf-4fa1-8937-4f7c8a87075d" time="1372890764219" ignored="false" />
     <file path="/scan.html" changelist="0de6f5dc-25cf-4fa1-8937-4f7c8a87075d" time="1372928018675" ignored="false" />
     <file path="/para.html" changelist="0de6f5dc-25cf-4fa1-8937-4f7c8a87075d" time="1372925889753" ignored="false" />
-    <file path="/views.py" changelist="0de6f5dc-25cf-4fa1-8937-4f7c8a87075d" time="1373808573822" ignored="false" />
+    <file path="/views.py" changelist="0de6f5dc-25cf-4fa1-8937-4f7c8a87075d" time="1373002993356" ignored="false" />
     <file path="/help.html" changelist="0de6f5dc-25cf-4fa1-8937-4f7c8a87075d" time="1372927166082" ignored="false" />
     <file path="/screen.html" changelist="0de6f5dc-25cf-4fa1-8937-4f7c8a87075d" time="1372928030917" ignored="false" />
     <file path="/visu.min.js" changelist="0de6f5dc-25cf-4fa1-8937-4f7c8a87075d" time="1372987219881" ignored="false" />
-<<<<<<< HEAD
-    <file path="/urls.py" changelist="0de6f5dc-25cf-4fa1-8937-4f7c8a87075d" time="1373785625225" ignored="false" />
-    <file path="/index.html" changelist="0de6f5dc-25cf-4fa1-8937-4f7c8a87075d" time="1373809507858" ignored="false" />
-    <file path="/.gitignore" changelist="0de6f5dc-25cf-4fa1-8937-4f7c8a87075d" time="1373789695150" ignored="false" />
-    <file path="/map.html" changelist="0de6f5dc-25cf-4fa1-8937-4f7c8a87075d" time="1373789060941" ignored="false" />
-    <file path="/visitor.js" changelist="0de6f5dc-25cf-4fa1-8937-4f7c8a87075d" time="1373807892362" ignored="false" />
-=======
     <file path="/urls.py" changelist="0de6f5dc-25cf-4fa1-8937-4f7c8a87075d" time="1373002840304" ignored="false" />
-    <file path="/install.py" changelist="0de6f5dc-25cf-4fa1-8937-4f7c8a87075d" time="1373813326851" ignored="false" />
+    <file path="/install.py" changelist="0de6f5dc-25cf-4fa1-8937-4f7c8a87075d" time="1373814703205" ignored="false" />
     <file path="/change_pasword.py" changelist="0de6f5dc-25cf-4fa1-8937-4f7c8a87075d" time="1373813742249" ignored="false" />
->>>>>>> install
+    <file path="$PROJECT_DIR$/netpolling/iw/public/css/design2.css" changelist="0de6f5dc-25cf-4fa1-8937-4f7c8a87075d" time="1373814374013" ignored="false" />
+    <file path="$PROJECT_DIR$/netpolling/iw/templates/index.html" changelist="0de6f5dc-25cf-4fa1-8937-4f7c8a87075d" time="1373814374013" ignored="false" />
+    <file path="$PROJECT_DIR$/netpolling/iw/templates/visu.html" changelist="0de6f5dc-25cf-4fa1-8937-4f7c8a87075d" time="1373814374013" ignored="false" />
+    <file path="$PROJECT_DIR$/netpolling/iw/templates/manager.html" changelist="0de6f5dc-25cf-4fa1-8937-4f7c8a87075d" time="1373814374013" ignored="false" />
+    <file path="$PROJECT_DIR$/netpolling/iw/public/js/visu.js" changelist="0de6f5dc-25cf-4fa1-8937-4f7c8a87075d" time="1373814374014" ignored="false" />
+    <file path="$PROJECT_DIR$/netpolling/iw/public/js/net.js" changelist="0de6f5dc-25cf-4fa1-8937-4f7c8a87075d" time="1373814374014" ignored="false" />
+    <file path="/launch.py" changelist="0de6f5dc-25cf-4fa1-8937-4f7c8a87075d" time="1373814586244" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,86 +48,24 @@
     <favorites_list name="netpolling" />
   </component>
   <component name="FileEditorManager">
-<<<<<<< HEAD
-    <leaf>
-      <file leaf-file-name="net.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/netpolling/iw/public/js/net.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="666" column="0" selection-start="44011" selection-end="44011" vertical-scroll-proportion="-399.6">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="visu.js" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/netpolling/iw/public/js/visu.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="202" column="0" selection-start="14473" selection-end="14473" vertical-scroll-proportion="-3.1625917">
-              <folding>
-                <element signature="e#817#1629#0" expanded="false" />
-                <element signature="e#1753#14190#0" expanded="false" />
-                <element signature="e#18399#19504#0" expanded="false" />
-                <element signature="e#19567#19759#0" expanded="false" />
-                <element signature="e#24068#26388#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="manager.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/netpolling/iw/templates/manager.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="67" selection-start="290" selection-end="290" vertical-scroll-proportion="-3.75">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/netpolling/iw/templates/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="60" selection-start="319" selection-end="319" vertical-scroll-proportion="-3.75">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="map.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/netpolling/iw/templates/map.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="8" selection-start="231" selection-end="290" vertical-scroll-proportion="-3.125">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="visu.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/netpolling/iw/templates/visu.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="13" selection-start="1779" selection-end="1779" vertical-scroll-proportion="-18.75">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="visitor.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/netpolling/iw/public/js/visitor.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="227" column="0" selection-start="15433" selection-end="15433" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
-=======
     <splitter split-orientation="horizontal" split-proportion="0.5483476">
       <split-first>
         <leaf>
-          <file leaf-file-name="install.py" pinned="false" current="true" current-in-tab="true">
+          <file leaf-file-name="install.py" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/install.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="2" column="14" selection-start="34" selection-end="34" vertical-scroll-proportion="0.036764707">
+                <state line="25" column="40" selection-start="784" selection-end="784" vertical-scroll-proportion="0.0">
+                  <folding>
+                    <element signature="e#0#9#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="cron.pl" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/netpolling/iw/scripts/cron.pl">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
                   <folding />
                 </state>
               </provider>
@@ -169,10 +98,19 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="views.py" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/netpolling/iw/views.py">
+          <file leaf-file-name="launch.py" pinned="false" current="true" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/launch.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="8" column="0" selection-start="192" selection-end="211" vertical-scroll-proportion="0.0">
+                <state line="4" column="0" selection-start="123" selection-end="123" vertical-scroll-proportion="0.074257426">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="scanner.py" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/netpolling/iw/scanner.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="18" column="4" selection-start="371" selection-end="402" vertical-scroll-proportion="0.0">
                   <folding />
                 </state>
               </provider>
@@ -185,7 +123,7 @@
           <file leaf-file-name="views.py" pinned="false" current="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/netpolling/iw/views.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="218" column="14" selection-start="8584" selection-end="8584" vertical-scroll-proportion="0.5955882">
+                <state line="228" column="14" selection-start="8832" selection-end="8832" vertical-scroll-proportion="4.1911764">
                   <folding>
                     <element signature="e#24#35#0" expanded="true" />
                   </folding>
@@ -196,7 +134,6 @@
         </leaf>
       </split-second>
     </splitter>
->>>>>>> install
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -219,36 +156,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-<<<<<<< HEAD
-=======
-        <option value="$PROJECT_DIR$/netpolling/iw/templates/para.html" />
         <option value="$PROJECT_DIR$/netpolling/iw/templates/help.html" />
         <option value="$PROJECT_DIR$/netpolling/iw/templates/scan.html" />
         <option value="$PROJECT_DIR$/netpolling/iw/templates/screen.html" />
         <option value="$PROJECT_DIR$/netpolling/iw/public/css/design.min.css" />
->>>>>>> install
         <option value="$PROJECT_DIR$/netpolling/iw/public/css/design2.min.css" />
-        <option value="$PROJECT_DIR$/netpolling/iw/public/js/visu.min.js" />
-        <option value="$PROJECT_DIR$/netpolling/iw/public/js/net.min.js" />
-        <option value="$PROJECT_DIR$/netpolling/iw/public/js/net3.js" />
-        <option value="$PROJECT_DIR$/netpolling/urls.py" />
-        <option value="$PROJECT_DIR$/netpolling/iw/public/js/net2.js" />
-        <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/netpolling/iw/public/css/design2.css" />
-        <option value="$PROJECT_DIR$/netpolling/iw/views.py" />
-        <option value="$PROJECT_DIR$/netpolling/iw/templates/index.html" />
-        <option value="$PROJECT_DIR$/netpolling/iw/templates/map.html" />
-        <option value="$PROJECT_DIR$/netpolling/iw/templates/manager.html" />
         <option value="$PROJECT_DIR$/netpolling/iw/templates/visu.html" />
-        <option value="$PROJECT_DIR$/netpolling/iw/public/js/visitor.js" />
-        <option value="$PROJECT_DIR$/netpolling/iw/public/js/net.js" />
-<<<<<<< HEAD
         <option value="$PROJECT_DIR$/netpolling/iw/public/js/visu.js" />
-=======
+        <option value="$PROJECT_DIR$/netpolling/urls.py" />
+        <option value="$PROJECT_DIR$/netpolling/iw/public/js/visu.min.js" />
+        <option value="$PROJECT_DIR$/netpolling/iw/templates/manager.html" />
+        <option value="$PROJECT_DIR$/netpolling/iw/public/js/net.js" />
         <option value="$PROJECT_DIR$/netpolling/iw/public/js/net.min.js" />
-        <option value="$PROJECT_DIR$/install.py" />
         <option value="$PROJECT_DIR$/change_pasword.py" />
->>>>>>> install
+        <option value="$PROJECT_DIR$/netpolling/iw/views.py" />
+        <option value="$PROJECT_DIR$/launch.py" />
+        <option value="$PROJECT_DIR$/install.py" />
       </list>
     </option>
   </component>
@@ -301,7 +224,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-<<<<<<< HEAD
           <PATH>
             <PATH_ELEMENT>
               <option name="myItemId" value="netpolling" />
@@ -352,7 +274,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
+              <option name="myItemId" value="scripts" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -374,115 +296,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="netpolling" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="netpolling" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="netpolling" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="iw" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="netpolling" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="netpolling" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="netpolling" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="iw" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="img" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="netpolling" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="netpolling" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="netpolling" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="iw" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="img" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="device" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="netpolling" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="netpolling" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="netpolling" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="iw" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
+              <option name="myItemId" value="scan" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -508,8 +322,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-=======
->>>>>>> install
         </subPane>
       </pane>
       <pane id="Scope" />
@@ -519,11 +331,7 @@
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="recentsLimit" value="5" />
-<<<<<<< HEAD
-    <property name="options.lastSelected" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
-=======
     <property name="options.lastSelected" value="project.propVCSSupport.ChangelistConflict" />
->>>>>>> install
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
@@ -538,13 +346,8 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/netpolling/iw/public/img" />
-      <recent name="$PROJECT_DIR$/netpolling/iw/public/img/device" />
-      <recent name="$PROJECT_DIR$/netpolling/iw/public/js" />
-      <recent name="$PROJECT_DIR$/netpolling/iw/templates" />
       <recent name="$PROJECT_DIR$/netpolling/iw/public/css" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/netpolling/iw/public/js" />
       <recent name="$PROJECT_DIR$/netpolling/iw/public/img" />
     </key>
   </component>
@@ -701,14 +504,9 @@
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32982457" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32982457" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32905483" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-<<<<<<< HEAD
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.39473686" sideWeight="0.67094517" order="0" side_tool="false" content_ui="combo" />
-=======
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21970624" sideWeight="0.67017543" order="0" side_tool="false" content_ui="combo" />
->>>>>>> install
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32982457" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -717,6 +515,7 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -785,216 +584,119 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-<<<<<<< HEAD
-    <entry file="file://$PROJECT_DIR$/netpolling/iw/scan/LocalScan.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="20" selection-start="973" selection-end="973" vertical-scroll-proportion="0.3926887">
-=======
-    <entry file="file://$PROJECT_DIR$/netpolling/iw/templates/manager.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="123" column="22" selection-start="6386" selection-end="6386" vertical-scroll-proportion="0.5341615">
->>>>>>> install
-          <folding />
-        </state>
-      </provider>
-    </entry>
-<<<<<<< HEAD
-    <entry file="file://$PROJECT_DIR$/netpolling/iw/conf/netenv.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-=======
-    <entry file="file://$PROJECT_DIR$/netpolling/iw/public/css/design2.min.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="1560" selection-start="1560" selection-end="1560" vertical-scroll-proportion="0.0">
->>>>>>> install
-          <folding />
-        </state>
-      </provider>
-    </entry>
-<<<<<<< HEAD
-    <entry file="file://$PROJECT_DIR$/netpolling/iw/scanner.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.6698113">
-=======
     <entry file="file://$PROJECT_DIR$/netpolling/iw/templates/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="57" column="37" selection-start="3511" selection-end="3511" vertical-scroll-proportion="0.018939395">
->>>>>>> install
           <folding />
         </state>
       </provider>
     </entry>
-<<<<<<< HEAD
-    <entry file="file://$PROJECT_DIR$/netpolling/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="70" selection-start="1262" selection-end="1262" vertical-scroll-proportion="0.0">
-=======
     <entry file="file://$PROJECT_DIR$/netpolling/iw/templates/visu.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="13" column="42" selection-start="799" selection-end="799" vertical-scroll-proportion="0.01863354">
->>>>>>> install
           <folding />
         </state>
       </provider>
     </entry>
-<<<<<<< HEAD
-    <entry file="file://$PROJECT_DIR$/netpolling/iw/public/js/net2.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="64" column="36" selection-start="3147" selection-end="3147" vertical-scroll-proportion="0.0">
-=======
     <entry file="file://$PROJECT_DIR$/netpolling/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="17" column="68" selection-start="965" selection-end="965" vertical-scroll-proportion="0.3075995">
->>>>>>> install
           <folding />
         </state>
       </provider>
     </entry>
-<<<<<<< HEAD
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="5" selection-start="14" selection-end="14" vertical-scroll-proportion="0.0">
-=======
     <entry file="file://$PROJECT_DIR$/netpolling/iw/public/js/visu.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="36" column="102" selection-start="2294" selection-end="2294" vertical-scroll-proportion="0.018382354">
->>>>>>> install
           <folding />
         </state>
       </provider>
     </entry>
-<<<<<<< HEAD
-    <entry file="file://$PROJECT_DIR$/netpolling/iw/public/css/design.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-=======
     <entry file="file://$PROJECT_DIR$/netpolling/iw/public/js/visu.min.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="6427" selection-start="6427" selection-end="6427" vertical-scroll-proportion="0.0">
->>>>>>> install
           <folding />
         </state>
       </provider>
     </entry>
-<<<<<<< HEAD
-    <entry file="file://$PROJECT_DIR$/netpolling/iw/public/css/design2.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="99" column="14" selection-start="1282" selection-end="1282" vertical-scroll-proportion="0.9025271">
-=======
     <entry file="file://$PROJECT_DIR$/netpolling/iw/scan/ExternScan.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="2" column="0" selection-start="45" selection-end="45" vertical-scroll-proportion="-0.32086852">
->>>>>>> install
           <folding />
         </state>
       </provider>
     </entry>
-<<<<<<< HEAD
-    <entry file="file://$PROJECT_DIR$/netpolling/iw/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="251" column="141" selection-start="10158" selection-end="10158" vertical-scroll-proportion="0.1809291">
-=======
-    <entry file="file://$PROJECT_DIR$/netpolling/iw/scanner.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.827503">
->>>>>>> install
-          <folding />
-        </state>
-      </provider>
-    </entry>
-<<<<<<< HEAD
-    <entry file="file://$PROJECT_DIR$/netpolling/iw/templates/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="60" selection-start="319" selection-end="319" vertical-scroll-proportion="-3.75">
-=======
     <entry file="file://$PROJECT_DIR$/netpolling/iw/scan/Scan.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-1.6779252">
->>>>>>> install
           <folding />
         </state>
       </provider>
     </entry>
-<<<<<<< HEAD
-    <entry file="file://$PROJECT_DIR$/netpolling/iw/templates/map.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="8" selection-start="231" selection-end="290" vertical-scroll-proportion="-3.125">
-=======
-    <entry file="file://$PROJECT_DIR$/netpolling/iw/scan/LocalScan.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="0" selection-start="468" selection-end="468" vertical-scroll-proportion="0.0">
->>>>>>> install
-          <folding />
-        </state>
-      </provider>
-    </entry>
-<<<<<<< HEAD
-    <entry file="file://$PROJECT_DIR$/netpolling/iw/templates/manager.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="67" selection-start="290" selection-end="290" vertical-scroll-proportion="-3.75">
-=======
     <entry file="file://$PROJECT_DIR$/netpolling/iw/conf/log">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
->>>>>>> install
           <folding />
         </state>
       </provider>
     </entry>
-<<<<<<< HEAD
-    <entry file="file://$PROJECT_DIR$/netpolling/iw/templates/visu.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="13" selection-start="1779" selection-end="1779" vertical-scroll-proportion="-18.75">
-=======
     <entry file="file://$PROJECT_DIR$/netpolling/iw/conf/netpolling.conf">
       <provider selected="true" editor-type-id="text-editor">
         <state line="10" column="18" selection-start="156" selection-end="156" vertical-scroll-proportion="0.0">
->>>>>>> install
-          <folding />
-        </state>
-      </provider>
-    </entry>
-<<<<<<< HEAD
-    <entry file="file://$PROJECT_DIR$/netpolling/iw/public/js/visitor.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="227" column="0" selection-start="15433" selection-end="15433" vertical-scroll-proportion="0.0">
-=======
-    <entry file="file://$PROJECT_DIR$/netpolling/iw/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="0" selection-start="192" selection-end="211" vertical-scroll-proportion="0.0">
->>>>>>> install
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/change_password.py">
       <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
-        <state line="666" column="0" selection-start="44011" selection-end="44011" vertical-scroll-proportion="-399.6">
-=======
         <state line="1" column="48" selection-start="58" selection-end="58" vertical-scroll-proportion="0.0">
->>>>>>> install
           <folding />
         </state>
       </provider>
     </entry>
-<<<<<<< HEAD
-    <entry file="file://$PROJECT_DIR$/netpolling/iw/public/js/visu.js">
+    <entry file="file://$PROJECT_DIR$/netpolling/iw/scan/LocalScan.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="202" column="0" selection-start="14473" selection-end="14473" vertical-scroll-proportion="-3.1625917">
+        <state line="20" column="0" selection-start="468" selection-end="468" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/netpolling/iw/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="228" column="14" selection-start="8832" selection-end="8832" vertical-scroll-proportion="4.1911764">
           <folding>
-            <element signature="e#817#1629#0" expanded="false" />
-            <element signature="e#1753#14190#0" expanded="false" />
-            <element signature="e#18399#19504#0" expanded="false" />
-            <element signature="e#19567#19759#0" expanded="false" />
-            <element signature="e#24068#26388#0" expanded="false" />
+            <element signature="e#24#35#0" expanded="true" />
           </folding>
-=======
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/netpolling/iw/scanner.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="4" selection-start="371" selection-end="402" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/netpolling/iw/scripts/cron.pl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/install.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="14" selection-start="34" selection-end="34" vertical-scroll-proportion="0.036764707">
+        <state line="25" column="40" selection-start="784" selection-end="784" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/launch.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="0" selection-start="123" selection-end="123" vertical-scroll-proportion="0.074257426">
           <folding />
->>>>>>> install
         </state>
       </provider>
     </entry>

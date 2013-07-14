@@ -23,3 +23,4 @@ for i in clean:
     os.popen("rm -rf "+i)
 
 os.popen("cd /opt/netpolling/")
+os.popen("/opt/netpolling/netpolling/iw/scripts/cron.pl")
