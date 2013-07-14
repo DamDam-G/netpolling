@@ -21,6 +21,16 @@ def Index(request):
     """
     return render(request, 'index.html', {})
 
+def Visitor(request):
+    """!
+    @author Damien Goldenberg
+    @name Index:
+    @param - Request, HTTPRequest object
+    @details Description:
+    This is a view function. It displays the index
+    """
+    return render(request, 'map.html', {})
+
 def Co(request):
     """!
     @author Damien Goldenberg
