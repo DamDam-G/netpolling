@@ -149,7 +149,6 @@ $(window).load((function()
                                             },
                                             data:data,
                                             url: '/screenshot/',
-                                            timeout: 20000,
                                             success:function(data)
                                                     {
                                                         getValue(JSON.parse(data));
@@ -170,6 +169,105 @@ $(window).load((function()
                         Map(obj);
                     }
 
+                    function Param()
+                    {
+                        var gap = {x:0, y:0}; // object to know the gap of all items
+                        var mouse = {x:0, y:0}; // object to know the currently position ofthe mouse for events mousedown and mouseup
+                        var scale = {device:0, connector:1}; //object for scaling all items
+                        var move = 17;
+                        var zdevice = 0.1;
+                        var zconnector = 0.25;
+
+                        this.Init = function()
+                                    {
+
+                                    };
+
+                        this.Reset = function()
+                                    {
+                                        gap.x = 0;
+                                        gap.y = 0;
+                                        scale.device = 0;
+                                        scale.connector = 1;
+                                    };
+
+                        this.GetGapX = function()
+                                        {
+                                            return(gap.x);
+                                        };
+
+                        this.GetGapY = function()
+                                        {
+                                            return(gap.y);
+                                        };
+
+                        this.SetGapX = function(s)
+                                        {
+                                            s == 0 ? gap.x -= move : gap.x += move;
+                                        };
+
+                        this.SetGapY = function(s)
+                                        {
+                                            s == 0 ? gap.y -= move : gap.y += move;
+                                        };
+
+                        this.UpdateGap = function(obj)
+                                        {
+                                            gap.x += obj.x;
+                                            gap.y += obj.y;
+                                        };
+
+                        this.GetMouseX = function()
+                                        {
+                                            return(mouse.x);
+                                        };
+
+                        this.GetMouseY = function()
+                                        {
+                                            return(mouse.y);
+                                        };
+
+                        this.SetMouseX = function(v)
+                                        {
+                                            mouse.x = v
+                                        };
+
+                        this.SetMouseY = function(v)
+                                        {
+                                            mouse.y = v
+                                        };
+
+                        this.GetMove = function()
+                                        {
+                                            return(move);
+                                        };
+
+                        this.SetMove = function(v)
+                                        {
+                                            move = v;
+                                        };
+
+                        this.GetScaleDevice = function()
+                                        {
+                                            return(scale.device);
+                                        };
+
+                        this.GetScaleConnector = function()
+                                        {
+                                            return(scale.connector);
+                                        };
+
+                        this.SetScaleDevice = function(s)
+                                        {
+                                            s == 0 ? scale.device -= zdevice : scale.device += zdevice;
+                                        };
+
+                        this.SetScaleConnector = function(s)
+                                        {
+                                             s == 0 ? scale.connector -= zconnector : scale.connector += zconnector;
+                                        };
+                    }
+
                     $("#dellmap").on("click", function(event)
                                                 {
                                                     var n = $("#name").val();
@@ -181,7 +279,6 @@ $(window).load((function()
                                                             },
                                                             data:{name:n},
                                                             url: '/delete/',
-                                                            timeout: 20000,
                                                             success:function(data)
                                                                     {
                                                                         $("#inf").html("<div class=\"container alert alert-info\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\">&times;</button>La carte "+n+" a bien été effacé.<br />La page va être rechargée dans 2 secondes</div>");
@@ -203,7 +300,6 @@ $(window).load((function()
                                                     event.preventDefault();
                                                     LoadJson($(this).serialize(), function(network)
                                                             {
-                                                                net = network;
                                                                 var pbw = 0;
                                                                 var tbw = 0;
                                                                 for(var w = 0; w < network.net.length; w++)
@@ -212,30 +308,29 @@ $(window).load((function()
                                                                     {
                                                                         tbw += network.net[w].bw*8;
                                                                         pbw += network.net[w].percent;
-                                                                        console.log("obj "+network.net[w].percent);
-                                                                        console.log("val "+pbw);
                                                                     }
                                                                 }
                                                                 color = pbw < 25 ? "green" : pbw < 50 ? "yellow" : pbw < 75 ? "orange" : "red";
                                                                 $("#cbw").css({"width":pbw*3.5, "background-color":color});
-                                                                $("#binfo").html("<span class='label'>Bande passante total utilisée : </span><ul><li class='offset1'>"+pbw.toFixed(2)+" %</li><li class='offset1'>"+tbw.toFixed(2)+" kb/s</li></ul>");
+                                                                $("#binfo").html("<span class='label'>Bande passante totale utilisée : </span><ul><li class='offset1'>"+pbw.toFixed(2)+" %</li><li class='offset1'>"+tbw.toFixed(2)+" kb/s</li></ul>");
+
                                                                 function handle(delta)
                                                                 {
                                                                     if (delta > 0)
                                                                     {
-                                                                        if(scale.device > -0.19 && scale.connector > 0.49)
+                                                                        if(param.GetScaleDevice() > -0.19 && param.GetScaleConnector() > 0.49)
                                                                         {
-                                                                            scale.device -= 0.1;
-                                                                            scale.connector -= 0.25;
+                                                                            param.SetScaleDevice(0);
+                                                                            param.SetScaleConnector(0);
                                                                             ReMake(network);
                                                                         }
                                                                     }
                                                                     else
                                                                     {
-                                                                        if(scale.device < 0.3 && scale.connector < 1.525)
+                                                                        if(param.GetScaleDevice() < 0.3 && param.GetScaleConnector() < 1.525)
                                                                         {
-                                                                            scale.device += 0.1;
-                                                                            scale.connector += 0.25;
+                                                                            param.SetScaleDevice(1);
+                                                                            param.SetScaleConnector(1);
                                                                             ReMake(network);
                                                                         }
                                                                     }
@@ -251,21 +346,22 @@ $(window).load((function()
                                                                 $('svg').on("mousedown", function(event)
                                                                                         {
                                                                                             event.preventDefault();
-                                                                                            mouse.x = event.clientX;
-                                                                                            mouse.y = event.clientY;
+                                                                                            param.SetMouseX(event.clientX);
+                                                                                            param.SetMouseY(event.clientY);
                                                                                             return false;
                                                                                         });
                                                                 $('svg').on("mouseup", function(event)
                                                                                         {
                                                                                             event.preventDefault();
-                                                                                            gap.x -= (mouse.x - event.clientX)*0.5;
-                                                                                            gap.y -= (mouse.y - event.clientY)*0.5;
+                                                                                            param.UpdateGap({x:(param.GetMouseX() - event.clientX), y:(param.GetMouseY() - event.clientY)});
                                                                                             ReMake(network);
                                                                                             return false;
                                                                                         });
 
-                                                                $(document).on("keydown", function(event)
+                                                                $(window).on("keydown", function(event)
                                                                                             {
+                                                                                                //console.log(event.keyCode);
+                                                                                                //konami code !!! x)
                                                                                                 kkeys.push( event.keyCode );
                                                                                                 if (kkeys.toString().indexOf("38,38,40,40,37,39,37,39,66,65") >= 0)
                                                                                                 {
@@ -276,28 +372,25 @@ $(window).load((function()
                                                                                                 if(event.keyCode > 36 && event.keyCode < 41 || event.keyCode == 107 || event.keyCode == 109)
                                                                                                 {
                                                                                                     event.preventDefault();
-                                                                                                    event.keyCode == 38 ? gap.y -= move : event.keyCode == 39 ? gap.x -= move : event.keyCode == 40 ? gap.y += move : event.keyCode == 37 ? gap.x += move : event.keyCode == 109  ? handle(-1) : event.keyCode == 107 ? handle(1) : gap.x += 0;
+                                                                                                    event.keyCode == 38 ? param.SetGapY(0) : event.keyCode == 39 ? param.SetGapX(0) : event.keyCode == 40 ? param.SetGapY(1) : event.keyCode == 37 ? param.SetGapX(1) : event.keyCode == 109  ? handle(-1) : event.keyCode == 107 ? handle(1) : {};
                                                                                                     ReMake(network);
                                                                                                     return false;
                                                                                                 }
                                                                                             });
                                                                 $(".mapcontroll, #reset").on("click", function(event)
-                                                                                                                        {
-                                                                                                                            if(/mapcontroll/.test(event.target.className))
-                                                                                                                            {
-                                                                                                                                event.target.id == "m0" ? gap.y -= move : event.target.id == "m1" ? gap.x += move : event.target.id == "m2" ? gap.x -= move : event.target.id == "m3" ? gap.y += move : event.target.id == "m4" ? handle(1) : event.target.id == "m5" ? handle(-1) :gap.x += 0;
-                                                                                                                                if (event.target.id != "m4" || event.target.id != "m5")
-                                                                                                                                    ReMake(network);
-                                                                                                                            }
-                                                                                                                            else if(event.target.id == "reset")
-                                                                                                                            {
-                                                                                                                                gap.x = 0;
-                                                                                                                                gap.y = 0;
-                                                                                                                                scale.device = 0;
-                                                                                                                                scale.connector = 1;
-                                                                                                                                ReMake(network);
-                                                                                                                            }
-                                                                                                                        });
+                                                                                                        {
+                                                                                                            if(/mapcontroll/.test(event.target.className))
+                                                                                                            {
+                                                                                                                event.target.id == "m0" ? param.SetGapY(1) : event.target.id == "m1" ? param.SetGapX(1) : event.target.id == "m2" ? param.SetGapX(0) : event.target.id == "m3" ? param.SetGapY(0) : event.target.id == "m4" ? handle(1) : event.target.id == "m5" ? handle(-1) : {};
+                                                                                                                if (event.target.id != "m4" || event.target.id != "m5")
+                                                                                                                    ReMake(network);
+                                                                                                            }
+                                                                                                            else if(event.target.id == "reset")
+                                                                                                            {
+                                                                                                                param.Reset();
+                                                                                                                ReMake(network);
+                                                                                                            }
+                                                                                                        });
                                                             })
                                                 });
                 })());

@@ -596,7 +596,6 @@ $(window).load((function()
                                                     /*this is the anonymous function who take LoadJson ^^*/
                                                     LoadJson(function(network)
                                                             {
-                                                                network;
                                                                 var pbw = 0;
                                                                 var tbw = 0;
                                                                 for(var w = 0; w < network.net.length; w++)
