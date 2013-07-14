@@ -2,13 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0de6f5dc-25cf-4fa1-8937-4f7c8a87075d" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/netpolling/iw/public/img/favicon.ico" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/netpolling/iw/public/img/np.ico" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/netpolling/iw/templates/index.html" afterPath="$PROJECT_DIR$/netpolling/iw/templates/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/netpolling/iw/templates/manager.html" afterPath="$PROJECT_DIR$/netpolling/iw/templates/manager.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/netpolling/iw/templates/map.html" afterPath="$PROJECT_DIR$/netpolling/iw/templates/map.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/netpolling/iw/templates/visu.html" afterPath="$PROJECT_DIR$/netpolling/iw/templates/visu.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/netpolling/iw/public/js/net.js" afterPath="$PROJECT_DIR$/netpolling/iw/public/js/net.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/netpolling/iw/public/js/visitor.js" afterPath="$PROJECT_DIR$/netpolling/iw/public/js/visitor.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/netpolling/iw/public/js/visu.js" afterPath="$PROJECT_DIR$/netpolling/iw/public/js/visu.js" />
     </list>
     <ignored path="netpolling.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -51,8 +47,23 @@
       <file leaf-file-name="net.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/netpolling/iw/public/js/net.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="550" column="68" selection-start="35008" selection-end="35008" vertical-scroll-proportion="0.0">
+            <state line="666" column="0" selection-start="44011" selection-end="44011" vertical-scroll-proportion="-399.6">
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="visu.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/netpolling/iw/public/js/visu.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="202" column="0" selection-start="14473" selection-end="14473" vertical-scroll-proportion="-3.1625917">
+              <folding>
+                <element signature="e#817#1629#0" expanded="false" />
+                <element signature="e#1753#14190#0" expanded="false" />
+                <element signature="e#18399#19504#0" expanded="false" />
+                <element signature="e#19567#19759#0" expanded="false" />
+                <element signature="e#24068#26388#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -84,10 +95,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="visu.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="visu.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/netpolling/iw/templates/visu.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="41" column="30" selection-start="2113" selection-end="2113" vertical-scroll-proportion="0.72490704">
+            <state line="32" column="13" selection-start="1779" selection-end="1779" vertical-scroll-proportion="-18.75">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="visitor.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/netpolling/iw/public/js/visitor.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="227" column="0" selection-start="15433" selection-end="15433" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -124,14 +144,14 @@
         <option value="$PROJECT_DIR$/netpolling/iw/public/js/net2.js" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/netpolling/iw/public/css/design2.css" />
-        <option value="$PROJECT_DIR$/netpolling/iw/public/js/visu.js" />
-        <option value="$PROJECT_DIR$/netpolling/iw/public/js/net.js" />
-        <option value="$PROJECT_DIR$/netpolling/iw/public/js/visitor.js" />
         <option value="$PROJECT_DIR$/netpolling/iw/views.py" />
         <option value="$PROJECT_DIR$/netpolling/iw/templates/index.html" />
         <option value="$PROJECT_DIR$/netpolling/iw/templates/map.html" />
         <option value="$PROJECT_DIR$/netpolling/iw/templates/manager.html" />
         <option value="$PROJECT_DIR$/netpolling/iw/templates/visu.html" />
+        <option value="$PROJECT_DIR$/netpolling/iw/public/js/visitor.js" />
+        <option value="$PROJECT_DIR$/netpolling/iw/public/js/net.js" />
+        <option value="$PROJECT_DIR$/netpolling/iw/public/js/visu.js" />
       </list>
     </option>
   </component>
@@ -713,36 +733,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/netpolling/iw/public/js/visitor.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="505" column="79" selection-start="31714" selection-end="31721" vertical-scroll-proportion="1.0189155">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/netpolling/iw/public/js/visu.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="0" selection-start="751" selection-end="751" vertical-scroll-proportion="0.18337408">
-          <folding>
-            <element signature="e#817#1629#0" expanded="false" />
-            <element signature="e#1753#14190#0" expanded="false" />
-            <element signature="e#18507#19612#0" expanded="false" />
-            <element signature="e#19675#19867#0" expanded="false" />
-            <element signature="e#24176#26496#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/netpolling/iw/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="251" column="141" selection-start="10158" selection-end="10158" vertical-scroll-proportion="0.1809291">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/netpolling/iw/public/js/net.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="550" column="68" selection-start="35008" selection-end="35008" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -770,8 +763,35 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/netpolling/iw/templates/visu.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="41" column="30" selection-start="2113" selection-end="2113" vertical-scroll-proportion="0.72490704">
+        <state line="32" column="13" selection-start="1779" selection-end="1779" vertical-scroll-proportion="-18.75">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/netpolling/iw/public/js/visitor.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="227" column="0" selection-start="15433" selection-end="15433" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/netpolling/iw/public/js/net.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="666" column="0" selection-start="44011" selection-end="44011" vertical-scroll-proportion="-399.6">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/netpolling/iw/public/js/visu.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="202" column="0" selection-start="14473" selection-end="14473" vertical-scroll-proportion="-3.1625917">
+          <folding>
+            <element signature="e#817#1629#0" expanded="false" />
+            <element signature="e#1753#14190#0" expanded="false" />
+            <element signature="e#18399#19504#0" expanded="false" />
+            <element signature="e#19567#19759#0" expanded="false" />
+            <element signature="e#24068#26388#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

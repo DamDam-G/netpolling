@@ -225,8 +225,6 @@ $(window).load((function()
 
                     function Map(obj)
                     {
-                        console.log(param.GetGapX());
-                        console.log(param.GetGapY());
                         var coef = 60;
                         var center = {x: ($("#main").width()/2)-coef, y:($("#main").height()/2)-coef};
                         var radius = 500+obj.net.length+500*0.25;
@@ -492,10 +490,8 @@ $(window).load((function()
                                                                 }
                                                             });
 
-                    /*here is really fucking insane you can take a gun, it's not a joke x)*/
                     window.setInterval(pwned = function()
                                                 {
-                                                    /*this is the anonymous function who take LoadJson ^^*/
                                                     LoadJson(function(network)
                                                             {
                                                                 net = network;
