@@ -8,6 +8,7 @@ $(window).load((function()
                     $('#pop').resizable({animate: true}).draggable().tabs();
                     var kkeys = [];
                     var param = new Param();
+                    var net;
                     /**
                      * @author Damien Goldenberg
                      * @name GetCookie
@@ -413,13 +414,91 @@ $(window).load((function()
                                         };
                     }
 
+                    function handle(delta)
+                    {
+                        if (delta > 0)
+                        {
+                            if(param.GetScaleDevice() > -0.19 && param.GetScaleConnector() > 0.49)
+                            {
+                                param.SetScaleDevice(0);
+                                param.SetScaleConnector(0);
+                                ReMake(net);
+                            }
+                        }
+                        else
+                        {
+                            if(param.GetScaleDevice() < 0.3 && param.GetScaleConnector() < 1.525)
+                            {
+                                param.SetScaleDevice(1);
+                                param.SetScaleConnector(1);
+                                ReMake(net);
+                            }
+                        }
+                    }
+
+                    $('svg').mousewheel(function(event, delta, deltaX, deltaY)
+                                        {
+                                            event.preventDefault();
+                                            handle(delta);
+                                            return false;
+                                        });
+
+                    $('svg').on("mousedown", function(event)
+                                            {
+                                                event.preventDefault();
+                                                param.SetMouseX(event.clientX);
+                                                param.SetMouseY(event.clientY);
+                                                return false;
+                                            });
+                    $('svg').on("mouseup", function(event)
+                                            {
+                                                event.preventDefault();
+                                                param.UpdateGap({x:(param.GetMouseX() - event.clientX), y:(param.GetMouseY() - event.clientY)});
+                                                ReMake(net);
+                                                return false;
+                                            });
+
+                    $(window).on("keydown", function(event)
+                                            {
+                                                //console.log(event.keyCode);
+                                                //konami code !!! x)
+                                                kkeys.push( event.keyCode );
+                                                if (kkeys.toString().indexOf("38,38,40,40,37,39,37,39,66,65") >= 0)
+                                                {
+                                                    $("body").css({"background-image":"url('/public/img/konami.gif')"});
+                                                    $("#svgDevice").addClass("koko");
+                                                    $("#svgBw").addClass("koko2");
+                                                }
+                                                if(event.keyCode > 36 && event.keyCode < 41 || event.keyCode == 107 || event.keyCode == 109)
+                                                {
+                                                    event.preventDefault();
+                                                    event.keyCode == 38 ? param.SetGapY(0) : event.keyCode == 39 ? param.SetGapX(0) : event.keyCode == 40 ? param.SetGapY(1) : event.keyCode == 37 ? param.SetGapX(1) : event.keyCode == 109  ? handle(-1) : event.keyCode == 107 ? handle(1) : {};
+                                                    ReMake(net);
+                                                    return false;
+                                                }
+                                            });
+                    $(".mapcontroll, #reset").on("click", function(event)
+                                                            {
+                                                                if(/mapcontroll/.test(event.target.className))
+                                                                {
+                                                                    event.target.id == "m0" ? param.SetGapY(1) : event.target.id == "m1" ? param.SetGapX(1) : event.target.id == "m2" ? param.SetGapX(0) : event.target.id == "m3" ? param.SetGapY(0) : event.target.id == "m4" ? handle(1) : event.target.id == "m5" ? handle(-1) : {};
+                                                                    if (event.target.id != "m4" || event.target.id != "m5")
+                                                                        ReMake(net);
+                                                                }
+                                                                else if(event.target.id == "reset")
+                                                                {
+                                                                    param.Reset();
+                                                                    ReMake(net);
+                                                                }
+                                                            });
+
                     /*here is really fucking insane you can take a gun, it's not a joke x)*/
                     window.setInterval(pwned = function()
                                                 {
                                                     /*this is the anonymous function who take LoadJson ^^*/
                                                     LoadJson(function(network)
                                                             {
-                                                                network;
+                                                                net = network;
                                                                 var pbw = 0;
                                                                 var tbw = 0;
                                                                 for(var w = 0; w < network.net.length; w++)
@@ -433,84 +512,6 @@ $(window).load((function()
                                                                 color = pbw < 25 ? "green" : pbw < 50 ? "yellow" : pbw < 75 ? "orange" : "red";
                                                                 $("#cbw").css({"width":pbw*3.5, "background-color":color});
                                                                 $("#binfo").html("<span class='label'>Bande passante totale utilisée : </span><ul><li class='offset1'>"+pbw.toFixed(2)+" %</li><li class='offset1'>"+tbw.toFixed(2)+" kb/s</li></ul>");
-                                                                
-                                                                function handle(delta)
-                                                                {
-                                                                    if (delta > 0)
-                                                                    {
-                                                                        if(param.GetScaleDevice() > -0.19 && param.GetScaleConnector() > 0.49)
-                                                                        {
-                                                                            param.SetScaleDevice(0);
-                                                                            param.SetScaleConnector(0);
-                                                                            ReMake(network);
-                                                                        }
-                                                                    }
-                                                                    else
-                                                                    {
-                                                                        if(param.GetScaleDevice() < 0.3 && param.GetScaleConnector() < 1.525)
-                                                                        {
-                                                                            param.SetScaleDevice(1);
-                                                                            param.SetScaleConnector(1);
-                                                                            ReMake(network);
-                                                                        }
-                                                                    }
-                                                                }
-
-                                                                $('svg').mousewheel(function(event, delta, deltaX, deltaY)
-                                                                                    {
-                                                                                        event.preventDefault();
-                                                                                        handle(delta);
-                                                                                        return false;
-                                                                                    });
-
-                                                                $('svg').on("mousedown", function(event)
-                                                                                        {
-                                                                                            event.preventDefault();
-                                                                                            param.SetMouseX(event.clientX);
-                                                                                            param.SetMouseY(event.clientY);
-                                                                                            return false;
-                                                                                        });
-                                                                $('svg').on("mouseup", function(event)
-                                                                                        {
-                                                                                            event.preventDefault();
-                                                                                            param.UpdateGap({x:(param.GetMouseX() - event.clientX), y:(param.GetMouseY() - event.clientY)});
-                                                                                            ReMake(network);
-                                                                                            return false;
-                                                                                        });
-
-                                                                $(window).on("keydown", function(event)
-                                                                                            {
-                                                                                                //console.log(event.keyCode);
-                                                                                                //konami code !!! x)
-                                                                                                kkeys.push( event.keyCode );
-                                                                                                if (kkeys.toString().indexOf("38,38,40,40,37,39,37,39,66,65") >= 0)
-                                                                                                {
-                                                                                                    $("body").css({"background-image":"url('/public/img/konami.gif')"});
-                                                                                                    $("#svgDevice").addClass("koko");
-                                                                                                    $("#svgBw").addClass("koko2");
-                                                                                                }
-                                                                                                if(event.keyCode > 36 && event.keyCode < 41 || event.keyCode == 107 || event.keyCode == 109)
-                                                                                                {
-                                                                                                    event.preventDefault();
-                                                                                                    event.keyCode == 38 ? param.SetGapY(0) : event.keyCode == 39 ? param.SetGapX(0) : event.keyCode == 40 ? param.SetGapY(1) : event.keyCode == 37 ? param.SetGapX(1) : event.keyCode == 109  ? handle(-1) : event.keyCode == 107 ? handle(1) : {};
-                                                                                                    ReMake(network);
-                                                                                                    return false;
-                                                                                                }
-                                                                                            });
-                                                                $(".mapcontroll, #reset").on("click", function(event)
-                                                                                                        {
-                                                                                                            if(/mapcontroll/.test(event.target.className))
-                                                                                                            {
-                                                                                                                event.target.id == "m0" ? param.SetGapY(1) : event.target.id == "m1" ? param.SetGapX(1) : event.target.id == "m2" ? param.SetGapX(0) : event.target.id == "m3" ? param.SetGapY(0) : event.target.id == "m4" ? handle(1) : event.target.id == "m5" ? handle(-1) : {};
-                                                                                                                if (event.target.id != "m4" || event.target.id != "m5")
-                                                                                                                    ReMake(network);
-                                                                                                            }
-                                                                                                            else if(event.target.id == "reset")
-                                                                                                            {
-                                                                                                                param.Reset();
-                                                                                                                ReMake(network);
-                                                                                                            }
-                                                                                                        });
                                                     });
                                                 }, 30000);
                     pwned();

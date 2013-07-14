@@ -7,29 +7,34 @@
         <link rel="shortcut icon" href="public/img/np.ico" type="image/x-icon">
         <link href="/public/bootstrap/css/bootstrap-responsive.css" media="screen" rel="stylesheet" type="text/css">
         <link href="/public/bootstrap/css/bootstrap.min.css" media="screen" rel="stylesheet" type="text/css">
-        <link href="/public/css/design2.min.css" media="screen" rel="stylesheet" type="text/css">
+        <link href="/public/css/design2.css" media="screen" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
     </head>
     <body>
-    <div id="inf" class="container"></div>
-    <div id ="form" class="hero-unit">
-        <img src="/public/img/map.png">
-        <h3>Cartographie de réseaux</h3><br />
-        <div id="info"></div>
-        <form method="post" id="form0" enctype="application/x-www-form-urlencoded">
-            {% csrf_token %}
-            <label for="name">Choisissez un scan à visualiser</label>
-            <select name="name" id="name">
-                {% for i in data %}
-                    <option value="{{ i.name }}">{{ i.name }}</option>
-                {% empty %}
-                    <option value="">Aucune carte n'est disponible</option>
-                {% endfor %}
-            </select><br />
-            <input type="submit" class="btn btn-primary" data-toggle="button" value="Cartographier">
-        </form>
-        <button id="dellmap" class="btn btn-danger">Effacer</button>
-    </div>
+        <table class="hero-unit" id="form">
+            <tr>
+                <td>
+                    <img src="/public/img/map.png">
+                </td>
+                <td>
+                    <h3>Cartographie de réseaux</h3><br />
+                    <div id="inf" class="container"></div>
+                    <form method="post" id="form0" enctype="application/x-www-form-urlencoded">
+                        {% csrf_token %}
+                        <label for="name">Choisissez un scan à visualiser : </label>
+                        <select name="name" id="name">
+                            {% for i in data %}
+                                <option value="{{ i.name }}">{{ i.name }}</option>
+                            {% empty %}
+                                <option value="">Aucune carte n'est disponible</option>
+                            {% endfor %}
+                        </select>
+                        <nobr><input type="submit" class="btn btn-primary" data-toggle="button" value="Cartographier">
+                    </form>
+                    <button id="dellmap" class="btn btn-danger">Effacer</button></nobr>
+                </td>
+            </tr>
+        </table>
     <div id="main" class="bg">
         <div id="inf" class="container"></div>
             <div id="pop">
@@ -85,6 +90,6 @@
     <!--<script src="/public/js/jquery-ui-1.10.3.custom.min.js"></script>-->
     <script src="/public/js/raphael-min.js"></script>
     <script src="/public/bootstrap/js/bootstrap.min.js"></script>
-    <script src="/public/js/visu.min.js"></script>
+    <script src="/public/js/visu.js"></script>
     </body>
 </html>
