@@ -282,10 +282,12 @@ def GetJson(request):
     @details Description:
     This is function give the json data about scan network
     """
-    fd = open(ENV.conf+"network.json", "r")
-    network = fd.read()
-    fd.close()
-    return HttpResponse(network)
+    if request.is_ajax():
+        fd = open(ENV.conf+"network.json", "r")
+        network = fd.read()
+        fd.close()
+        return HttpResponse(network)
+    return render_to_response('error.html', {'type':'error ajax'})
 
 def GetOS(request):
     """!

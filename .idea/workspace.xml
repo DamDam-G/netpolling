@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0de6f5dc-25cf-4fa1-8937-4f7c8a87075d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/netpolling/iw/templates/index.html" afterPath="$PROJECT_DIR$/netpolling/iw/templates/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/netpolling/urls.py" afterPath="$PROJECT_DIR$/netpolling/urls.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/netpolling/iw/views.py" afterPath="$PROJECT_DIR$/netpolling/iw/views.py" />
     </list>
     <ignored path="netpolling.iws" />
@@ -74,19 +72,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="urls.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="urls.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/netpolling/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="70" selection-start="1262" selection-end="1262" vertical-scroll-proportion="0.36585367">
+            <state line="21" column="70" selection-start="1262" selection-end="1262" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="views.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/netpolling/iw/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="31" column="31" selection-start="806" selection-end="806" vertical-scroll-proportion="0.0">
+            <state line="289" column="66" selection-start="12104" selection-end="12104" vertical-scroll-proportion="0.3431604">
               <folding />
             </state>
           </provider>
@@ -122,7 +120,6 @@
                 <element signature="e#15143#15342#0" expanded="false" />
                 <element signature="e#15402#19362#0" expanded="false" />
                 <element signature="e#19384#19705#0" expanded="false" />
-                <element signature="e#19775#20822#0" expanded="false" />
                 <element signature="e#20844#21105#0" expanded="false" />
                 <element signature="e#21168#21360#0" expanded="false" />
                 <element signature="e#21419#25557#0" expanded="false" />
@@ -179,8 +176,8 @@
         <option value="$PROJECT_DIR$/netpolling/iw/templates/map.html" />
         <option value="$PROJECT_DIR$/netpolling/iw/public/js/net3.js" />
         <option value="$PROJECT_DIR$/netpolling/iw/templates/index.html" />
-        <option value="$PROJECT_DIR$/netpolling/iw/views.py" />
         <option value="$PROJECT_DIR$/netpolling/urls.py" />
+        <option value="$PROJECT_DIR$/netpolling/iw/views.py" />
       </list>
     </option>
   </component>
@@ -724,6 +721,15 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/netpolling/iw/templates/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="72" selection-start="1605" selection-end="1605" vertical-scroll-proportion="-17.5">
+          <folding>
+            <element signature="n#style#0;n#h1#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/netpolling/iw/public/js/net3.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="414" column="0" selection-start="25558" selection-end="25558" vertical-scroll-proportion="0.0">
@@ -735,7 +741,6 @@
             <element signature="e#15143#15342#0" expanded="false" />
             <element signature="e#15402#19362#0" expanded="false" />
             <element signature="e#19384#19705#0" expanded="false" />
-            <element signature="e#19775#20822#0" expanded="false" />
             <element signature="e#20844#21105#0" expanded="false" />
             <element signature="e#21168#21360#0" expanded="false" />
             <element signature="e#21419#25557#0" expanded="false" />
@@ -743,25 +748,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/netpolling/iw/templates/index.html">
+    <entry file="file://$PROJECT_DIR$/netpolling/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="72" selection-start="1605" selection-end="1605" vertical-scroll-proportion="-17.5">
-          <folding>
-            <element signature="n#style#0;n#h1#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
+        <state line="21" column="70" selection-start="1262" selection-end="1262" vertical-scroll-proportion="0.0">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/netpolling/iw/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="31" selection-start="806" selection-end="806" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/netpolling/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="70" selection-start="1262" selection-end="1262" vertical-scroll-proportion="0.36585367">
+        <state line="289" column="66" selection-start="12104" selection-end="12104" vertical-scroll-proportion="0.3431604">
           <folding />
         </state>
       </provider>
