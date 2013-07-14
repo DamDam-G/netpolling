@@ -4,7 +4,7 @@
         <title>NetPolling</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="shortcut icon" href="../public/img/np.ico" type="image/x-icon">
+        <link rel="shortcut icon" href="/public/img/favicon.ico" />
         <link href="/public/bootstrap/css/bootstrap-responsive.css" media="screen" rel="stylesheet" type="text/css">
         <link href="/public/bootstrap/css/bootstrap.min.css" media="screen" rel="stylesheet" type="text/css">
     </head>
@@ -17,6 +17,9 @@
                     <span class="nav-collapse collapse">
                         <a id="17" class="menu" data-target="#myCo" href="/co/" role="button" class="label" data-toggle="modal"><button class="btn btn-inverse"><i class="icon-user icon-white"></i>Connexion</button></a>
                     </span>
+                    <span class="nav-collapse collapse">
+                        <a href="/visitor/" target="_blank" role="button" ><button class="btn btn-inverse"><i class="icon-th icon-white"></i>Visiteur</button></a>
+                    </span>
                 </div>
             </div>
         </nav>
@@ -25,42 +28,12 @@
         {% if cls and why%}
             <div class="container alert alert-{{ cls }}">{{ why }}</div>
         {% endif %}
-        <img class="container hidden-desktop" src="/public/img/np_logo.png">
-        <div id="myCarousel" class="carousel slide visible-desktop">
-            <ol class="carousel-indicators" style="background-color:black; padding:2px; border-radius:10px; ">
-                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                <li data-target="#myCarousel" data-slide-to="1"></li>
-                <li data-target="#myCarousel" data-slide-to="2"></li>
-                <li data-target="#myCarousel" data-slide-to="3"></li>
-                <li data-target="#myCarousel" data-slide-to="4"></li>
-                <li data-target="#myCarousel" data-slide-to="5"></li>
-                <li data-target="#myCarousel" data-slide-to="6"></li>
-                <li data-target="#myCarousel" data-slide-to="7"></li>
-                <li data-target="#myCarousel" data-slide-to="7"></li>
-            </ol>
-            <!-- Carousel items -->
-            <div class="carousel-inner">
-                <div class="item active"><img class="container" src="/public/img/np_logo.png" /></div>
-                <div class="item"><img class="container" src="/public/img/np0.png" /></div>
-                <div class="item"><img class="container" src="/public/img/np1.png" /></div>
-                <div class="item"><img class="container" src="/public/img/np2.png" /></div>
-                <div class="item"><img class="container" src="/public/img/np3.png" /></div>
-                <div class="item"><img class="container" src="/public/img/np4.png" /></div>
-                <div class="item"><img class="container" src="/public/img/np5.png" /></div>
-                <div class="item"><img class="container" src="/public/img/np6.png" /></div>
-                <div class="item"><img class="container" src="/public/img/np7.png" /></div>
-            </div>
-            <!-- Carousel nav -->
-            <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
-            <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
-        </div>
-
         <div class="container-fluid">
-            <h1 style="text-align:center;">Surveillez et sécurisez votre réseau en toute simplicité </h1><br />
+            <h1 style="text-align:center;"><img class="container" src="/public/img/np_logo.png" /><br />Surveillez et sécurisez votre réseau en toute simplicité </h1><br />
             <div class="row-fluid">
                 <div class="span4">
                     <div class="hero-unit">
-                        <h2>Para 1</h2>
+                        <h2>Pitch</h2>
                         <p>
                             Problèmes de sécurité?<br />Pas de temps pour surveiller vos réseaux?<br />Mobile, PC ou tablette, vous pourrez savoir qui utilise votre réseau grâce à notre interface web dynamique. Net Polling vous permettra d'avoir sous forme de carte, une représenation de ce qu'il se passesur votre réseau, le surveiller n'aura jamais été aussi facile !
                         </p>
@@ -93,8 +66,6 @@
             </div>
             <form action="/connect/" method="post" enctype="application/x-www-form-urlencoded">
                 {% csrf_token %}
-                <!--&nbsp&nbsp&nbsp<label class="control-label" for="ps1">Login</label><input id="ps1" name="pseudo" type="text" placeholder="zozor@gmail.com" required="true" />
-                &nbsp&nbsp&nbsp<label class="control-label" for="ps2">Mot de passe</label><input id="ps2" name="pwd" type="password"  required="true" /><br />-->
                 <div class="modal-body"></div>
                 <div class="modal-footer">
                     <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
@@ -103,12 +74,8 @@
             </form>
         </div>
         {% endblock %}
-        <!--<script src="http://code.jquery.com/jquery.js"></script>-->
         {% load static %}
-        <script src="/public/js/jquery-2.0.0.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
         <script src="/public/bootstrap/js/bootstrap.min.js"></script>
-        <script>
-            window.onload = $('.carousel').carousel({interval: 2000});
-        </script>
     </body>
 </html>
