@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>NetPolling</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="public/img/np.ico" type="image/x-icon">
+        <link href="/public/bootstrap/css/bootstrap-responsive.css" media="screen" rel="stylesheet" type="text/css">
+        <link href="/public/bootstrap/css/bootstrap.min.css" media="screen" rel="stylesheet" type="text/css">
+        <link href="/public/css/design.min.css" media="screen" rel="stylesheet" type="text/css">
+         <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+    </head>
+    <body>
+        {% block content %}
+        <div id="main" class="bg">
+            <div id="inf" class="container"></div>
+            <div id="pop">
+                <div id="binfo"></div>
+                <div id="tbw">
+                    <div id="cbw"></div>
+                </div>
+                <ul>
+                    <li><a href="#i">Informations</a></li>
+                    <li><a href="#search">Recherche</a></li>
+                </ul>
+                <div id="i">
+                    <div id="d"></div>
+                </div>
+                <div id="search">
+
+                </div>
+            </div>
+            <div id="move">
+                <table>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <i id="m0" class="mapcontroll icon-chevron-up icon-white">
+                        </td>
+                        <td></td>
+                        <td><i id="m4" class="mapcontroll icon-plus-sign icon-white"></td>
+                    </tr>
+                    <tr>
+                        <td><i id="m1" class="mapcontroll icon-chevron-left icon-white"></td>
+                        <td></td>
+                        <td><i id="m2" class="mapcontroll icon-chevron-right icon-white"></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <i id="m3" class="mapcontroll icon-chevron-down icon-white">
+                        </td>
+                        <td></td>
+                        <td><i id="m5" class="mapcontroll icon-minus-sign icon-white"></td>
+                    </tr>
+                </table>
+                <div id="reset">reset</div>
+            </div>
+            <div id="svgDevice" class="DesignCanvas"></div>
+            <div id="svgBw" class="DesignCanvas"></div>
+            <div id="svgSearch" class="DesignCanvas"></div>
+            <!--<canvas id="cartoDevice" width="750" height="500"></canvas>
+            <canvas id="cartoConnector"></canvas>-->
+        </div>
+        {% endblock %}
+        <!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>-->
+        <script src="/public/js/jquery-2.0.0.min.js"></script>
+        <script src="/public/js/jquery.mousewheel.js"></script>
+        <!--<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>-->
+        <script src="/public/js/jquery-ui-1.10.3.custom.min.js"></script>
+        <script src="/public/js/raphael-min.js"></script>
+        <script src="/public/bootstrap/js/bootstrap.min.js"></script>
+        <script src="/public/js/net3.js"></script>
+        <!--<script src="/public/js/net.min.js"></script>-->
+    </body>
+</html>
