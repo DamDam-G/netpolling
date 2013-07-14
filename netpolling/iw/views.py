@@ -21,6 +21,16 @@ def Index(request):
     """
     return render(request, 'index.html', {})
 
+def Visitor(request):
+    """!
+    @author Damien Goldenberg
+    @name Index:
+    @param - Request, HTTPRequest object
+    @details Description:
+    This is a view function. It displays the index
+    """
+    return render(request, 'map.html', {})
+
 def Co(request):
     """!
     @author Damien Goldenberg
@@ -239,7 +249,7 @@ def AjaxForm(request, id):
             else:
                 param = {'success':0, 'why':'error : format data incorrect'}
         elif id == 4:
-            if re.search("^[A-Za-z0-9]{1,}$", request.POST.get("pinterface"), re.IGNORECASE) and re.search("^[0-9]{1,}$", request.POST.get("time"), re.IGNORECASE):
+            if re.search("^[A-Za-z0-9]{1,}$", request.POST.get("pinterface"), re.IGNORECASE) and re.search("^[0-9]{1,}$", request.POST.get("ptime"), re.IGNORECASE):
                 if request.POST.get("pinterface") and request.POST.get("ptime"):
                     r = Param.objects.all()
                     r.update(interface=request.POST.get("pinterface"))
@@ -272,10 +282,12 @@ def GetJson(request):
     @details Description:
     This is function give the json data about scan network
     """
-    fd = open(ENV.conf+"network.json", "r")
-    network = fd.read()
-    fd.close()
-    return HttpResponse(network)
+    if request.is_ajax():
+        fd = open(ENV.conf+"network.json", "r")
+        network = fd.read()
+        fd.close()
+        return HttpResponse(network)
+    return render_to_response('error.html', {'type':'error ajax'})
 
 def GetOS(request):
     """!

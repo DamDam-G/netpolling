@@ -14,7 +14,7 @@ input
 .DesignCanvas
 {
     position:absolute;
-    top:15%;
+    top:30%;
     left:25%;
 }
 
@@ -74,13 +74,19 @@ input
     padding:5px;
     height:80px;
     position:absolute;
-    top:18%;
+    top:38%;
     left:28%;
     background-color:black;
     border-radius:20px;
 }
 
-#pop, #form
+#form
+{
+    margin-top:10px;
+    margin-left:20px;
+}
+
+#pop
 {
     width:400px;
     height:570px;
@@ -90,8 +96,8 @@ input
     background-color:#EEEEEE;
     margin-left:20px;
     top:2%;
-    z-index:44;
     overflow:auto;
+    z-index:50;
 }
 
 #reset

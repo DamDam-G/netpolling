@@ -1,16 +1,14 @@
 $(window).load((function()
                 {
-                    var id; //contains the id of the current click in the menu
                     var n = Raphael(document.getElementById('svgDevice'), 900, 600); // represents the device svg
                     var c = Raphael(document.getElementById('svgBw'), 900, 600); // represents the band-width svg
                     var t = Raphael(document.getElementById('svgSearch'), 900, 600); // represents the machine search
                     var csrftoken = GetCookie('csrftoken'); // this is the django secure token for ajx request
                     var objnet = []; // list of the device object in the part asynchronous
-                    var available = {os:0, sniff:0}; // object to know if an app is up or not
                     $('#pop').resizable({animate: true}).draggable().tabs();
-                    var net;
                     var kkeys = [];
                     var param = new Param();
+                    var net;
                     /**
                      * @author Damien Goldenberg
                      * @name GetCookie
@@ -37,56 +35,6 @@ $(window).load((function()
                         }
                         return cookieValue;
                     }
-
-                    /**
-                     * @author Damien Goldenberg
-                     * @name WriteModal
-                     * @brief Generate the good modal with some informations
-                     * @param idModal
-                     * @param idDisplay
-                     * @param data
-                     * @constructor
-                     */
-
-                    function WriteModal(idModal, idDisplay, data)
-                    {
-                        $(idDisplay).html(data);
-                        $(idModal).modal("show");
-                    }
-
-                    /**
-                     * @author Damien Goldenberg
-                     * @name Form
-                     * @brief send the good form to python with ajax request
-                     * @param e
-                     * @constructor
-                     */
-                    function Form(e)
-                    {
-                        e.preventDefault();
-                        $.ajax({
-                            type: 'post',
-                            headers:
-                                {
-                                  "X-CSRFToken": csrftoken
-                                },
-                                data:$(this).serialize(),
-                                url: '/ajaxform/'+id+'/',
-                                success:function(data)
-                                        {
-                                            data = JSON.parse(data);
-                                            var cls = data.success == 1 ? 'success' : 'danger';
-                                            $("#info").html('<div class="alert alert-' +cls+ '"><button type="button" class="close" data-dismiss="alert">×</button>' +data.why+ '</div>');
-                                        },
-                                error:function()
-                                      {
-                                            $("#info").html('<div class="alert alert-warning"><button type="button" class="close" data-dismiss="alert">×</button>La requête n\'a pas pu aboutir</div>');
-                                      }
-                                });
-                    }
-
-
-
 
                     /**
                      * @author Damien Goldenberg
@@ -349,28 +297,6 @@ $(window).load((function()
                                            });
                     }
 
-                    function handle(delta)
-                    {
-                        if (delta > 0)
-                        {
-                            if(param.GetScaleDevice() > -0.19 && param.GetScaleConnector() > 0.49)
-                            {
-                                param.SetScaleDevice(0);
-                                param.SetScaleConnector(0);
-                                ReMake(net);
-                            }
-                        }
-                        else
-                        {
-                            if(param.GetScaleDevice() < 0.3 && param.GetScaleConnector() < 1.525)
-                            {
-                                param.SetScaleDevice(1);
-                                param.SetScaleConnector(1);
-                                ReMake(net);
-                            }
-                        }
-                    }
-
                     /**
                      * @author Damien Goldenberg
                      * @name ReMake
@@ -486,124 +412,27 @@ $(window).load((function()
                                         };
                     }
 
-                    $("a.menu").on("click", function()
-                                               {
-                                                   id = this.id
-                                                   $.ajax({
-                                                       type: 'post',
-                                                       headers:
-                                                        {
-                                                            "X-CSRFToken": csrftoken
-                                                        },
-                                                       data:
-                                                        {
-                                                           id:this.id
-                                                        },
-                                                       url: '/control/',
-                                                       success:function(data)
-                                                               {
-                                                                   if (id >= 0 && id <= 1 || id >= 3 && id <= 6)
-                                                                   {
-                                                                       WriteModal("#option", "#dispopt", data);
-                                                                       if (id == 1)
-                                                                       {
-                                                                           $("#form0").on("submit", function(e)
-                                                                                                    {
-                                                                                                        e.preventDefault();
-                                                                                                        $.ajax({
-                                                                                                            type: 'post',
-                                                                                                            headers:
-                                                                                                                {
-                                                                                                                  "X-CSRFToken": csrftoken
-                                                                                                                },
-                                                                                                                data:
-                                                                                                                {
-                                                                                                                    "name":$(this).serialize().split("=")[1],
-                                                                                                                    "net":JSON.stringify(net)
-                                                                                                                },
-                                                                                                                url: '/ajaxform/'+id+'/',
-                                                                                                                success:function(data)
-                                                                                                                        {
-                                                                                                                            data = JSON.parse(data);
-                                                                                                                            var cls = data.success == 1 ? 'success' : 'danger';
-                                                                                                                            $("#info").html('<div class="alert alert-' +cls+ '"><button type="button" class="close" data-dismiss="alert">×</button>' +data.why+ '</div>');
-                                                                                                                        },
-                                                                                                                error:function()
-                                                                                                                      {
-                                                                                                                            $("#info").html('<div class="alert alert-warning"><button type="button" class="close" data-dismiss="alert">×</button>La requête n\'a pas pu aboutir</div>');
-                                                                                                                      }
-                                                                                                                });
-                                                                                                    });
-                                                                       }
-                                                                       else if (id != 6)
-                                                                       {
-                                                                           $("#form0").on("submit", Form);
-                                                                           if(id == 0)
-                                                                           {
-                                                                               $("#form1").on("submit", Form);
-                                                                           }
-                                                                       }
-
-                                                                   }
-                                                                   else if (id == 2)
-                                                                   {
-                                                                       window.open("/visu/");
-                                                                   }
-
-                                                               },
-                                                       error: function()
-                                                               {
-                                                                   alert('La requête n\'a pas abouti');
-                                                               }
-                                                   })
-                                               });
-                    
-                    $("#fsniff").on("submit", function(event)
-                                            {
-                                                event.preventDefault();
-                                                if (available.sniff == 0)
-                                                {
-                                                    $("#rsniff").html('');
-                                                    $("#inf").html("<div class=\"container alert alert-info\">L'écoute est lancée pendant "+$("#stime").val()+" secondes</div>")
-                                                    available.sniff = 1;
-                                                    $.ajax({
-                                                           type: 'post',
-                                                           headers:
-                                                            {
-                                                                "X-CSRFToken": csrftoken
-                                                            },
-                                                            data:
-                                                            {
-                                                               ip:$("#aip").html(),
-                                                               name:$("#sname").val(),
-                                                               time:$("#stime").val()
-                                                            },
-                                                           url: '/sniff/',
-                                                           success:function(data)
-                                                                   {
-                                                                       available.sniff = 0;
-                                                                       d = JSON.parse(data)
-                                                                       if(d.success == 1)
-                                                                       {
-                                                                           $("#rsniff").html(d.rep);
-                                                                           $("#inf").html("<div class=\"container alert alert-info\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\">&times;</button>La fonctionnalité d'écoute est à nouveau disponible</div>");
-                                                                       }
-                                                                       else
-                                                                           $("#inf").html("<div class=\"container alert alert-warning\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\">&times;</button>Une erreur est survenu ... <br /> Mais la fonctionnalité d'écoute est à nouveau disponible<br />"+data.rep+"</div>");
-                                                                   },
-                                                           error: function()
-                                                                   {
-                                                                       alert('La requête n\'a pas abouti');
-                                                                       available.sniff = 0;
-                                                                   }
-                                                       })
-                                                }
-                                                else
-                                                {
-                                                    $("#inf").html("<div class=\"alert alert-error\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\">&times;</button>La fonctionnalité d'écoute n'est pas encore disponible</div>")
-                                                }
-                                                return false;
-                                            });
+                    function handle(delta)
+                    {
+                        if (delta > 0)
+                        {
+                            if(param.GetScaleDevice() > -0.19 && param.GetScaleConnector() > 0.49)
+                            {
+                                param.SetScaleDevice(0);
+                                param.SetScaleConnector(0);
+                                ReMake(net);
+                            }
+                        }
+                        else
+                        {
+                            if(param.GetScaleDevice() < 0.3 && param.GetScaleConnector() < 1.525)
+                            {
+                                param.SetScaleDevice(1);
+                                param.SetScaleConnector(1);
+                                ReMake(net);
+                            }
+                        }
+                    }
 
                     $('svg').mousewheel(function(event, delta, deltaX, deltaY)
                                         {
@@ -646,7 +475,6 @@ $(window).load((function()
                                                     return false;
                                                 }
                                             });
-
                     $(".mapcontroll, #reset").on("click", function(event)
                                                             {
                                                                 if(/mapcontroll/.test(event.target.className))
@@ -661,7 +489,7 @@ $(window).load((function()
                                                                     ReMake(net);
                                                                 }
                                                             });
-                    
+
                     window.setInterval(pwned = function()
                                                 {
                                                     LoadJson(function(network)
