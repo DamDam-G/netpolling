@@ -19,4 +19,5 @@ urlpatterns = patterns('',
                        url(r'^sniff/$', 'netpolling.iw.views.Sniff'),
                        url(r'^connect/$', 'netpolling.iw.views.FCo'),
                        url(r'^disconnect/$', 'netpolling.iw.views.Disconnect'),
+                       url(r'^visitor/$', 'netpolling.iw.views.Disconnect'),
                        url(r'^ajaxform/(\d{1})/$', 'netpolling.iw.views.AjaxForm'))
