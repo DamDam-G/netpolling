@@ -249,7 +249,7 @@ def AjaxForm(request, id):
             else:
                 param = {'success':0, 'why':'error : format data incorrect'}
         elif id == 4:
-            if re.search("^[A-Za-z0-9]{1,}$", request.POST.get("pinterface"), re.IGNORECASE) and re.search("^[0-9]{1,}$", request.POST.get("time"), re.IGNORECASE):
+            if re.search("^[A-Za-z0-9]{1,}$", request.POST.get("pinterface"), re.IGNORECASE) and re.search("^[0-9]{1,}$", request.POST.get("ptime"), re.IGNORECASE):
                 if request.POST.get("pinterface") and request.POST.get("ptime"):
                     r = Param.objects.all()
                     r.update(interface=request.POST.get("pinterface"))
