@@ -1,8 +1,8 @@
 from django.conf.urls import patterns, include, url
 
 # Uncomment the next two lines to enable the admin:
-# from django.contrib import admin
-# admin.autodiscover()
+from django.contrib import admin
+admin.autodiscover()
 
 urlpatterns = patterns('',
                        url('^$', 'netpolling.iw.views.Index'),
@@ -20,4 +20,5 @@ urlpatterns = patterns('',
                        url(r'^connect/$', 'netpolling.iw.views.FCo'),
                        url(r'^disconnect/$', 'netpolling.iw.views.Disconnect'),
                        url(r'^visitor/$', 'netpolling.iw.views.Visitor'),
+                       url(r'^admin/', include(admin.site.urls)),
                        url(r'^ajaxform/(\d{1})/$', 'netpolling.iw.views.AjaxForm'))
