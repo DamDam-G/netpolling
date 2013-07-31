@@ -91,7 +91,8 @@ if __name__ == "__main__":
     for m in scan.net:
         for line in bwp:
             if line == m["ip"]:
-                percent = (float(bwp[line])/float(15728640))*800.0
+                #percent = (float(bwp[line])/float(15728640))*800.0
+                percent = (float(bwp[line])/float(int(ENV.bw)))*800.0
                 kilo = float(bwp[line])/float(1024)
                 m["bw"] = round(kilo,2)
                 m["percent"] = round(percent,2)
