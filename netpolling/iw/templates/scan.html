@@ -33,21 +33,17 @@
                 <div class="accordion-group">
                     <div class="accordion-heading">
                         <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#accord">
-                            Scan externe
+                            Analyse de la bande passante
                         </a>
                     </div>
                     <div id="accord" class="accordion-body collapse">
                         <div class="accordion-inner">
                             <form method="post" id="form1" enctype="application/x-www-form-urlencoded">
-                                <input type="hidden" name="type" value="extern">
                                 {% for t in data %}
-                                    {% if t.type == 0  %}
-                                        <input id="e-name" required="true" placeholder="iti" pattern="^[A-Za-z0-9_]{1,}$" name="name" type="text" value="{{ t.name }}">&nbsp&nbsp<label class="label">Nom du scan</label><br />
-                                        <input id="e-mask" required="true" placeholder="10.8.96.0/20" pattern="^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}/[0-9]{1,2}$" value="{{ t.netmask }}" name="mask" type="text">&nbsp&nbsp<label class="label">Masque réseau</label><br />
-                                        <input id="e-interface" required="true" placeholder="eth0" pattern="^[A-Za-z0-9]{1,}$" value="{{ t.interface }}" name="interface" type="text">&nbsp&nbsp<label class="label">Interface réseau</label><br />
-                                    {% endif %}
+                                    <label class="label">Bande passante (mo)</label>&nbsp&nbsp<input required="true" pattern="^[0-9]{1,}$" placeholder="152365" id="pinterface" name="pinterface" type="text" value="{{ t.bw }}"><br />
+                                    <label class="label">Interface d'écoute</label>&nbsp&nbsp<input required="true" pattern="^[A-Za-z0-9]{1,}$" placeholder="eth0" id="pinterface" name="pinterface" type="text" value="{{ t.interface }}"><br />
+                                    <label class="label">Temps d'écoute</label>&nbsp&nbsp<input required="true" pattern="^[0-9]{1,}$" placeholder="56" id="ptime" name="ptime" type="number" value="{{ t.time }}" ><br />
                                 {% endfor %}
-                                <button type="submit" class="btn btn-info">Mettre à jour</button>
                             </form>
                         </div>
                     </div>
