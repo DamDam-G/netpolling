@@ -159,38 +159,25 @@ def Control(request):
                     r.update(time=param.get("Listen", 'time').replace('"', ''))
                 except ConfigParser.Error, err:
                     print 'Oops, une erreur dans votre fichier de conf (%s)' % err
-            views = [
-                        {
-                            'view':'scan',
-                            'data':ScanParam.objects.all()
-                        },
-                        {
-                            'view':'screen',
-                            'data':''
-                        },
-                        {
-                            'view':'visu',
-                            'data':Screenshot.objects.all()
-                        },
-                        {
-                            'view':'log',
-                            'data':Log.objects.order_by('-id')[:15]
-                        },
-                        {
-                            'view':'para',
-                            'data':Param.objects.all()
-                        },
-                        {
-                            'view':'disconnect',
-                            'data':''
-                        },
-                        {
-                            'view':'help',
-                            'data':''
-                        }]
-
+            views = list("scan", "screen", "visu", "log", "para", "disconnect", "help")
             if id >= 0 and id < len(views):
-                return render_to_response(views[id]['view']+'.html', {'data':views[id]['data']})
+                if id == 0:
+                    data = ScanParam.objects.all()
+                elif id == 1:
+                    data = ''
+                elif id == 2:
+                    data = Screenshot.objects.all()
+                elif id == 3:
+                    data = Log.objects.order_by('-id')[:15]
+                elif id == 4:
+                    data = Param.objects.all()
+                elif id == 5:
+                    data = ''
+                elif id == 6:
+                    data = ''
+                else:
+                    return render_to_response('error.html', {'type':'error id'})
+                return render_to_response(views[id]+'.html', {'data':data})
             else:
                 return render_to_response('error.html', {'type':'error, the page doesn\'t exist'})
         return render_to_response('error.html', {'type':'error post'})
