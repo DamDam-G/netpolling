@@ -126,14 +126,13 @@ def Control(request):
                 param = ConfigParser.RawConfigParser()
                 param.read(ENV.conf+'netpolling.conf')
                 try:
-                    name = ["LocalScan", "ExternScan"]
-                    i = 0
-                    while i < len(name):
-                        r = ScanParam.objects.filter(type=i)
-                        r.update(name=param.get(name[i], 'name').replace('"', ''))
-                        r.update(netmask=param.get(name[i], 'netmask').replace('"', ''))
-                        r.update(interface=param.get(name[i], 'interface').replace('"', ''))
-                        i += 1
+                    r = ScanParam.objects.all()
+                    r.update(name=param.get("LocalScan", 'name').replace('"', ''))
+                    r.update(netmask=param.get("LocalScan", 'netmask').replace('"', ''))
+                    r.update(interface=param.get("LocalScan", 'interface').replace('"', ''))
+                    r.update(bw=param.get("Listen", 'bw').replace('"', ''))
+                    r.update(time=param.get("Listen", 'time').replace('"', ''))
+                    r.update(ilisten=param.get("Listen", 'interface').replace('"', ''))
                 except ConfigParser.Error, err:
                     print 'Oops, une erreur dans votre fichier de conf (%s)' % err
             elif id == 3:
@@ -155,12 +154,13 @@ def Control(request):
                 param.read(ENV.conf+'netpolling.conf')
                 try:
                     r = Param.objects.all()
-                    r.update(interface=param.get("Listen", 'interface').replace('"', ''))
-                    r.update(time=param.get("Listen", 'time').replace('"', ''))
+                    r.update(move=param.get("Param", 'move').replace('"', ''))
+                    r.update(zomd=param.get("Param", 'zoomd').replace('"', ''))
+                    r.update(zoml=param.get("Param", 'zooml').replace('"', ''))
                 except ConfigParser.Error, err:
                     print 'Oops, une erreur dans votre fichier de conf (%s)' % err
-            views = list("scan", "screen", "visu", "log", "para", "disconnect", "help")
-            if id >= 0 and id < len(views):
+            views = ("scan", "screen", "visu", "log", "para", "disconnect", "help")
+            if 0 <= id < len(views):
                 if id == 0:
                     data = ScanParam.objects.all()
                 elif id == 1:
@@ -195,20 +195,42 @@ def AjaxForm(request, id):
         id = int(id)
         if id == 0:
             if request.POST.get("type"):
-                if request.POST.get("type") == "local" or request.POST.get("type") == "extern":
+                if request.POST.get("type") == "scan":
                     if re.search("^[A-Za-z0-9_]{1,}$", request.POST.get("name"), re.IGNORECASE) and re.search("^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}/[0-9]{1,2}$", request.POST.get("mask"), re.IGNORECASE) and re.search("^[A-Za-z0-9]{1,}$", request.POST.get("interface"), re.IGNORECASE):
-                        t = 0 if request.POST.get("type") == "local" else 1
-                        r = ScanParam.objects.filter(type=t)
+                        r = ScanParam.objects.all()
                         r.update(name=request.POST.get("name"))
                         r.update(netmask=request.POST.get("mask"))
                         r.update(interface=request.POST.get("interface"))
                         config = ConfigParser.RawConfigParser()
                         config.read(r''+ENV.conf+'netpolling.conf')
-                        section = ["LocalScan", "ExternScan"]
                         try:
-                            config.set(section[t], 'name', r'"'+request.POST.get("name")+'"')
-                            config.set(section[t], 'netmask', r'"'+request.POST.get("mask")+'"')
-                            config.set(section[t], 'interface', r'"'+request.POST.get("interface")+'"')
+                            config.set("LocalScan", 'name', r'"'+request.POST.get("name")+'"')
+                            config.set("LocalScan", 'netmask', r'"'+request.POST.get("mask")+'"')
+                            config.set("LocalScan", 'interface', r'"'+request.POST.get("interface")+'"')
+                            with open(r''+ENV.conf+'netpolling.conf', 'wb') as configfile:
+                                config.write(configfile)
+                        except ConfigParser.Error, err:
+                            print 'Oops, une erreur dans votre fichier de conf (%s)' % err
+                        param = {'success':1, 'why':'Les paramétres ont bien été enregistré'}
+                    else:
+                        param = {'success':0, 'why':'error : format data incorrect'}
+                elif request.POST.get("type") == "listen":
+                    print(request.POST.get("interface"))
+                    print(request.POST.get("bw"))
+                    print(request.POST.get("ptime"))
+                    if re.search("^[A-Za-z0-9_]{2,}$", str(request.POST.get("interface"))) \
+                        and re.search("^[0-9]{1,}$", str(request.POST.get("bw"))) \
+                        and re.search("^[0-9]{1,}$", str(request.POST.get("ptime"))):
+                        r = ScanParam.objects.all()
+                        r.update(bw=request.POST.get("bw"))
+                        r.update(time=request.POST.get("ptime"))
+                        r.update(ilisten=request.POST.get("interface"))
+                        config = ConfigParser.RawConfigParser()
+                        config.read(r''+ENV.conf+'netpolling.conf')
+                        try:
+                            config.set("Listen", 'time', r'"'+request.POST.get("ptime")+'"')
+                            config.set("Listen", 'bw', r'"'+request.POST.get("bw")+'"')
+                            config.set("Listen", 'interface', r'"'+request.POST.get("interface")+'"')
                             with open(r''+ENV.conf+'netpolling.conf', 'wb') as configfile:
                                 config.write(configfile)
                         except ConfigParser.Error, err:
@@ -217,9 +239,9 @@ def AjaxForm(request, id):
                     else:
                         param = {'success':0, 'why':'error : format data incorrect'}
                 else:
-                    param = {'success':0, 'why':'error : type scan'}
+                    param = {'success':0, 'why':'error : type not exist'}
             else:
-                param = {'success':0, 'why':'error : type not exist'}
+                param = {'success':0, 'why':'error : where is type?'}
         elif id == 1:
             if re.search("^[A-Za-z0-9_]{1,}$", request.POST.get("name"), re.IGNORECASE):
                 if request.POST.get("name"):
@@ -236,26 +258,27 @@ def AjaxForm(request, id):
             else:
                 param = {'success':0, 'why':'error : format data incorrect'}
         elif id == 4:
-            if re.search("^[A-Za-z0-9]{1,}$", request.POST.get("pinterface"), re.IGNORECASE) and re.search("^[0-9]{1,}$", request.POST.get("ptime"), re.IGNORECASE):
-                if request.POST.get("pinterface") and request.POST.get("ptime"):
+            if request.POST.get("move") and request.POST.get("dzoom") and request.POST.get("lzoom"):
+                if re.search("^[0-9]{1,},[0-9]{1,}$", request.POST.get("move"), re.IGNORECASE) and re.search("^0,[0-9]{1,}$", request.POST.get("dzoom"), re.IGNORECASE) and re.search("^0,[0-9]{1,}$", request.POST.get("lzoom"), re.IGNORECASE):
                     r = Param.objects.all()
-                    r.update(interface=request.POST.get("pinterface"))
-                    r.update(time=request.POST.get("ptime"))
+                    r.update(move=request.POST.get("move").replace(",", "."))
+                    r.update(zomd=request.POST.get("dzoom").replace(",", "."))
+                    r.update(zoml=request.POST.get("lzoom").replace(",", "."))
                     config = ConfigParser.RawConfigParser()
                     config.read(r''+ENV.conf+'netpolling.conf')
                     try:
-                        config.set("Listen", 'interface', r'"'+request.POST.get("pinterface")+'"')
-                        config.set("Listen", 'time', r''+request.POST.get("ptime"))
+                        config.set("Param", 'move', r'"'+request.POST.get("move").replace(",", ".")+'"')
+                        config.set("Param", 'zoomd', r'"'+request.POST.get("dzoom").replace(",", ".")+'"')
+                        config.set("Param", 'zooml', r'"'+request.POST.get("lzoom").replace(",", ".")+'"')
                         with open(r''+ENV.conf+'netpolling.conf', 'wb') as configfile:
                             config.write(configfile)
-                        param = {'success':1, 'why':'Les paramétres ont bien été enregistré'}
                     except ConfigParser.Error, err:
                         print 'Oops, une erreur dans votre fichier de conf (%s)' % err
-                        param = {'success':1, 'why':'Fichier introuvable, veuillez contacter votre admin système ;) '}
+                    param = {'success':1, 'why':'Les paramétres ont bien été enregistré'}
                 else:
-                    param = {'success':0, 'why':'error : Informations manquantes'}
+                    param = {'success':0, 'why':'error : format data incorrect'}
             else:
-                param = {'success':0, 'why':'error : format data incorrect'}
+                param = {'success':0, 'why':'error : Informations manquantes'}
         else:
             return render_to_response('error.html', {'type':'error post'})
         return HttpResponse(json.dumps(param))
