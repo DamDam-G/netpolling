@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0de6f5dc-25cf-4fa1-8937-4f7c8a87075d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/netpolling/iw/models.py" afterPath="$PROJECT_DIR$/netpolling/iw/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/netpolling/iw/conf/netpolling.conf" afterPath="$PROJECT_DIR$/netpolling/iw/conf/netpolling.conf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/netpolling/netpolling.sql" afterPath="$PROJECT_DIR$/netpolling/netpolling.sql" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/netpolling/iw/templates/para.html" afterPath="$PROJECT_DIR$/netpolling/iw/templates/para.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/netpolling/iw/templates/scan.html" afterPath="$PROJECT_DIR$/netpolling/iw/templates/scan.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/netpolling/iw/views.py" afterPath="$PROJECT_DIR$/netpolling/iw/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/launch.py" afterPath="$PROJECT_DIR$/launch.py" />
     </list>
     <ignored path="netpolling.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -27,7 +21,7 @@
     <file path="/urls.py" changelist="0de6f5dc-25cf-4fa1-8937-4f7c8a87075d" time="1374120416015" ignored="false" />
     <file path="/install.py" changelist="0de6f5dc-25cf-4fa1-8937-4f7c8a87075d" time="1375253042895" ignored="false" />
     <file path="/change_pasword.py" changelist="0de6f5dc-25cf-4fa1-8937-4f7c8a87075d" time="1373813742249" ignored="false" />
-    <file path="/launch.py" changelist="0de6f5dc-25cf-4fa1-8937-4f7c8a87075d" time="1373814586244" ignored="false" />
+    <file path="/launch.py" changelist="0de6f5dc-25cf-4fa1-8937-4f7c8a87075d" time="1376651202713" ignored="false" />
     <file path="/map.html" changelist="0de6f5dc-25cf-4fa1-8937-4f7c8a87075d" time="1373815224601" ignored="false" />
     <file path="/index.html" changelist="0de6f5dc-25cf-4fa1-8937-4f7c8a87075d" time="1376287742271" ignored="false" />
     <file path="/scanner.py" changelist="0de6f5dc-25cf-4fa1-8937-4f7c8a87075d" time="1375248855526" ignored="false" />
@@ -139,10 +133,19 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="views.py" pinned="false" current="true" current-in-tab="true">
+          <file leaf-file-name="views.py" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/netpolling/iw/views.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="270" column="81" selection-start="12226" selection-end="12226" vertical-scroll-proportion="0.44268292">
+                <state line="266" column="27" selection-start="11918" selection-end="11918" vertical-scroll-proportion="-12.12">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="launch.py" pinned="false" current="true" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/launch.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="4" column="0" selection-start="141" selection-end="141" vertical-scroll-proportion="0.06993007">
                   <folding />
                 </state>
               </provider>
@@ -182,7 +185,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/netpolling/iw/templates/map.html" />
         <option value="$PROJECT_DIR$/netpolling/iw/templates/visu.html" />
         <option value="$PROJECT_DIR$/netpolling/iw/public/css/design.css" />
         <option value="$PROJECT_DIR$/netpolling/settings.py" />
@@ -198,6 +200,7 @@
         <option value="$PROJECT_DIR$/netpolling/iw/templates/scan.html" />
         <option value="$PROJECT_DIR$/netpolling/iw/templates/para.html" />
         <option value="$PROJECT_DIR$/netpolling/iw/views.py" />
+        <option value="$PROJECT_DIR$/launch.py" />
       </list>
     </option>
   </component>
@@ -585,7 +588,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32982457" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22838847" sideWeight="0.67017543" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22786178" sideWeight="0.67017543" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32982457" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -663,11 +666,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/install.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="40" selection-start="937" selection-end="937" vertical-scroll-proportion="0.4878049" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/netpolling/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="34" selection-start="34" selection-end="34" vertical-scroll-proportion="0.0" />
@@ -760,7 +758,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/netpolling/iw/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="270" column="81" selection-start="12226" selection-end="12226" vertical-scroll-proportion="0.44268292">
+        <state line="266" column="27" selection-start="11918" selection-end="11918" vertical-scroll-proportion="-12.12">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/launch.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="0" selection-start="141" selection-end="141" vertical-scroll-proportion="0.06993007">
           <folding />
         </state>
       </provider>
