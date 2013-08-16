@@ -7,9 +7,9 @@
         <div id="info"></div>
         <form method="post" id="form0" enctype="application/x-www-form-urlencoded">
             {% for t in data %}
-                <input required="true" pattern="^[0-9]{1,},[0-9]{1,}$" placeholder=""  name="move" type="number" value="{{ t.move }}">&nbsp&nbsp<label class="label">Coefficiant de déplacement</label><br />
-                <input required="true" pattern="^0,[0-9]{1,}$" placeholder=""  name="dzoom" type="number" value="{{ t.zomd }}">&nbsp&nbsp<label class="label">Coefficiant de zoom sur les équipements</label><br />
-                <input required="true" pattern="^0,[0-9]{1,}$" placeholder=""  name="lzoom" type="number" value="{{ t.zoml }}">&nbsp&nbsp<label class="label">Coefficiant de zoom sur les liens</label><br />
+                <input required="true" pattern="^[0-9]{1,},[0-9]{1,}$" placeholder=""  name="move" type="text" value="{{ t.move }}">&nbsp&nbsp<label class="label">Coefficiant de déplacement</label><br />
+                <input required="true" pattern="^0,[0-9]{1,}$" placeholder=""  name="dzoom" type="text" value="{{ t.zomd }}">&nbsp&nbsp<label class="label">Coefficiant de zoom sur les équipements</label><br />
+                <input required="true" pattern="^0,[0-9]{1,}$" placeholder=""  name="lzoom" type="text" value="{{ t.zoml }}">&nbsp&nbsp<label class="label">Coefficiant de zoom sur les liens</label><br />
             {% endfor %}
             <button type="submit" class="btn btn-info">Sauvegarder</button>
         </form>
