@@ -398,7 +398,23 @@ $(window).load((function()
 
                         this.Init = function()
                                     {
-
+                                        $.ajax(
+                                                {
+                                                    type: 'post',
+                                                    headers:{"X-CSRFToken": csrftoken},
+                                                    data:'',
+                                                    url: '/param/',
+                                                    success:function(data)
+                                                            {
+                                                                data = JSON.parse(data);
+                                                                var cls = data.success == 1 ? (function(){ HydrateParam(); return 'success';})() : (function(){ return 'danger';})();
+                                                                $("#info").html('<div class="alert alert-' +cls+ '"><button type="button" class="close" data-dismiss="alert">×</button>' +data.why+ '</div>');
+                                                            },
+                                                    error:function()
+                                                            {
+                                                                $("#info").html('<div class="alert alert-warning"><button type="button" class="close" data-dismiss="alert">×</button>La requête n\'a pas pu aboutir</div>');
+                                                            }
+                                                });
                                     };
 
                         this.Reset = function()

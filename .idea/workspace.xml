@@ -2,13 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0de6f5dc-25cf-4fa1-8937-4f7c8a87075d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/netpolling/iw/templates/para.html" afterPath="$PROJECT_DIR$/netpolling/iw/templates/para.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/netpolling/iw/public/js/net.js" afterPath="$PROJECT_DIR$/netpolling/iw/public/js/net.js" />
     </list>
     <ignored path="netpolling.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="0de6f5dc-25cf-4fa1-8937-4f7c8a87075d" time="1376649495838" ignored="false" />
-    <file path="/net.js" changelist="0de6f5dc-25cf-4fa1-8937-4f7c8a87075d" time="1373270967261" ignored="false" />
+    <file path="/net.js" changelist="0de6f5dc-25cf-4fa1-8937-4f7c8a87075d" time="1376665089471" ignored="false" />
     <file path="/design.css" changelist="0de6f5dc-25cf-4fa1-8937-4f7c8a87075d" time="1374118633580" ignored="false" />
     <file path="/manager.html" changelist="0de6f5dc-25cf-4fa1-8937-4f7c8a87075d" time="1376287875753" ignored="false" />
     <file path="/visu.html" changelist="0de6f5dc-25cf-4fa1-8937-4f7c8a87075d" time="1373815277171" ignored="false" />
@@ -46,7 +45,7 @@
     <favorites_list name="netpolling" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5010672">
+    <splitter split-orientation="horizontal" split-proportion="0.67837465">
       <split-first>
         <leaf>
           <file leaf-file-name="scan.html" pinned="false" current="false" current-in-tab="false">
@@ -85,19 +84,28 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="para.html" pinned="false" current="false" current-in-tab="true">
+          <file leaf-file-name="para.html" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/netpolling/iw/templates/para.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="11" column="102" selection-start="747" selection-end="747" vertical-scroll-proportion="0.20072992">
+                <state line="16" column="7" selection-start="985" selection-end="985" vertical-scroll-proportion="-10.0">
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="net.js" pinned="false" current="false" current-in-tab="false">
+          <file leaf-file-name="visu.html" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/netpolling/iw/templates/visu.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="55" column="24" selection-start="2566" selection-end="2566" vertical-scroll-proportion="-5.25">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="net.js" pinned="false" current="true" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/netpolling/iw/public/js/net.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="279" column="19" selection-start="17818" selection-end="17818" vertical-scroll-proportion="0.0">
+                <state line="409" column="121" selection-start="25863" selection-end="25863" vertical-scroll-proportion="0.34545454">
                   <folding />
                 </state>
               </provider>
@@ -143,10 +151,10 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="launch.py" pinned="false" current="true" current-in-tab="true">
+          <file leaf-file-name="launch.py" pinned="false" current="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/launch.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="4" column="0" selection-start="141" selection-end="141" vertical-scroll-proportion="0.069848664">
+                <state line="4" column="0" selection-start="141" selection-end="141" vertical-scroll-proportion="0.07272727">
                   <folding />
                 </state>
               </provider>
@@ -185,7 +193,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="develop" />
       </map>
     </option>
   </component>
@@ -204,7 +212,6 @@
         <option value="$PROJECT_DIR$/netpolling/iw/conf/netenv.py" />
         <option value="$PROJECT_DIR$/netpolling/iw/scanner.py" />
         <option value="$PROJECT_DIR$/install.py" />
-        <option value="$PROJECT_DIR$/netpolling/iw/public/js/net.js" />
         <option value="$PROJECT_DIR$/netpolling/iw/conf/netpolling.conf" />
         <option value="$PROJECT_DIR$/netpolling/iw/models.py" />
         <option value="$PROJECT_DIR$/netpolling/iw/templates/manager.html" />
@@ -213,6 +220,7 @@
         <option value="$PROJECT_DIR$/netpolling/iw/views.py" />
         <option value="$PROJECT_DIR$/launch.py" />
         <option value="$PROJECT_DIR$/netpolling/iw/templates/para.html" />
+        <option value="$PROJECT_DIR$/netpolling/iw/public/js/net.js" />
       </list>
     </option>
   </component>
@@ -600,7 +608,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32982457" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22518677" sideWeight="0.67017543" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22518677" sideWeight="0.67017543" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32982457" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -678,11 +686,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/netpolling/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="129" column="19" selection-start="4530" selection-end="4530" vertical-scroll-proportion="0.2682927" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/netpolling/iw/conf/netenv.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="13" column="13" selection-start="411" selection-end="411" vertical-scroll-proportion="0.22648084">
@@ -705,13 +708,6 @@
     <entry file="file://$PROJECT_DIR$/netpolling/iw/scan/LocalScan.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/netpolling/iw/public/js/net.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="279" column="19" selection-start="17818" selection-end="17818" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -746,7 +742,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/netpolling/iw/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="266" column="27" selection-start="11918" selection-end="11918" vertical-scroll-proportion="-12.12">
+        <state line="262" column="20" selection-start="11631" selection-end="11631" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -767,13 +763,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/netpolling/iw/templates/para.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="102" selection-start="747" selection-end="747" vertical-scroll-proportion="0.20072992">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/netpolling/iw/templates/manager.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="124" column="25" selection-start="6400" selection-end="6400" vertical-scroll-proportion="-20.25">
@@ -783,7 +772,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/launch.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="0" selection-start="141" selection-end="141" vertical-scroll-proportion="0.069848664">
+        <state line="4" column="0" selection-start="141" selection-end="141" vertical-scroll-proportion="0.07272727">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/netpolling/iw/templates/para.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="7" selection-start="985" selection-end="985" vertical-scroll-proportion="-10.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/netpolling/iw/templates/visu.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="55" column="24" selection-start="2566" selection-end="2566" vertical-scroll-proportion="-5.25">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/netpolling/iw/public/js/net.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="409" column="121" selection-start="25863" selection-end="25863" vertical-scroll-proportion="0.34545454">
           <folding />
         </state>
       </provider>
