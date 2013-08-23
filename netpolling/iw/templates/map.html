@@ -22,12 +22,24 @@
                 <ul>
                     <li><a href="#i">Informations</a></li>
                     <li><a href="#search">Recherche</a></li>
+                    <li><a href="#para">Paramétres</a></li>
                 </ul>
                 <div id="i">
                     <div id="d"></div>
                 </div>
                 <div id="search">
 
+                </div>
+                <div id="para">
+                    <div id="inf">Ces paramétres ne seront enregistrés que pendant la session actuelle</div>
+                    <form method="post" id="form0" enctype="application/x-www-form-urlencoded">
+                        {% for t in data %}
+                            <input required="true" pattern="^[0-9]{1,},[0-9]{1,}$" placeholder=""  name="move" type="text" value="{{ t.move }}">&nbsp&nbsp<label class="label">Coefficiant de déplacement</label><br />
+                            <input required="true" pattern="^0,[0-9]{1,}$" placeholder=""  name="dzoom" type="text" value="{{ t.zomd }}">&nbsp&nbsp<label class="label">Coefficiant de zoom sur les équipements</label><br />
+                            <input required="true" pattern="^0,[0-9]{1,}$" placeholder=""  name="lzoom" type="text" value="{{ t.zoml }}">&nbsp&nbsp<label class="label">Coefficiant de zoom sur les liens</label><br />
+                        {% endfor %}
+                        <button type="submit" class="btn btn-info">Sauvegarder</button>
+                    </form>
                 </div>
             </div>
             <div id="move">
@@ -72,6 +84,6 @@
         <!--<script src="/public/js/jquery-ui-1.10.3.custom.min.js"></script>-->
         <script src="/public/js/raphael-min.js"></script>
         <script src="/public/bootstrap/js/bootstrap.min.js"></script>
-        <script src="/public/js/visitor.min.js"></script>
+        <script src="/public/js/visitor.js"></script>
     </body>
 </html>

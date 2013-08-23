@@ -29,7 +29,7 @@ def Visitor(request):
     @details Description:
     This is a view function. It displays the index
     """
-    return render(request, 'map.html', {})
+    return render_to_response('map.html', {"data":Param.objects.all()})
 
 def Co(request):
     """!
@@ -371,3 +371,11 @@ def Sniff(request):
             return HttpResponse(json.dumps({"success":0, "rep":"42, The Big Question of Life, the Universe and Everything.<br /> <div class=\"alert alert-error\">[ERROR] : hum hum ...  I think you must contact your admin system ;)</div>"}))
     else:
         return HttpResponse(json.dumps({"success":0, "rep":"42, The Big Question of Life, the Universe and Everything.<br /> <div class=\"alert alert-error\">[ERROR] : it's not a request ajax ... Are you stupid?</div>"}))
+
+def GetParam(request):
+    if request.is_ajax():
+        param = ConfigParser.RawConfigParser()
+        param.read(ENV.conf+'netpolling.conf')
+        return HttpResponse(json.dumps({"success":"1", "why":"Data are loaded with successfull", "obj":{"move":param.get("Param", "move"), "zoomd":param.get("Param", "zoomd"), "zooml":param.get("Param", "zooml")}}))
+    else:
+        return HttpResponse(json.dumps({"success":"0", "why":"The request is not ajax"}))
