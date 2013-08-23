@@ -29,7 +29,7 @@ def Visitor(request):
     @details Description:
     This is a view function. It displays the index
     """
-    return render(request, 'map.html', {})
+    return render_to_response('map.html', {"data":Param.objects.all()})
 
 def Co(request):
     """!
@@ -228,8 +228,8 @@ def AjaxForm(request, id):
                         config = ConfigParser.RawConfigParser()
                         config.read(r''+ENV.conf+'netpolling.conf')
                         try:
-                            config.set("Listen", 'time', r'"'+request.POST.get("ptime")+'"')
-                            config.set("Listen", 'bw', r'"'+request.POST.get("bw")+'"')
+                            config.set("Listen", 'time', int(request.POST.get("ptime")))
+                            config.set("Listen", 'bw', int(request.POST.get("bw")))
                             config.set("Listen", 'interface', r'"'+request.POST.get("interface")+'"')
                             with open(r''+ENV.conf+'netpolling.conf', 'wb') as configfile:
                                 config.write(configfile)
@@ -243,8 +243,8 @@ def AjaxForm(request, id):
             else:
                 param = {'success':0, 'why':'error : where is type?'}
         elif id == 1:
-            if re.search("^[A-Za-z0-9_]{1,}$", request.POST.get("name"), re.IGNORECASE):
-                if request.POST.get("name"):
+            if request.POST.get("name"):
+                if re.search("^[A-Za-z0-9_]{1,}$", request.POST.get("name"), re.IGNORECASE):
                     r = Screenshot()
                     r.name = request.POST.get("name")
                     r.path = '/public/screenshots/'+request.POST.get("name")+'.json'
@@ -267,9 +267,9 @@ def AjaxForm(request, id):
                     config = ConfigParser.RawConfigParser()
                     config.read(r''+ENV.conf+'netpolling.conf')
                     try:
-                        config.set("Param", 'move', r'"'+request.POST.get("move").replace(",", ".")+'"')
-                        config.set("Param", 'zoomd', r'"'+request.POST.get("dzoom").replace(",", ".")+'"')
-                        config.set("Param", 'zooml', r'"'+request.POST.get("lzoom").replace(",", ".")+'"')
+                        config.set("Param", 'move', float(request.POST.get("move").replace(",", ".")))
+                        config.set("Param", 'zoomd', float(request.POST.get("dzoom").replace(",", ".")))
+                        config.set("Param", 'zooml', float(request.POST.get("lzoom").replace(",", ".")))
                         with open(r''+ENV.conf+'netpolling.conf', 'wb') as configfile:
                             config.write(configfile)
                     except ConfigParser.Error, err:
@@ -371,3 +371,11 @@ def Sniff(request):
             return HttpResponse(json.dumps({"success":0, "rep":"42, The Big Question of Life, the Universe and Everything.<br /> <div class=\"alert alert-error\">[ERROR] : hum hum ...  I think you must contact your admin system ;)</div>"}))
     else:
         return HttpResponse(json.dumps({"success":0, "rep":"42, The Big Question of Life, the Universe and Everything.<br /> <div class=\"alert alert-error\">[ERROR] : it's not a request ajax ... Are you stupid?</div>"}))
+
+def GetParam(request):
+    if request.is_ajax():
+        param = ConfigParser.RawConfigParser()
+        param.read(ENV.conf+'netpolling.conf')
+        return HttpResponse(json.dumps({"success":"1", "why":"Data are loaded with successfull", "obj":{"move":param.get("Param", "move"), "zoomd":param.get("Param", "zoomd"), "zooml":param.get("Param", "zooml")}}))
+    else:
+        return HttpResponse(json.dumps({"success":"0", "why":"The request is not ajax"}))

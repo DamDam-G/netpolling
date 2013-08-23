@@ -11,4 +11,3 @@ public = iw+"/public/"
 db = path+"netpolling.sql"
 screen = public+"screenshots/"
 listen = public+"listen/"
-bw = 15728640

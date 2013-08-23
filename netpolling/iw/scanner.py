@@ -31,7 +31,8 @@ def GetBW(queue):
     param.read(ENV.conf+'netpolling.conf')
     interface = param.get("Listen", "interface")
     duration = param.get("Listen", "time")
-    (os.popen("tshark -i {0} -z conv,ip -a duration:{1} > {2}traffic".format(interface, duration, ENV.conf)))
+    bw = param.get("Listen", "bw")
+    (os.popen("tshark -i {0} -z conv,ip -a duration:{1} > {2}traffic".format(interface, duration, bw)))
     bwk = {}
     fd = open(ENV.conf+"traffic", "r")
     for line in fd:
@@ -50,8 +51,6 @@ def GetBW(queue):
                     bwk[ip2] += bps
                 else:
                     bwk[ip2] = bps
-	    else:
-               	print "Joe la praline"
     fd.close()
     queue.put(bwk)
 
@@ -78,6 +77,9 @@ def DoScan(queue):
         sys.exit(0)
 
 if __name__ == "__main__":
+    param = ConfigParser.RawConfigParser()
+    param.read(ENV.conf+'netpolling.conf')
+    bw = param.get("Listen", "bw")
     q0 = Queue()
     q1 = Queue()
     worker0 = Process(target=GetBW, args=(q0,))
@@ -92,7 +94,7 @@ if __name__ == "__main__":
         for line in bwp:
             if line == m["ip"]:
                 #percent = (float(bwp[line])/float(15728640))*800.0
-                percent = (float(bwp[line])/float(int(ENV.bw)))*800.0
+                percent = (float(bwp[line])/float(int(bw)))*800.0
                 kilo = float(bwp[line])/float(1024)
                 m["bw"] = round(kilo,2)
                 m["percent"] = round(percent,2)
