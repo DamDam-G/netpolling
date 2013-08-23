@@ -2,13 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="63a2fc20-4ca1-4c03-8b33-d5820e195f7f" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/netpolling/iw/views.py" afterPath="$PROJECT_DIR$/netpolling/iw/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/netpolling/iw/public/js/visitor.js" afterPath="$PROJECT_DIR$/netpolling/iw/public/js/visitor.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/netpolling/iw/templates/help.html" afterPath="$PROJECT_DIR$/netpolling/iw/templates/help.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="netpolling.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="63a2fc20-4ca1-4c03-8b33-d5820e195f7f" time="1377250586890" ignored="false" />
+    <file path="/Dummy.txt" changelist="63a2fc20-4ca1-4c03-8b33-d5820e195f7f" time="1377254810700" ignored="false" />
     <file path="/scanner.py" changelist="63a2fc20-4ca1-4c03-8b33-d5820e195f7f" time="1377004296363" ignored="false" />
     <file path="/net.js" changelist="63a2fc20-4ca1-4c03-8b33-d5820e195f7f" time="1377068479069" ignored="false" />
     <file path="/urls.py" changelist="63a2fc20-4ca1-4c03-8b33-d5820e195f7f" time="1377004455877" ignored="false" />
@@ -16,6 +15,7 @@
     <file path="/map.html" changelist="63a2fc20-4ca1-4c03-8b33-d5820e195f7f" time="1377241652180" ignored="false" />
     <file path="/visitor.js" changelist="63a2fc20-4ca1-4c03-8b33-d5820e195f7f" time="1377249753847" ignored="false" />
     <file path="/visu.js" changelist="63a2fc20-4ca1-4c03-8b33-d5820e195f7f" time="1377252515683" ignored="false" />
+    <file path="/help.html" changelist="63a2fc20-4ca1-4c03-8b33-d5820e195f7f" time="1377262179153" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,9 +59,16 @@
             <entry file="file://$PROJECT_DIR$/netpolling/iw/views.py">
               <provider selected="true" editor-type-id="text-editor">
                 <state line="230" column="88" selection-start="9603" selection-end="9603" vertical-scroll-proportion="0.0">
-                  <folding>
-                    <element signature="e#24#35#0" expanded="true" />
-                  </folding>
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="help.html" pinned="false" current="true" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/netpolling/iw/templates/help.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="160" column="26" selection-start="8626" selection-end="8626" vertical-scroll-proportion="0.51432127">
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -84,10 +91,10 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="visu.js" pinned="false" current="true" current-in-tab="true">
+          <file leaf-file-name="visu.js" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/netpolling/iw/public/js/visu.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="311" column="0" selection-start="22266" selection-end="22266" vertical-scroll-proportion="0.6367925">
+                <state line="311" column="0" selection-start="22266" selection-end="22266" vertical-scroll-proportion="0.0">
                   <folding />
                 </state>
               </provider>
@@ -97,26 +104,7 @@
             <entry file="file://$PROJECT_DIR$/netpolling/iw/public/js/visitor.js">
               <provider selected="true" editor-type-id="text-editor">
                 <state line="351" column="0" selection-start="23788" selection-end="23788" vertical-scroll-proportion="0.0">
-                  <folding>
-                    <element signature="e#834#1126#0" expanded="false" />
-                    <element signature="e#1193#2005#0" expanded="false" />
-                    <element signature="e#2027#2622#0" expanded="false" />
-                    <element signature="e#2747#15184#0" expanded="false" />
-                    <element signature="e#3349#3561#0" expanded="false" />
-                    <element signature="e#3646#11586#0" expanded="false" />
-                    <element signature="e#15206#15405#0" expanded="false" />
-                    <element signature="e#15465#19317#0" expanded="false" />
-                    <element signature="e#19339#19660#0" expanded="false" />
-                    <element signature="e#19730#20777#0" expanded="false" />
-                    <element signature="e#20799#21060#0" expanded="false" />
-                    <element signature="e#21123#21315#0" expanded="false" />
-                    <element signature="e#27679#28515#0" expanded="false" />
-                    <element signature="e#28636#28864#0" expanded="false" />
-                    <element signature="e#28973#29314#0" expanded="false" />
-                    <element signature="e#29420#29807#0" expanded="false" />
-                    <element signature="e#29915#31432#0" expanded="false" />
-                    <element signature="e#31569#32809#0" expanded="false" />
-                  </folding>
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -146,7 +134,7 @@
           <file leaf-file-name="net.js" pinned="false" current="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/netpolling/iw/public/js/net.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="521" column="42" selection-start="31405" selection-end="31405" vertical-scroll-proportion="-0.053066038">
+                <state line="557" column="53" selection-start="34408" selection-end="34408" vertical-scroll-proportion="0.6544811">
                   <folding />
                 </state>
               </provider>
@@ -181,6 +169,7 @@
         <option value="$PROJECT_DIR$/netpolling/iw/public/js/visitor.js" />
         <option value="$PROJECT_DIR$/netpolling/iw/views.py" />
         <option value="$PROJECT_DIR$/netpolling/iw/public/js/visu.js" />
+        <option value="$PROJECT_DIR$/netpolling/iw/templates/help.html" />
       </list>
     </option>
   </component>
@@ -216,7 +205,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -383,15 +371,16 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="recentsLimit" value="5" />
     <property name="options.lastSelected" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
-    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="recentsLimit" value="5" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -515,7 +504,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.0773746" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1905016" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -593,32 +582,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/netpolling/iw/public/js/visitor.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="330" column="75" selection-start="22141" selection-end="22141" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#834#1126#0" expanded="false" />
-            <element signature="e#1193#2005#0" expanded="false" />
-            <element signature="e#2027#2622#0" expanded="false" />
-            <element signature="e#2747#15184#0" expanded="false" />
-            <element signature="e#3349#3561#0" expanded="false" />
-            <element signature="e#3646#11586#0" expanded="false" />
-            <element signature="e#15206#15405#0" expanded="false" />
-            <element signature="e#15465#19317#0" expanded="false" />
-            <element signature="e#19339#19660#0" expanded="false" />
-            <element signature="e#19730#20777#0" expanded="false" />
-            <element signature="e#20799#21060#0" expanded="false" />
-            <element signature="e#21123#21315#0" expanded="false" />
-            <element signature="e#27679#28515#0" expanded="false" />
-            <element signature="e#28636#28864#0" expanded="false" />
-            <element signature="e#28973#29314#0" expanded="false" />
-            <element signature="e#29420#29807#0" expanded="false" />
-            <element signature="e#29915#31432#0" expanded="false" />
-            <element signature="e#31569#32809#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/netpolling/iw/public/js/visu.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="9" column="33" selection-start="707" selection-end="707" vertical-scroll-proportion="0.0">
@@ -694,6 +657,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/netpolling/iw/public/js/visitor.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="351" column="0" selection-start="23788" selection-end="23788" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/netpolling/iw/public/js/visu.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="311" column="0" selection-start="22266" selection-end="22266" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/netpolling/iw/public/js/net.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="93" column="21" selection-start="3050" selection-end="4895" vertical-scroll-proportion="0.0">
@@ -701,44 +678,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/netpolling/iw/public/js/visitor.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="351" column="0" selection-start="23788" selection-end="23788" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#834#1126#0" expanded="false" />
-            <element signature="e#1193#2005#0" expanded="false" />
-            <element signature="e#2027#2622#0" expanded="false" />
-            <element signature="e#2747#15184#0" expanded="false" />
-            <element signature="e#3349#3561#0" expanded="false" />
-            <element signature="e#3646#11586#0" expanded="false" />
-            <element signature="e#15206#15405#0" expanded="false" />
-            <element signature="e#15465#19317#0" expanded="false" />
-            <element signature="e#19339#19660#0" expanded="false" />
-            <element signature="e#19730#20777#0" expanded="false" />
-            <element signature="e#20799#21060#0" expanded="false" />
-            <element signature="e#21123#21315#0" expanded="false" />
-            <element signature="e#27679#28515#0" expanded="false" />
-            <element signature="e#28636#28864#0" expanded="false" />
-            <element signature="e#28973#29314#0" expanded="false" />
-            <element signature="e#29420#29807#0" expanded="false" />
-            <element signature="e#29915#31432#0" expanded="false" />
-            <element signature="e#31569#32809#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/netpolling/iw/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="230" column="88" selection-start="9603" selection-end="9603" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#24#35#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/netpolling/iw/public/js/visu.js">
+    <entry file="file://$PROJECT_DIR$/netpolling/iw/templates/help.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="311" column="0" selection-start="22266" selection-end="22266" vertical-scroll-proportion="0.6367925">
+        <state line="160" column="26" selection-start="8626" selection-end="8626" vertical-scroll-proportion="0.51432127">
           <folding />
         </state>
       </provider>
