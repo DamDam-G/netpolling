@@ -349,9 +349,6 @@ $(window).load((function()
                                             move = parseFloat(obj.move);
                                             zdevice = parseFloat(obj.zoomd);
                                             zconnector = parseFloat(obj.zooml);
-                                            console.log(move);
-                                            console.log(zdevice);
-                                            console.log(zconnector);
                                         };
 
                         this.UpdateParam = function(obj)
