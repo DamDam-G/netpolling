@@ -11,6 +11,7 @@ $(window).load((function()
                     var net;
                     var kkeys = [];
                     var param = new Param();
+                    param.Init();
                     /**
                      * @author Damien Goldenberg
                      * @name GetCookie
@@ -64,6 +65,11 @@ $(window).load((function()
                     function Form(e)
                     {
                         e.preventDefault();
+                        if (id == 4)
+                        {
+                            var t = $(this).serialize().replace("%2C", ",", "gi").split("&");
+                            var o = {"move":parseFloat((t[0].split("="))[1].replace(",", ".")), "zoomd":parseFloat((t[1].split("="))[1].replace(",", ".")), "zooml":parseFloat((t[2].split("="))[1].replace(",", "."))};
+                        }
                         $.ajax({
                             type: 'post',
                             headers:
@@ -77,6 +83,8 @@ $(window).load((function()
                                             data = JSON.parse(data);
                                             var cls = data.success == 1 ? 'success' : 'danger';
                                             $("#info").html('<div class="alert alert-' +cls+ '"><button type="button" class="close" data-dismiss="alert">×</button>' +data.why+ '</div>');
+                                            if (id == 4)
+                                                param.UpdateParam(o);
                                         },
                                 error:function()
                                       {
@@ -286,7 +294,7 @@ $(window).load((function()
                         var angle = 0;
                         var dist = (360/obj.net.length)+0.5; // coef d'espacement
                         objnet = [];
-                        objnet[0] = new Device(obj.gw, "8c:89:a5:a3:ad:1f", "Linux", "router", 'Itinet', 0, 0, n, x/param.GetScaleConnector(), y/param.GetScaleConnector(), {"x":0.6+param.GetScaleDevice(), "y":0.6+param.GetScaleDevice()});
+                        objnet[0] = new Device(obj.gw, "", "Linux", "router", 'Itinet', 0, 0, n, x/param.GetScaleConnector(), y/param.GetScaleConnector(), {"x":0.6+param.GetScaleDevice(), "y":0.6+param.GetScaleDevice()});
                         var router = {x:objnet[0].GetX(), y:objnet[0].GetY()};
                         var lst = "<table class=\"table table-striped\"><tr><td>Hostname</td><td>IP</td></tr>";
                         for(var i = 0; i < obj.net.length; i++)
@@ -398,8 +406,36 @@ $(window).load((function()
 
                         this.Init = function()
                                     {
-
+                                        $.ajax(
+                                                {
+                                                    type: 'post',
+                                                    headers:{"X-CSRFToken": csrftoken},
+                                                    data:'',
+                                                    url: '/param/',
+                                                    success:function(data)
+                                                            {
+                                                                data = JSON.parse(data);
+                                                                var cls = data.success == 1 ? (function(){ Hydrate(data.obj); return 'success';})() : (function(){ return 'danger';})();
+                                                                $("#inf").html('<div class="alert alert-' +cls+ '"><button type="button" class="close" data-dismiss="alert">×</button>' +data.why+ '</div>');
+                                                            },
+                                                    error:function()
+                                                            {
+                                                                $("#inf").html('<div class="alert alert-warning"><button type="button" class="close" data-dismiss="alert">×</button>La requête n\'a pas pu aboutir</div>');
+                                                            }
+                                                });
                                     };
+
+                        Hydrate = function(obj)
+                                        {
+                                            move = parseFloat(obj.move);
+                                            zdevice = parseFloat(obj.zoomd);
+                                            zconnector = parseFloat(obj.zooml);
+                                        };
+
+                        this.UpdateParam = function(obj)
+                                            {
+                                                Hydrate(obj);
+                                            };
 
                         this.Reset = function()
                                     {
@@ -447,12 +483,12 @@ $(window).load((function()
 
                         this.SetMouseX = function(v)
                                         {
-                                            mouse.x = v
+                                            mouse.x = parseFloat(v);
                                         };
 
                         this.SetMouseY = function(v)
                                         {
-                                            mouse.y = v
+                                            mouse.y = parseFloat(v);
                                         };
 
                         this.GetMove = function()
@@ -462,7 +498,7 @@ $(window).load((function()
 
                         this.SetMove = function(v)
                                         {
-                                            move = v;
+                                            move = parseInt(y);
                                         };
 
                         this.GetScaleDevice = function()

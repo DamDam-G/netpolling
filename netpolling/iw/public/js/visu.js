@@ -7,6 +7,7 @@ $(window).load((function()
                     var objnet = []; // list of the device object in the part asynchronous
                     var kkeys = [];
                     var param = new Param();
+                    param.Init();
                     $('#pop').resizable({animate: true}).draggable().tabs();
 
                     function GetCookie(name)
@@ -284,8 +285,31 @@ $(window).load((function()
 
                         this.Init = function()
                                     {
-
+                                        $.ajax(
+                                                {
+                                                    type: 'post',
+                                                    headers:{"X-CSRFToken": csrftoken},
+                                                    data:'',
+                                                    url: '/param/',
+                                                    success:function(data)
+                                                            {
+                                                                data = JSON.parse(data);
+                                                                var cls = data.success == 1 ? (function(){ Hydrate(data.obj); return 'success';})() : (function(){ return 'danger';})();
+                                                                $("#inf").html('<div class="alert alert-' +cls+ '"><button type="button" class="close" data-dismiss="alert">×</button>' +data.why+ '</div>');
+                                                            },
+                                                    error:function()
+                                                            {
+                                                                $("#inf").html('<div class="alert alert-warning"><button type="button" class="close" data-dismiss="alert">×</button>La requête n\'a pas pu aboutir</div>');
+                                                            }
+                                                });
                                     };
+
+                        Hydrate = function(obj)
+                                        {
+                                            move = parseFloat(obj.move);
+                                            zdevice = parseFloat(obj.zoomd);
+                                            zconnector = parseFloat(obj.zooml);
+                                        };
 
                         this.Reset = function()
                                     {

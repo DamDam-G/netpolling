@@ -7,8 +7,9 @@
         <div id="info"></div>
         <form method="post" id="form0" enctype="application/x-www-form-urlencoded">
             {% for t in data %}
-                <label class="label">Interface d'écoute</label>&nbsp&nbsp<input required="true" pattern="^[A-Za-z0-9]{1,}$" placeholder="eth0" id="pinterface" name="pinterface" type="text" value="{{ t.interface }}"><br />
-                <label class="label">Temps d'écoute</label>&nbsp&nbsp<input required="true" pattern="^[0-9]{1,}$" placeholder="56" id="ptime" name="ptime" type="number" value="{{ t.time }}" ><br />
+                <input required="true" pattern="^[0-9]{1,},[0-9]{1,}$" placeholder=""  name="move" type="text" value="{{ t.move }}">&nbsp&nbsp<label class="label">Coefficiant de déplacement</label><br />
+                <input required="true" pattern="^0,[0-9]{1,}$" placeholder=""  name="dzoom" type="text" value="{{ t.zomd }}">&nbsp&nbsp<label class="label">Coefficiant de zoom sur les équipements</label><br />
+                <input required="true" pattern="^0,[0-9]{1,}$" placeholder=""  name="lzoom" type="text" value="{{ t.zoml }}">&nbsp&nbsp<label class="label">Coefficiant de zoom sur les liens</label><br />
             {% endfor %}
             <button type="submit" class="btn btn-info">Sauvegarder</button>
         </form>

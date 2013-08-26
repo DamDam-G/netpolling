@@ -7,10 +7,9 @@ class ScanParam(models.Model):
     name = models.TextField()
     netmask = models.TextField()
     interface = models.TextField()
-    os = models.BooleanField()
-    device = models.BooleanField()
-    hostname = models.BooleanField()
-    type = models.IntegerField()
+    time = models.IntegerField()
+    ilisten = models.TextField()
+    bw = models.BigIntegerField()
     up = models.BooleanField()
 
 class Screenshot(models.Model):
@@ -27,35 +26,11 @@ class Log(models.Model):
 
 class Param(models.Model):
     id = models.AutoField(primary_key=True)
-    interface = models.TextField()
-    time = models.IntegerField()
-
-class Machine(models.Model):
-    id = models.AutoField(primary_key=True)
-    name = models.TextField()
-    device = models.ForeignKey('Device')
-    os = models.ForeignKey('OS')
-
-class Interface(models.Model):
-    id = models.AutoField(primary_key=True)
-    id_machine = models.ForeignKey('Machine')
-    ip = models.IPAddressField()
-    mac = models.TextField(max_length=17)
-    gw = models.ForeignKey('Route')
-
-class Route(models.Model):
-    id = models.AutoField(primary_key=True)
-    gw = models.IPAddressField()
-
-class BandWidth(models.Model):
-    id = models.AutoField(primary_key=True)
-    id_machine = models.ForeignKey('Machine')
-    bw = models.IntegerField()
-
-class OS(models.Model):
-    id = models.AutoField(primary_key=True)
-    name = models.TextField()
+    move = models.FloatField()
+    zomd = models.FloatField()
+    zoml = models.FloatField()
 
 class Device(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.TextField()
+    mac = models.TextField()

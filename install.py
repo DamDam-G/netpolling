@@ -23,4 +23,8 @@ for i in clean:
     os.popen("rm -rf "+i)
 
 os.popen("cd /opt/netpolling/")
-os.popen("/opt/netpolling/netpolling/iw/scripts/cron.pl")
+os.popen("perl /opt/netpolling/netpolling/iw/scripts/cron.pl")
+os.popen("chmod -R 600 /opt/netpolling/")
+os.popen("chown -R root:root /opt/netpolling/")
+os.popen("python /opt/netpolling/change_password")
+print("Netpolling is ready to run.\nTo run netpolling server use the launch.py.\nFor configure netpolling, connect on the web interface.")
