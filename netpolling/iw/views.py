@@ -135,20 +135,6 @@ def Control(request):
                     r.update(ilisten=param.get("Listen", 'interface').replace('"', ''))
                 except ConfigParser.Error, err:
                     print 'Oops, une erreur dans votre fichier de conf (%s)' % err
-            elif id == 3:
-                file = (os.popen("cat "+ENV.conf+"log")).readlines()
-                os.popen("echo '' > "+ENV.conf+"log")
-                i = 0
-                while i < len(file):
-                    if len(file) > 1:
-                        l = file[i].split(" ")
-                        r = Log()
-                        r.name = l[0].replace("_", " ")
-                        r.content = l[1].replace("_", " ")
-                        r.date = l[2]
-                        r.type = l[3]
-                        r.save()
-                    i += 1
             elif id == 4:
                 param = ConfigParser.RawConfigParser()
                 param.read(ENV.conf+'netpolling.conf')

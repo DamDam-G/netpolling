@@ -93,13 +93,14 @@ if __name__ == "__main__":
     for m in scan.net:
         for line in bwp:
             if line == m["ip"]:
-                #percent = (float(bwp[line])/float(15728640))*800.0
-                percent = (float(bwp[line])/float(int(bw)))*800.0
-                kilo = float(bwp[line])/float(1024)
-                m["bw"] = round(kilo,2)
-                m["percent"] = round(percent,2)
-                if percent > 70.0:
-                    log.PutLog("Bandwidth overused", "ip", time.strftime('%H %M %D'), 3)
+                m["bw"] = round(float(bwp[line])/float(1024),2)
+                m["percent"] = round((float(bwp[line])/float(int(bw)))*800.0,2)
+                if 10.0 <= m["percent"] < 20.0:
+                    log.PutLog(m['hostname']+" - "+m["ip"], "The machine("+m["ip"]+") used "+m["percent"]+" ("+m["bw"]+"kb/s)  of the bandwidth", 0)
+                elif 20.0 <= m["percent"] < 50.0:
+                    log.PutLog(m['hostname']+" - "+m["ip"], "The machine("+m["ip"]+") used "+m["percent"]+" ("+m["bw"]+"kb/s)  of the bandwidth", 2)
+                elif m["percent"] >= 50.0:
+                    log.PutLog(m['hostname']+" - "+m["ip"], "The machine("+m["ip"]+") used "+m["percent"]+" ("+m["bw"]+"kb/s)  of the bandwidth", 3)
     fd = open(ENV.conf+"network.json", "w")
     fd.write(scan.GetNetwork(1))
     fd.close()
