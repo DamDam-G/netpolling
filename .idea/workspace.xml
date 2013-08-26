@@ -2,14 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="63a2fc20-4ca1-4c03-8b33-d5820e195f7f" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/netpolling/iw/templates/log.html" afterPath="$PROJECT_DIR$/netpolling/iw/templates/log.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/netpolling/iw/log.py" afterPath="$PROJECT_DIR$/netpolling/iw/log.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/netpolling/iw/scanner.py" afterPath="$PROJECT_DIR$/netpolling/iw/scanner.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/netpolling/iw/views.py" afterPath="$PROJECT_DIR$/netpolling/iw/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/netpolling/iw/templates/visu.html" afterPath="$PROJECT_DIR$/netpolling/iw/templates/visu.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="netpolling.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="63a2fc20-4ca1-4c03-8b33-d5820e195f7f" time="1377254810700" ignored="false" />
+    <file path="/Dummy.txt" changelist="63a2fc20-4ca1-4c03-8b33-d5820e195f7f" time="1377512079332" ignored="false" />
     <file path="/scanner.py" changelist="63a2fc20-4ca1-4c03-8b33-d5820e195f7f" time="1377509755539" ignored="false" />
     <file path="/net.js" changelist="63a2fc20-4ca1-4c03-8b33-d5820e195f7f" time="1377068479069" ignored="false" />
     <file path="/urls.py" changelist="63a2fc20-4ca1-4c03-8b33-d5820e195f7f" time="1377004455877" ignored="false" />
@@ -21,6 +19,7 @@
     <file path="/tsqlite.py" changelist="63a2fc20-4ca1-4c03-8b33-d5820e195f7f" time="1377508371688" ignored="false" />
     <file path="/log.py" changelist="63a2fc20-4ca1-4c03-8b33-d5820e195f7f" time="1377509435368" ignored="false" />
     <file path="/log.html" changelist="63a2fc20-4ca1-4c03-8b33-d5820e195f7f" time="1377509405348" ignored="false" />
+    <file path="/visu.html" changelist="63a2fc20-4ca1-4c03-8b33-d5820e195f7f" time="1377512530172" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,17 +52,15 @@
         <entry file="file://$PROJECT_DIR$/netpolling/iw/log.py">
           <provider selected="true" editor-type-id="text-editor">
             <state line="12" column="66" selection-start="269" selection-end="269" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="e#42#56#0" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="views.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/netpolling/iw/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="136" column="82" selection-start="4508" selection-end="4508" vertical-scroll-proportion="-3.1843972">
+            <state line="136" column="82" selection-start="4508" selection-end="4508" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -73,9 +70,16 @@
         <entry file="file://$PROJECT_DIR$/netpolling/iw/scanner.py">
           <provider selected="true" editor-type-id="text-editor">
             <state line="66" column="42" selection-start="1930" selection-end="1930" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="e#19#47#0" expanded="true" />
-              </folding>
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="visu.html" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/netpolling/iw/templates/visu.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="14" column="22" selection-start="765" selection-end="824" vertical-scroll-proportion="0.25089607">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -83,7 +87,7 @@
       <file leaf-file-name="log.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/netpolling/iw/templates/log.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="155" selection-start="311" selection-end="311" vertical-scroll-proportion="-5.625">
+            <state line="9" column="155" selection-start="311" selection-end="311" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -137,7 +141,6 @@
         <option value="$PROJECT_DIR$/netpolling/urls.py" />
         <option value="$PROJECT_DIR$/netpolling/iw/templates/manager.html" />
         <option value="$PROJECT_DIR$/netpolling/iw/public/js/net.js" />
-        <option value="$PROJECT_DIR$/netpolling/iw/templates/visu.html" />
         <option value="$PROJECT_DIR$/netpolling/iw/templates/map.html" />
         <option value="$PROJECT_DIR$/netpolling/iw/public/js/visitor.js" />
         <option value="$PROJECT_DIR$/netpolling/iw/public/js/visu.js" />
@@ -147,6 +150,7 @@
         <option value="$PROJECT_DIR$/netpolling/iw/log.py" />
         <option value="$PROJECT_DIR$/netpolling/iw/scanner.py" />
         <option value="$PROJECT_DIR$/netpolling/iw/views.py" />
+        <option value="$PROJECT_DIR$/netpolling/iw/templates/visu.html" />
       </list>
     </option>
   </component>
@@ -182,6 +186,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -322,17 +327,16 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="options.lastSelected" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
     <property name="recentsLimit" value="5" />
+    <property name="options.lastSelected" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
     <property name="last_opened_file_path" value="$USER_HOME$/Desktop/tsqlite.py" />
-    <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -360,29 +364,6 @@
       <option name="PARAMETERS" value="" />
       <method />
     </configuration>
-    <configuration default="true" type="tests" factoryName="Unittests">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="" />
-      <option name="CLASS_NAME" value="" />
-      <option name="METHOD_NAME" value="" />
-      <option name="FOLDER_NAME" value="" />
-      <option name="TEST_TYPE" value="TEST_SCRIPT" />
-      <option name="PATTERN" value="" />
-      <option name="USE_PATTERN" value="false" />
-      <option name="PUREUNITTEST" value="true" />
-      <option name="PARAMS" value="" />
-      <option name="USE_PARAM" value="false" />
-      <method />
-    </configuration>
     <configuration default="true" type="Python.DjangoServer" factoryName="Django server">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -404,6 +385,29 @@
       <option name="runNoReload" value="false" />
       <option name="useCustomRunCommand" value="false" />
       <option name="customRunCommand" value="" />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Unittests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <option name="PUREUNITTEST" value="true" />
+      <option name="PARAMS" value="" />
+      <option name="USE_PARAM" value="false" />
       <method />
     </configuration>
     <configuration default="true" type="JavascriptDebugSession" factoryName="Local" singleton="true">
@@ -479,7 +483,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19103523" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19316968" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -559,23 +563,17 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/netpolling/iw/templates/map.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="76" selection-start="1500" selection-end="1500" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="33" column="76" selection-start="1500" selection-end="1500" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/netpolling/iw/templates/manager.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="122" column="14" selection-start="6351" selection-end="6351" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="122" column="14" selection-start="6351" selection-end="6351" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/netpolling/iw/public/js/visitor.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="351" column="0" selection-start="23788" selection-end="23788" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="351" column="0" selection-start="23788" selection-end="23788" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/netpolling/iw/public/js/visu.js">
@@ -587,21 +585,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/netpolling/iw/templates/help.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="160" column="26" selection-start="8626" selection-end="8626" vertical-scroll-proportion="0.51432127">
-          <folding />
-        </state>
+        <state line="160" column="26" selection-start="8626" selection-end="8626" vertical-scroll-proportion="0.51432127" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/netpolling/iw/public/js/net.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="93" column="21" selection-start="3050" selection-end="4895" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/netpolling/iw/templates/visu.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="65" column="33" selection-start="3050" selection-end="3050" vertical-scroll-proportion="-12.458333">
           <folding />
         </state>
       </provider>
@@ -629,7 +618,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/netpolling/iw/templates/log.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="155" selection-start="311" selection-end="311" vertical-scroll-proportion="-5.625">
+        <state line="9" column="155" selection-start="311" selection-end="311" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -653,24 +642,27 @@
     <entry file="file://$PROJECT_DIR$/netpolling/iw/scanner.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="66" column="42" selection-start="1930" selection-end="1930" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#19#47#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/netpolling/iw/log.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="12" column="66" selection-start="269" selection-end="269" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#42#56#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/netpolling/iw/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="136" column="82" selection-start="4508" selection-end="4508" vertical-scroll-proportion="-3.1843972">
+        <state line="136" column="82" selection-start="4508" selection-end="4508" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/netpolling/iw/templates/visu.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="22" selection-start="765" selection-end="824" vertical-scroll-proportion="0.25089607">
           <folding />
         </state>
       </provider>
