@@ -7,6 +7,7 @@
         <link rel="shortcut icon" href="/public/img/favicon.ico" />
         <link href="/public/bootstrap/css/bootstrap-responsive.css" media="screen" rel="stylesheet" type="text/css">
         <link href="/public/bootstrap/css/bootstrap.min.css" media="screen" rel="stylesheet" type="text/css">
+        <link href="/public/css/design.css" media="screen" rel="stylesheet" type="text/css">
     </head>
     <body>
         {% block nav %}
@@ -30,32 +31,13 @@
         {% endif %}
         <div class="container-fluid">
             <h1 style="text-align:center;"><img class="container" src="/public/img/np_logo.png" /><br />Surveillez et sécurisez votre réseau en toute simplicité </h1><br />
-            <div class="row-fluid">
-                <div class="span4">
-                    <div class="hero-unit">
-                        <h2>Pitch</h2>
-                        <p>
-                            Problèmes de sécurité?<br />Pas de temps pour surveiller vos réseaux?<br />Mobile, PC ou tablette, vous pourrez savoir qui utilise votre réseau grâce à notre interface web dynamique. Net Polling vous permettra d'avoir sous forme de carte, une représenation de ce qu'il se passesur votre réseau, le surveiller n'aura jamais été aussi facile !
-                        </p>
-                    </div>
-                </div>
-                <div class="span4">
-                    <div class="hero-unit">
-                        <h2>Para 2</h2>
-                        <p>
-                            Accedat huc suavitas quaedam oportet sermonum atque morum, haudquaquam mediocre condimentum amicitiae. Tristitia autem et in omni re severitas habet illa quidem gravitatem, sed amicitia remissior esse debet et liberior et dulcior et ad omnem comitatem facilitatemque proclivior.
-                        </p>
-                    </div>
-                </div>
-                <div class="span4">
-                    <div class="hero-unit">
-                        <h2>Para 3</h2>
-                        <p>
-                            Accedat huc suavitas quaedam oportet sermonum atque morum, haudquaquam mediocre condimentum amicitiae. Tristitia autem et in omni re severitas habet illa quidem gravitatem, sed amicitia remissior esse debet et liberior et dulcior et ad omnem comitatem facilitatemque proclivior.
-                        </p>
-                    </div>
-                </div>
+            <div class="hero-unit">
+                Problèmes de sécurité?<br />Pas de temps pour surveiller vos réseaux?<br />Mobile, PC ou tablette, vous pourrez savoir qui utilise votre réseau grâce à notre interface web dynamique.<br />Net Polling vous permettra d'avoir sous forme de carte, une représenation de ce qu'il se passe sur votre réseau, le surveiller n'aura jamais été aussi facile ! <br /><br />
+                Net Polling est un projet informatique de semestre 5 en système et réseaux, réalisé en python et javascript.<br />La mission était de réaliser un scanner de réseaux permettant d'avoir une carte dynamique du réseaux.
             </div>
+            <footer>
+              <i class="icon-certificate"></i> Licence GPL V3 - <a href="https://github.com/DamDam-G/netpolling" target="_blank"><img src="/public/img/np_text_min.png"></a> - Projet Informatique mars 2013 -<a href="http://www.intechinfo.fr/" target="_blank"><img src="/public/img/iti.png"></a>
+            </footer>
         </div>
         {% endblock %}
         {% block modal %}

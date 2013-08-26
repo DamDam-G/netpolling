@@ -8,6 +8,7 @@ $(window).load((function()
                     $('#pop').resizable({animate: true}).draggable().tabs();
                     var kkeys = [];
                     var param = new Param();
+                    param.Init();
                     var net;
                     /**
                      * @author Damien Goldenberg
@@ -324,8 +325,36 @@ $(window).load((function()
 
                         this.Init = function()
                                     {
-
+                                        $.ajax(
+                                                {
+                                                    type: 'post',
+                                                    headers:{"X-CSRFToken": csrftoken},
+                                                    data:'',
+                                                    url: '/param/',
+                                                    success:function(data)
+                                                            {
+                                                                data = JSON.parse(data);
+                                                                var cls = data.success == 1 ? (function(){ Hydrate(data.obj); return 'success';})() : (function(){ return 'danger';})();
+                                                                $("#inf").html('<div class="alert alert-' +cls+ '"><button type="button" class="close" data-dismiss="alert">×</button>' +data.why+ '</div>');
+                                                            },
+                                                    error:function()
+                                                            {
+                                                                $("#inf").html('<div class="alert alert-warning"><button type="button" class="close" data-dismiss="alert">×</button>La requête n\'a pas pu aboutir</div>');
+                                                            }
+                                                });
                                     };
+
+                        Hydrate = function(obj)
+                                        {
+                                            move = parseFloat(obj.move);
+                                            zdevice = parseFloat(obj.zoomd);
+                                            zconnector = parseFloat(obj.zooml);
+                                        };
+
+                        this.UpdateParam = function(obj)
+                                            {
+                                                Hydrate(obj);
+                                            };
 
                         this.Reset = function()
                                     {
@@ -489,6 +518,14 @@ $(window).load((function()
                                                                     ReMake(net);
                                                                 }
                                                             });
+
+                    $("#form0").on("submit", function (e)
+                                                {
+                                                    e.preventDefault();
+                                                    var t = $(this).serialize().replace("%2C", ",", "gi").split("&");
+                                                    param.UpdateParam({"move":parseFloat((t[0].split("="))[1].replace(",", ".")), "zoomd":parseFloat((t[1].split("="))[1].replace(",", ".")), "zooml":parseFloat((t[2].split("="))[1].replace(",", "."))});
+                                                    return false;
+                                                });
 
                     window.setInterval(pwned = function()
                                                 {

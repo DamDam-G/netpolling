@@ -11,13 +11,21 @@
         <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
     </head>
     <body>
-        <table class="hero-unit" id="form">
-            <tr>
-                <td>
-                    <img src="/public/img/map.png">
-                </td>
-                <td>
-                    <h3>Cartographie de réseaux</h3><br />
+    <h3 class="container">Cartographie de réseaux</h3><br />
+    <div id="inf" class="container"></div>
+    <img src="/public/img/map.png">
+    <div id="main" class="bg">
+            <div id="pop">
+                <div id="binfo"></div>
+                <div id="tbw">
+                    <div id="cbw"></div>
+                </div>
+                <ul>
+                    <li><a href="#c">Chargement</a></li>
+                    <li><a href="#i">Information</a></li>
+                    <li><a href="#search">Recherche</a></li>
+                </ul>
+                <div id="c">
                     <div id="inf" class="container"></div>
                     <form method="post" id="form0" enctype="application/x-www-form-urlencoded">
                         {% csrf_token %}
@@ -32,20 +40,7 @@
                         <nobr><input type="submit" class="btn btn-primary" data-toggle="button" value="Cartographier">
                     </form>
                     <button id="dellmap" class="btn btn-danger">Effacer</button></nobr>
-                </td>
-            </tr>
-        </table>
-    <div id="main" class="bg">
-        <div id="inf" class="container"></div>
-            <div id="pop">
-                <div id="binfo"></div>
-                <div id="tbw">
-                    <div id="cbw"></div>
                 </div>
-                <ul>
-                    <li><a href="#i">Information</a></li>
-                    <li><a href="#search">Recherche</a></li>
-                </ul>
                 <div id="i">
                     <div id="d"></div>
                 </div>
