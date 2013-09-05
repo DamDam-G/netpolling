@@ -8,15 +8,15 @@
     <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
 
-    <title>Netpolling by DamDam-G</title>
+    <title>Net Polling by DamDam-G</title>
   </head>
 
   <body>
 
     <header>
       <div class="container">
-        <h1>Netpolling</h1>
-        <h2>This an web application.Create a network scanner that will enable the mapping on a web interface.You have a network and log files to horripilent?Mobile, PC or tablet, you can see who is using your bandwith with our web interface.NetPolling will give you a card form representation of what is happening on your network, the monitoring has never been easier</h2>
+        <h1>Net Polling</h1>
+        <h2>Monitor and secure your network with ease</h2>
 
         <section id="downloads">
           <a href="https://github.com/DamDam-G/netpolling/zipball/master" class="btn">Download as .zip</a>
@@ -29,36 +29,69 @@
     <div class="container">
       <section id="main_content">
         <h3>
-<a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
+<a name="welcome-to-net-polling-github" class="anchor" href="#welcome-to-net-polling-github"><span class="octicon octicon-link"></span></a>Welcome to Net Polling GitHub.</h3>
 
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
+<p>Security issues?
+No time to monitor your networks?
+Mobile, PC or tablet, you can see who is using your network through our web interface dynamics.
+Net Polling allows you to have as a map, one of the shown what is happening on your network, the monitor has never been easier!</p>
 
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
+<p>Net Polling is an IT project, of semester 5 in systems and networks at <a href="http://www.intechinfo.fr">IN'TECH INFO</a>, made in python and javascript.
+The mission was to create a network scanner to have a dynamic map networks permetant to see the bandwidth used.</p>
+
+<p><img src="http://img15.hostingpics.net/thumbs/mini_440516net0Copier.png" alt="Welcome to Net Polling"></p>
+
+<p><em>This is the index of Net Polling web interface.</em></p>
+
+<p><img src="http://img15.hostingpics.net/thumbs/mini_128049net2Copier.png" alt="map"><img src="http://img15.hostingpics.net/thumbs/mini_361128net6Copier.png" alt="map2"></p>
+
+<p><em>This is the map of the network what you can have</em></p>
+
+<p><img src="http://img15.hostingpics.net/thumbs/mini_394707net3Copier.png" alt="search"></p>
+
+<p><em>You can search a machine in the map with a list of all machines in your network</em></p>
+
+<p>Finally with Net Polling you can do :</p>
+
+<ul>
+<li>see a representation of your network</li>
+<li>You can manipulate the map with the keyboard or the mouse. You can zoom and dézoom the map and move it.</li>
+<li>Put a machine on listening (Sniffing his network trafic)</li>
+<li>You can save a copy of the map to show and manipulate it later</li>
+<li>You can make a finger OS printing and a port scan of the machine of you want</li>
+</ul><p>Technologies used for Net Polling:</p>
+
+<ul>
+<li>Arp-scan</li>
+<li>Nmap</li>
+<li>Tshark</li>
+<li>Scapy</li>
+<li>Django</li>
+<li>Python 2.7</li>
+<li>Sqlite</li>
+<li>Javascript</li>
+<li>Jquery</li>
+<li>Bootstrap</li>
+</ul><h3>
+<a name="for-the-net-polling-server-you-need-" class="anchor" href="#for-the-net-polling-server-you-need-"><span class="octicon octicon-link"></span></a>For the Net Polling server you need :</h3>
+
+<ul>
+<li>2 interfaces network, one for the scan network and an other for the mirroring port to analyze the bandwidth</li>
+<li>A Debian system like
+You can take a physical server or vmware to do this. With vmware you can do mirroring port</li>
+</ul><h3>
+<a name="to-launch-net-polling-after-the-download-you-must-do-it-" class="anchor" href="#to-launch-net-polling-after-the-download-you-must-do-it-"><span class="octicon octicon-link"></span></a>To launch Net Polling after the download, you must do it :</h3>
+
+<pre><code>$ sudo python /opt/netpolling/install.py
+$ sudo python /opt/netpolling/launch.py
 </code></pre>
 
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
+<p>For more information, you can contact me on :</p>
 
-<h3>
-<a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>Designer Templates</h3>
-
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
-
-<h3>
-<a name="rather-drive-stick" class="anchor" href="#rather-drive-stick"><span class="octicon octicon-link"></span></a>Rather Drive Stick?</h3>
-
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
-
-<h3>
-<a name="authors-and-contributors" class="anchor" href="#authors-and-contributors"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
-
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
-
-<h3>
-<a name="support-or-contact" class="anchor" href="#support-or-contact"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
-
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
+<ul>
+<li><a href="mailto:damdam.gold@gmail.com">damdam.gold@gmail.com</a></li>
+<li><a href="fr.linkedin.com/pub/damien-goldenberg/67/347/a7/">my linkedin</a></li>
+</ul>
       </section>
     </div>
 
