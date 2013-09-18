@@ -18,4 +18,4 @@ print """
 
 \n\n"""
 print "\n\nThe Net Polling server run on the http://"+ip+":4242\n\nWhy 4242?\nBecause 42, it's the Big Question of Life, the Universe and Everything"
-os.popen("python "+path+" manage.py runserver "+str(ip)+":4242 >> "+path+"netpolling.log")
+os.popen("python "+path+"manage.py runserver "+str(ip)+":4242 >> "+path+"netpolling.log")
