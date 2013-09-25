@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="63a2fc20-4ca1-4c03-8b33-d5820e195f7f" name="Default" comment="">
+    <list default="true" id="63a2fc20-4ca1-4c03-8b33-d5820e195f7f" name="Default" comment="Add some test">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/install.py" afterPath="$PROJECT_DIR$/install.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/launch.py" afterPath="$PROJECT_DIR$/launch.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="netpolling.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="63a2fc20-4ca1-4c03-8b33-d5820e195f7f" time="1379324111002" ignored="false" />
+    <file path="/Dummy.txt" changelist="63a2fc20-4ca1-4c03-8b33-d5820e195f7f" time="1380000865316" ignored="false" />
     <file path="/scanner.py" changelist="63a2fc20-4ca1-4c03-8b33-d5820e195f7f" time="1377509755539" ignored="false" />
     <file path="/net.js" changelist="63a2fc20-4ca1-4c03-8b33-d5820e195f7f" time="1377068479069" ignored="false" />
     <file path="/urls.py" changelist="63a2fc20-4ca1-4c03-8b33-d5820e195f7f" time="1377004455877" ignored="false" />
@@ -24,7 +23,7 @@
     <file path="/manager.html" changelist="63a2fc20-4ca1-4c03-8b33-d5820e195f7f" time="1377513754133" ignored="false" />
     <file path="/launch.py" changelist="63a2fc20-4ca1-4c03-8b33-d5820e195f7f" time="1379326801301" ignored="false" />
     <file path="/manage.py" changelist="63a2fc20-4ca1-4c03-8b33-d5820e195f7f" time="1379325393130" ignored="false" />
-    <file path="/install.py" changelist="63a2fc20-4ca1-4c03-8b33-d5820e195f7f" time="1379500857439" ignored="false" />
+    <file path="/install.py" changelist="63a2fc20-4ca1-4c03-8b33-d5820e195f7f" time="1380004301283" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,21 +43,39 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
+      <file leaf-file-name="views.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/netpolling/iw/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="261" column="86" selection-start="11354" selection-end="12074" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="install.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/install.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="40" column="10" selection-start="1555" selection-end="1555" vertical-scroll-proportion="0.7092199">
+            <state line="52" column="41" selection-start="1803" selection-end="1803" vertical-scroll-proportion="0.6099291">
               <folding>
-                <element signature="e#0#9#0" expanded="true" />
+                <element signature="e#1#10#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/netpolling/iw/views.py">
+      <file leaf-file-name="Scan.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/netpolling/iw/scan/Scan.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="296" column="97" selection-start="13273" selection-end="13321" vertical-scroll-proportion="0.0">
+            <state line="23" column="50" selection-start="571" selection-end="571" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LocalScan.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/netpolling/iw/scan/LocalScan.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="37" column="45" selection-start="1146" selection-end="1146" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -67,7 +84,7 @@
       <file leaf-file-name="netpolling.conf" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/netpolling/iw/conf/netpolling.conf">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="177" vertical-scroll-proportion="0.0">
+            <state line="0" column="0" selection-start="0" selection-end="132" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -211,6 +228,28 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="scan" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="netpolling" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="netpolling" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="netpolling" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="iw" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="conf" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -286,7 +325,7 @@
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="" />
+      <module name="netpolling" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="" />
       <option name="CLASS_NAME" value="" />
@@ -451,18 +490,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/netpolling/iw/conf/netenv.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/netpolling/iw/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/netpolling/iw/public/js/net.min.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="11317" selection-start="11317" selection-end="11317" vertical-scroll-proportion="0.0" />
@@ -528,25 +555,39 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/netpolling/iw/conf/netpolling.conf">
+    <entry file="file://$PROJECT_DIR$/netpolling/iw/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="177" vertical-scroll-proportion="0.0">
+        <state line="261" column="86" selection-start="11354" selection-end="12074" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/netpolling/iw/views.py">
+    <entry file="file://$PROJECT_DIR$/netpolling/iw/scan/Scan.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="296" column="97" selection-start="13273" selection-end="13321" vertical-scroll-proportion="0.0">
+        <state line="23" column="50" selection-start="571" selection-end="571" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/netpolling/iw/scan/LocalScan.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="37" column="45" selection-start="1146" selection-end="1146" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/netpolling/iw/conf/netpolling.conf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="132" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/install.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="10" selection-start="1555" selection-end="1555" vertical-scroll-proportion="0.7092199">
+        <state line="52" column="41" selection-start="1803" selection-end="1803" vertical-scroll-proportion="0.6099291">
           <folding>
-            <element signature="e#0#9#0" expanded="true" />
+            <element signature="e#1#10#0" expanded="true" />
           </folding>
         </state>
       </provider>
