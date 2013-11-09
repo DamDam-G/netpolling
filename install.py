@@ -14,7 +14,7 @@ def check_param(obj):
 
 path = "/opt/netpolling/"
 apt = ["nmap", "python-scapy", "tcpdump", "arp-scan", "tshark"]
-conf = path+"iw/conf/"
+conf = path+"WI/conf/"
 
 print("Installation des dépendances")
 
@@ -60,7 +60,7 @@ try:
 except ConfigParser.Error, err:
     print 'Oops, une erreur dans votre fichier de conf (%s)' % err
 print "Initialisation de la crontab"
-os.popen("perl /opt/netpolling/netpolling/iw/scripts/cron.pl")
+os.popen("perl /opt/netpolling/netpolling/WI/scripts/cron.pl")
 print "Mise en place des droit Unix"
 os.popen("chmod -R 600 /opt/netpolling/")
 print "Mise en place du propirétaire et du groupe root"

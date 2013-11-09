@@ -1,6 +1,6 @@
 # Django settings for netpolling project.
 
-import iw.conf.netenv as ENV
+import conf.netenv as ENV
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -106,10 +106,10 @@ MIDDLEWARE_CLASSES = (
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-ROOT_URLCONF = 'netpolling.urls'
+ROOT_URLCONF = 'conf.urls'
 
 # Python dotted path to the WSGI application used by Django's runserver.
-WSGI_APPLICATION = 'netpolling.wsgi.application'
+WSGI_APPLICATION = 'conf.wsgi.application'
 
 TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
@@ -127,7 +127,7 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'netpolling.iw',
+    'WI',
     #'netpolling.scripts',
     # Uncomment the next line to enable the admin:
     'django.contrib.admin',

@@ -1,9 +1,6 @@
 #! /usr/bin/python2.7
 # -*- coding:Utf-8 -*-
-from scapy.all import *
-import os
-import re
-from Scan import *
+from scan.scan.Scan import *
 
 class LocalScan(Scan):
     """!
@@ -14,6 +11,10 @@ class LocalScan(Scan):
     @version V-2.1
     @copyright GNU GPL V-3
     """
+
+    @staticmethod
+    def Scanner(name, mask, interface):
+        pass
     def __init__(self, name, mask, interface):
         Scan.__init__(self, name, mask, interface)
         self.GetGW()

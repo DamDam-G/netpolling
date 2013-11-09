@@ -1,12 +1,11 @@
 #! /usr/bin/python
-from scan.LocalScan import *
-from multiprocessing import Process, Queue, TimeoutError
-import os
-import sys
-import conf.netenv as ENV
+from multiprocessing import Process, Queue
 import ConfigParser
-import time
+import conf as ENV
+
+from scan.scan.LocalScan import *
 import log
+
 
 def WriteCron():
     """!

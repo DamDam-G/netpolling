@@ -2,14 +2,14 @@
 
 import json
 import os
+import re
 from django.shortcuts import render, render_to_response, redirect
 from django.http import HttpResponse
-from models import *
-from scanner import *
-import ConfigParser
-import conf.netenv as ENV
-from scapy.all import *
 from django.contrib.auth import authenticate, login, logout
+import ConfigParser
+from WI.models import *
+from scan import *
+import conf.netenv as ENV
 
 def Index(request):
     """!

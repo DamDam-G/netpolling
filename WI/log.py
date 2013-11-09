@@ -3,7 +3,8 @@
 import sqlite3
 import sys
 import datetime
-import conf.netenv as ENV
+import conf as ENV
+
 
 def PutLog(name, content, type):
 

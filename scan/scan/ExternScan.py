@@ -1,10 +1,9 @@
 #! /usr/bin/python2.7
 # -*- coding:Utf-8 -*-
-from scapy.all import *
 import os
 import re
-import json
-import Scan
+from scan.scan import Scan
+
 
 class ExternScan(Scan):
     """!
