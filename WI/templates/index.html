@@ -9,15 +9,16 @@
         <link href="/public/bootstrap/css/bootstrap.min.css" media="screen" rel="stylesheet" type="text/css">
         <link href="/public/css/design.css" media="screen" rel="stylesheet" type="text/css">
     </head>
-    <body>
+    <body ng-app="index">
         {% block nav %}
         <nav class="navbar navbar-inverse">
             <div class="navbar-inner">
                 <div class="container">
                     <a class="nav-collapse collapse" href="#"><img src="/public/img/np_text_min.png"></a>
-                    <span class="nav-collapse collapse">
-                        <a id="17" class="menu" data-target="#myCo" href="/co/" role="button" class="label" data-toggle="modal"><button class="btn btn-inverse"><i class="icon-user icon-white"></i>Connexion</button></a>
-                    </span>
+                    <span class="nav-collapse collapse" ng-controller="ModalCtrl">
+                        <button id="trolol" class="btn btn-inverse" ng-click="open()"><i class="icon-user icon-white"></i>Connexion</button>
+                        <!--<a id="17" class="menu" data-target="#myCo" href="/co/" role="button" class="label" data-toggle="modal"><button class="btn btn-inverse"><i class="icon-user icon-white"></i>Connexion</button></a>
+                    --></span>
                     <span class="nav-collapse collapse">
                         <a href="/visitor/" target="_blank" role="button" ><button class="btn btn-inverse"><i class="icon-th icon-white"></i>Visiteur</button></a>
                     </span>
@@ -40,24 +41,12 @@
             </footer>
         </div>
         {% endblock %}
-        {% block modal %}
-        <div id="myCo" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icon-remove"></i></button>
-                <h3>Connexion</h3>
-            </div>
-            <form action="/connect/" method="post" enctype="application/x-www-form-urlencoded">
-                {% csrf_token %}
-                <div class="modal-body"></div>
-                <div class="modal-footer">
-                    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-                    <button class="btn btn-primary">Connexion</button>
-                </div>
-            </form>
-        </div>
-        {% endblock %}
+        <!--<div id="myCo" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            -->
         {% load static %}
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-        <script src="/public/bootstrap/js/bootstrap.min.js"></script>
+        <!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>-->
+        <script src="/public/js/angular.min.js"></script>
+        <script src="/public/js/ui-bootstrap-tpls-0.6.0.js"></script>
+        <script src="/public/js/index.js"></script>
     </body>
 </html>
