@@ -1,17 +1,11 @@
-<!DOCTYPE html>
-<html>
-    <head>
-    </head>
-    <body>
-        <h3>Paramètres</h3>
-        <div id="info"></div>
-        <form method="post" id="form0" enctype="application/x-www-form-urlencoded">
-            {% for t in data %}
-                <input required="true" pattern="^[0-9]{1,},[0-9]{1,}$" placeholder=""  name="move" type="text" value="{{ t.move }}">&nbsp&nbsp<label class="label">Coefficiant de déplacement</label><br />
-                <input required="true" pattern="^0,[0-9]{1,}$" placeholder=""  name="dzoom" type="text" value="{{ t.zomd }}">&nbsp&nbsp<label class="label">Coefficiant de zoom sur les équipements</label><br />
-                <input required="true" pattern="^0,[0-9]{1,}$" placeholder=""  name="lzoom" type="text" value="{{ t.zoml }}">&nbsp&nbsp<label class="label">Coefficiant de zoom sur les liens</label><br />
-            {% endfor %}
-            <button type="submit" class="btn btn-info">Sauvegarder</button>
-        </form>
-    </body>
-</html>
+{% extends "modal.html" %}
+{% block content %}
+    <h3>[[ content[0][0].title ]]</h3>
+    <div id="info"></div>
+    <form method="post" id="form0" enctype="application/x-www-form-urlencoded">
+        <section ng-repeat="para in content[1]">
+            <input type ="[[para.type ]]" name ="[[para.name ]]" value ="[[para.value ]]" required ="[[para.required ]]" pattern ="[[para.pattern ]]" placeholder ="[[para.placeholder ]]">&nbsp&nbsp<label class="label">[[ para.label ]]</label><br />
+        </section>
+        <button type="submit" class="btn btn-info">[[ content[0][1].button ]]</button>
+    </form>
+{% endblock %}

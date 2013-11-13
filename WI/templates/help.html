@@ -1,181 +1,127 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title></title>
-    </head>
-    <body>
-        <h3>Mode d'emploi</h3>
-        <div class="accordion" id="accordion">
-            <div class="accordion-group">
-                <div class="accordion-heading">
-                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#a0">
-                        Racourcis
-                    </a>
-                </div>
-                <div id="a0" class="accordion-body collapse">
-                    <div class="accordion-inner">
-                        <table border="1">
-                            <tr>
-                                <td>
-                                    <i class="icon-arrow-left"></i>
-                                </td>
-                                <td>
-                                    Déplace la vue sur la carte vers
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <i class="icon-arrow-up"></i>
-                                </td>
-                                <td>
+{% extends "modal.html" %}
+{% block content %}
+    <h3>Mode d'emploi</h3>
+    <accordion close-others="oneAtATime">
+        <accordion-group heading="Racourcis">
+            <div class="accordion-inner">
+                <table border="1">
+                    <tr>
+                        <td>
+                            <i class="icon-arrow-left"></i>
+                        </td>
+                        <td>
+                            Déplace la vue sur la carte vers
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <i class="icon-arrow-up"></i>
+                        </td>
+                        <td>
 
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <i class="icon-arrow-right"></i>
-                                </td>
-                                <td>
-                                    Déplace la vue sur la carte vers
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <i class="icon-arrow-down"></i>
-                                </td>
-                                <td>
-                                    Déplace la vue sur la carte vers
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <i class="icon-plus"></i><br />(pavé numérique)
-                                </td>
-                                <td>
-                                    Zoom sur la carte
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <i class="icon-minus"></i><br />(pavé numérique)
-                                </td>
-                                <td>
-                                    Dézoom sur la carte
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <img src="/public/img/mouse.png">
-                                </td>
-                                <td>
-                                    Enfoncez le bouton gauche de la souris sur la carte.<br />
-                                    Maintenez le, puis bougez la souris.<br />
-                                    Lorsque le bouton gauche ne sera plus enfoncé après le déplacement la vue se déplacera.
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <img src="/public/img/mouse.png">
-                                </td>
-                                <td>
-                                    Possibilité de zoom dézoom avec la molette de la souris
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <i class="icon-arrow-right"></i>
+                        </td>
+                        <td>
+                            Déplace la vue sur la carte vers
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <i class="icon-arrow-down"></i>
+                        </td>
+                        <td>
+                            Déplace la vue sur la carte vers
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <i class="icon-plus"></i><br />(pavé numérique)
+                        </td>
+                        <td>
+                            Zoom sur la carte
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <i class="icon-minus"></i><br />(pavé numérique)
+                        </td>
+                        <td>
+                            Dézoom sur la carte
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <img src="/public/img/mouse.png">
+                        </td>
+                        <td>
+                            Enfoncez le bouton gauche de la souris sur la carte.<br />
+                            Maintenez le, puis bougez la souris.<br />
+                            Lorsque le bouton gauche ne sera plus enfoncé après le déplacement la vue se déplacera.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <img src="/public/img/mouse.png">
+                        </td>
+                        <td>
+                            Possibilité de zoom dézoom avec la molette de la souris
+                        </td>
+                    </tr>
+                </table>
             </div>
-            <div class="accordion-group">
-                <div class="accordion-heading">
-                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#a1">
-                        Menu
-                    </a>
-                </div>
-                <div id="a1" class="accordion-body collapse">
-                    <div class="accordion-inner">
-                        <ul>
-                            <li>Scan : permet de configurer le scanner, et l'analyse de bande passante</li>
-                            <li>Screenshot : permet d'enregistrer la carte actuelle au format json</li>
-                            <li>Visualiser : ouvre un nouvel onglet ou fenêtre afin de cartographier les cartes enregistrées</li>
-                            <li>Journal : journal de log qui centralise des actions repéré sur le réseau</li>
-                            <li>Paramètres ; permet de configurer les paramétres de la manipulation de la carte</li>
-                            <li>Déconnexion : vraiment besoin d'expliquer ?</li>
-                        </ul>
-                    </div>
-                </div>
+        </accordion-group>
+        <accordion-group heading="Menu">
+            <div class="accordion-inner">
+                <ul>
+                    <li>Scan : permet de configurer le scanner, et l'analyse de bande passante</li>
+                    <li>Screenshot : permet d'enregistrer la carte actuelle au format json</li>
+                    <li>Visualiser : ouvre un nouvel onglet ou fenêtre afin de cartographier les cartes enregistrées</li>
+                    <li>Journal : journal de log qui centralise des actions repéré sur le réseau</li>
+                    <li>Paramètres ; permet de configurer les paramétres de la manipulation de la carte</li>
+                    <li>Déconnexion : vraiment besoin d'expliquer ?</li>
+                </ul>
             </div>
-            <div class="accordion-group">
-                <div class="accordion-heading">
-                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#a2">
-                        Le manager
-                    </a>
-                </div>
-                <div id="a2" class="accordion-body collapse">
-                    <div class="accordion-inner">
-                        Le manager sert à visualiser en direct le traffic de son réseau.<br />
-                        Il permet de manipuler la carte via les racourcis (cf la partie racourcis).<br />
-                        Lorsque la souris passe sur un des éléments de la carte la fenêtre latérale se remplira d'informations(ip, mac hostname...).<br />
-                        Au moment où vous aurez les informations d'une machine, il sera possible d'utiliser les fonctionnalités de mise en écoute et d'os finger printing.
-                    </div>
-                </div>
+        </accordion-group>
+        <accordion-group heading="Le manager">
+            <div class="accordion-inner">
+                Le manager sert à visualiser en direct le traffic de son réseau.<br />
+                Il permet de manipuler la carte via les racourcis (cf la partie racourcis).<br />
+                Lorsque la souris passe sur un des éléments de la carte la fenêtre latérale se remplira d'informations(ip, mac hostname...).<br />
+                Au moment où vous aurez les informations d'une machine, il sera possible d'utiliser les fonctionnalités de mise en écoute et d'os finger printing.
             </div>
-            <div class="accordion-group">
-                <div class="accordion-heading">
-                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#a6">
-                        Le visualiseur
-                    </a>
-                </div>
-                <div id="a6" class="accordion-body collapse">
-                    <div class="accordion-inner">
-                        Permet de cartographier des cartes préalablement enregistrées au format json.<br />
-                        Ce qui permet de voir la bande passante et les informations sur les machines.<br />
-                        La manipulation de la carte est disponible. <br />
-                        Les fonctionnalités d'os finger printing et de mise en écoute ne sont pas disponibles<br />
-                    </div>
-                </div>
+        </accordion-group>
+        <accordion-group heading="Le visualiseur">
+            <div class="accordion-inner">
+                Permet de cartographier des cartes préalablement enregistrées au format json.<br />
+                Ce qui permet de voir la bande passante et les informations sur les machines.<br />
+                La manipulation de la carte est disponible. <br />
+                Les fonctionnalités d'os finger printing et de mise en écoute ne sont pas disponibles<br />
             </div>
-            <div class="accordion-group">
-                <div class="accordion-heading">
-                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#a3">
-                        Os finger printing
-                    </a>
-                </div>
-                <div id="a3" class="accordion-body collapse">
-                    <div class="accordion-inner">
-                        La prise d'empreinte de la pile TCP/IP (en anglais : TCP/IP stack fingerprinting ou OS fingerprinting) est un procédé permettant en informatique de déterminer l'identité du système d'exploitation utilisé sur une machine distante en analysant les paquets provenant de cet hôte.<br />
-                        Il vous suffira de cliquer sur "détecter l'os" lorsque vous aurez sélectionné une machine, puis d'attendre. Cette action peut prendre un certain temps.
-                    </div>
-                </div>
+        </accordion-group>
+        <accordion-group heading="OS finger printing">
+            <div class="accordion-inner">
+                La prise d'empreinte de la pile TCP/IP (en anglais : TCP/IP stack fingerprinting ou OS fingerprinting) est un procédé permettant en informatique de déterminer l'identité du système d'exploitation utilisé sur une machine distante en analysant les paquets provenant de cet hôte.<br />
+                Il vous suffira de cliquer sur "détecter l'os" lorsque vous aurez sélectionné une machine, puis d'attendre. Cette action peut prendre un certain temps.
             </div>
-            <div class="accordion-group">
-                <div class="accordion-heading">
-                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#a4">
-                        Mise en écoute
-                    </a>
-                </div>
-                <div id="a4" class="accordion-body collapse">
-                    <div class="accordion-inner">
-                        Un analyseur de paquets est un logiciel pouvant lire ou enregistrer des données transitant par le biais d'un réseau local non-commuté. Il permet de capturer chaque paquet du flux de données (en) traversant le réseau.<br />
-                        Pour que cette fonctionnalité fonctionne il faudra sélectionner une machine et que vous ayez rempli le formulaire.<br />
-                        Ainsi vous récupérez un fichier pcap qui vous décrira le traffic de la machine ciblée.
-                    </div>
-                </div>
+        </accordion-group>
+        <accordion-group heading="Mise en écoute">
+            <div class="accordion-inner">
+                Un analyseur de paquets est un logiciel pouvant lire ou enregistrer des données transitant par le biais d'un réseau local non-commuté. Il permet de capturer chaque paquet du flux de données (en) traversant le réseau.<br />
+                Pour que cette fonctionnalité fonctionne il faudra sélectionner une machine et que vous ayez rempli le formulaire.<br />
+                Ainsi vous récupérez un fichier pcap qui vous décrira le traffic de la machine ciblée.
             </div>
-            <div class="accordion-group">
-                <div class="accordion-heading">
-                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#a5">
-                        Konami code
-                    </a>
-                </div>
-                <div id="a5" class="accordion-body collapse">
-                    <div class="accordion-inner">
-                        Le code Konami est un cheat code qui peut être utilisé dans de nombreux jeux vidéo de Konami, activant généralement une option secrète.<br />
-                        Il est parfois utilisé dans des logiciels<br />(liste des sites utilisant le code Konami <a href="http://fr.wikipedia.org/wiki/Liste_des_sites_webs_utilisant_le_code_Konami" target="_blank">ici</a> )<br />
-                        cheat code : ↑ ↑ ↓ ↓ ← → ← → B A<br />
-                        Let's try it !!! ;)
-                    </div>
-                </div>
+        </accordion-group>
+        <accordion-group heading="Konami code">
+            <div class="accordion-inner">
+                Le code Konami est un cheat code qui peut être utilisé dans de nombreux jeux vidéo de Konami, activant généralement une option secrète.<br />
+                Il est parfois utilisé dans des logiciels<br />(liste des sites utilisant le code Konami <a href="http://fr.wikipedia.org/wiki/Liste_des_sites_webs_utilisant_le_code_Konami" target="_blank">ici</a> )<br />
+                cheat code : ↑ ↑ ↓ ↓ ← → ← → B A<br />
+                Let's try it !!! ;)
             </div>
-        </div>
-    </body>
-</html>
+        </accordion-group>
+    </accordion>
+{% endblock %}

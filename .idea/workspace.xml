@@ -2,127 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="63a2fc20-4ca1-4c03-8b33-d5820e195f7f" name="Default" comment="Add some test">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scan/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/conf/urls.py" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/netpolling/.idea/.name" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/netpolling/.idea/encodings.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/netpolling/.idea/misc.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/netpolling/.idea/modules.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/netpolling/.idea/netpolling.iml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/netpolling/.idea/scopes/scope_settings.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/netpolling/.idea/vcs.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/netpolling/.idea/workspace.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/netpolling/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/netpolling/iw/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/netpolling/iw/conf/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/netpolling/iw/conf/bw.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/netpolling/iw/conf/log" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/netpolling/iw/conf/mac_constructor" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/netpolling/iw/conf/netenv.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/netpolling/iw/conf/netpolling.conf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/netpolling/iw/conf/network.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/netpolling/iw/conf/stunnel/net_https" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/netpolling/iw/conf/stunnel/stunnel.cert" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/netpolling/iw/conf/stunnel/stunnel.key" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/netpolling/iw/conf/stunnel/stunnel.pem" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/netpolling/iw/conf/traffic" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/netpolling/iw/log.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/netpolling/iw/models.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/netpolling/iw/public/bootstrap/css/bootstrap-responsive.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/netpolling/iw/public/bootstrap/css/bootstrap-responsive.min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/netpolling/iw/public/bootstrap/css/bootstrap.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/netpolling/iw/public/bootstrap/css/bootstrap.min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/netpolling/iw/public/bootstrap/img/glyphicons-halflings-white.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/netpolling/iw/public/bootstrap/img/glyphicons-halflings.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/netpolling/iw/public/bootstrap/js/bootstrap.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/netpolling/iw/public/bootstrap/js/bootstrap.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/netpolling/iw/public/css/design.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/netpolling/iw/public/css/design.min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/netpolling/iw/public/css/design2.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/netpolling/iw/public/css/design2.min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/netpolling/iw/public/img/computer.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/netpolling/iw/public/img/computer2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/netpolling/iw/public/img/deco.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/netpolling/iw/public/img/device/apple.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/netpolling/iw/public/img/device/computer.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/netpolling/iw/public/img/device/phone.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/netpolling/iw/public/img/device/router.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/netpolling/iw/public/img/device/vm.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/netpolling/iw/public/img/error.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/netpolling/iw/public/img/favicon.ico" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/netpolling/iw/public/img/iti.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/netpolling/iw/public/img/konami.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/netpolling/iw/public/img/load.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/netpolling/iw/public/img/loading.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/netpolling/iw/public/img/log.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/netpolling/iw/public/img/map.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/netpolling/iw/public/img/mouse.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/netpolling/iw/public/img/np.ico" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/netpolling/iw/public/img/np0.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/netpolling/iw/public/img/np1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/netpolling/iw/public/img/np2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/netpolling/iw/public/img/np3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/netpolling/iw/public/img/np4.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/netpolling/iw/public/img/np5.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/netpolling/iw/public/img/np6.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/netpolling/iw/public/img/np7.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/netpolling/iw/public/img/np_logo.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/netpolling/iw/public/img/np_text_min.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/netpolling/iw/public/img/search.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/netpolling/iw/public/img/test.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/netpolling/iw/public/js/jcanvas.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/netpolling/iw/public/js/jquery-2.0.0.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/netpolling/iw/public/js/jquery-ui-1.10.3.custom.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/netpolling/iw/public/js/jquery.mousewheel.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/netpolling/iw/public/js/net.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/netpolling/iw/public/js/net.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/netpolling/iw/public/js/net2.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/netpolling/iw/public/js/raphael-min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/netpolling/iw/public/js/visitor.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/netpolling/iw/public/js/visitor.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/netpolling/iw/public/js/visu.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/netpolling/iw/public/js/visu.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/netpolling/iw/public/listen/Martin-10.8.96.237.pcap" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/netpolling/iw/public/listen/fgfdg-10.8.104.223.pcap" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/netpolling/iw/public/listen/kou-10.8.105.31.pcap" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/netpolling/iw/public/listen/martin-10.8.96.237.pcap" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/netpolling/iw/public/listen/titi.pcap" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/netpolling/iw/public/listen/tr-10.8.105.23.pcap" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/netpolling/iw/public/listen/uy-10.8.97.1.pcap" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/netpolling/iw/public/screenshots/24%2F06%2F201310%3A39.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/netpolling/iw/public/screenshots/test_high.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/netpolling/iw/public/screenshots/test_medium.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/netpolling/iw/public/screenshots/test_normal.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/netpolling/iw/public/screenshots/titi.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/netpolling/iw/scan/ExternScan.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/netpolling/iw/scan/LocalScan.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/netpolling/iw/scan/Scan.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/netpolling/iw/scan/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/netpolling/iw/scripts/cron.pl" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/netpolling/iw/templates/co.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/netpolling/iw/templates/disconnect.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/netpolling/iw/templates/error.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/netpolling/iw/templates/help.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/netpolling/iw/templates/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/netpolling/iw/templates/log.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/netpolling/iw/templates/manager.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/netpolling/iw/templates/manager2.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/netpolling/iw/templates/map.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/netpolling/iw/templates/para.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/netpolling/iw/templates/scan.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/netpolling/iw/templates/screen.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/netpolling/iw/templates/visu.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/netpolling/iw/tests.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/netpolling/iw/views.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/netpolling/urls.py" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/netpolling/iw/scanner.py" afterPath="$PROJECT_DIR$/scan/scanner.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/netpolling/netpolling.sql" afterPath="$PROJECT_DIR$/WI/netpolling.sql" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/netpolling/settings.py" afterPath="$PROJECT_DIR$/conf/settings.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/netpolling/wsgi.py" afterPath="$PROJECT_DIR$/conf/wsgi.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/install.py" afterPath="$PROJECT_DIR$/install.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/manage.py" afterPath="$PROJECT_DIR$/manage.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/netpolling.iml" afterPath="$PROJECT_DIR$/.idea/netpolling.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WI/public/js/angular-cookies.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WI/public/js/angularv1.08.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WI/templates/modal.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WI/public/js/angular.min.js" afterPath="$PROJECT_DIR$/WI/public/js/angular.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WI/templates/help.html" afterPath="$PROJECT_DIR$/WI/templates/help.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WI/templates/index.html" afterPath="$PROJECT_DIR$/WI/templates/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WI/templates/log.html" afterPath="$PROJECT_DIR$/WI/templates/log.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WI/templates/manager.html" afterPath="$PROJECT_DIR$/WI/templates/manager.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WI/public/js/netV2.js" afterPath="$PROJECT_DIR$/WI/public/js/netV2.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WI/netpolling.sql" afterPath="$PROJECT_DIR$/WI/netpolling.sql" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WI/templates/para.html" afterPath="$PROJECT_DIR$/WI/templates/para.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WI/templates/scan.html" afterPath="$PROJECT_DIR$/WI/templates/scan.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/conf/urls.py" afterPath="$PROJECT_DIR$/conf/urls.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WI/views.py" afterPath="$PROJECT_DIR$/WI/views.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="netpolling.iws" />
@@ -145,93 +38,66 @@
     <favorites_list name="netpolling" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="netenv.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/conf/netenv.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="30" selection-start="330" selection-end="330" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="342">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="urls.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/conf/urls.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="558">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Scan.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/scan/scan/Scan.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="50" selection-start="571" selection-end="571" vertical-scroll-proportion="0.0" vertical-offset="342" max-vertical-offset="2664">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LocalScan.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/scan/scan/LocalScan.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="12" selection-start="358" selection-end="358" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1476">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="views.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/WI/views.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="16" selection-start="384" selection-end="384" vertical-scroll-proportion="0.0" vertical-offset="28" max-vertical-offset="6696">
-              <folding>
-                <element signature="e#24#35#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="manage.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/manage.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="0" selection-start="207" selection-end="207" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="288">
-              <folding>
-                <element signature="e#22#31#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="wsgi.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/conf/wsgi.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="30" selection-start="698" selection-end="705" vertical-scroll-proportion="-6.814815" vertical-offset="122" max-vertical-offset="684">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="settings.py" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/conf/settings.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="90" column="0" selection-start="3163" selection-end="3163" vertical-scroll-proportion="2.7551725" vertical-offset="22" max-vertical-offset="3078">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="__init__.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/WI/__init__.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="108">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.64140874">
+      <split-first>
+        <leaf>
+          <file leaf-file-name="netV2.js" pinned="false" current="true" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/WI/public/js/netV2.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="183" column="36" selection-start="12946" selection-end="12946" vertical-scroll-proportion="0.6953552" vertical-offset="1597" max-vertical-offset="2412">
+                  <folding>
+                    <element signature="e#1396#6988#0" expanded="false" />
+                    <element signature="e#5792#6748#0" expanded="false" />
+                    <element signature="e#9359#9742#0" expanded="false" />
+                    <element signature="e#12946#13250#0" expanded="false" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="views.py" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/WI/views.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="180" column="0" selection-start="7613" selection-end="7613" vertical-scroll-proportion="0.0" vertical-offset="2851" max-vertical-offset="7200">
+                  <folding>
+                    <element signature="e#24#35#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file leaf-file-name="manager.html" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/WI/templates/manager.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="56" column="0" selection-start="3402" selection-end="3402" vertical-scroll-proportion="-11.333333" vertical-offset="702" max-vertical-offset="2574">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="net.js" pinned="false" current="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/WI/public/js/net.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="700" column="19" selection-start="46604" selection-end="46604" vertical-scroll-proportion="0.28688523" vertical-offset="10824" max-vertical-offset="11556">
+                  <folding>
+                    <element signature="e#38352#42264#0" expanded="false" />
+                    <element signature="e#42387#42615#0" expanded="false" />
+                    <element signature="e#42724#43065#0" expanded="false" />
+                    <element signature="e#43171#43558#0" expanded="false" />
+                    <element signature="e#43666#45183#0" expanded="false" />
+                    <element signature="e#45321#46561#0" expanded="false" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -249,22 +115,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/netpolling/iw/templates/map.html" />
-        <option value="$PROJECT_DIR$/netpolling/iw/templates/visu.html" />
-        <option value="$PROJECT_DIR$/netpolling/iw/templates/manager.html" />
-        <option value="$PROJECT_DIR$/launch.py" />
-        <option value="$PROJECT_DIR$/install.py" />
-        <option value="$PROJECT_DIR$/__init__.py" />
-        <option value="$PROJECT_DIR$/netpolling/iw/tests.py" />
-        <option value="$PROJECT_DIR$/scan/scan/LocalScan.py" />
-        <option value="$PROJECT_DIR$/netpolling/iw/views.py" />
-        <option value="$PROJECT_DIR$/iw/views.py" />
-        <option value="$PROJECT_DIR$/netpolling/wsgi.py" />
-        <option value="$PROJECT_DIR$/settings.py" />
-        <option value="$PROJECT_DIR$/manage.py" />
-        <option value="$PROJECT_DIR$/conf/urls.py" />
         <option value="$PROJECT_DIR$/conf/settings.py" />
         <option value="$PROJECT_DIR$/conf/netenv.py" />
+        <option value="$PROJECT_DIR$/WI/templates/co.html" />
+        <option value="$PROJECT_DIR$/WI/public/js/index.js" />
+        <option value="$PROJECT_DIR$/WI/templates/index.html" />
+        <option value="$PROJECT_DIR$/WI/public/js/angular.min.js" />
+        <option value="$PROJECT_DIR$/conf/urls.py" />
+        <option value="$PROJECT_DIR$/WI/templates/modal.html" />
+        <option value="$PROJECT_DIR$/WI/templates/tmp.html" />
+        <option value="$PROJECT_DIR$/WI/templates/scan.html" />
+        <option value="$PROJECT_DIR$/WI/templates/para.html" />
+        <option value="$PROJECT_DIR$/WI/views.py" />
+        <option value="$PROJECT_DIR$/WI/templates/log.html" />
+        <option value="$PROJECT_DIR$/WI/templates/manager.html" />
+        <option value="$PROJECT_DIR$/WI/templates/help.html" />
+        <option value="$PROJECT_DIR$/WI/public/js/netV2.js" />
       </list>
     </option>
   </component>
@@ -318,6 +184,56 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="netpolling" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="netpollingV2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WI" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="netpolling" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="netpollingV2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WI" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="netpolling" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="netpollingV2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WI" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
@@ -326,12 +242,14 @@
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="options.lastSelected" value="com.jetbrains.python.configuration.PythonSdkConfigurable" />
     <property name="recentsLimit" value="5" />
+    <property name="options.lastSelected" value="com.jetbrains.python.configuration.PythonSdkConfigurable" />
+    <property name="last_opened_file_path" value="$USER_HOME$/opentest/WI/public/js/opentest.js" />
     <property name="restartRequiresConfirmation" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$/netpolling" />
-    <property name="options.searchVisible" value="true" />
+    <property name="FullScreen" value="false" />
+    <property name="DefaultHtmlFileTemplate" value="Html5" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -340,6 +258,8 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/WI/templates" />
+      <recent name="$PROJECT_DIR$/WI/public/js" />
       <recent name="$PROJECT_DIR$" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -435,7 +355,27 @@
       <option name="PARAMETERS" value="" />
       <method />
     </configuration>
-    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true">
+    <configuration default="true" type="Python.DjangoServer" factoryName="Django server">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="netpolling" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <option name="port" value="8000" />
+      <option name="host" value="" />
+      <option name="additionalOptions" value="" />
+      <option name="browserUrl" value="" />
+      <option name="runTestServer" value="false" />
+      <option name="runNoReload" value="false" />
+      <option name="useCustomRunCommand" value="false" />
+      <option name="customRunCommand" value="" />
       <method />
     </configuration>
     <configuration default="true" type="tests" factoryName="Unittests">
@@ -461,27 +401,7 @@
       <option name="USE_PARAM" value="false" />
       <method />
     </configuration>
-    <configuration default="true" type="Python.DjangoServer" factoryName="Django server">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="netpolling" />
-      <option name="launchJavascriptDebuger" value="false" />
-      <option name="port" value="8000" />
-      <option name="host" value="" />
-      <option name="additionalOptions" value="" />
-      <option name="browserUrl" value="" />
-      <option name="runTestServer" value="false" />
-      <option name="runNoReload" value="false" />
-      <option name="useCustomRunCommand" value="false" />
-      <option name="customRunCommand" value="" />
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true">
       <method />
     </configuration>
     <configuration default="true" type="tests" factoryName="Doctests">
@@ -587,23 +507,23 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="24" width="1922" height="1033" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3299435" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32929516" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2421875" sideWeight="0.67070484" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17022412" sideWeight="0.7016949" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32929516" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.12542373" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32929516" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -621,112 +541,139 @@
     <option name="LAST_COMMIT_MESSAGE" value="Add some test" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/WI/public/js/net.js</url>
+          <line>599</line>
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="1" />
+    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/WI/templates/map.html">
+    <entry file="file://$PROJECT_DIR$/WI/public/js/angular-cookies.min.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="86" column="44" selection-start="4648" selection-end="4648" vertical-scroll-proportion="0.8543689" vertical-offset="0" max-vertical-offset="0" />
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="579" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/launch.py">
+    <entry file="file://$PROJECT_DIR$/WI/templates/co.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="25" selection-start="1443" selection-end="1443" vertical-scroll-proportion="0.3492433" vertical-offset="0" max-vertical-offset="0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/install.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="22" selection-start="22" selection-end="22" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/conf/netpolling.conf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="132" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WI/tests.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="34" selection-start="382" selection-end="382" vertical-scroll-proportion="0.30751708" vertical-offset="0" max-vertical-offset="878">
+        <state line="14" column="7" selection-start="797" selection-end="797" vertical-scroll-proportion="-9.333333" vertical-offset="0" max-vertical-offset="360">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WI/__init__.py">
+    <entry file="file://$PROJECT_DIR$/WI/public/js/angularv1.08.min.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
+        <state line="8" column="73" selection-start="1691" selection-end="1691" vertical-scroll-proportion="0.12972973" vertical-offset="0" max-vertical-offset="2970">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scan/scan/Scan.py">
+    <entry file="file://$PROJECT_DIR$/WI/public/js/angular.min.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="50" selection-start="571" selection-end="571" vertical-scroll-proportion="0.0" vertical-offset="342" max-vertical-offset="2664">
-          <folding />
-        </state>
+        <state line="200" column="0" selection-start="98982" selection-end="98982" vertical-scroll-proportion="0.0" vertical-offset="3044" max-vertical-offset="3708" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scan/scan/LocalScan.py">
+    <entry file="file://$PROJECT_DIR$/WI/templates/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="12" selection-start="358" selection-end="358" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1476">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WI/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="16" selection-start="384" selection-end="384" vertical-scroll-proportion="0.0" vertical-offset="28" max-vertical-offset="6696">
+        <state line="12" column="0" selection-start="0" selection-end="685" vertical-scroll-proportion="-8.0" vertical-offset="0" max-vertical-offset="774">
           <folding>
-            <element signature="e#24#35#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/conf/wsgi.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="30" selection-start="698" selection-end="705" vertical-scroll-proportion="-6.814815" vertical-offset="122" max-vertical-offset="684">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/manage.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="0" selection-start="207" selection-end="207" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="288">
-          <folding>
-            <element signature="e#22#31#0" expanded="true" />
+            <element signature="n#block#1;n#!!top" expanded="false" />
+            <element signature="n#if#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/conf/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="579">
+        <state line="11" column="42" selection-start="456" selection-end="456" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="558">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WI/models.py">
+    <entry file="file://$PROJECT_DIR$/WI/templates/modal.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="28" selection-start="1054" selection-end="1054" vertical-scroll-proportion="0.93782383" vertical-offset="87" max-vertical-offset="738">
+        <state line="4" column="44" selection-start="230" selection-end="230" vertical-scroll-proportion="-2.6666667" vertical-offset="0" max-vertical-offset="288">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/conf/netenv.py">
+    <entry file="file://$PROJECT_DIR$/WI/templates/tmp.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="30" selection-start="330" selection-end="330" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="342">
+        <state line="29" column="6" selection-start="2314" selection-end="2314" vertical-scroll-proportion="-5.8641977" vertical-offset="47" max-vertical-offset="630">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/conf/settings.py">
+    <entry file="file://$PROJECT_DIR$/WI/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="90" column="0" selection-start="3163" selection-end="3163" vertical-scroll-proportion="2.7551725" vertical-offset="22" max-vertical-offset="3078">
+        <state line="180" column="0" selection-start="7613" selection-end="7613" vertical-scroll-proportion="0.0" vertical-offset="2851" max-vertical-offset="7200">
+          <folding>
+            <element signature="e#24#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WI/templates/manager.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="56" column="0" selection-start="3402" selection-end="3402" vertical-scroll-proportion="-11.333333" vertical-offset="702" max-vertical-offset="2574">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WI/templates/help.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="91" column="47" selection-start="3811" selection-end="3811" vertical-scroll-proportion="0.82246375" vertical-offset="1184" max-vertical-offset="2376">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WI/templates/log.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="43" selection-start="155" selection-end="155" vertical-scroll-proportion="0.12743363" vertical-offset="0" max-vertical-offset="565">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WI/templates/para.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="23" selection-start="70" selection-end="70" vertical-scroll-proportion="0.06521739" vertical-offset="0" max-vertical-offset="552">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WI/templates/scan.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="46" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="612">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WI/public/js/net.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="700" column="19" selection-start="46604" selection-end="46604" vertical-scroll-proportion="0.28688523" vertical-offset="10824" max-vertical-offset="11556">
+          <folding>
+            <element signature="e#38352#42264#0" expanded="false" />
+            <element signature="e#42387#42615#0" expanded="false" />
+            <element signature="e#42724#43065#0" expanded="false" />
+            <element signature="e#43171#43558#0" expanded="false" />
+            <element signature="e#43666#45183#0" expanded="false" />
+            <element signature="e#45321#46561#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WI/public/js/netV2.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="183" column="36" selection-start="12946" selection-end="12946" vertical-scroll-proportion="0.6953552" vertical-offset="1597" max-vertical-offset="2412">
+          <folding>
+            <element signature="e#1396#6988#0" expanded="false" />
+            <element signature="e#5792#6748#0" expanded="false" />
+            <element signature="e#9359#9742#0" expanded="false" />
+            <element signature="e#12946#13250#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

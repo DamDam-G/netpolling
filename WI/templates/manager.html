@@ -8,11 +8,10 @@
         <link href="/public/bootstrap/css/bootstrap-responsive.css" media="screen" rel="stylesheet" type="text/css">
         <link href="/public/bootstrap/css/bootstrap.min.css" media="screen" rel="stylesheet" type="text/css">
         <link href="/public/css/design.min.css" media="screen" rel="stylesheet" type="text/css">
-         <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
     </head>
-    <body>
+    <body ng-app="netpolling">
         {% block nav %}
-        <nav class="navbar navbar-inverse">
+        <nav class="navbar navbar-inverse" ng-controller="MenuCtrl">
             <div class="navbar-inner">
                 <div class="container">
                     <a class="nav-collapse collapse" href="#">
@@ -20,37 +19,37 @@
                     </a>
                     <span class="nav-collapse collapse">
                             <a id="0" class="menu" role="button" class="label" >{% csrf_token %}
-                                <button class="btn btn-inverse "><i class="icon-search icon-white"></i>Scan</button>
+                                <button class="btn btn-inverse " ng-click="call(0)"><i class="icon-search icon-white"></i>Scan</button>
                             </a>
                     </span>
                     <span class="nav-collapse collapse">
                             <a id="1" class="menu" role="button" class="label">
-                                <button class="btn btn-inverse"><i class="icon-screenshot icon-white"></i>Screenshot</button>
+                                <button class="btn btn-inverse" ng-click="call(1)"><i class="icon-screenshot icon-white"></i>Screenshot</button>
                             </a>
                     </span>
                     <span class="nav-collapse collapse">
                             <a id="2" class="menu" role="button" class="label">
-                                <button class="btn btn-inverse"><i class="icon-eye-open icon-white"></i>Visualiser</button>
+                                <button class="btn btn-inverse" ng-click="call(2)"><i class="icon-eye-open icon-white"></i>Visualiser</button>
                             </a>
                     </span>
                     <span class="nav-collapse collapse">
                             <a id="3" class="menu" role="button" class="label">
-                                <button class="btn btn-inverse"><i class="icon-th-list icon-white"></i>Journal</button>
+                                <button class="btn btn-inverse" ng-click="call(3)"><i class="icon-th-list icon-white"></i>Journal</button>
                             </a>
                     </span>
                     <span class="nav-collapse collapse">
                             <a id="4" class="menu" role="button" class="label">
-                                <button class="btn btn-inverse"><i class="icon-wrench icon-white"></i>Paramétre</button>
+                                <button class="btn btn-inverse" ng-click="call(4)"><i class="icon-wrench icon-white"></i>Paramétre</button>
                             </a>
                     </span>
                     <span class="nav-collapse collapse">
                             <a id="5" class="menu" role="button" class="label">
-                                <button class="btn btn-inverse"><i class="icon-off icon-white"></i>Déconnexion</button>
+                                <button class="btn btn-inverse" ng-click="call(5)"><i class="icon-off icon-white"></i>Déconnexion</button>
                             </a>
                     </span>
                     <span class="nav-collapse collapse">
                             <a id="6" class="menu" role="button" class="label">
-                                <button class="btn btn-inverse"><i class="icon-book icon-white"></i>Aide</button>
+                                <button class="btn btn-inverse" ng-click="call(6)"><i class="icon-book icon-white"></i>Aide</button>
                             </a>
                     </span>
                 </div>
@@ -131,13 +130,9 @@
             </div>
         </div>
         {% endblock %}
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-        <!--<script src="/public/js/jquery-2.0.0.min.js"></script>-->
-        <script src="/public/js/jquery.mousewheel.js"></script>
-        <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
-        <!--<script src="/public/js/jquery-ui-1.10.3.custom.min.js"></script>-->
-        <script src="/public/js/raphael-min.js"></script>
-        <script src="/public/bootstrap/js/bootstrap.min.js"></script>
-        <script src="/public/js/net.js"></script>
+        <script src="/public/js/angular.min.js"></script>
+        <script src="/public/js/angular-cookies.min.js"></script>
+        <script src="/public/js/ui-bootstrap-tpls-0.6.0.js"></script>
+        <script src="/public/js/netV2.js"></script>
     </body>
 </html>

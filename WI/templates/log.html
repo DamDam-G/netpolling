@@ -1,25 +1,19 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title></title>
-    </head>
-    <body>
-        <h3>Journal</h3>
+{% extends "modal.html" %}
+{% block content %}
+        <h3>[[ content[0][0].title ]]</h3>
         <div id="lg">
-        {% for l in data %}
-           <div class="alert {% if l.type ==  0 %} alert-info {% elif l.type == 1 %} alert-success {% elif l.type == 2 %} alert-warning {% elif l.type == 3 %} alert-danger {% endif %}">
+           <div ng-repeat="log in content[1]" class="alert alert-[[ log.type ]]">
                 <button type="button" class="close" data-dismiss="alert">&times;</button>
-                <h4>{{ l.name }}</h4>
+                <h4>[[ log.name ]]</h4>
                 <p>
-                    {{ l.content }}
+                    [[ log.content ]]
                 </p>
                 <p>
-                    {{ l.date }}
+                    [[ log.date ]]
                 </p>
            </div>
-           {% empty %}
-                Aucune notification n'est disponible
-        {% endfor %}
+        [[ content[0][1].info ]]
         </div>
     </body>
 </html>
+{%  endblock %}

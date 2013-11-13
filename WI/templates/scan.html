@@ -1,54 +1,28 @@
-<!DOCTYPE html>
-<html>
-    <head>
-    </head>
-    <body>
-        <div class="hero-unit">
-            <img src="/public/img/search.png">
-            <h3>Option de scan</h3><br />
-            <div id="info"></div>
-            <div class="accordion" id="accordion">
-                <div class="accordion-group">
-                    <div class="accordion-heading">
-                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#acco">
-                            Scan Local
-                        </a>
-                    </div>
-                    <div id="acco" class="accordion-body collapse">
-                        <div class="accordion-inner">
-                            <form method="post" id="form0" enctype="application/x-www-form-urlencoded">
-                                <input name="type" type="hidden" value="scan"><br />
-                                {% for t in data %}
-                                        <input id="l-name" required="true" placeholder="iti" pattern="^[A-Za-z0-9_]{1,}$" name="name" type="text" value="{{ t.name }}">&nbsp&nbsp<label class="label">Nom du scan</label><br />
-                                        <input id="l-mask" required="true" placeholder="10.8.96.0/20" pattern="^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}/[0-9]{1,2}$" value="{{ t.netmask }}" name="mask" type="text">&nbsp&nbsp<label class="label">Masque réseau</label><br />
-                                        <input id="l-interface" required="true" placeholder="eth0" pattern="^[A-Za-z0-9]{1,}$" value="{{ t.interface }}" name="interface" type="text">&nbsp&nbsp<label class="label">Interface réseau</label><br />
-                                {% endfor %}
-                                <button type="submit" class="btn btn-info">Mettre à jour</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-                <div class="accordion-group">
-                    <div class="accordion-heading">
-                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#accord">
-                            Analyse de la bande passante
-                        </a>
-                    </div>
-                    <div id="accord" class="accordion-body collapse">
-                        <div class="accordion-inner">
-                            <form method="post" id="form1" enctype="application/x-www-form-urlencoded">
-                                <input name="type" type="hidden" value="listen"><br />
-                                {% for t in data %}
-                                    <input required="true" pattern="^[0-9]{1,}$" placeholder="152365" name="bw" type="text" value="{{ t.bw }}"&nbsp&nbsp><label class="label">Bande passante (mo)</label><br />
-                                    <input required="true" pattern="^[A-Za-z0-9]{1,}$" placeholder="eth0" name="interface" type="text" value="{{ t.interface }}">&nbsp&nbsp<label class="label">Interface d'écoute</label><br />
-                                    <input required="true" pattern="^[0-9]{1,}$" placeholder="56" name="ptime" type="number" value="{{ t.time }}" >&nbsp&nbsp<label class="label">Temps d'écoute</label><br />
-                                {% endfor %}
-                                <button type="submit" class="btn btn-info">Mettre à jour</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </body>
-</html>
+{% extends "modal.html" %}
+{% block content %}
+    <div class="hero-unit" ng-controller="MenuCtrl">
+        <img src="/public/img/search.png">
+        <h3>[[ content[0][0].title ]]</h3><br />
+        <div id="info"></div>
+        <accordion close-others="oneAtATime">
+            <accordion-group heading="Scanner">
+                <form method="post" id="form0" enctype="application/x-www-form-urlencoded">
+                    <input name="type" type="hidden" value="scan"><br />
+                    <section ng-repeat="scan in content[1]">
+                        <input type ="[[scan.type ]]" name ="[[scan.name ]]" value ="[[scan.value ]]" required ="[[scan.required ]]" pattern ="[[scan.pattern ]]" placeholder ="[[scan.placeholder ]]">&nbsp&nbsp<label class="label">[[ scan.label ]]</label><br />
+                    </section>
+                    <button type="submit" class="btn btn-info">[[ content[0][1].button ]]</button>
+                </form>
+            </accordion-group>
+            <accordion-group heading="Analyse de la bande passante">
+                <form method="post" id="form1" enctype="application/x-www-form-urlencoded">
+                    <input name="type" type="hidden" value="listen"><br />
+                    <section ng-repeat="listen in content[2]">
+                        <input type ="[[listen.type ]]" name ="[[listen.name ]]" value ="[[listen.value ]]" required ="[[listen.required ]]" pattern ="[[listen.pattern ]]" placeholder ="[[listen.placeholder ]]">&nbsp&nbsp<label class="label">[[ listen.label ]]</label><br />
+                    </section>
+                    <br /><button type="submit" class="btn btn-info">[[ content[0][1].button ]]</button>
+                </form>
+            </accordion-group>
+        </accordion>
+    </div>
+{% endblock %}

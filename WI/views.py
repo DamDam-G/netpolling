@@ -6,6 +6,7 @@ import re
 from django.shortcuts import render, render_to_response, redirect
 from django.http import HttpResponse
 from django.contrib.auth import authenticate, login, logout
+from django.core import serializers
 import ConfigParser
 from WI.models import *
 from scan import *
@@ -82,6 +83,15 @@ def Manager(request):
     else:
         return redirect('/index/', {"cls": "error", "why":"Vous devez être connecté."})
 
+def Modal(request, id):
+    """if request.is_ajax():
+        return render(request, 'modal.html', {})
+    else:
+        return render(request, 'error.html', {type:"The request is not ajax"})"""
+    if request.user.is_authenticated():
+        views = ("scan", "screen", "visu", "log", "para", "disconnect", "help")
+        return render(request, '{0}.html'.format(views[int(id)]), {})
+
 def Manager2(request):
     """!
     @author Damien Goldenberg
@@ -119,9 +129,11 @@ def Control(request):
     """
 
     #views = ('scan', 'screen', 'visu', 'log', 'para', 'disconnect')
-    if request.is_ajax():
-        if request.POST.get("id"):
-            id = int(request.POST.get("id"))
+    if request.is_ajax() and request.method == "POST":
+        id = int(json.loads(request.body)["id"])
+        views = ("scan", "screen", "visu", "log", "para", "disconnect", "help")
+        modelInput = {"type":"", "name":"", "value":"", "required":"", "pattern":"", "placeholder":""}
+        if 0 <= id < len(views):
             if id == 0:
                 param = ConfigParser.RawConfigParser()
                 param.read(ENV.conf+'netpolling.conf')
@@ -145,27 +157,46 @@ def Control(request):
                     r.update(zoml=param.get("Param", 'zooml').replace('"', ''))
                 except ConfigParser.Error, err:
                     print 'Oops, une erreur dans votre fichier de conf (%s)' % err
-            views = ("scan", "screen", "visu", "log", "para", "disconnect", "help")
-            if 0 <= id < len(views):
-                if id == 0:
-                    data = ScanParam.objects.all()
-                elif id == 1:
-                    data = ''
-                elif id == 2:
-                    data = Screenshot.objects.all()
-                elif id == 3:
-                    data = Log.objects.order_by('-id')[:15]
-                elif id == 4:
-                    data = Param.objects.all()
-                elif id == 5:
-                    data = ''
-                elif id == 6:
-                    data = ''
+
+            if id == 0:
+                data = ((ScanParam.objects.all()).values())[0]
+                param = [
+                            [{"title":"Option de scan"},
+                             {"button":"Mettre à jour"}],
+                            [{"type":"text", "name":"name", "value":data["name"], "required":"true", "pattern":"^[A-Za-z0-9_]{1,}$", "placeholder":"iti", "label":"Nom du scan"},
+                            {"type":"text", "name":"mask", "value":data["netmask"], "required":"true", "pattern":"^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}/[0-9]{1,2}$", "placeholder":"10.8.96.0/20", "label":"Masque réseau"},
+                            {"type":"text", "name":"interface", "value":data["interface"], "required":"true", "pattern":"^[A-Za-z0-9_]{1,}$", "placeholder":"eth0", "label":"Interface réseau"}],
+                            [{"type":"text", "name":"bw", "value":data["bw"], "required":"true", "pattern":"^[0-9]{1,}$", "placeholder":"152365", "label":"Bande passante (mo)"},
+                            {"type":"text", "name":"interface", "value":data["ilisten"], "required":"true", "pattern":"^[A-Za-z0-9]{1,}$", "placeholder":"eth1", "label":"Interface d'écoute"},
+                            {"type":"number", "name":"ptime", "value":data["time"], "required":"true", "pattern":"^[0-9]{1,}$", "placeholder":"56", "label":"Temps d'écoute"}]]
+            elif id == 3:
+                data = ((Log.objects.order_by('-id')[:15]).values())[0]
+                param = [[{"title":"Option de scan"}], []]
+                if len(data) == 0:
+                    param[0].append([{"info":"Aucune notification n'est disponible"}])
                 else:
-                    return render_to_response('error.html', {'type':'error id'})
-                return render_to_response(views[id]+'.html', {'data':data})
+                    cls = ["info", "success", "warning", "danger"]
+                    for i in data:
+                        param[1].append({"type":cls[int(i["type"])], "name":i["name"], "content":i["content"], "date":i["date"]})
+            elif id == 4:
+                data = ((Param.objects.all()).values())[0]
+                param = [[{"title":"Journal"},
+                        {"button":"Mettre à jour"}],
+                        [{"type":"text", "name":"move", "value":data["move"], "required":"true", "pattern":"^[0-9]{1,},[0-9]{1,}$", "placeholder":"17,00", "label":"Coefficiant de déplacement"},
+                        {"type":"text", "name":"dzoom", "value":data["zomd"], "required":"true", "pattern":"^0,[0-9]{1,}$", "placeholder":"0,1", "label":"Coefficiant de zoom sur les équipements"},
+                        {"type":"text", "name":"lzoom", "value":data["zoml"], "required":"true", "pattern":"^0,[0-9]{1,}$", "placeholder":"0,25", "label":"Coefficiant de zoom sur les liens"}]]
+
+            elif id == 1 or id == 5 or id == 6:
+                param = {}
             else:
-                return render_to_response('error.html', {'type':'error, the page doesn\'t exist'})
+                return render_to_response('error.html', {'type':'error, the page doesn\'t exist (id)'})
+            #print serializers.serialize('json', data)
+            #param = {"data":serializers.serialize('json', data)}
+            #return HttpResponse(serializers.serialize('json', data))
+            return HttpResponse(json.dumps(param))
+            #return render_to_response(views[id]+'.html', {'data':data})
+            #else:
+             #   return render_to_response('error.html', {'type':'error, the page doesn\'t exist'})
         return render_to_response('error.html', {'type':'error post'})
     return render_to_response('error.html', {'type':'error ajax'})
 
@@ -201,9 +232,6 @@ def AjaxForm(request, id):
                     else:
                         param = {'success':0, 'why':'error : format data incorrect'}
                 elif request.POST.get("type") == "listen":
-                    print(request.POST.get("interface"))
-                    print(request.POST.get("bw"))
-                    print(request.POST.get("ptime"))
                     if re.search("^[A-Za-z0-9_]{2,}$", str(request.POST.get("interface"))) \
                         and re.search("^[0-9]{1,}$", str(request.POST.get("bw"))) \
                         and re.search("^[0-9]{1,}$", str(request.POST.get("ptime"))):
