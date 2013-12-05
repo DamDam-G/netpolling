@@ -7,7 +7,7 @@
         <link rel="shortcut icon" href="/public/img/favicon.ico" />
         <link href="/public/bootstrap/css/bootstrap-responsive.css" media="screen" rel="stylesheet" type="text/css">
         <link href="/public/bootstrap/css/bootstrap.min.css" media="screen" rel="stylesheet" type="text/css">
-        <link href="/public/css/design.min.css" media="screen" rel="stylesheet" type="text/css">
+        <link href="/public/css/design.css" media="screen" rel="stylesheet" type="text/css">
     </head>
     <body ng-app="netpolling">
         {% block nav %}
@@ -57,66 +57,136 @@
         </nav>
         {% endblock %}
         {% block content %}
-        <div id="main" class="bg">
-            <div id="inf" class="container"></div>
+        <div id="main" class="bg" ng-controller="MapCtrl">
+            <div id="inf" class="container">
+                <div class="alert alert-[[ info.cls ]]"><button type="button" class="close" data-dismiss="alert">×</button>[[ info.why ]]</div>
+            </div>
             <div id="pop">
-                <div id="binfo"></div>
+                <div id="binfo">
+                    <span class='label'>Bande passante totale utilisée : </span>
+                    <ul>
+                        <li class='offset1'>[[ bw.pbw ]] %</li>
+                        <li class='offset1'>[[ bw.tbw ]] kb/s</li>
+                    </ul>
+                </div>
                 <div id="tbw">
-                    <div id="cbw"></div>
+                    <div id="cbw" style="width:[[ bw.width ]]px;background-color:[[ bw.color ]]"></div>
                 </div>
-                <ul>
-                    <li><a href="#i">Informations</a></li>
-                    <li><a href="#os">OS</a></li>
-                    <li><a href="#search">Recherche</a></li>
-                </ul>
-                <div id="i">
-                    <div id="d"></div>
-                    <hr />
-                    <form method="post" id="fsniff" enctype="application/x-www-form-urlencoded">
-                        <div id="rsniff"></div>
-                        <label for="name">Nom de l'écoute</label>
-                        <input id="sname" type="text" required="true" pattern="^[A-Za-z0-9_]{1,}$" data-toggle="button" placeholder="Listen_totor"><br />
-                        <label for="name">temps de l'écoute (en seconde)</label>
-                        <input id="stime" type="number" required="true" pattern="^[0-9]{1,}$" data-toggle="button" placeholder="60"><br />
-                        <button id ="bsniff" class="btn btn-primary" data-toggle="button">Mise en écoute</button>
-                    </form>
-                </div>
-                <div id="os"></div>
-                <div id="search">
-                    
-                </div>
+                <tabset>
+                    <tab>
+                        <tab-heading>
+                            Informations
+                        </tab-heading>
+                        <table>
+                            <tr>
+                                <td>
+                                    <label class="label">Hostname : </label>
+                                </td>
+                                <td>
+                                    [[ device.hostname ]]
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label class="label">Device : </label>
+                                </td>
+                                <td>
+                                    <img src="/public/img/device/[[ device.img ]].svg" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label class="label">IP : </label>
+                                </td>
+                                <td id="aip">
+                                    [[ device.ip ]]
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label class="label">MAC : </label>
+                                </td>
+                                <td>
+                                    [[ device.mac ]]
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label class="label">OS : </label>
+                                </td>
+                                <td>
+                                    <button id="dos" class="btn btn-inverse" type="button">Détection d\'OS</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label class="label">Bande passante : </label>
+                                </td>
+                                <td>
+                                    [[ device.bw.percent ]]% ([[ device.bw.value ]] kb/s)
+                                </td>
+                            </tr>
+                        </table>
+                        <hr />
+                        <form method="post" id="fsniff" enctype="application/x-www-form-urlencoded">
+                            <div id="rsniff"></div>
+                            <label for="name">Nom de l'écoute</label>
+                            <input id="sname" type="text" required="true" pattern="^[A-Za-z0-9_]{1,}$" data-toggle="button" placeholder="Listen_totor"><br />
+                            <label for="name">temps de l'écoute (en seconde)</label>
+                            <input id="stime" type="number" required="true" pattern="^[0-9]{1,}$" data-toggle="button" placeholder="60"><br />
+                            <button id ="bsniff" class="btn btn-primary" data-toggle="button">Mise en écoute</button>
+                        </form>
+                    </tab>
+                    <tab>
+                        <tab-heading>
+                            OS
+                        </tab-heading>
+
+                    </tab>
+                    <tab>
+                        <tab-heading>
+                            Recherche
+                        </tab-heading>
+                        <table>
+                            <tr ng-repeat="i in listdevice">
+                                <td>[[ i.hostname ]]</td>
+                                <td>[[ i.ip ]]</td>
+                            </tr>
+                        </table>
+                    </tab>
+                </tabset>
             </div>
             <div id="move">
                 <table>
                     <tr>
                         <td></td>
                         <td>
-                            <i id="m0" class="mapcontroll icon-chevron-up icon-white">
+                            <i id="m0" class="mapcontroll icon-chevron-up icon-white" ng-click="move('y+')">
                         </td>
                         <td></td>
-                        <td><i id="m4" class="mapcontroll icon-plus-sign icon-white"></td>
+                        <td><i id="m4" class="mapcontroll icon-plus-sign icon-white" ng-click="zoom('+')"></td>
                     </tr>
                     <tr>
-                        <td><i id="m1" class="mapcontroll icon-chevron-left icon-white"></td>
+                        <td><i id="m1" class="mapcontroll icon-chevron-left icon-white" ng-click="move('x-')"></td>
                         <td></td>
-                        <td><i id="m2" class="mapcontroll icon-chevron-right icon-white"></td>
+                        <td><i id="m2" class="mapcontroll icon-chevron-right icon-white" ng-click="move('x+')"></td>
                         <td></td>
                         <td></td>
                     </tr>
                     <tr>
                         <td></td>
                         <td>
-                            <i id="m3" class="mapcontroll icon-chevron-down icon-white">
+                            <i id="m3" class="mapcontroll icon-chevron-down icon-white" ng-click="move('y-')">
                         </td>
                         <td></td>
-                        <td><i id="m5" class="mapcontroll icon-minus-sign icon-white"></td>
+                        <td><i id="m5" class="mapcontroll icon-minus-sign icon-white" ng-click="zoom('-')"></td>
                     </tr>
                 </table>
-                <div id="reset">reset</div>
+                <div id="reset" ng-click="reset()">reset</div>
             </div>
-            <div id="svgDevice" class="DesignCanvas"></div>
-            <div id="svgBw" class="DesignCanvas"></div>
-            <div id="svgSearch" class="DesignCanvas"></div>
+            <n-map>
+
+            </n-map>
             <!--<canvas id="cartoDevice" width="750" height="500"></canvas>
             <canvas id="cartoConnector"></canvas>-->
         </div>
@@ -130,8 +200,12 @@
             </div>
         </div>
         {% endblock %}
+        <!--<script src="/public/js/raphael-min.js"></script>-->
+        <script src="/public/js/d3.v3.min.js"></script>
         <script src="/public/js/angular.min.js"></script>
         <script src="/public/js/angular-cookies.min.js"></script>
+        <script src="/public/js/hamster.js"></script>
+        <script src="/public/js/mousewheel.js"></script>
         <script src="/public/js/ui-bootstrap-tpls-0.6.0.js"></script>
         <script src="/public/js/netV2.js"></script>
     </body>

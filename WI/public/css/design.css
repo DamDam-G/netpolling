@@ -45,6 +45,13 @@ footer
     height:600px;
 }
 
+.link
+{
+  fill: none;
+  stroke-width: 3px;
+}
+
+
 #svgDevice, #cartoDevice
 {
     z-index:42; //The Big Question of Life, the Universe and Everything
@@ -57,9 +64,9 @@ footer
     border-radius:15px;
 }
 
-#svgSearch
+#map
 {
-    z-index:0;
+    //z-index:0;
     border-radius:15px;
     border:solid #000000 2px;
     background-color:#EEEEEE;
