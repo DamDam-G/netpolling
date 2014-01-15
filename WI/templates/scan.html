@@ -6,16 +6,16 @@
         <div id="info"></div>
         <accordion close-others="oneAtATime">
             <accordion-group heading="Scanner">
-                <form method="post" id="form0" enctype="application/x-www-form-urlencoded">
+                <form method="post" id="form0" ng-submit="submit('form0')" enctype="application/x-www-form-urlencoded">
                     <input name="type" type="hidden" value="scan"><br />
                     <section ng-repeat="scan in content[1]">
-                        <input type ="[[scan.type ]]" name ="[[scan.name ]]" value ="[[scan.value ]]" required ="[[scan.required ]]" pattern ="[[scan.pattern ]]" placeholder ="[[scan.placeholder ]]">&nbsp&nbsp<label class="label">[[ scan.label ]]</label><br />
+                        <input type="[[scan.type ]]" name ="[[scan.name ]]" value ="[[scan.value ]]" required ="[[scan.required ]]" pattern ="[[scan.pattern ]]" placeholder ="[[scan.placeholder ]]">&nbsp&nbsp<label class="label">[[ scan.label ]]</label><br />
                     </section>
                     <button type="submit" class="btn btn-info">[[ content[0][1].button ]]</button>
                 </form>
             </accordion-group>
             <accordion-group heading="Analyse de la bande passante">
-                <form method="post" id="form1" enctype="application/x-www-form-urlencoded">
+                <form method="post" id="form1"  ng-submit="submit('form1')" enctype="application/x-www-form-urlencoded">
                     <input name="type" type="hidden" value="listen"><br />
                     <section ng-repeat="listen in content[2]">
                         <input type ="[[listen.type ]]" name ="[[listen.name ]]" value ="[[listen.value ]]" required ="[[listen.required ]]" pattern ="[[listen.pattern ]]" placeholder ="[[listen.placeholder ]]">&nbsp&nbsp<label class="label">[[ listen.label ]]</label><br />

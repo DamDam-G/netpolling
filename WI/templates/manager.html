@@ -91,7 +91,7 @@
                                     <label class="label">Device : </label>
                                 </td>
                                 <td>
-                                    <img src="/public/img/device/[[ device.img ]].svg" />
+                                    <img src="/public/img/device/[[ device.img ]].png" />
                                 </td>
                             </tr>
                             <tr>
@@ -115,7 +115,7 @@
                                     <label class="label">OS : </label>
                                 </td>
                                 <td>
-                                    <button id="dos" class="btn btn-inverse" type="button">Détection d\'OS</button>
+                                    <button id="dos" class="btn btn-inverse" type="button" ng-click="OS([[ device.ip ]])">Détection d\'OS</button>
                                 </td>
                             </tr>
                             <tr>
@@ -128,12 +128,12 @@
                             </tr>
                         </table>
                         <hr />
-                        <form method="post" id="fsniff" enctype="application/x-www-form-urlencoded">
+                        <form ng-submit="Sniff([[ device.ip ]])" method="post" name="fsniff" enctype="application/x-www-form-urlencoded">
                             <div id="rsniff"></div>
-                            <label for="name">Nom de l'écoute</label>
-                            <input id="sname" type="text" required="true" pattern="^[A-Za-z0-9_]{1,}$" data-toggle="button" placeholder="Listen_totor"><br />
-                            <label for="name">temps de l'écoute (en seconde)</label>
-                            <input id="stime" type="number" required="true" pattern="^[0-9]{1,}$" data-toggle="button" placeholder="60"><br />
+                            <label for="sname">Nom de l'écoute</label>
+                            <input name="sname" ng-model="sname" type="text" required="true" pattern="^[A-Za-z0-9_]{1,}$" data-toggle="button" placeholder="Listen_totor"><br />
+                            <label for="stime">temps de l'écoute (en seconde)</label>
+                            <input name="stime" ng-model="stime" type="number" required="true" pattern="^[0-9]{1,}$" data-toggle="button" placeholder="60"><br />
                             <button id ="bsniff" class="btn btn-primary" data-toggle="button">Mise en écoute</button>
                         </form>
                     </tab>
@@ -147,10 +147,11 @@
                         <tab-heading>
                             Recherche
                         </tab-heading>
-                        <table>
+                        <table class="table table-striped table-hover">
                             <tr ng-repeat="i in listdevice">
                                 <td>[[ i.hostname ]]</td>
                                 <td>[[ i.ip ]]</td>
+                                <td><button class="btn btn-inverse" ng-click="EffectMap([[ i.id ]], [[ i.x ]], [[ i.y ]])"><i class="icon-screenshot icon-white"></i>Search</button></td>
                             </tr>
                         </table>
                     </tab>

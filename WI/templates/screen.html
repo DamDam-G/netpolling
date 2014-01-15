@@ -1,16 +1,12 @@
-<!DOCTYPE html>
-<html>
-    <head>
-    </head>
-    <body>
+{% extends "modal.html" %}
+{% block content %}
         <h3>Screenshot</h3><br />
         <div id="info"></div>
         <p>
             Vous pouvez enregistrer une image de la carte actuelle
         </p>
-            <form method="post" id="form0" enctype="application/x-www-form-urlencoded">
+            <form method="post" id="form0" ng-submit="submit()" enctype="application/x-www-form-urlencoded">
                 <label class="label">Nom de la carte</label>&nbsp&nbsp<input pattern="^[A-Za-z0-9_]{1,}$" required="true" id="name" name="name" type="text" placeholder="zozor"><br />
                 <button type="submit" class="btn btn-info">Sauvegarder</button>
             </form>
-    </body>
-</html>
+{% endblock %}
