@@ -9,8 +9,9 @@
                                 {
                                     return {
                                         "csrf":Cookies.GetCookie("csrftoken"),
-                                        //"Network":null,
-                                        "Network":{"gw": "10.8.97.1", "route": ["10.8.97.1"], "device":"router", "children": [{"ip": "10.8.96.254", "hostname": "", "percent": null, "mac": "00:01:02:f0:da:8b", "bw": null, "device": "computer", "os": null}, {"ip": "10.8.97.1", "hostname": "", "percent": null, "mac": "00:08:02:3f:f2:82", "bw": null, "device": "computer", "os": null}, {"ip": "10.8.96.237", "hostname": "Martin-Portable", "percent": 0.029999999999999999, "mac": "ac:72:89:09:49:b2", "bw": 0.62, "device": "computer", "os": null}, {"ip": "10.8.98.30", "hostname": "Juju", "percent": 3.5299999999999998, "mac": "70:f3:95:e2:c8:13", "bw": 67.790000000000006, "device": "computer", "os": null}, {"ip": "10.8.99.235", "hostname": "Nicolas-PC", "percent": 0.050000000000000003, "mac": "78:92:9c:84:28:6c", "bw": 0.85999999999999999, "device": "computer", "os": null}, {"ip": "10.8.100.143", "hostname": "camille-PC", "percent": 0.02, "mac": "74:2f:68:3c:fc:90", "bw": 0.32000000000000001, "device": "computer", "os": null}, {"ip": "10.8.100.234", "hostname": "android-8555f470746dfa07", "percent": 0.0, "mac": "78:d6:f0:0b:ed:27", "bw": 0.01, "device": "phone", "os": null}, {"ip": "10.8.101.127", "hostname": "iPhone-de-kevin", "percent": 0.0, "mac": "d8:9e:3f:18:db:d0", "bw": 0.01, "device": "apple", "os": null}, {"ip": "10.8.98.159", "hostname": "Martz-PC", "percent": 0.56999999999999995, "mac": "74:2f:68:78:f2:d0", "bw": 10.94, "device": "computer", "os": null}, {"ip": "10.8.102.17", "hostname": "TOSHE", "percent": 0.0, "mac": "74:e5:43:b0:26:66", "bw": 0.02, "device": "computer", "os": null}, {"ip": "10.8.103.109", "hostname": "", "percent": null, "mac": "58:b0:35:35:2b:5a", "bw": null, "device": "apple", "os": null}, {"ip": "10.8.104.61", "hostname": "Mouraghi-PC", "percent": 0.01, "mac": "bc:5f:f4:86:76:ad", "bw": 0.14999999999999999, "device": "computer", "os": null}, {"ip": "10.8.104.56", "hostname": "Raphael-PC", "percent": 0.10000000000000001, "mac": "94:db:c9:b1:da:e9", "bw": 1.97, "device": "computer", "os": null}, {"ip": "10.8.104.90", "hostname": "michuntu", "percent": 0.01, "mac": "8c:a9:82:69:01:32", "bw": 0.11, "device": "computer", "os": null}, {"ip": "10.8.103.68", "hostname": "pwned", "percent": 0.02, "mac": "6c:71:d9:2b:f3:59", "bw": 0.41999999999999998, "device": "computer", "os": null}, {"ip": "10.8.104.190", "hostname": "", "percent": 0.0, "mac": "40:a6:d9:2a:4f:a3", "bw": 0.0, "device": "apple", "os": null}, {"ip": "10.8.104.249", "hostname": "", "percent": 0.0, "mac": "00:19:99:43:2d:19", "bw": 0.059999999999999998, "device": "computer", "os": null}, {"ip": "10.8.105.31", "hostname": "", "percent": 0.0, "mac": "00:08:02:37:be:1d", "bw": 0.0, "device": "computer", "os": null}, {"ip": "10.8.104.27", "hostname": "3LK-LS4Tonio", "percent": 0.0, "mac": "68:5d:43:b7:3b:1c", "bw": 0.02, "device": "computer", "os": null}, {"ip": "10.8.106.7", "hostname": "mineur", "percent": 0.01, "mac": "bc:5f:f4:8b:9a:3d", "bw": 0.11, "device": "computer", "os": null}, {"ip": "10.8.106.50", "hostname": "", "percent": null, "mac": "00:0c:29:19:ce:a9", "bw": null, "device": "vm", "os": null}, {"ip": "10.8.106.116", "hostname": "", "percent": null, "mac": "00:0c:29:aa:cd:c3", "bw": null, "device": "vm", "os": null}, {"ip": "10.8.106.117", "hostname": "", "percent": null, "mac": "00:0c:29:44:a8:8e", "bw": null, "device": "vm", "os": null}, {"ip": "10.8.105.23", "hostname": "Riwan", "percent": 0.050000000000000003, "mac": "74:2f:68:55:e3:70", "bw": 0.91000000000000003, "device": "computer", "os": null}, {"ip": "10.8.108.100", "hostname": "android-c7e0becd82502419", "percent": null, "mac": "20:54:76:f9:a6:41", "bw": null, "device": "computer", "os": null}, {"ip": "10.8.100.107", "hostname": "android-4ade9cdeda53982b", "percent": 0.0, "mac": "20:02:af:38:ca:60", "bw": 0.0, "device": "computer", "os": null}, {"ip": "10.8.109.70", "hostname": "Yopif_port", "percent": 2.3799999999999999, "mac": "c4:85:08:0b:c7:d7", "bw": 45.609999999999999, "device": "computer", "os": null}, {"ip": "10.8.110.95", "hostname": "Brice-pc", "percent": 0.02, "mac": "48:5d:60:c8:1e:10", "bw": 0.40000000000000002, "device": "computer", "os": null}, {"ip": "10.8.110.93", "hostname": "Admin-TOSH", "percent": 3.4900000000000002, "mac": "d0:df:9a:65:e5:ea", "bw": 67.049999999999997, "device": "computer", "os": null}, {"ip": "10.8.108.53", "hostname": "Yopino4life", "percent": 0.01, "mac": "20:10:7a:f9:8d:d6", "bw": 0.10000000000000001, "device": "computer", "os": null}, {"ip": "10.8.108.135", "hostname": "Bessalel-HP-W8", "percent": 0.040000000000000001, "mac": "a0:88:b4:85:ba:84", "bw": 0.84999999999999998, "device": "computer", "os": null}, {"ip": "10.8.111.111", "hostname": "", "percent": null, "mac": "00:24:81:f9:97:32", "bw": null, "device": "computer", "os": null}, {"ip": "10.8.111.112", "hostname": "", "percent": null, "mac": "00:24:81:fe:a3:76", "bw": null, "device": "computer", "os": null}, {"ip": "10.8.111.132", "hostname": "joshua", "percent": 0.01, "mac": "08:3e:8e:03:a5:37", "bw": 0.19, "device": "computer", "os": null}, {"ip": "10.8.111.244", "hostname": "", "percent": null, "mac": "00:16:01:af:48:f8", "bw": null, "device": "computer", "os": null}, {"ip": "10.8.111.245", "hostname": "", "percent": null, "mac": "00:16:01:af:51:cc", "bw": null, "device": "computer", "os": null}, {"ip": "10.8.111.246", "hostname": "", "percent": 0.0, "mac": "c0:8a:de:1d:d8:40", "bw": 0.02, "device": "computer", "os": null}, {"ip": "10.8.111.251", "hostname": "", "percent": 0.01, "mac": "00:08:02:3f:e0:b5", "bw": 0.26000000000000001, "device": "computer", "os": null}, {"ip": "10.8.109.65", "hostname": "ITI1001", "percent": 0.0, "mac": "00:26:82:cd:52:16", "bw": 0.050000000000000003, "device": "computer", "os": null}, {"ip": "10.8.110.44", "hostname": "rOm-Portable", "percent": null, "mac": "00:1b:b1:28:cc:55", "bw": null, "device": "computer", "os": null}, {"ip": "10.8.98.78", "hostname": "android-ad3df5d31d8c056d", "percent": 0.0, "mac": "38:aa:3c:d5:da:83", "bw": 0.029999999999999999, "device": "phone", "os": null}, {"ip": "10.8.111.252", "hostname": "", "percent": null, "mac": "00:1b:b1:28:cc:55", "bw": null, "device": "computer", "os": null}]},
+                                        "id":0,
+                                        "id_menu":null,
+                                        "Network":{},
                                         "BW":{
                                             "color":"",
                                             "width":0,
@@ -37,7 +38,8 @@
                                         "DnD":{
                                             "drag":0,
                                             "currentPos":{"x":null, "y":null}
-                                        }
+                                        },
+                                        "Dico":{}
                                     };
                                 });
 
@@ -87,6 +89,24 @@
                                                                             {
                                                                                 alert("fail")
                                                                             });
+                                                    },
+                                        "ActionSrv": function(url, data, type, doAction)
+                                                    {
+                                                        Share.Available[type] = 1;
+                                                        $http({
+                                                        url:url,
+                                                        method:"POST",
+                                                        headers:{"Content-Type":"application/X-WWW-form-urlencoded", "X-CSRFToken": Share.csrf, "X-Requested-With":"XMLHttpRequest"},
+                                                        data:data
+                                                    }).success(function(data)
+                                                                {
+                                                                    Share.Available[type] = 0;
+                                                                    doAction(data);
+                                                                }).error(function(data)
+                                                                            {
+                                                                                alert("Fail");
+                                                                                Share.Available[type] = 0;
+                                                                            });
                                                     }
                                     };
                                 });
@@ -108,12 +128,11 @@
                                                 {
                                                     $modal.open({
                                                         templateUrl: '/modal/'+id,
-                                                        controller: function ($scope, $modalInstance)
+                                                        controller: function ($scope, $modalInstance, Share)
                                                                     {
-                                                                        //console.log(data);
-
                                                                         $scope.oneAtATime = true;
                                                                         $scope.content = data;
+                                                                        $scope.formData = {};
                                                                         $scope.ok = function ()
                                                                                     {
                                                                                         $modalInstance.close();
@@ -123,16 +142,46 @@
                                                                                         {
                                                                                             $modalInstance.dismiss('cancel');
                                                                                         };
+
+                                                                        $scope.submit = function(info)
+                                                                                        {
+                                                                                            /*console.log($scope);
+                                                                                            console.log($scope.content);*//**/
+                                                                                            var data = {};
+                                                                                            if(id == 0)
+                                                                                            {
+                                                                                                r = info == "form0"?d3.selectAll("#form0>section>input"):d3.selectAll("#form1>section>input");
+
+                                                                                            }
+                                                                                            else if (id == 1)
+                                                                                            {
+                                                                                                r = d3.selectAll("#form0>input");
+                                                                                                //console.log(JSON.stringify(Share.Network));
+                                                                                                data["network"] = Share.Network;
+                                                                                            }
+                                                                                            else if (id == 4)
+                                                                                            {
+                                                                                                r = d3.selectAll("#form0>section>input");
+                                                                                            }
+                                                                                            else
+                                                                                                alert("Hum hum ... don't try that !!!");
+                                                                                            for(var i = 0; i < r[0].length; i++)
+                                                                                            {
+                                                                                                data[r[0][i].name] = r[0][i].value;
+                                                                                            }
+                                                                                            console.log(data);
+                                                                                        };
                                                                     }});
                                                 }
                                     };
                                 });
 
-    netpolling.factory("RootCtrl", function(Ajax, Redirect)
+    netpolling.factory("RootCtrl", function(Ajax, Redirect, Share)
                                     {
                                         return {
                                             "ViewCtrl":function(id)
                                                         {
+                                                            Share.id_menu = id;
                                                             if(id >= 0 && id <= 1 || id >= 3 && id <= 6)
                                                             {
                                                                 Ajax.Control(id);
@@ -152,141 +201,10 @@
     netpolling.factory("Constructor", function(Share, Ajax)
                                         {
                                             return {
-                                                "Device":  function(ip, mac, os, device, name, bandwidth, percent, context, x, y, dim)
-                                                            {
-                                                                var ip = ip;
-                                                                var mac = mac;
-                                                                var os = os;
-                                                                var device = device;
-                                                                var hostname = name;
-                                                                var bw = {p:percent, b:bandwidth};
-                                                                var img = "/public/img/device/"+device+".svg";
-                                                                var context = context;
-                                                                var x = x + Share.Param.GetGapX();
-                                                                var y = y + Share.Param.GetGapY();
-                                                                var coeff = {x:55, y:50};
-                                                                var dim = dim;
-
-                                                                /**
-                                                                 * @author Damien Goldenberg
-                                                                 * @name Draw
-                                                                 * @brief This is a method for drawing a device and attach events
-                                                                 */
-
-                                                                this.Draw = function()
-                                                                            {
-                                                                                /*context.image(img, x, y, 100, 100).scale(dim.x, dim.y).mouseover(function()
-                                                                                                                                            {
-                                                                                                                                                console.log("test")
-                                                                                                                                                Share.CurrentDevice.hostname = hostname;
-                                                                                                                                                Share.CurrentDevice.ip = ip;
-                                                                                                                                                Share.CurrentDevice.mac = mac;
-                                                                                                                                                Share.CurrentDevice.bw = bw;
-                                                                                                                                            }).drag(function(){return(false);});/**/
-                                                                                /**/context.image(img, x, y, 100, 100).scale(dim.x, dim.y).drag(function(){return(false);});/**/
-
-                                                                            };
-
-                                                                /**
-                                                                 * @author Damien Goldenberg
-                                                                 * @name GetX
-                                                                 * @brief This is a getter
-                                                                 * @returns {number}
-                                                                 */
-
-                                                                this.GetX = function()
-                                                                            {
-                                                                                return(x+coeff.x);
-                                                                            };
-
-                                                                /**
-                                                                 * @author Damien Goldenberg
-                                                                 * @name GetY
-                                                                 * @brief This is a getter
-                                                                 * @returns {number}
-                                                                 */
-
-                                                                this.GetY = function()
-                                                                                {
-                                                                                    return(y+coeff.y);
-                                                                                };
-
-                                                                /**
-                                                                 * @author Damien Goldenberg
-                                                                 * @name GetIp
-                                                                 * @brief This is a getter
-                                                                 * @returns {*}
-                                                                 */
-
-                                                                this.GetIp = function()
-                                                                                {
-                                                                                    return(ip);
-                                                                                };
-
-                                                                /**
-                                                                 * @author Damien Goldenberg
-                                                                 * @name GetBw
-                                                                 * @brief This is a getter
-                                                                 * @returns {{p: *, b: *}}
-                                                                 */
-
-                                                                this.GetBw = function()
-                                                                                {
-                                                                                    return(bw);
-                                                                                };
-
-                                                                /**
-                                                                 * @author Damien Goldenberg
-                                                                 * @name GetBw
-                                                                 * @brief This is a getter
-                                                                 * @returns {{p: *, b: *}}
-                                                                 */
-
-                                                                this.GetHostname = function()
-                                                                                {
-                                                                                    return(hostname);
-                                                                                };
-
-                                                                /**
-                                                                 * @author Damien Goldenberg
-                                                                 * @name SetBw
-                                                                 * @brief This is a setter
-                                                                 * @param percent
-                                                                 * @param mega
-                                                                 */
-
-                                                                this.SetBw = function(percent, mega)
-                                                                                {
-                                                                                    /*if((parseFloat(percent) && percent > 0.0) && (parseFloat(mega) && mega > 0.0))
-                                                                                    {*/
-                                                                                        bw.percent = percent;
-                                                                                        bw.mega = mega;
-                                                                                       /* return 0
-                                                                                    }
-                                                                                    else
-                                                                                        return 1*/
-                                                                                };
-
-                                                                /**
-                                                                 * @author Damien Goldenberg
-                                                                 * @name SetMac
-                                                                 * @brief This is a setter
-                                                                 * @param amac
-                                                                 */
-
-                                                                this.SetMac = function(amac)
-                                                                                {
-                                                                                    mac = amac;
-                                                                                };
-                                                            },
                                                 "Parameters": function()
                                                                 {
                                                                     var gap = {x:0, y:0}; // object to know the gap of all items
-                                                                    var mouse = {x:0, y:0}; // object to know the currently position ofthe mouse for events mousedown and mouseup
-                                                                    var scale = {device:0, connector:1}; //object for scaling all items
                                                                     var move = 17;
-                                                                    var zdevice = 0.1;
-                                                                    var zconnector = 0.25;
                                                                     var zoom = 1;
                                                                     var czoom = 0.1;
 
@@ -296,15 +214,14 @@
                                                                                                             {
                                                                                                                 Share.Info.cls = data.success == 1? 'success' : 'danger';
                                                                                                                 Share.Info.why = data.why;
-                                                                                                                obj = data.obj;
+                                                                                                                Hydrate(data.obj);
                                                                                                             });
                                                                                 };
 
                                                                     Hydrate = function(obj)
                                                                                     {
                                                                                         move = parseFloat(obj.move);
-                                                                                        zdevice = parseFloat(obj.zoomd);
-                                                                                        zconnector = parseFloat(obj.zooml);
+                                                                                        //czoom = parseFloat(obj.czoom);
                                                                                     };
 
                                                                     this.UpdateParam = function(obj)
@@ -345,26 +262,6 @@
                                                                                         gap.y += obj.y;
                                                                                     };
 
-                                                                    this.GetMouseX = function()
-                                                                                    {
-                                                                                        return(mouse.x);
-                                                                                    };
-
-                                                                    this.GetMouseY = function()
-                                                                                    {
-                                                                                        return(mouse.y);
-                                                                                    };
-
-                                                                    this.SetMouseX = function(v)
-                                                                                    {
-                                                                                        mouse.x = parseFloat(v);
-                                                                                    };
-
-                                                                    this.SetMouseY = function(v)
-                                                                                    {
-                                                                                        mouse.y = parseFloat(v);
-                                                                                    };
-
                                                                     this.GetMove = function()
                                                                                     {
                                                                                         return(move);
@@ -373,26 +270,6 @@
                                                                     this.SetMove = function(v)
                                                                                     {
                                                                                         move = parseInt(y);
-                                                                                    };
-
-                                                                    this.GetScaleDevice = function()
-                                                                                    {
-                                                                                        return(scale.device);
-                                                                                    };
-
-                                                                    this.GetScaleConnector = function()
-                                                                                    {
-                                                                                        return(scale.connector);
-                                                                                    };
-
-                                                                    this.SetScaleDevice = function(s)
-                                                                                    {
-                                                                                        s == 0 ? scale.device -= zdevice : scale.device += zdevice;
-                                                                                    };
-
-                                                                    this.SetScaleConnector = function(s)
-                                                                                    {
-                                                                                         s == 0 ? scale.connector -= zconnector : scale.connector += zconnector;
                                                                                     };
 
                                                                     this.GetZoom = function()
@@ -407,90 +284,76 @@
                                             };
                                         });
 
-    netpolling.factory("Spy", function(Share)
+    netpolling.factory("Spy", function(Ajax, Info, Share)
                                 {
                                     return {
-                                        "OSFingerPrinting": function()
+                                        "OSFingerPrinting": function(ip)
                                                             {
-
+                                                                if (Share.Available.os == 0)
+                                                                    if (/^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$/.test(ip))
+                                                                        Ajax.ActionSrv('/os/', {"ip":ip}, 'os', function(data)
+                                                                                                                {
+                                                                                                                    Info.Update(data.success == 0 ? "success" : "error", data.rep);
+                                                                                                                });
+                                                                    else
+                                                                        Info.Update("error", "You must target a device for the OS finger print");
+                                                                else
+                                                                    Info.Update("info", "");
                                                             },
-                                        "Sniff": function()
+                                        "Sniff": function(name, ip, time)
                                                     {
-
+                                                        if (Share.Available.sniff == 0)
+                                                            if (/^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$/.test(ip))
+                                                                Ajax.ActionSrv('/sniff/', {"name":name, "ip":ip, "time":time}, 'sniff', function(data)
+                                                                                                                                        {
+                                                                                                                                            Info.Update(data.success == 0 ? "success" : "error", data.rep);
+                                                                                                                                        })
+                                                            else
+                                                                Info.Update("error", "You must target a device for sniffing it");
+                                                        else
+                                                            Info.Update("info", "The sniffing is not available actually, wait plz");
                                                     }
                                     };
-                                    $("#dos").on("click", function()
-                                    {
-                                        if (available.os == 0)
-                                        {
-                                            available.os = 1;
-                                            $("#inf").html("<div class=\"container alert alert-info\">L'os finger printing est lancée. Cette action peut prendre un certain temps</div>")
-                                            $("#os").html();
-                                            $.ajax({
-                                                type: 'post',
-                                                headers:
-                                                {
-                                                    "X-CSRFToken": csrftoken
-                                                },
-                                                data:
-                                                {
-                                                    ip:$("#aip").html()
-                                                },
-                                                url: '/os/',
-                                                success:function(data)
-                                                {
-                                                    d = JSON.parse(data)
-                                                    $("#os").html(d.rep);
-                                                    available.os = 0;
-                                                    if(d.success = 1)
-                                                        $("#inf").html("<div class=\"container alert alert-info\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\">&times;</button>La fonctionnalité d'os finger printing est à nouveau disponible</div>")
-                                                    else
-                                                        $("#inf").html("<div class=\"container alert alert-warning\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\">&times;</button>Un problème est survenu ... <br />Mais la fonctionnalité d'os finger printing est à nouveau disponible</div>")
-                                                },
-                                                error: function()
-                                                {
-                                                    alert('La requête n\'a pas abouti');
-                                                    available.os = 0;
-                                                }
-                                            })
-                                        }
-                                        else
-                                        {
-                                            $("#inf").html("<div class=\"container alert alert-error\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\">&times;</button>La fonctionnalité d'os finger printing n'est pas encore disponible</div>")
-                                        }
-                                    });
                                 });
 
     netpolling.factory("LoadData", function(Ajax, Share, $rootScope)
                                     {
                                         return {
-                                            "JSON": function(url)
-                                                    {
-                                                       /* window.setInterval(pwned = function()
-                                                                        {*/
-                                                                            Ajax.GetJson(url, function(network)
-                                                                                                        {
-                                                                                                            Share.Network = network;
-                                                                                                            $rootScope.$broadcast("networkReady");
-                                                                                                            tbw = 0;
-                                                                                                            pbw = 0;
-                                                                                                            for(var w = 0; w < Share.Network.children.length; w++)
+                                            "Network": function(url)
+                                                        {
+                                                           window.setInterval(pwned = function()
+                                                                            {
+                                                                                Ajax.GetJson(url, function(network)
                                                                                                             {
-                                                                                                                if (Share.Network.children[w].children)
-                                                                                                                    console.log("okidoki");
-                                                                                                                if (Share.Network.children[w].bw != null && Share.Network.children[w].percent != null)
+                                                                                                                Share.Network = network;
+                                                                                                                $rootScope.$broadcast("networkReady");
+                                                                                                                tbw = 0;
+                                                                                                                pbw = 0;
+                                                                                                                for(var w = 0; w < Share.Network.children.length; w++)
                                                                                                                 {
-                                                                                                                    tbw += Share.Network.children[w].bw*8;
-                                                                                                                    pbw += Share.Network.children[w].percent;
+                                                                                                                    if (Share.Network.children[w].children)
+                                                                                                                        console.log("okidoki");
+                                                                                                                    if (Share.Network.children[w].bw != null && Share.Network.children[w].percent != null)
+                                                                                                                    {
+                                                                                                                        tbw += Share.Network.children[w].bw*8;
+                                                                                                                        pbw += Share.Network.children[w].percent;
+                                                                                                                    }
                                                                                                                 }
-                                                                                                            }
-                                                                                                            Share.BW.color = pbw < 25 ? "green" : pbw < 50 ? "yellow" : pbw < 75 ? "orange" : "red";
-                                                                                                            Share.BW.width = pbw*3.5;
-                                                                                                            Share.BW.tbw = tbw.toFixed(2);
-                                                                                                            Share.BW.pbw = pbw.toFixed(2);
-                                                                                                        })
-                                                                        //}, 30000);
-                                                        //pwned();
+                                                                                                                Share.BW.color = pbw < 25 ? "green" : pbw < 50 ? "yellow" : pbw < 75 ? "orange" : "red";
+                                                                                                                Share.BW.width = pbw*3.5;
+                                                                                                                Share.BW.tbw = tbw.toFixed(2);
+                                                                                                                Share.BW.pbw = pbw.toFixed(2);
+                                                                                                            })
+                                                                            }, 30000);
+                                                            pwned();
+                                                        },
+                                            "Dico":function()
+                                                    {
+                                                        Ajax.GetJson("/getdico/", function(data)
+                                                                                    {
+                                                                                        Share.Dico = data;
+                                                                                        $rootScope.$broadcast("dicoReady");
+                                                                                    });
                                                     }
                                            };
                                         });
@@ -510,10 +373,6 @@
                                                     },
                                             "ZoomWheel":function($event, $delta, $deltaX, $deltaY)
                                                         {
-                                                            console.log("inc zoomwheel");
-                                                            console.log($delta);
-                                                            console.log($deltaX);
-                                                            console.log($deltaY);
                                                             $delta > 0 ? Share.Param.SetZoom(1)  : Share.Param.SetZoom(0);
                                                             $rootScope.$broadcast("mapZoom");
                                                         },
@@ -540,21 +399,44 @@
                                         };
                                     });
 
-    netpolling.directive('nMap', ['Share', 'Constructor', function(Share, Constructor)
+    netpolling.factory("Effect", function()
+                                    {
+                                        return {
+                                          "EffectSearch":function(id, x, y)
+                                                            {
+                                                                tx = parseFloat(x) < 176?400-parseFloat(x):400+parseFloat(x);
+                                                                console.log(tx);
+                                                                d3.select("svg>g").attr("transform", "translate("+tx+","+450+")");
+                                                                d3.select("#"+id+">circle")
+                                                                    .transition().attr("r", 10).attr("stroke", "red").attr("stroke-width", "3px")
+                                                                    .transition().duration(2500).attr("r", 4.5)
+                                                                    .transition().duration(2500).attr("r", 10)
+                                                                    .transition().duration(2500).attr("r", 4.5)
+                                                                    .transition().duration(2500).attr("r", 10)
+                                                                    .transition().duration(2500).attr("r", 4.5).attr("stroke", "black").attr("stroke-width", "1.5px");
+                                                            }
+                                        };
+                                    });
+
+    netpolling.factory("Info", function(Share, $rootScope)
+                                {
+                                    return {
+                                      "Update": function(type, msg)
+                                                {
+                                                    Share.Info = {"cls":type, "why":msg};
+                                                    console.log(Share.Info);
+                                                    $rootScope.$broadcast("UpdateInfo");
+                                                }
+                                    };
+                                });
+
+    netpolling.directive('nMap', ['Share', function(Share)
                                         {
                                             return{
                                                 restrict: "E",
                                                 template:'<div id="map" class="DesignCanvas" msd-wheel="mousezoom($event, $delta, $deltaX, $deltaY)" ng-mousedown="dragstart($event)" ng-mousemove="drag($event)" ng-mouseup="drop($event)"></div>',
                                                 replace: true,
                                                 transclude: false,
-                                                /*controller: ['Share', '$scope', function(Share, $scope)
-                                                                                {
-                                                                                    $scope.network = Share.Network;
-                                                                                    $scope.draw = Share.InfoViz;
-                                                                                }],
-                                                scope: {
-                                                  device: "="
-                                                },*/
                                                 link: function ($scope)
                                                         {
                                                             /*$scope.$on('networkReady', function($scope, $rootScope)
@@ -585,6 +467,9 @@
                                                             $scope.$on('networkReady', function($scope, $rootScope)
                                                                                         {
                                                                                             //var nodes = tree.nodes(Share.Network);
+                                                                                            d3.selectAll("svg>g>*").remove();
+                                                                                            Share.Hosts = [];
+                                                                                            Share.id = 0
                                                                                             var nodes = tree.nodes(Share.Network);
                                                                                             var links = tree.links(nodes);
                                                                                             var link = svg.selectAll(".link")
@@ -601,10 +486,15 @@
                                                                                                 .enter().append("g")
                                                                                                 .attr("class", "node")
                                                                                                 //.attr("transform", function(d) {return d.y == 0 ? "translate(-20,-25)" : "rotate(" + (d.x - 90) + ")translate(" + (d.y -25) + ")"; })
+                                                                                                .attr("id", function(d)
+                                                                                                            {
+                                                                                                                Share.id++;
+                                                                                                                Share.Hosts.push({"hostname": d.hostname, "ip": d.ip, "id":"g"+Share.id, "x":d.x, "y":d.y});
+                                                                                                                $scope.targetScope.$broadcast("UpdateListDevice");
+                                                                                                                return "g"+Share.id;
+                                                                                                            })
                                                                                                 .attr("transform", function(d)
                                                                                                                     {
-                                                                                                                        Share.Hosts.push({"hostname": d.hostname, "ip": d.ip, "id":"Device"+ d.depth});
-                                                                                                                        $scope.targetScope.$broadcast("UpdateListDevice");
                                                                                                                         return "rotate(" + (d.x - 90) + ")translate(" + d.y + ")";
                                                                                                                     });
                                                                                                 //.attr("transform", function(d) {return "rotate(" + (d.x - 90) + ")translate(" + (d.y-25) + ")"; })
@@ -638,11 +528,12 @@
                                             $scope.call = RootCtrl.ViewCtrl;
                                         });
 
-    netpolling.controller('MapCtrl', function($scope, LoadData, Share, Constructor, MapEdit)
+    netpolling.controller('MapCtrl', function($scope, LoadData, Share, Constructor, MapEdit, Spy, Effect)
                                         {
+                                            LoadData.Dico();
                                             Share.Param = new Constructor.Parameters();
                                             Share.Param.Init();
-                                            LoadData.JSON("/getjson/");
+                                            LoadData.Network("/getjson/");
                                             $scope.bw = Share.BW;
                                             $scope.info = Share.Info;
                                             $scope.device = Share.CurrentDevice;
@@ -654,12 +545,18 @@
                                                                                             });
                                                                         }, true);
                                             $scope.$on('UpdateListDevice', function()
+                                                                            {
+                                                                                $scope.listdevice = Share.Hosts;
+
+                                                                            }, true);
+                                            $scope.$on('UpdateInfo', function()
                                                                         {
-                                                                            $scope.$apply(function()
-                                                                                            {
-                                                                                                $scope.listdevice = Share.Hosts;
-                                                                                            });
-                                                                        }, true);
+                                                                           $scope.info = Share.Info;
+                                                                        });
+                                            $scope.$on('dicoReady', function()
+                                                                        {
+                                                                           $scope.dico = Share.Dico;
+                                                                        });
                                             $scope.draw = Share.InfoViz;
                                             $scope.move = MapEdit.Move;
                                             $scope.zoom = MapEdit.Zoom;
@@ -668,5 +565,12 @@
                                             $scope.drop = MapEdit.Drop;
                                             $scope.reset = MapEdit.Reset;
                                             $scope.mousezoom = MapEdit.ZoomWheel;
+                                            $scope.OS = Spy.OSFingerPrinting;
+                                            $scope.Sniff =
+                                            $scope.Sniff = function(ip)
+                                                            {
+                                                                Spy.Sniff($scope.sname, ip[0][0], $scope.stime);
+                                                            };
+                                            $scope.EffectMap = Effect.EffectSearch;
                                         });
 })();
