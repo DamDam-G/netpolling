@@ -38,8 +38,7 @@
                                         "DnD":{
                                             "drag":0,
                                             "currentPos":{"x":null, "y":null}
-                                        },
-                                        "Dico":{}
+                                        }
                                     };
                                 });
 
@@ -346,15 +345,7 @@
                                                                                                             })
                                                                             }, 30000);
                                                             pwned();
-                                                        },
-                                            "Dico":function()
-                                                    {
-                                                        Ajax.GetJson("/getdico/", function(data)
-                                                                                    {
-                                                                                        Share.Dico = data;
-                                                                                        $rootScope.$broadcast("dicoReady");
-                                                                                    });
-                                                    }
+                                                        }
                                            };
                                         });
 
@@ -530,7 +521,6 @@
 
     netpolling.controller('MapCtrl', function($scope, LoadData, Share, Constructor, MapEdit, Spy, Effect)
                                         {
-                                            LoadData.Dico();
                                             Share.Param = new Constructor.Parameters();
                                             Share.Param.Init();
                                             LoadData.Network("/getjson/");
@@ -552,10 +542,6 @@
                                             $scope.$on('UpdateInfo', function()
                                                                         {
                                                                            $scope.info = Share.Info;
-                                                                        });
-                                            $scope.$on('dicoReady', function()
-                                                                        {
-                                                                           $scope.dico = Share.Dico;
                                                                         });
                                             $scope.draw = Share.InfoViz;
                                             $scope.move = MapEdit.Move;
