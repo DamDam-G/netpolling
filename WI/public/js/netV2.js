@@ -127,7 +127,7 @@
                                                 {
                                                     $modal.open({
                                                         templateUrl: '/modal/'+id,
-                                                        controller: function ($scope, $modalInstance, Share)
+                                                        controller: function ($scope, $modalInstance, Share, Ajax)
                                                                     {
                                                                         $scope.oneAtATime = true;
                                                                         $scope.content = data;
@@ -169,6 +169,10 @@
                                                                                                 data[r[0][i].name] = r[0][i].value;
                                                                                             }
                                                                                             console.log(data);
+                                                                                            Ajax.ActionSrv("/ajaxform/"+id+"/", data, "unknown", function(resp)
+                                                                                                                                {
+                                                                                                                                    console.log(resp);
+                                                                                                                                });
                                                                                         };
                                                                     }});
                                                 }
