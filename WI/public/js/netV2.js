@@ -149,7 +149,9 @@
                                                                                             var data = {};
                                                                                             if(id == 0)
                                                                                             {
+                                                                                                //d3.selectAll("#form0>input")
                                                                                                 r = info == "form0"?d3.selectAll("#form0>section>input"):d3.selectAll("#form1>section>input");
+                                                                                                console.log(r);
 
                                                                                             }
                                                                                             else if (id == 1)
