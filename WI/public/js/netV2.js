@@ -23,6 +23,10 @@
                                             "cls":"",
                                             "why":""
                                         },
+                                        "InfoModal":{
+                                            "cls":"",
+                                            "why":""
+                                        },
                                         "Param":{},
                                         "CurrentDevice":{
                                             "hostname":"",
@@ -127,7 +131,7 @@
                                                 {
                                                     $modal.open({
                                                         templateUrl: '/modal/'+id,
-                                                        controller: function ($scope, $modalInstance, Share, Ajax)
+                                                        controller: function ($scope, $modalInstance, Share, Ajax, Info)
                                                                     {
                                                                         $scope.oneAtATime = true;
                                                                         $scope.content = data;
@@ -172,10 +176,16 @@
                                                                                             }
                                                                                             console.log(data);
                                                                                             Ajax.ActionSrv("/ajaxform/"+id+"/", data, "unknown", function(resp)
-                                                                                                                                {
-                                                                                                                                    console.log(resp);
-                                                                                                                                });
+                                                                                                                                                    {
+                                                                                                                                                        console.log(resp);
+                                                                                                                                                        Info.Update(resp.success == 0 ? "success" : "error", resp.why, "UpdateInfoModal", "InfoModal")
+                                                                                                                                                    });
                                                                                         };
+
+                                                                        $scope.$on('UpdateInfoModal', function()
+                                                                                                    {
+                                                                                                       $scope.infoModal = Share.InfoModal;
+                                                                                                    });
                                                                     }});
                                                 }
                                     };
@@ -298,12 +308,12 @@
                                                                     if (/^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$/.test(ip))
                                                                         Ajax.ActionSrv('/os/', {"ip":ip}, 'os', function(data)
                                                                                                                 {
-                                                                                                                    Info.Update(data.success == 0 ? "success" : "error", data.rep);
+                                                                                                                    Info.Update(data.success == 0 ? "success" : "error", data.rep, "UpdateInfo", "Info");
                                                                                                                 });
                                                                     else
-                                                                        Info.Update("error", "You must target a device for the OS finger print");
+                                                                        Info.Update("error", "You must target a device for the OS finger print", "UpdateInfo", "Info");
                                                                 else
-                                                                    Info.Update("info", "");
+                                                                    Info.Update("info", "", "UpdateInfo", "Info");
                                                             },
                                         "Sniff": function(name, ip, time)
                                                     {
@@ -311,12 +321,12 @@
                                                             if (/^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$/.test(ip))
                                                                 Ajax.ActionSrv('/sniff/', {"name":name, "ip":ip, "time":time}, 'sniff', function(data)
                                                                                                                                         {
-                                                                                                                                            Info.Update(data.success == 0 ? "success" : "error", data.rep);
+                                                                                                                                            Info.Update(data.success == 0 ? "success" : "error", data.rep, "UpdateInfo", "Info");
                                                                                                                                         })
                                                             else
-                                                                Info.Update("error", "You must target a device for sniffing it");
+                                                                Info.Update("error", "You must target a device for sniffing it", "UpdateInfo", "Info");
                                                         else
-                                                            Info.Update("info", "The sniffing is not available actually, wait plz");
+                                                            Info.Update("info", "The sniffing is not available actually, wait plz", "UpdateInfo", "Info");
                                                     }
                                     };
                                 });
@@ -418,11 +428,11 @@
     netpolling.factory("Info", function(Share, $rootScope)
                                 {
                                     return {
-                                      "Update": function(type, msg)
+                                      "Update": function(type, msg, sig, tar)
                                                 {
-                                                    Share.Info = {"cls":type, "why":msg};
-                                                    console.log(Share.Info);
-                                                    $rootScope.$broadcast("UpdateInfo");
+                                                    Share[tar] = {"cls":type, "why":msg};
+                                                    console.log(Share[tar]);
+                                                    $rootScope.$broadcast(sig);
                                                 }
                                     };
                                 });
